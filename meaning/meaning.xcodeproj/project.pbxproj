@@ -26,6 +26,12 @@
 		9B2BA1CD259F5FF0000EF4AA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA1CC259F5FF0000EF4AA /* String+Extension.swift */; };
 		9B2BA1D0259F6FCE000EF4AA /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA1CF259F6FCE000EF4AA /* Date+Extension.swift */; };
 		9B2BA1D3259F71DD000EF4AA /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA1D2259F71DD000EF4AA /* UIImage+Extension.swift */; };
+		9B2BA1DD259F7302000EF4AA /* Spoqa Han Sans Neo Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA1D7259F72F9000EF4AA /* Spoqa Han Sans Neo Bold.otf */; };
+		9B2BA1DE259F7302000EF4AA /* Spoqa Han Sans Neo Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA1D8259F72FA000EF4AA /* Spoqa Han Sans Neo Light.otf */; };
+		9B2BA1DF259F7302000EF4AA /* Spoqa Han Sans Neo Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA1D9259F72FD000EF4AA /* Spoqa Han Sans Neo Medium.otf */; };
+		9B2BA1E0259F7302000EF4AA /* NanumBarunpenR.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA1DA259F72FE000EF4AA /* NanumBarunpenR.otf */; };
+		9B2BA1E1259F7302000EF4AA /* Spoqa Han Sans Neo Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA1DB259F7301000EF4AA /* Spoqa Han Sans Neo Regular.otf */; };
+		9B2BA1E2259F7302000EF4AA /* Spoqa Han Sans Neo Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA1DC259F7302000EF4AA /* Spoqa Han Sans Neo Thin.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +55,12 @@
 		9B2BA1CC259F5FF0000EF4AA /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		9B2BA1CF259F6FCE000EF4AA /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		9B2BA1D2259F71DD000EF4AA /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		9B2BA1D7259F72F9000EF4AA /* Spoqa Han Sans Neo Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoqa Han Sans Neo Bold.otf"; sourceTree = "<group>"; };
+		9B2BA1D8259F72FA000EF4AA /* Spoqa Han Sans Neo Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoqa Han Sans Neo Light.otf"; sourceTree = "<group>"; };
+		9B2BA1D9259F72FD000EF4AA /* Spoqa Han Sans Neo Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoqa Han Sans Neo Medium.otf"; sourceTree = "<group>"; };
+		9B2BA1DA259F72FE000EF4AA /* NanumBarunpenR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenR.otf; sourceTree = "<group>"; };
+		9B2BA1DB259F7301000EF4AA /* Spoqa Han Sans Neo Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoqa Han Sans Neo Regular.otf"; sourceTree = "<group>"; };
+		9B2BA1DC259F7302000EF4AA /* Spoqa Han Sans Neo Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoqa Han Sans Neo Thin.otf"; sourceTree = "<group>"; };
 		B844C2BA9B913FD6701F17AE /* Pods-meaning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.debug.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.debug.xcconfig"; sourceTree = "<group>"; };
 		E87AC0016D83A60227B184E6 /* Pods_meaning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_meaning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9590DE5BB2516CE3A84BEAD /* Pods-meaning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.release.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +118,7 @@
 		9B2BA18A259F5B72000EF4AA /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				9B2BA1D6259F72D7000EF4AA /* Font */,
 				9B2BA173259F58FF000EF4AA /* ViewController.swift */,
 				9B2BA175259F58FF000EF4AA /* Main.storyboard */,
 				9B2BA17A259F5904000EF4AA /* LaunchScreen.storyboard */,
@@ -383,6 +396,19 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		9B2BA1D6259F72D7000EF4AA /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				9B2BA1DA259F72FE000EF4AA /* NanumBarunpenR.otf */,
+				9B2BA1D7259F72F9000EF4AA /* Spoqa Han Sans Neo Bold.otf */,
+				9B2BA1D8259F72FA000EF4AA /* Spoqa Han Sans Neo Light.otf */,
+				9B2BA1D9259F72FD000EF4AA /* Spoqa Han Sans Neo Medium.otf */,
+				9B2BA1DB259F7301000EF4AA /* Spoqa Han Sans Neo Regular.otf */,
+				9B2BA1DC259F7302000EF4AA /* Spoqa Han Sans Neo Thin.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		F3125DA1C1951212B6AAE898 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,16 +477,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B2BA1CA259F5EED000EF4AA /* GroupFeed.storyboard in Resources */,
+				9B2BA1DE259F7302000EF4AA /* Spoqa Han Sans Neo Light.otf in Resources */,
 				9B2BA1B9259F5EB2000EF4AA /* Home.storyboard in Resources */,
+				9B2BA1DF259F7302000EF4AA /* Spoqa Han Sans Neo Medium.otf in Resources */,
 				9B2BA1C3259F5ED2000EF4AA /* MyPage.storyboard in Resources */,
+				9B2BA1E0259F7302000EF4AA /* NanumBarunpenR.otf in Resources */,
 				9B2BA1BC259F5EBB000EF4AA /* Camera.storyboard in Resources */,
 				9B2BA1C0259F5EC9000EF4AA /* Mission.storyboard in Resources */,
 				9B2BA1AF259F5E93000EF4AA /* TabBar.storyboard in Resources */,
+				9B2BA1DD259F7302000EF4AA /* Spoqa Han Sans Neo Bold.otf in Resources */,
 				9B2BA17C259F5904000EF4AA /* LaunchScreen.storyboard in Resources */,
+				9B2BA1E2259F7302000EF4AA /* Spoqa Han Sans Neo Thin.otf in Resources */,
 				9B2BA179259F5904000EF4AA /* Assets.xcassets in Resources */,
 				9B2BA1C7259F5EE3000EF4AA /* GroupList.storyboard in Resources */,
 				9B2BA1B6259F5EAB000EF4AA /* Onboarding.storyboard in Resources */,
 				9B2BA1B2259F5E9D000EF4AA /* Login.storyboard in Resources */,
+				9B2BA1E1259F7302000EF4AA /* Spoqa Han Sans Neo Regular.otf in Resources */,
 				9B2BA177259F58FF000EF4AA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
