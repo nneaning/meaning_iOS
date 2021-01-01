@@ -42,6 +42,7 @@
 		9B2BA215259FA8C5000EF4AA /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA210259FA8C2000EF4AA /* NotoSansKR-Bold.otf */; };
 		9B2BA216259FA8C5000EF4AA /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA211259FA8C4000EF4AA /* NotoSansKR-Medium.otf */; };
 		9B2BA219259FA97E000EF4AA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA218259FA97E000EF4AA /* UIView+Extension.swift */; };
+		9B2BA21D259FA9D0000EF4AA /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA21C259FA9D0000EF4AA /* UIFont+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		9B2BA210259FA8C2000EF4AA /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		9B2BA211259FA8C4000EF4AA /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		9B2BA218259FA97E000EF4AA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		9B2BA21C259FA9D0000EF4AA /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		B844C2BA9B913FD6701F17AE /* Pods-meaning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.debug.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.debug.xcconfig"; sourceTree = "<group>"; };
 		E87AC0016D83A60227B184E6 /* Pods_meaning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_meaning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9590DE5BB2516CE3A84BEAD /* Pods-meaning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.release.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.release.xcconfig"; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				9B2BA1EB259F779B000EF4AA /* UIImageView+Extension.swift */,
 				9B2BA1F1259F7C65000EF4AA /* UIButton+Extension.swift */,
 				9B2BA218259FA97E000EF4AA /* UIView+Extension.swift */,
+				9B2BA21C259FA9D0000EF4AA /* UIFont+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				9B2BA174259F58FF000EF4AA /* ViewController.swift in Sources */,
 				9B2BA1F2259F7C65000EF4AA /* UIButton+Extension.swift in Sources */,
 				9B2BA1EC259F779B000EF4AA /* UIImageView+Extension.swift in Sources */,
+				9B2BA21D259FA9D0000EF4AA /* UIFont+Extension.swift in Sources */,
 				9B2BA170259F58FF000EF4AA /* AppDelegate.swift in Sources */,
 				9B2BA1E8259F74F7000EF4AA /* GenericResponse.swift in Sources */,
 				9B2BA172259F58FF000EF4AA /* SceneDelegate.swift in Sources */,
