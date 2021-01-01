@@ -9,12 +9,17 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Spoqa Han Sans Neo Thin</string>
-		<string>Spoqa Han Sans Neo Regular</string>
-		<string>Spoqa Han Sans Neo Medium</string>
-		<string>Spoqa Han Sans Neo Light</string>
-		<string>Spoqa Han Sans Neo Bold</string>
-		<string>NanumBarunpenR</string>
+		<string>NotoSansKR-Thin.otf</string>
+		<string>NotoSansKR-Regular.otf</string>
+		<string>NotoSansKR-Medium.otf</string>
+		<string>NotoSansKR-Light.otf</string>
+		<string>NotoSansKR-Bold.otf</string>
+		<string>Spoqa Han Sans Neo Thin.otf</string>
+		<string>Spoqa Han Sans Neo Regular.otf</string>
+		<string>Spoqa Han Sans Neo Medium.otf</string>
+		<string>Spoqa Han Sans Neo Light.otf</string>
+		<string>Spoqa Han Sans Neo Bold.otf</string>
+		<string>NanumBarunpenR.otf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
