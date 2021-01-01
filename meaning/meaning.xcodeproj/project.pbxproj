@@ -33,6 +33,7 @@
 		9B2BA1E1259F7302000EF4AA /* Spoqa Han Sans Neo Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA1DB259F7301000EF4AA /* Spoqa Han Sans Neo Regular.otf */; };
 		9B2BA1E2259F7302000EF4AA /* Spoqa Han Sans Neo Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA1DC259F7302000EF4AA /* Spoqa Han Sans Neo Thin.otf */; };
 		9B2BA1E5259F74BE000EF4AA /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA1E4259F74BE000EF4AA /* NetworkResult.swift */; };
+		9B2BA1E8259F74F7000EF4AA /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA1E7259F74F7000EF4AA /* GenericResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		9B2BA1DB259F7301000EF4AA /* Spoqa Han Sans Neo Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoqa Han Sans Neo Regular.otf"; sourceTree = "<group>"; };
 		9B2BA1DC259F7302000EF4AA /* Spoqa Han Sans Neo Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoqa Han Sans Neo Thin.otf"; sourceTree = "<group>"; };
 		9B2BA1E4259F74BE000EF4AA /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		9B2BA1E7259F74F7000EF4AA /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		B844C2BA9B913FD6701F17AE /* Pods-meaning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.debug.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.debug.xcconfig"; sourceTree = "<group>"; };
 		E87AC0016D83A60227B184E6 /* Pods_meaning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_meaning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9590DE5BB2516CE3A84BEAD /* Pods-meaning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.release.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.release.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				9B2BA1E4259F74BE000EF4AA /* NetworkResult.swift */,
+				9B2BA1E7259F74F7000EF4AA /* GenericResponse.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				9B2BA1CD259F5FF0000EF4AA /* String+Extension.swift in Sources */,
 				9B2BA174259F58FF000EF4AA /* ViewController.swift in Sources */,
 				9B2BA170259F58FF000EF4AA /* AppDelegate.swift in Sources */,
+				9B2BA1E8259F74F7000EF4AA /* GenericResponse.swift in Sources */,
 				9B2BA172259F58FF000EF4AA /* SceneDelegate.swift in Sources */,
 				9B2BA1D3259F71DD000EF4AA /* UIImage+Extension.swift in Sources */,
 				9B2BA1E5259F74BE000EF4AA /* NetworkResult.swift in Sources */,
