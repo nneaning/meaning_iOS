@@ -168,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				9B2BA1E4259F74BE000EF4AA /* NetworkResult.swift */,
-				9B2BA1E7259F74F7000EF4AA /* GenericResponse.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -176,6 +175,7 @@
 		9B2BA18F259F5B9B000EF4AA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9B2BA1E7259F74F7000EF4AA /* GenericResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
