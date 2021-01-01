@@ -41,6 +41,7 @@
 		9B2BA214259FA8C5000EF4AA /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA20F259FA8C0000EF4AA /* NotoSansKR-Thin.otf */; };
 		9B2BA215259FA8C5000EF4AA /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA210259FA8C2000EF4AA /* NotoSansKR-Bold.otf */; };
 		9B2BA216259FA8C5000EF4AA /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA211259FA8C4000EF4AA /* NotoSansKR-Medium.otf */; };
+		9B2BA219259FA97E000EF4AA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA218259FA97E000EF4AA /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		9B2BA20F259FA8C0000EF4AA /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
 		9B2BA210259FA8C2000EF4AA /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		9B2BA211259FA8C4000EF4AA /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		9B2BA218259FA97E000EF4AA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B844C2BA9B913FD6701F17AE /* Pods-meaning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.debug.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.debug.xcconfig"; sourceTree = "<group>"; };
 		E87AC0016D83A60227B184E6 /* Pods_meaning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_meaning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9590DE5BB2516CE3A84BEAD /* Pods-meaning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.release.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.release.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				9B2BA1D2259F71DD000EF4AA /* UIImage+Extension.swift */,
 				9B2BA1EB259F779B000EF4AA /* UIImageView+Extension.swift */,
 				9B2BA1F1259F7C65000EF4AA /* UIButton+Extension.swift */,
+				9B2BA218259FA97E000EF4AA /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B2BA219259FA97E000EF4AA /* UIView+Extension.swift in Sources */,
 				9B2BA1D0259F6FCE000EF4AA /* Date+Extension.swift in Sources */,
 				9B2BA1CD259F5FF0000EF4AA /* String+Extension.swift in Sources */,
 				9B2BA174259F58FF000EF4AA /* ViewController.swift in Sources */,
