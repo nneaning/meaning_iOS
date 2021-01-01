@@ -14,6 +14,15 @@
 		9B2BA177259F58FF000EF4AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA175259F58FF000EF4AA /* Main.storyboard */; };
 		9B2BA179259F5904000EF4AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA178259F5904000EF4AA /* Assets.xcassets */; };
 		9B2BA17C259F5904000EF4AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA17A259F5904000EF4AA /* LaunchScreen.storyboard */; };
+		9B2BA1AF259F5E93000EF4AA /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA1AE259F5E93000EF4AA /* TabBar.storyboard */; };
+		9B2BA1B2259F5E9D000EF4AA /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA1B1259F5E9D000EF4AA /* Login.storyboard */; };
+		9B2BA1B6259F5EAB000EF4AA /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA1B5259F5EAB000EF4AA /* Onboarding.storyboard */; };
+		9B2BA1B9259F5EB2000EF4AA /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA1B8259F5EB2000EF4AA /* Home.storyboard */; };
+		9B2BA1BC259F5EBB000EF4AA /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA1BB259F5EBB000EF4AA /* Camera.storyboard */; };
+		9B2BA1C0259F5EC9000EF4AA /* Mission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA1BF259F5EC9000EF4AA /* Mission.storyboard */; };
+		9B2BA1C3259F5ED2000EF4AA /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA1C2259F5ED2000EF4AA /* MyPage.storyboard */; };
+		9B2BA1C7259F5EE3000EF4AA /* GroupList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA1C6259F5EE3000EF4AA /* GroupList.storyboard */; };
+		9B2BA1CA259F5EED000EF4AA /* GroupFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA1C9259F5EED000EF4AA /* GroupFeed.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +34,15 @@
 		9B2BA178259F5904000EF4AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B2BA17B259F5904000EF4AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B2BA17D259F5904000EF4AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B2BA1AE259F5E93000EF4AA /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		9B2BA1B1259F5E9D000EF4AA /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		9B2BA1B5259F5EAB000EF4AA /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		9B2BA1B8259F5EB2000EF4AA /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		9B2BA1BB259F5EBB000EF4AA /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		9B2BA1BF259F5EC9000EF4AA /* Mission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mission.storyboard; sourceTree = "<group>"; };
+		9B2BA1C2259F5ED2000EF4AA /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		9B2BA1C6259F5EE3000EF4AA /* GroupList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupList.storyboard; sourceTree = "<group>"; };
+		9B2BA1C9259F5EED000EF4AA /* GroupFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupFeed.storyboard; sourceTree = "<group>"; };
 		B844C2BA9B913FD6701F17AE /* Pods-meaning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.debug.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.debug.xcconfig"; sourceTree = "<group>"; };
 		E87AC0016D83A60227B184E6 /* Pods_meaning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_meaning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9590DE5BB2516CE3A84BEAD /* Pods-meaning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.release.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.release.xcconfig"; sourceTree = "<group>"; };
@@ -231,6 +249,7 @@
 		9B2BA19D259F5C86000EF4AA /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				9B2BA1AE259F5E93000EF4AA /* TabBar.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -245,6 +264,7 @@
 		9B2BA19F259F5C91000EF4AA /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				9B2BA1B1259F5E9D000EF4AA /* Login.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -259,6 +279,7 @@
 		9B2BA1A1259F5C9C000EF4AA /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				9B2BA1B5259F5EAB000EF4AA /* Onboarding.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -273,6 +294,7 @@
 		9B2BA1A3259F5D16000EF4AA /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				9B2BA1B8259F5EB2000EF4AA /* Home.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -287,6 +309,7 @@
 		9B2BA1A5259F5D37000EF4AA /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				9B2BA1BB259F5EBB000EF4AA /* Camera.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -301,6 +324,7 @@
 		9B2BA1A7259F5D47000EF4AA /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				9B2BA1BF259F5EC9000EF4AA /* Mission.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -315,6 +339,7 @@
 		9B2BA1A9259F5D52000EF4AA /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				9B2BA1C2259F5ED2000EF4AA /* MyPage.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -329,6 +354,7 @@
 		9B2BA1AB259F5D5E000EF4AA /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				9B2BA1C6259F5EE3000EF4AA /* GroupList.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -343,6 +369,7 @@
 		9B2BA1AD259F5D67000EF4AA /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				9B2BA1C9259F5EED000EF4AA /* GroupFeed.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -414,8 +441,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B2BA1CA259F5EED000EF4AA /* GroupFeed.storyboard in Resources */,
+				9B2BA1B9259F5EB2000EF4AA /* Home.storyboard in Resources */,
+				9B2BA1C3259F5ED2000EF4AA /* MyPage.storyboard in Resources */,
+				9B2BA1BC259F5EBB000EF4AA /* Camera.storyboard in Resources */,
+				9B2BA1C0259F5EC9000EF4AA /* Mission.storyboard in Resources */,
+				9B2BA1AF259F5E93000EF4AA /* TabBar.storyboard in Resources */,
 				9B2BA17C259F5904000EF4AA /* LaunchScreen.storyboard in Resources */,
 				9B2BA179259F5904000EF4AA /* Assets.xcassets in Resources */,
+				9B2BA1C7259F5EE3000EF4AA /* GroupList.storyboard in Resources */,
+				9B2BA1B6259F5EAB000EF4AA /* Onboarding.storyboard in Resources */,
+				9B2BA1B2259F5E9D000EF4AA /* Login.storyboard in Resources */,
 				9B2BA177259F58FF000EF4AA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
