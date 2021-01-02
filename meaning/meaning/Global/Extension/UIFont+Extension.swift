@@ -30,7 +30,7 @@ extension UIFont {
     }
     
     // MARK: NanumBarunpen Font
-    class func nanumRegular(size: CGFloat) -> UIFont {
+    class func nbRegular(size: CGFloat) -> UIFont {
         return UIFont(name: "NanumBarunpen", size: size)!
     }
     
@@ -53,6 +53,23 @@ extension UIFont {
     
     class func notoBold(size: CGFloat) -> UIFont {
         return UIFont(name: "NotoSansKR-Bold", size: size)!
+    }
+    
+    // MARK: NanumSquare Font
+    class func nsRegular(size: CGFloat) -> UIFont {
+        return UIFont(name: "NanumSquareOTFR", size: size)!
+    }
+    
+    class func nsLight(size: CGFloat) -> UIFont {
+        return UIFont(name: "NanumSquareOTFL", size: size)!
+    }
+    
+    class func nsBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "NanumSquareOTFB", size: size)!
+    }
+    
+    class func nsExtraBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "NanumSquareOTFEB", size: size)!
     }
     
 }
