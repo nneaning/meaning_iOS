@@ -44,6 +44,7 @@
 		9B2BA219259FA97E000EF4AA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA218259FA97E000EF4AA /* UIView+Extension.swift */; };
 		9B2BA21D259FA9D0000EF4AA /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA21C259FA9D0000EF4AA /* UIFont+Extension.swift */; };
 		9B2BA220259FAA4A000EF4AA /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA21F259FAA4A000EF4AA /* UIColor+Extension.swift */; };
+		9EB5CCFF25A0B6820070CD58 /* DailyMaximVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		9B2BA218259FA97E000EF4AA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		9B2BA21C259FA9D0000EF4AA /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		9B2BA21F259FAA4A000EF4AA /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DailyMaximVC.swift; path = meaning/Screen/Mission/ViewController/DailyMaximVC.swift; sourceTree = SOURCE_ROOT; };
 		B844C2BA9B913FD6701F17AE /* Pods-meaning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.debug.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.debug.xcconfig"; sourceTree = "<group>"; };
 		E87AC0016D83A60227B184E6 /* Pods_meaning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_meaning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9590DE5BB2516CE3A84BEAD /* Pods-meaning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.release.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.release.xcconfig"; sourceTree = "<group>"; };
@@ -241,8 +243,8 @@
 		9B2BA196259F5BCD000EF4AA /* Mission */ = {
 			isa = PBXGroup;
 			children = (
+				9EB5CD0125A0B6930070CD58 /* ViewController */,
 				9B2BA1A7259F5D47000EF4AA /* Storyboard */,
-				9B2BA1A6259F5D40000EF4AA /* ViewController */,
 			);
 			path = Mission;
 			sourceTree = "<group>";
@@ -367,13 +369,6 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		9B2BA1A6259F5D40000EF4AA /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		9B2BA1A7259F5D47000EF4AA /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,6 +438,14 @@
 				9B2BA1DC259F7302000EF4AA /* Spoqa Han Sans Neo Thin.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		9EB5CD0125A0B6930070CD58 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		F3125DA1C1951212B6AAE898 /* Frameworks */ = {
@@ -594,6 +597,7 @@
 				9B2BA1F2259F7C65000EF4AA /* UIButton+Extension.swift in Sources */,
 				9B2BA1EC259F779B000EF4AA /* UIImageView+Extension.swift in Sources */,
 				9B2BA21D259FA9D0000EF4AA /* UIFont+Extension.swift in Sources */,
+				9EB5CCFF25A0B6820070CD58 /* DailyMaximVC.swift in Sources */,
 				9B2BA170259F58FF000EF4AA /* AppDelegate.swift in Sources */,
 				9B2BA1E8259F74F7000EF4AA /* GenericResponse.swift in Sources */,
 				9B2BA172259F58FF000EF4AA /* SceneDelegate.swift in Sources */,
