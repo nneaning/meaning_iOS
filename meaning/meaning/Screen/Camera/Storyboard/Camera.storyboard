@@ -92,10 +92,20 @@
                                         </constraints>
                                         <state key="normal" image="cameraPhotoBtn"/>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7V-m0-162">
+                                        <rect key="frame" x="13" y="100.5" width="48" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="ro7-xw-xgx"/>
+                                            <constraint firstAttribute="width" constant="48" id="uvp-Sx-egl"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="R7V-m0-162" firstAttribute="centerY" secondItem="vfq-6s-ukr" secondAttribute="centerY" id="MdB-oP-uXB"/>
                                     <constraint firstItem="vfq-6s-ukr" firstAttribute="centerY" secondItem="aSe-HB-YNs" secondAttribute="centerY" id="OSP-cZ-2ly"/>
                                     <constraint firstItem="vfq-6s-ukr" firstAttribute="width" secondItem="aSe-HB-YNs" secondAttribute="width" multiplier="73/375" id="UaX-bp-bLR"/>
+                                    <constraint firstItem="R7V-m0-162" firstAttribute="leading" secondItem="aSe-HB-YNs" secondAttribute="leading" constant="13" id="Woa-T4-2k8"/>
                                     <constraint firstItem="vfq-6s-ukr" firstAttribute="centerX" secondItem="aSe-HB-YNs" secondAttribute="centerX" id="oMU-Cp-LgS"/>
                                 </constraints>
                             </view>
