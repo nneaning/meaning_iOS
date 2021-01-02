@@ -32,6 +32,14 @@ extension TimeStampVC {
         stampBorderView.setBorder(borderColor: .white, borderWidth: 1)
         stampBorderView.backgroundColor = .none
         
+        stampTimeLabel.font = UIFont.nsLight(size: 70)
+        stampTimeLabel.textColor = .white
+        stampTimeLabel.text = Date().datePickerToString().recordTime()
+        
+        stampDateLabel.font = UIFont.spoqaRegular(size: 16)
+        stampDateLabel.textColor = .white
+        stampDateLabel.text = Date().datePickerToString().recordDate() + " (\(Date().weekDay()))"
+        
         stampLogoImage.image = UIImage(named: "cameraTimestampLogo")
         
         cancleButton.setTitle("취소", for: .normal)
