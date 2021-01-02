@@ -128,6 +128,14 @@
                             <constraint firstItem="bFs-Hm-fug" firstAttribute="top" secondItem="PKY-Ew-3Qh" secondAttribute="top" id="nrx-Up-u5j"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraView" destination="T3d-wX-0A4" id="P7C-87-NrS"/>
+                        <outlet property="cancleButton" destination="R7V-m0-162" id="IIH-SS-3ol"/>
+                        <outlet property="stampBorderView" destination="a9S-2x-1H1" id="12U-b5-do9"/>
+                        <outlet property="stampDateLabel" destination="EGa-XX-Nmw" id="Okh-pL-2cM"/>
+                        <outlet property="stampLogoImage" destination="DkC-b2-ymV" id="AhL-Nh-eaU"/>
+                        <outlet property="stampTimeLabel" destination="Dhj-iQ-oTn" id="q2C-XM-kOK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axT-4v-VNx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
