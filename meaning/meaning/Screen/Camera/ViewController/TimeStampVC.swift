@@ -9,7 +9,7 @@ import UIKit
 
 class TimeStampVC: UIViewController {
 
-    // MARK: - IBOutlet
+    // MARK: IBOutlet
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var stampBorderView: UIView!
     @IBOutlet weak var stampTimeLabel: UILabel!
@@ -18,10 +18,24 @@ class TimeStampVC: UIViewController {
     
     @IBOutlet weak var cancleButton: UIButton!
     
+    // MARK: Life Cycle Part
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setCameraView()
     }
 
+}
+extension TimeStampVC {
+    // MARK: Function
+    func setCameraView() {
+        // 카메라 뷰 Style Setting
+        stampBorderView.setBorder(borderColor: .white, borderWidth: 1)
+        stampBorderView.backgroundColor = .none
+        
+        stampLogoImage.image = UIImage(named: "cameraTimestampLogo")
+        
+        cancleButton.setTitle("취소", for: .normal)
+        cancleButton.titleLabel?.font = UIFont.spoqaRegular(size: 17)
+        cancleButton.tintColor = .white
+    }
 }
