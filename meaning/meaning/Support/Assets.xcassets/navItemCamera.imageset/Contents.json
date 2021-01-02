@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "scale" : "1x",
+      "idiom" : "universal",
+      "filename" : "navItemCamera.png"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "navItemCamera@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "navItemCamera@3x.png",
+      "scale" : "3x",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
