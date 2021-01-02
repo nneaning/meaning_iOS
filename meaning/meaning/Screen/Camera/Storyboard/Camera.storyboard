@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Time StampVC-->
         <scene sceneID="a6a-HJ-8SD">
             <objects>
-                <viewController id="QQK-2e-F5B" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimeStampVC" id="QQK-2e-F5B" customClass="TimeStampVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PKY-Ew-3Qh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
