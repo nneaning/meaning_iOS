@@ -45,6 +45,10 @@
 		9B2BA21D259FA9D0000EF4AA /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA21C259FA9D0000EF4AA /* UIFont+Extension.swift */; };
 		9B2BA220259FAA4A000EF4AA /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA21F259FAA4A000EF4AA /* UIColor+Extension.swift */; };
 		9B2BA22325A0B9EA000EF4AA /* TimeStampVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA22225A0B9EA000EF4AA /* TimeStampVC.swift */; };
+		9B2BA22925A0D2F5000EF4AA /* NanumSquareOTFRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA22525A0D2F0000EF4AA /* NanumSquareOTFRegular.otf */; };
+		9B2BA22A25A0D2F5000EF4AA /* NanumSquareOTFLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA22625A0D2F1000EF4AA /* NanumSquareOTFLight.otf */; };
+		9B2BA22B25A0D2F5000EF4AA /* NanumSquareOTFBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA22725A0D2F4000EF4AA /* NanumSquareOTFBold.otf */; };
+		9B2BA22C25A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA22825A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +91,10 @@
 		9B2BA21C259FA9D0000EF4AA /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		9B2BA21F259FAA4A000EF4AA /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		9B2BA22225A0B9EA000EF4AA /* TimeStampVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampVC.swift; sourceTree = "<group>"; };
+		9B2BA22525A0D2F0000EF4AA /* NanumSquareOTFRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFRegular.otf; sourceTree = "<group>"; };
+		9B2BA22625A0D2F1000EF4AA /* NanumSquareOTFLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFLight.otf; sourceTree = "<group>"; };
+		9B2BA22725A0D2F4000EF4AA /* NanumSquareOTFBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFBold.otf; sourceTree = "<group>"; };
+		9B2BA22825A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFExtraBold.otf; sourceTree = "<group>"; };
 		B844C2BA9B913FD6701F17AE /* Pods-meaning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.debug.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.debug.xcconfig"; sourceTree = "<group>"; };
 		E87AC0016D83A60227B184E6 /* Pods_meaning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_meaning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9590DE5BB2516CE3A84BEAD /* Pods-meaning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.release.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.release.xcconfig"; sourceTree = "<group>"; };
@@ -433,6 +441,10 @@
 		9B2BA1D6259F72D7000EF4AA /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				9B2BA22725A0D2F4000EF4AA /* NanumSquareOTFBold.otf */,
+				9B2BA22825A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf */,
+				9B2BA22625A0D2F1000EF4AA /* NanumSquareOTFLight.otf */,
+				9B2BA22525A0D2F0000EF4AA /* NanumSquareOTFRegular.otf */,
 				9B2BA210259FA8C2000EF4AA /* NotoSansKR-Bold.otf */,
 				9B2BA20D259FA8BD000EF4AA /* NotoSansKR-Light.otf */,
 				9B2BA211259FA8C4000EF4AA /* NotoSansKR-Medium.otf */,
@@ -517,8 +529,11 @@
 			files = (
 				9B2BA215259FA8C5000EF4AA /* NotoSansKR-Bold.otf in Resources */,
 				9B2BA1CA259F5EED000EF4AA /* GroupFeed.storyboard in Resources */,
+				9B2BA22C25A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf in Resources */,
 				9B2BA1DE259F7302000EF4AA /* Spoqa Han Sans Neo Light.otf in Resources */,
+				9B2BA22925A0D2F5000EF4AA /* NanumSquareOTFRegular.otf in Resources */,
 				9B2BA1B9259F5EB2000EF4AA /* Home.storyboard in Resources */,
+				9B2BA22B25A0D2F5000EF4AA /* NanumSquareOTFBold.otf in Resources */,
 				9B2BA1DF259F7302000EF4AA /* Spoqa Han Sans Neo Medium.otf in Resources */,
 				9B2BA1C3259F5ED2000EF4AA /* MyPage.storyboard in Resources */,
 				9B2BA1E0259F7302000EF4AA /* NanumBarunpenR.otf in Resources */,
@@ -532,6 +547,7 @@
 				9B2BA179259F5904000EF4AA /* Assets.xcassets in Resources */,
 				9B2BA1C7259F5EE3000EF4AA /* GroupList.storyboard in Resources */,
 				9B2BA213259FA8C5000EF4AA /* NotoSansKR-Regular.otf in Resources */,
+				9B2BA22A25A0D2F5000EF4AA /* NanumSquareOTFLight.otf in Resources */,
 				9B2BA214259FA8C5000EF4AA /* NotoSansKR-Thin.otf in Resources */,
 				9B2BA1B6259F5EAB000EF4AA /* Onboarding.storyboard in Resources */,
 				9B2BA1B2259F5E9D000EF4AA /* Login.storyboard in Resources */,

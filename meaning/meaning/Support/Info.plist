@@ -9,6 +9,10 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>NanumSquareOTFRegular.otf</string>
+		<string>NanumSquareOTFLight.otf</string>
+		<string>NanumSquareOTFExtraBold.otf</string>
+		<string>NanumSquareOTFBold.otf</string>
 		<string>NotoSansKR-Thin.otf</string>
 		<string>NotoSansKR-Regular.otf</string>
 		<string>NotoSansKR-Medium.otf</string>
