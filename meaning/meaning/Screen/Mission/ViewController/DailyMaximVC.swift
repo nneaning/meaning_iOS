@@ -45,9 +45,7 @@ class DailyMaximVC: UIViewController {
         self.bodyView.setRounded(radius: 8)
         self.bodyViewLabel.text = "평범한 사람들은 가능한 것만 믿는다.\n특별한 사람들은 불가능한 것을 그려본다.\n그리고 그것을 가능한 것으로 보기 시작한다."
         self.bodyViewLabel.font = UIFont.nanumRegular(size: 18)
-        self.bodyViewLabel.setLineSpacing(lineSpacing: 10)
-        self.bodyViewLabel.textAlignment = NSTextAlignment.center
-        self.bodyViewLabel.addCharacterSpacing(kernValue: -0.5)
+        self.bodyViewLabel.lineSetting(kernValue: -0.5, lineSpacing: 10)
 
         self.bodyBottomLabel.font = UIFont.notoRegular(size: 15.0)
         self.bodyBottomLabel.textColor=UIColor.gray3
@@ -60,32 +58,26 @@ class DailyMaximVC: UIViewController {
         self.ReadComplete.setRounded(radius: 6)
     }
     
-    
 }
 
 // Mark: Extension
 
 
 extension UILabel {
-    func addCharacterSpacing(kernValue: Double = 1.15) {
-        if let labelText = text, labelText.count > 0 {
-            let attributedString = NSMutableAttributedString(string: labelText)
-            attributedString.addAttribute(NSAttributedString.Key.kern, value: kernValue, range: NSRange(location: 0, length: attributedString.length - 1))
-            attributedText = attributedString
-        }
-    }
+
     
-    func setLineSpacing(lineSpacing: CGFloat = 0.0, lineHeightMultiple: CGFloat = 0.0) {
+    func lineSetting(kernValue: Double = 1.15, lineSpacing: CGFloat = 0.0, lineHeightMultiple: CGFloat = 0.0) {
         
         guard let labelText = self.text else { return }
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = lineSpacing
         paragraphStyle.lineHeightMultiple = lineHeightMultiple
-        
-        let attributedString:NSMutableAttributedString
+        paragraphStyle.alignment = .center
+        var attributedString = NSMutableAttributedString(string: labelText)
         if let labelattributedText = self.attributedText {
             attributedString = NSMutableAttributedString(attributedString: labelattributedText)
+            attributedString.addAttribute(NSAttributedString.Key.kern, value: kernValue, range: NSRange(location: 0, length: attributedString.length - 1))
         } else {
             attributedString = NSMutableAttributedString(string: labelText)
         }
