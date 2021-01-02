@@ -82,17 +82,38 @@
                                     <constraint firstItem="a9S-2x-1H1" firstAttribute="centerX" secondItem="T3d-wX-0A4" secondAttribute="centerX" id="j2u-s8-hA9"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSe-HB-YNs">
+                                <rect key="frame" x="0.0" y="645" width="414" height="251"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfq-6s-ukr">
+                                        <rect key="frame" x="166.5" y="85" width="81" height="81"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="vfq-6s-ukr" secondAttribute="height" multiplier="1:1" id="XdL-h1-ZZz"/>
+                                        </constraints>
+                                        <state key="normal" image="cameraPhotoBtn"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vfq-6s-ukr" firstAttribute="centerY" secondItem="aSe-HB-YNs" secondAttribute="centerY" id="OSP-cZ-2ly"/>
+                                    <constraint firstItem="vfq-6s-ukr" firstAttribute="width" secondItem="aSe-HB-YNs" secondAttribute="width" multiplier="73/375" id="UaX-bp-bLR"/>
+                                    <constraint firstItem="vfq-6s-ukr" firstAttribute="centerX" secondItem="aSe-HB-YNs" secondAttribute="centerX" id="oMU-Cp-LgS"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JHq-LO-gAB"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="aSe-HB-YNs" firstAttribute="top" secondItem="T3d-wX-0A4" secondAttribute="bottom" id="56A-uR-cH2"/>
                             <constraint firstItem="DkC-b2-ymV" firstAttribute="width" secondItem="PKY-Ew-3Qh" secondAttribute="width" multiplier="81/375" id="8Fh-GA-vse"/>
+                            <constraint firstAttribute="bottom" secondItem="aSe-HB-YNs" secondAttribute="bottom" id="8Jg-hm-w1c"/>
+                            <constraint firstItem="aSe-HB-YNs" firstAttribute="leading" secondItem="JHq-LO-gAB" secondAttribute="leading" id="Epy-L8-Suz"/>
                             <constraint firstItem="T3d-wX-0A4" firstAttribute="top" secondItem="bFs-Hm-fug" secondAttribute="bottom" id="MsV-cu-Uwd"/>
                             <constraint firstItem="JHq-LO-gAB" firstAttribute="trailing" secondItem="bFs-Hm-fug" secondAttribute="trailing" id="N5X-VX-6eb"/>
                             <constraint firstItem="T3d-wX-0A4" firstAttribute="leading" secondItem="JHq-LO-gAB" secondAttribute="leading" id="Qhy-dS-x42"/>
                             <constraint firstItem="bFs-Hm-fug" firstAttribute="leading" secondItem="JHq-LO-gAB" secondAttribute="leading" id="Xwk-rn-tZE"/>
                             <constraint firstItem="T3d-wX-0A4" firstAttribute="centerX" secondItem="PKY-Ew-3Qh" secondAttribute="centerX" id="aWa-Fv-xTo"/>
                             <constraint firstItem="JHq-LO-gAB" firstAttribute="trailing" secondItem="T3d-wX-0A4" secondAttribute="trailing" id="jmw-z8-HOP"/>
+                            <constraint firstItem="JHq-LO-gAB" firstAttribute="trailing" secondItem="aSe-HB-YNs" secondAttribute="trailing" id="k7s-PR-6zX"/>
                             <constraint firstItem="T3d-wX-0A4" firstAttribute="centerY" secondItem="PKY-Ew-3Qh" secondAttribute="centerY" constant="-10" id="kxG-BD-o99"/>
                             <constraint firstItem="bFs-Hm-fug" firstAttribute="top" secondItem="PKY-Ew-3Qh" secondAttribute="top" id="nrx-Up-u5j"/>
                         </constraints>
@@ -105,6 +126,7 @@
     </scenes>
     <resources>
         <image name="cameraDeco" width="269" height="18"/>
+        <image name="cameraPhotoBtn" width="73" height="73"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
