@@ -24,7 +24,7 @@ extension String {
         return formatter.string(from: tempDate)
     }
     func recordTime() -> String {
-        // "yyyy-MM-dd HH:mm:ss"형식의 string 시간을 "yyyy년 MM월 dd일" 형식의 string time으로 바꾸기
+        // Date 스트링에서 시간만 추출하기
         var format = "yyyy-MM-dd HH:mm:ss"
         let formatter = DateFormatter()
         formatter.dateFormat = format
