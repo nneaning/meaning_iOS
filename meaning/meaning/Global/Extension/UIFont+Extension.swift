@@ -30,29 +30,46 @@ extension UIFont {
     }
     
     // MARK: NanumBarunpen Font
-    class func nanumRegular(size: CGFloat) -> UIFont {
+    class func nbRegular(size: CGFloat) -> UIFont {
         return UIFont(name: "NanumBarunpen", size: size)!
     }
     
     // MARK: NotoSansCJKKR Font
     class func notoThin(size: CGFloat) -> UIFont {
-        return UIFont(name: "NotoSansCJKKR-Thin", size: size)!
+        return UIFont(name: "NotoSansKR-Thin", size: size)!
     }
     
     class func notoLight(size: CGFloat) -> UIFont {
-        return UIFont(name: "NotoSansCJKKR-Light", size: size)!
+        return UIFont(name: "NotoSansKR-Light", size: size)!
     }
     
     class func notoRegular(size: CGFloat) -> UIFont {
-        return UIFont(name: "NotoSansCJKKR-Regular", size: size)!
+        return UIFont(name: "NotoSansKR-Regular", size: size)!
     }
     
     class func notoMedium(size: CGFloat) -> UIFont {
-        return UIFont(name: "NotoSansCJKKR-Medium", size: size)!
+        return UIFont(name: "NotoSansKR-Medium", size: size)!
     }
     
     class func notoBold(size: CGFloat) -> UIFont {
-        return UIFont(name: "NotoSansCJKKR-Bold", size: size)!
+        return UIFont(name: "NotoSansKR-Bold", size: size)!
+    }
+    
+    // MARK: NanumSquare Font
+    class func nsRegular(size: CGFloat) -> UIFont {
+        return UIFont(name: "NanumSquareOTFR", size: size)!
+    }
+    
+    class func nsLight(size: CGFloat) -> UIFont {
+        return UIFont(name: "NanumSquareOTFL", size: size)!
+    }
+    
+    class func nsBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "NanumSquareOTFB", size: size)!
+    }
+    
+    class func nsExtraBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "NanumSquareOTFEB", size: size)!
     }
     
 }
