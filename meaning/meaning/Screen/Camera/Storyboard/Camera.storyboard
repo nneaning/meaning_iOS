@@ -17,6 +17,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFs-Hm-fug">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="231"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cameraDeco" translatesAutoresizingMaskIntoConstraints="NO" id="e93-g8-72n">
+                                        <rect key="frame" x="58.5" y="105.5" width="297" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="e93-g8-72n" secondAttribute="height" multiplier="269:18" id="DQe-s0-NyZ"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="e93-g8-72n" firstAttribute="centerY" secondItem="bFs-Hm-fug" secondAttribute="centerY" id="SxU-4N-aAB"/>
+                                    <constraint firstItem="e93-g8-72n" firstAttribute="centerX" secondItem="bFs-Hm-fug" secondAttribute="centerX" id="c3k-cs-V1J"/>
+                                    <constraint firstItem="e93-g8-72n" firstAttribute="width" secondItem="bFs-Hm-fug" secondAttribute="width" multiplier="269/375" id="gFU-0v-eUL"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3d-wX-0A4">
                                 <rect key="frame" x="0.0" y="231" width="414" height="414"/>
                                 <subviews>
@@ -71,10 +87,14 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="DkC-b2-ymV" firstAttribute="width" secondItem="PKY-Ew-3Qh" secondAttribute="width" multiplier="81/375" id="8Fh-GA-vse"/>
+                            <constraint firstItem="T3d-wX-0A4" firstAttribute="top" secondItem="bFs-Hm-fug" secondAttribute="bottom" id="MsV-cu-Uwd"/>
+                            <constraint firstItem="JHq-LO-gAB" firstAttribute="trailing" secondItem="bFs-Hm-fug" secondAttribute="trailing" id="N5X-VX-6eb"/>
                             <constraint firstItem="T3d-wX-0A4" firstAttribute="leading" secondItem="JHq-LO-gAB" secondAttribute="leading" id="Qhy-dS-x42"/>
+                            <constraint firstItem="bFs-Hm-fug" firstAttribute="leading" secondItem="JHq-LO-gAB" secondAttribute="leading" id="Xwk-rn-tZE"/>
                             <constraint firstItem="T3d-wX-0A4" firstAttribute="centerX" secondItem="PKY-Ew-3Qh" secondAttribute="centerX" id="aWa-Fv-xTo"/>
                             <constraint firstItem="JHq-LO-gAB" firstAttribute="trailing" secondItem="T3d-wX-0A4" secondAttribute="trailing" id="jmw-z8-HOP"/>
                             <constraint firstItem="T3d-wX-0A4" firstAttribute="centerY" secondItem="PKY-Ew-3Qh" secondAttribute="centerY" constant="-10" id="kxG-BD-o99"/>
+                            <constraint firstItem="bFs-Hm-fug" firstAttribute="top" secondItem="PKY-Ew-3Qh" secondAttribute="top" id="nrx-Up-u5j"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -84,6 +104,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cameraDeco" width="269" height="18"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
