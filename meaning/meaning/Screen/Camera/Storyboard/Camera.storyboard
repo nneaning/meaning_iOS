@@ -284,6 +284,15 @@
                             <constraint firstItem="xau-z9-T5z" firstAttribute="top" secondItem="32V-ih-yL1" secondAttribute="bottom" id="oYd-ng-Fs1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="frameView" destination="32V-ih-yL1" id="fPO-e9-cw8"/>
+                        <outlet property="retakeButton" destination="w1v-Qr-LYS" id="RId-i0-0rI"/>
+                        <outlet property="stampDateLabel" destination="Xc7-pO-AN3" id="ioa-qh-Zl2"/>
+                        <outlet property="stampImage" destination="otk-ky-fg8" id="3Lf-pP-xAH"/>
+                        <outlet property="stampLogoImage" destination="w0U-PU-Fjy" id="RK8-v5-s3Z"/>
+                        <outlet property="stampTimeLabel" destination="2Sp-1E-HDp" id="sTx-nu-1Ht"/>
+                        <outlet property="useButton" destination="Fgt-Lt-f6J" id="8jb-qu-Rdu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sev-wN-RpN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
