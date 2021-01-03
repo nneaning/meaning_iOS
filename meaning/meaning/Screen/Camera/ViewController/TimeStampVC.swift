@@ -61,44 +61,7 @@ class TimeStampVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        captureSession = AVCaptureSession()
-        captureSession.sessionPreset = .high
-        // 캡쳐 화질 high로 설정
-        
-        // default video 장치를 찾는다
-        guard let backCamera = AVCaptureDevice.default(for: AVMediaType.video)
-            else {
-                print("Unable to access back camera!")
-                return
-        }
-        do {
-            // 찾은 video 장치를 캡쳐 장치에 넣음
-            let input = try AVCaptureDeviceInput(device: backCamera)
-            stillImageOutput = AVCapturePhotoOutput()
-
-            // 주어진 세션을 캡쳐에 사용할 수 있는지 + 세션에 추가할 수 있는지 먼저 파악한다
-            if captureSession.canAddInput(input) && captureSession.canAddOutput(stillImageOutput) {
-                // 주어진 입력을 추가한다
-                captureSession.addInput(input)
-                // 주어진 출력 추가
-                captureSession.addOutput(stillImageOutput)
-                setupLivePreview()
-            }
-        }
-        catch let error  {
-            print(error.localizedDescription)
-        }
-        
-        // startRunning는 시간이 걸릴 수 있는 호출이므로 main queue가 방해되지 않게 serial queue에서 실행함
-        DispatchQueue.global(qos: .userInitiated).async {
-            // 세션 실행 시작
-            self.captureSession.startRunning()
-            // 콜백 클로저를 통해 세션실행이 시작하는 작업이 끝난다면
-            // cameraView에 AVCaptureVideoPreviewLayer를 띄우게 만듦
-            DispatchQueue.main.async {
-                self.videoPreviewLayer.frame = self.cameraView.bounds
-            }
-        }
+        setCaptureSession()
     }
 
 }
@@ -146,6 +109,47 @@ extension TimeStampVC {
         // portrait - 세로, landscape - 가로모드
         cameraView.layer.addSublayer(videoPreviewLayer)
         // cameraView의 위치에 videoPreviewLayer를 띄움
+    }
+    
+    func setCaptureSession() {
+        captureSession = AVCaptureSession()
+        captureSession.sessionPreset = .high
+        // 캡쳐 화질 high로 설정
+        
+        // default video 장치를 찾는다
+        guard let backCamera = AVCaptureDevice.default(for: AVMediaType.video)
+            else {
+                print("Unable to access back camera!")
+                return
+        }
+        do {
+            // 찾은 video 장치를 캡쳐 장치에 넣음
+            let input = try AVCaptureDeviceInput(device: backCamera)
+            stillImageOutput = AVCapturePhotoOutput()
+
+            // 주어진 세션을 캡쳐에 사용할 수 있는지 + 세션에 추가할 수 있는지 먼저 파악한다
+            if captureSession.canAddInput(input) && captureSession.canAddOutput(stillImageOutput) {
+                // 주어진 입력을 추가한다
+                captureSession.addInput(input)
+                // 주어진 출력 추가
+                captureSession.addOutput(stillImageOutput)
+                setupLivePreview()
+            }
+        }
+        catch let error  {
+            print(error.localizedDescription)
+        }
+        
+        // startRunning는 시간이 걸릴 수 있는 호출이므로 main queue가 방해되지 않게 serial queue에서 실행함
+        DispatchQueue.global(qos: .userInitiated).async {
+            // 세션 실행 시작
+            self.captureSession.startRunning()
+            // 콜백 클로저를 통해 세션실행이 시작하는 작업이 끝난다면
+            // cameraView에 AVCaptureVideoPreviewLayer를 띄우게 만듦
+            DispatchQueue.main.async {
+                self.videoPreviewLayer.frame = self.cameraView.bounds
+            }
+        }
     }
 }
 
