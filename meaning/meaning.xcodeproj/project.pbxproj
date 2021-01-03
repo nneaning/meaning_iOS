@@ -48,6 +48,13 @@
 		9B2BA219259FA97E000EF4AA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA218259FA97E000EF4AA /* UIView+Extension.swift */; };
 		9B2BA21D259FA9D0000EF4AA /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA21C259FA9D0000EF4AA /* UIFont+Extension.swift */; };
 		9B2BA220259FAA4A000EF4AA /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA21F259FAA4A000EF4AA /* UIColor+Extension.swift */; };
+		9B2BA22325A0B9EA000EF4AA /* TimeStampVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA22225A0B9EA000EF4AA /* TimeStampVC.swift */; };
+		9B2BA22925A0D2F5000EF4AA /* NanumSquareOTFRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA22525A0D2F0000EF4AA /* NanumSquareOTFRegular.otf */; };
+		9B2BA22A25A0D2F5000EF4AA /* NanumSquareOTFLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA22625A0D2F1000EF4AA /* NanumSquareOTFLight.otf */; };
+		9B2BA22B25A0D2F5000EF4AA /* NanumSquareOTFBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA22725A0D2F4000EF4AA /* NanumSquareOTFBold.otf */; };
+		9B2BA22C25A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA22825A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf */; };
+		9B2BA23A25A0E547000EF4AA /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA23925A0E547000EF4AA /* UILabel+Extension.swift */; };
+		9EB5CCFF25A0B6820070CD58 /* DailyMaximVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +100,13 @@
 		9B2BA218259FA97E000EF4AA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		9B2BA21C259FA9D0000EF4AA /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		9B2BA21F259FAA4A000EF4AA /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		9B2BA22225A0B9EA000EF4AA /* TimeStampVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampVC.swift; sourceTree = "<group>"; };
+		9B2BA22525A0D2F0000EF4AA /* NanumSquareOTFRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFRegular.otf; sourceTree = "<group>"; };
+		9B2BA22625A0D2F1000EF4AA /* NanumSquareOTFLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFLight.otf; sourceTree = "<group>"; };
+		9B2BA22725A0D2F4000EF4AA /* NanumSquareOTFBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFBold.otf; sourceTree = "<group>"; };
+		9B2BA22825A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFExtraBold.otf; sourceTree = "<group>"; };
+		9B2BA23925A0E547000EF4AA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DailyMaximVC.swift; path = meaning/Screen/Mission/ViewController/DailyMaximVC.swift; sourceTree = SOURCE_ROOT; };
 		B844C2BA9B913FD6701F17AE /* Pods-meaning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.debug.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.debug.xcconfig"; sourceTree = "<group>"; };
 		E87AC0016D83A60227B184E6 /* Pods_meaning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_meaning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9590DE5BB2516CE3A84BEAD /* Pods-meaning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.release.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.release.xcconfig"; sourceTree = "<group>"; };
@@ -215,6 +229,7 @@
 				9B2BA218259FA97E000EF4AA /* UIView+Extension.swift */,
 				9B2BA21C259FA9D0000EF4AA /* UIFont+Extension.swift */,
 				9B2BA21F259FAA4A000EF4AA /* UIColor+Extension.swift */,
+				9B2BA23925A0E547000EF4AA /* UILabel+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -249,8 +264,8 @@
 		9B2BA196259F5BCD000EF4AA /* Mission */ = {
 			isa = PBXGroup;
 			children = (
+				9EB5CD0125A0B6930070CD58 /* ViewController */,
 				9B2BA1A7259F5D47000EF4AA /* Storyboard */,
-				9B2BA1A6259F5D40000EF4AA /* ViewController */,
 			);
 			path = Mission;
 			sourceTree = "<group>";
@@ -367,6 +382,7 @@
 		9B2BA1A4259F5D1A000EF4AA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9B2BA22225A0B9EA000EF4AA /* TimeStampVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -377,13 +393,6 @@
 				9B2BA1BB259F5EBB000EF4AA /* Camera.storyboard */,
 			);
 			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		9B2BA1A6259F5D40000EF4AA /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		9B2BA1A7259F5D47000EF4AA /* Storyboard */ = {
@@ -442,6 +451,10 @@
 		9B2BA1D6259F72D7000EF4AA /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				9B2BA22725A0D2F4000EF4AA /* NanumSquareOTFBold.otf */,
+				9B2BA22825A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf */,
+				9B2BA22625A0D2F1000EF4AA /* NanumSquareOTFLight.otf */,
+				9B2BA22525A0D2F0000EF4AA /* NanumSquareOTFRegular.otf */,
 				9B2BA210259FA8C2000EF4AA /* NotoSansKR-Bold.otf */,
 				9B2BA20D259FA8BD000EF4AA /* NotoSansKR-Light.otf */,
 				9B2BA211259FA8C4000EF4AA /* NotoSansKR-Medium.otf */,
@@ -455,6 +468,14 @@
 				9B2BA1DC259F7302000EF4AA /* Spoqa Han Sans Neo Thin.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		9EB5CD0125A0B6930070CD58 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		F3125DA1C1951212B6AAE898 /* Frameworks */ = {
@@ -526,8 +547,11 @@
 			files = (
 				9B2BA215259FA8C5000EF4AA /* NotoSansKR-Bold.otf in Resources */,
 				9B2BA1CA259F5EED000EF4AA /* GroupFeed.storyboard in Resources */,
+				9B2BA22C25A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf in Resources */,
 				9B2BA1DE259F7302000EF4AA /* Spoqa Han Sans Neo Light.otf in Resources */,
+				9B2BA22925A0D2F5000EF4AA /* NanumSquareOTFRegular.otf in Resources */,
 				9B2BA1B9259F5EB2000EF4AA /* Home.storyboard in Resources */,
+				9B2BA22B25A0D2F5000EF4AA /* NanumSquareOTFBold.otf in Resources */,
 				9B2BA1DF259F7302000EF4AA /* Spoqa Han Sans Neo Medium.otf in Resources */,
 				9B2BA1C3259F5ED2000EF4AA /* MyPage.storyboard in Resources */,
 				9B2BA1E0259F7302000EF4AA /* NanumBarunpenR.otf in Resources */,
@@ -541,6 +565,7 @@
 				9B2BA179259F5904000EF4AA /* Assets.xcassets in Resources */,
 				9B2BA1C7259F5EE3000EF4AA /* GroupList.storyboard in Resources */,
 				9B2BA213259FA8C5000EF4AA /* NotoSansKR-Regular.otf in Resources */,
+				9B2BA22A25A0D2F5000EF4AA /* NanumSquareOTFLight.otf in Resources */,
 				9B2BA214259FA8C5000EF4AA /* NotoSansKR-Thin.otf in Resources */,
 				9B2BA1B6259F5EAB000EF4AA /* Onboarding.storyboard in Resources */,
 				9B2BA1B2259F5E9D000EF4AA /* Login.storyboard in Resources */,
@@ -609,10 +634,13 @@
 				9B2BA1EC259F779B000EF4AA /* UIImageView+Extension.swift in Sources */,
 				9B2BA21D259FA9D0000EF4AA /* UIFont+Extension.swift in Sources */,
 				36ACC05225A0D22A00EE92D2 /* TestHomeVC.swift in Sources */,
+				9EB5CCFF25A0B6820070CD58 /* DailyMaximVC.swift in Sources */,
+				9B2BA23A25A0E547000EF4AA /* UILabel+Extension.swift in Sources */,
 				9B2BA170259F58FF000EF4AA /* AppDelegate.swift in Sources */,
 				9B2BA1E8259F74F7000EF4AA /* GenericResponse.swift in Sources */,
 				9B2BA172259F58FF000EF4AA /* SceneDelegate.swift in Sources */,
 				9B2BA220259FAA4A000EF4AA /* UIColor+Extension.swift in Sources */,
+				9B2BA22325A0B9EA000EF4AA /* TimeStampVC.swift in Sources */,
 				9B2BA1D3259F71DD000EF4AA /* UIImage+Extension.swift in Sources */,
 				9B2BA1E5259F74BE000EF4AA /* NetworkResult.swift in Sources */,
 				36ACC05525A0D23700EE92D2 /* TestCameraVC.swift in Sources */,
