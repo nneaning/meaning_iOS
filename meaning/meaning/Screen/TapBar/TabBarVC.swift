@@ -8,28 +8,32 @@
 import UIKit
 
 class TabBarVC: UITabBarController {
-
-    // MARK: - Variable Part
+    
+// MARK: - Variable Part
     
     var cameraButton: UIButton = {
         let button = UIButton()
-        
         button.setBackgroundImage(UIImage(named:"navItemCamera"), for: .normal)
         button.addTarget(self, action: #selector(TabBarVC.buttonClicked(sender:)), for: .touchUpInside)
-        
         return button
     }()
     
-    // MARK: - Life Cycle Part
+// MARK: - Life Cycle Part
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        buttonClicked(sender: cameraButton)
         setTabBar()
     }
     
-    // MARK: - 버튼 클릭 시 CameraVC 이동
+}
+
+// MARK: - Extension
+
+extension TabBarVC {
     
     @objc func buttonClicked(sender : UIButton) {
+        //버튼 클릭 시 CameraVC 이동
         guard let cameraVC = self.storyboard?.instantiateViewController(identifier: "TestCameraVC") as? TestCameraVC
         else {
             return
@@ -37,9 +41,9 @@ class TabBarVC: UITabBarController {
         present(cameraVC, animated: true, completion: nil)
     }
     
-    // MARK: - 탭바 설정
     
     func setTabBar() {
+        //탭바 설정
         guard let homeVC = self.storyboard?.instantiateViewController(identifier: "TestHomeVC") as? TestHomeVC,
               let groupVC = self.storyboard?.instantiateViewController(identifier: "TestGroupVC") as? TestGroupVC
         else {
@@ -61,7 +65,7 @@ class TabBarVC: UITabBarController {
         
         let posX: CGFloat = self.view.frame.width/2 - width/2
         let posY: CGFloat = -32
-    
+        
         cameraButton.frame = CGRect(x: posX, y: posY, width: width, height: height)
         
         tabBar.addSubview(self.cameraButton)
