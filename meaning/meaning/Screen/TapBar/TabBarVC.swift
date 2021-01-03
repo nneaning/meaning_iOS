@@ -46,11 +46,11 @@ class TabBarVC: UITabBarController {
             return
         }
         
-        homeVC.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        homeVC.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: -20, bottom: 0, right: 0)
         homeVC.tabBarItem.image = UIImage(named: "tabBarHomeIcInactive")
         homeVC.tabBarItem.selectedImage = UIImage(named: "tabBarHomeIcActive")
         
-        groupVC.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        groupVC.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -20)
         groupVC.tabBarItem.image = UIImage(named: "tabBarGroupIcInactive")
         groupVC.tabBarItem.selectedImage = UIImage(named: "tabBarGrouopActive")
         

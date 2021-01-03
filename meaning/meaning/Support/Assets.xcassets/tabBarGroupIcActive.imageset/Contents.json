@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
       "filename" : "tabBarGroupIcActive.png",
+      "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "idiom" : "universal",
       "scale" : "2x",
+      "idiom" : "universal",
       "filename" : "tabBarGroupIcActive@2x.png"
     },
     {
       "scale" : "3x",
-      "filename" : "tabBarGroupIcActive@3x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "tabBarGroupIcActive@3x.png"
     }
   ],
   "info" : {

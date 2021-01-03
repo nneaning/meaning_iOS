@@ -11,9 +11,9 @@
       "filename" : "tabBarHomeIcActive@2x.png"
     },
     {
-      "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "tabBarHomeIcActive@3x.png"
+      "filename" : "tabBarHomeIcActive@3x.png",
+      "scale" : "3x"
     }
   ],
   "info" : {
