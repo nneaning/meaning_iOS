@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSCameraUsageDescription</key>
-	<string>저희 앱은 사용자의 카메라를 사용합니다.</string>
+	<string>&quot;meaning&quot;은 당신의 미라클 모닝을 기록하기 위해 카메라를 사용합니다.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
