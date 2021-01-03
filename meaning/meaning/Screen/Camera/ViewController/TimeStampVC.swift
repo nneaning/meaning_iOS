@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TimeStampVC: UIViewController {
 
+    // MARK: Variable Part
+    
     // MARK: IBOutlet
+    
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var stampBorderView: UIView!
     @IBOutlet weak var stampTimeLabel: UILabel!
@@ -19,6 +23,7 @@ class TimeStampVC: UIViewController {
     @IBOutlet weak var cancleButton: UIButton!
     
     // MARK: Life Cycle Part
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setCameraView()
@@ -26,7 +31,9 @@ class TimeStampVC: UIViewController {
 
 }
 extension TimeStampVC {
+    
     // MARK: Function
+    
     func setCameraView() {
         // 카메라 뷰 Style Setting
         stampBorderView.setBorder(borderColor: .white, borderWidth: 1)
