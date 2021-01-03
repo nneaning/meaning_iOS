@@ -30,6 +30,17 @@ class TimeStampVC: UIViewController {
     
     @IBOutlet weak var cancleButton: UIButton!
     
+    // MARK: IBAction
+    
+    @IBAction func shootingButtonDidTap(_ sender: Any) {
+        // 카메라 촬영 버튼 클릭 시 Action
+    }
+    
+    @IBAction func cancleButtonDidTap(_ sender: Any) {
+        // 취소 버튼 클릭 시 Action
+    }
+    
+    
     // MARK: Life Cycle Part
     
     override func viewDidLoad() {
