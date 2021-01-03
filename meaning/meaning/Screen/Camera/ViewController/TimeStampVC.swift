@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import AVFoundation
 
 class TimeStampVC: UIViewController {
@@ -117,10 +118,10 @@ extension TimeStampVC {
         stampTimeLabel.textColor = .white
         stampDateLabel.font = UIFont.spoqaRegular(size: 16)
         stampDateLabel.textColor = .white
-        getNowLabel()
+        nowTimeLabel()
         
         // 뷰 안에 들어와있을 때도 시간이 가면 label을 바뀌게 해주기위해 Timer 사용
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(getNowLabel), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(nowTimeLabel), userInfo: nil, repeats: true)
         
         stampLogoImage.image = UIImage(named: "cameraTimestampLogo")
         
@@ -129,7 +130,7 @@ extension TimeStampVC {
         cancleButton.tintColor = .white
     }
     
-    @objc func getNowLabel() {
+    @objc func nowTimeLabel() {
         // 현재 시간을 기반으로 time과 날짜를 label에 넣어줌
         stampTimeLabel.text = Date().datePickerToString().recordTime()
         stampDateLabel.text = Date().datePickerToString().recordDate() + " (\(Date().weekDay()))"
