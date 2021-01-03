@@ -159,10 +159,10 @@
             </objects>
             <point key="canvasLocation" x="135" y="31"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo CheckVC-->
         <scene sceneID="7qz-CG-rcW">
             <objects>
-                <viewController id="3yh-4O-clk" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoCheckVC" id="3yh-4O-clk" customClass="PhotoCheckVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YTe-yi-yP5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
