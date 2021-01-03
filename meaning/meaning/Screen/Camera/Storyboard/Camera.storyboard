@@ -287,6 +287,7 @@
                     <connections>
                         <outlet property="frameView" destination="32V-ih-yL1" id="fPO-e9-cw8"/>
                         <outlet property="retakeButton" destination="w1v-Qr-LYS" id="RId-i0-0rI"/>
+                        <outlet property="stampBorderView" destination="hGl-vN-wlA" id="9B9-cH-X1u"/>
                         <outlet property="stampDateLabel" destination="Xc7-pO-AN3" id="ioa-qh-Zl2"/>
                         <outlet property="stampImage" destination="otk-ky-fg8" id="3Lf-pP-xAH"/>
                         <outlet property="stampLogoImage" destination="w0U-PU-Fjy" id="RK8-v5-s3Z"/>
