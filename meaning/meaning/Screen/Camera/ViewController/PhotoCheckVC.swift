@@ -12,8 +12,8 @@ class PhotoCheckVC: UIViewController {
     // MARK: Variable Part
     
     var photoImage: UIImage?
-    var photoTime: String = "15:00"
-    var photoDate: String = "2021년 01월 03일 (일)"
+    var photoTime: String?
+    var photoDate: String?
     // TimeStampVC 에서 받아와야 하는 데이터들(사진,시간)
 
     // MARK: IBOutlet
@@ -54,11 +54,13 @@ extension PhotoCheckVC {
         stampDateLabel.font = UIFont.spoqaRegular(size: 16)
         stampDateLabel.textColor = .white
         
-        stampTimeLabel.text = photoTime
-        stampDateLabel.text = photoDate
-        
-        if let photoImage = photoImage {
+        if let photoImage = photoImage,
+           let photoTime = photoTime,
+           let photoDate = photoDate {
+            // 이전 뷰에서 넘겨온 값들 넣어주기
             stampImage.image = photoImage
+            stampTimeLabel.text = photoTime
+            stampDateLabel.text = photoDate
         }
         
         stampLogoImage.image = UIImage(named: "cameraTimestampLogo")
