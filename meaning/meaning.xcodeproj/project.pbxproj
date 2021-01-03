@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36ACC04A25A0CED600EE92D2 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ACC04925A0CED600EE92D2 /* TabBarVC.swift */; };
+		36ACC05225A0D22A00EE92D2 /* TestHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ACC05125A0D22A00EE92D2 /* TestHomeVC.swift */; };
+		36ACC05525A0D23700EE92D2 /* TestCameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ACC05425A0D23700EE92D2 /* TestCameraVC.swift */; };
+		36ACC05825A0D24A00EE92D2 /* TestGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ACC05725A0D24A00EE92D2 /* TestGroupVC.swift */; };
 		6DC70DC41C332E65FC653BE0 /* Pods_meaning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E87AC0016D83A60227B184E6 /* Pods_meaning.framework */; };
 		9B2BA170259F58FF000EF4AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA16F259F58FF000EF4AA /* AppDelegate.swift */; };
 		9B2BA172259F58FF000EF4AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA171259F58FF000EF4AA /* SceneDelegate.swift */; };
@@ -54,6 +58,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36ACC04925A0CED600EE92D2 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarVC.swift; path = meaning/Screen/TapBar/TabBarVC.swift; sourceTree = SOURCE_ROOT; };
+		36ACC05125A0D22A00EE92D2 /* TestHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestHomeVC.swift; path = meaning/Screen/TapBar/TestHomeVC.swift; sourceTree = SOURCE_ROOT; };
+		36ACC05425A0D23700EE92D2 /* TestCameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestCameraVC.swift; path = meaning/Screen/TapBar/TestCameraVC.swift; sourceTree = SOURCE_ROOT; };
+		36ACC05725A0D24A00EE92D2 /* TestGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestGroupVC.swift; path = meaning/Screen/TapBar/TestGroupVC.swift; sourceTree = SOURCE_ROOT; };
 		9B2BA16C259F58FF000EF4AA /* meaning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meaning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2BA16F259F58FF000EF4AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B2BA171259F58FF000EF4AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -310,6 +318,10 @@
 		9B2BA19C259F5C81000EF4AA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				36ACC04925A0CED600EE92D2 /* TabBarVC.swift */,
+				36ACC05125A0D22A00EE92D2 /* TestHomeVC.swift */,
+				36ACC05425A0D23700EE92D2 /* TestCameraVC.swift */,
+				36ACC05725A0D24A00EE92D2 /* TestGroupVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -612,13 +624,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36ACC04A25A0CED600EE92D2 /* TabBarVC.swift in Sources */,
 				9B2BA219259FA97E000EF4AA /* UIView+Extension.swift in Sources */,
 				9B2BA1D0259F6FCE000EF4AA /* Date+Extension.swift in Sources */,
 				9B2BA1CD259F5FF0000EF4AA /* String+Extension.swift in Sources */,
+				36ACC05825A0D24A00EE92D2 /* TestGroupVC.swift in Sources */,
 				9B2BA174259F58FF000EF4AA /* ViewController.swift in Sources */,
 				9B2BA1F2259F7C65000EF4AA /* UIButton+Extension.swift in Sources */,
 				9B2BA1EC259F779B000EF4AA /* UIImageView+Extension.swift in Sources */,
 				9B2BA21D259FA9D0000EF4AA /* UIFont+Extension.swift in Sources */,
+				36ACC05225A0D22A00EE92D2 /* TestHomeVC.swift in Sources */,
 				9EB5CCFF25A0B6820070CD58 /* DailyMaximVC.swift in Sources */,
 				9B2BA23A25A0E547000EF4AA /* UILabel+Extension.swift in Sources */,
 				9B2BA170259F58FF000EF4AA /* AppDelegate.swift in Sources */,
@@ -628,6 +643,7 @@
 				9B2BA22325A0B9EA000EF4AA /* TimeStampVC.swift in Sources */,
 				9B2BA1D3259F71DD000EF4AA /* UIImage+Extension.swift in Sources */,
 				9B2BA1E5259F74BE000EF4AA /* NetworkResult.swift in Sources */,
+				36ACC05525A0D23700EE92D2 /* TestCameraVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
