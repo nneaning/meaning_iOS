@@ -36,6 +36,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3d-wX-0A4">
                                 <rect key="frame" x="0.0" y="231" width="414" height="414"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCx-9R-kq3">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9S-2x-1H1">
                                         <rect key="frame" x="21" y="21" width="372" height="372"/>
                                         <subviews>
@@ -75,11 +79,19 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
+                                    <constraint firstItem="KCx-9R-kq3" firstAttribute="top" secondItem="T3d-wX-0A4" secondAttribute="top" id="6d8-Bi-kyw"/>
                                     <constraint firstItem="a9S-2x-1H1" firstAttribute="top" secondItem="T3d-wX-0A4" secondAttribute="top" constant="21" id="9ji-3u-9tW"/>
+                                    <constraint firstAttribute="trailing" secondItem="KCx-9R-kq3" secondAttribute="trailing" id="9wV-Yc-obR"/>
                                     <constraint firstAttribute="width" secondItem="T3d-wX-0A4" secondAttribute="height" multiplier="1:1" id="HjT-bT-n5Y"/>
+                                    <constraint firstItem="KCx-9R-kq3" firstAttribute="top" secondItem="T3d-wX-0A4" secondAttribute="top" id="KoL-bf-0gk"/>
+                                    <constraint firstAttribute="trailing" secondItem="KCx-9R-kq3" secondAttribute="trailing" id="LGM-wp-oF8"/>
+                                    <constraint firstItem="KCx-9R-kq3" firstAttribute="leading" secondItem="T3d-wX-0A4" secondAttribute="leading" id="Oa2-W8-ozm"/>
+                                    <constraint firstAttribute="bottom" secondItem="KCx-9R-kq3" secondAttribute="bottom" id="RdD-rU-no2"/>
                                     <constraint firstItem="a9S-2x-1H1" firstAttribute="leading" secondItem="T3d-wX-0A4" secondAttribute="leading" constant="21" id="Xs7-xV-fHR"/>
                                     <constraint firstItem="a9S-2x-1H1" firstAttribute="centerY" secondItem="T3d-wX-0A4" secondAttribute="centerY" id="czc-Ld-mx1"/>
                                     <constraint firstItem="a9S-2x-1H1" firstAttribute="centerX" secondItem="T3d-wX-0A4" secondAttribute="centerX" id="j2u-s8-hA9"/>
+                                    <constraint firstItem="KCx-9R-kq3" firstAttribute="leading" secondItem="T3d-wX-0A4" secondAttribute="leading" id="l3J-2s-ePm"/>
+                                    <constraint firstAttribute="bottom" secondItem="KCx-9R-kq3" secondAttribute="bottom" id="wze-fo-PPj"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSe-HB-YNs">
@@ -129,7 +141,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cameraView" destination="T3d-wX-0A4" id="P7C-87-NrS"/>
+                        <outlet property="cameraView" destination="KCx-9R-kq3" id="Pm3-IB-t5O"/>
                         <outlet property="cancleButton" destination="R7V-m0-162" id="IIH-SS-3ol"/>
                         <outlet property="stampBorderView" destination="a9S-2x-1H1" id="12U-b5-do9"/>
                         <outlet property="stampDateLabel" destination="EGa-XX-Nmw" id="Okh-pL-2cM"/>
