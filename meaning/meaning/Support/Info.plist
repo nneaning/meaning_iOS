@@ -2,25 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>NotoSansKR-Thin.otf</string>
-		<string>NotoSansKR-Regular.otf</string>
-		<string>NotoSansKR-Medium.otf</string>
-		<string>NotoSansKR-Light.otf</string>
-		<string>NotoSansKR-Bold.otf</string>
-		<string>Spoqa Han Sans Neo Thin.otf</string>
-		<string>Spoqa Han Sans Neo Regular.otf</string>
-		<string>Spoqa Han Sans Neo Medium.otf</string>
-		<string>Spoqa Han Sans Neo Light.otf</string>
-		<string>Spoqa Han Sans Neo Bold.otf</string>
-		<string>NanumBarunpenR.otf</string>
-	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>&quot;meaning&quot;은 당신의 미라클 모닝을 기록하기 위해 카메라를 사용합니다.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -39,6 +22,29 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NanumSquareOTFRegular.otf</string>
+		<string>NanumSquareOTFLight.otf</string>
+		<string>NanumSquareOTFExtraBold.otf</string>
+		<string>NanumSquareOTFBold.otf</string>
+		<string>NotoSansKR-Thin.otf</string>
+		<string>NotoSansKR-Regular.otf</string>
+		<string>NotoSansKR-Medium.otf</string>
+		<string>NotoSansKR-Light.otf</string>
+		<string>NotoSansKR-Bold.otf</string>
+		<string>Spoqa Han Sans Neo Thin.otf</string>
+		<string>Spoqa Han Sans Neo Regular.otf</string>
+		<string>Spoqa Han Sans Neo Medium.otf</string>
+		<string>Spoqa Han Sans Neo Light.otf</string>
+		<string>Spoqa Han Sans Neo Bold.otf</string>
+		<string>NanumBarunpenR.otf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
