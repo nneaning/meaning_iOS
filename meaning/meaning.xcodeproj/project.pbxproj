@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36A0C1BC25A1FF20005E3F8E /* GroupListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0C1BB25A1FF20005E3F8E /* GroupListVC.swift */; };
 		36ACC04A25A0CED600EE92D2 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ACC04925A0CED600EE92D2 /* TabBarVC.swift */; };
 		36ACC05225A0D22A00EE92D2 /* TestHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ACC05125A0D22A00EE92D2 /* TestHomeVC.swift */; };
 		36ACC05525A0D23700EE92D2 /* TestCameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ACC05425A0D23700EE92D2 /* TestCameraVC.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36A0C1BB25A1FF20005E3F8E /* GroupListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupListVC.swift; path = meaning/Screen/GroupList/GroupListVC.swift; sourceTree = SOURCE_ROOT; };
 		36ACC04925A0CED600EE92D2 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarVC.swift; path = meaning/Screen/TapBar/TabBarVC.swift; sourceTree = SOURCE_ROOT; };
 		36ACC05125A0D22A00EE92D2 /* TestHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestHomeVC.swift; path = meaning/Screen/TapBar/TestHomeVC.swift; sourceTree = SOURCE_ROOT; };
 		36ACC05425A0D23700EE92D2 /* TestCameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestCameraVC.swift; path = meaning/Screen/TapBar/TestCameraVC.swift; sourceTree = SOURCE_ROOT; };
@@ -421,6 +423,7 @@
 		9B2BA1AA259F5D57000EF4AA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				36A0C1BB25A1FF20005E3F8E /* GroupListVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				9B2BA1CD259F5FF0000EF4AA /* String+Extension.swift in Sources */,
 				36ACC05825A0D24A00EE92D2 /* TestGroupVC.swift in Sources */,
 				9B2BA174259F58FF000EF4AA /* ViewController.swift in Sources */,
+				36A0C1BC25A1FF20005E3F8E /* GroupListVC.swift in Sources */,
 				9B2BA1F2259F7C65000EF4AA /* UIButton+Extension.swift in Sources */,
 				9B2BA1EC259F779B000EF4AA /* UIImageView+Extension.swift in Sources */,
 				9B2BA21D259FA9D0000EF4AA /* UIFont+Extension.swift in Sources */,
