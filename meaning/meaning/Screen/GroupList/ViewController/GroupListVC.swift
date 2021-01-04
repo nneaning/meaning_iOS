@@ -14,6 +14,8 @@ class GroupListVC: UIViewController {
     var groupInfo: [Group] = []
     var groupTable: [GroupTable] = []
     
+    let tmpCount: Int = 1
+    
     @IBOutlet var logoView: UIView!
     @IBOutlet var GroupTableView: UITableView!
     
@@ -26,6 +28,12 @@ class GroupListVC: UIViewController {
     @IBOutlet var noGroupBoxView: UIView!
     @IBOutlet var noGroupLabel: UILabel!
     @IBOutlet var welcomeLabel: UILabel!
+    
+    @IBOutlet var myGroupBoxView: UIView!
+    @IBOutlet var myGroupNameLabel: UILabel!
+    @IBOutlet var myGroupCountView: UIView!
+    @IBOutlet var myGroupCountLabel: UILabel!
+    @IBOutlet var myGroupBtn: UIButton!
     
     @IBOutlet var otherGroupView: UIView!
     @IBOutlet var otherGroupLabel: UILabel!
@@ -44,6 +52,17 @@ class GroupListVC: UIViewController {
         collectionView.dataSource = self
         
         GroupTableView.dataSource = self
+        
+        if tmpCount == 0 {
+            print(0)
+            noGroupBoxView.isHidden = false
+            myGroupBoxView.isHidden = true
+            
+        } else {
+            print(1)
+            myGroupBoxView.isHidden = false
+            noGroupBoxView.isHidden = true
+        }
         
     }
     
@@ -70,11 +89,21 @@ extension GroupListVC {
         welcomeLabel.font = UIFont.spoqaRegular(size: 14)
         welcomeLabel.textColor = UIColor.gray3
         
+        myGroupBoxView.backgroundColor = UIColor.meaningLightblue
+        
+        myGroupNameLabel.text = "아직 없다"
+        myGroupNameLabel.font = UIFont.spoqaRegular(size: 16)
+        myGroupNameLabel.textColor = UIColor.meaningNavy
+        
+        myGroupCountView.layer.cornerRadius = 5.0
+        
+        myGroupCountLabel.text = "8/8"
+        myGroupCountLabel.font = UIFont.spoqaMedium(size: 13)
+        myGroupCountLabel.textColor = UIColor.meaningNavy
+        
         otherGroupLabel.text = "다른 그룹 구경하기"
         otherGroupLabel.font = UIFont.spoqaMedium(size: 18)
         otherGroupLabel.textColor = UIColor.gray1
-        
-        
     }
     
     func setGroupData() {
@@ -126,16 +155,22 @@ extension GroupListVC: UICollectionViewDataSource {
 extension GroupListVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 217/375 * self.view.frame.width, height: 182)}
+        print("hihihihihihi")
+        return CGSize(width: 217/375 * self.view.frame.width, height: 182)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0 }
+        return 16
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0}
+        return 0
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 17, bottom: 0, right: 26) }
+        print("here")
+        return UIEdgeInsets(top: 8, left: 17, bottom: 0, right: 0)
+    }
     
     
 }
