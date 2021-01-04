@@ -12,6 +12,7 @@ class GroupListVC: UIViewController {
     static let identifier = "GroupListVC"
     
     var groupInfo: [Group] = []
+    var groupTable: [GroupTable] = []
     
     @IBOutlet var logoView: UIView!
     @IBOutlet var GroupTableView: UITableView!
@@ -31,14 +32,18 @@ class GroupListVC: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setHeader()
         setGroupData()
+        setGroupTableData()
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        GroupTableView.dataSource = self
         
     }
     
@@ -73,26 +78,34 @@ extension GroupListVC {
     }
     
     func setGroupData() {
-            groupInfo.append(contentsOf: [
-                Group(groupName: "넹면", peopleCount: 12, imageName: "group_card4_img"),
-                Group(groupName: "넹면", peopleCount: 12, imageName: "group_card4_img"),
-                Group(groupName: "넹면", peopleCount: 12, imageName: "group_card4_img"),
-                Group(groupName: "넹면", peopleCount: 12, imageName: "group_card4_img")
-            ])
-        }
-    
-
- 
-
+        groupInfo.append(contentsOf: [
+            Group(imageName: "group_card4_img", groupName: "넹면", peopleCount: 12),
+            Group(imageName: "group_card4_img", groupName: "넹면", peopleCount: 12),
+            Group(imageName: "group_card4_img", groupName: "넹면", peopleCount: 12),
+            Group(imageName: "group_card4_img", groupName: "넹면", peopleCount: 12)
+        ])
     }
     
+    func setGroupTableData() {
+        groupTable.append(contentsOf: [
+            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
+            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
+            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
+            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
+            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
+            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
+            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14)
+        ])
+    }
+}
+
 
 extension GroupListVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return groupInfo.count
     }
-
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -111,9 +124,9 @@ extension GroupListVC: UICollectionViewDataSource {
 }
 
 extension GroupListVC: UICollectionViewDelegateFlowLayout {
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 217/375 * self.view.frame.width, height: 182)
+        return CGSize(width: 217/375 * self.view.frame.width, height: 182)}
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0 }
@@ -123,8 +136,25 @@ extension GroupListVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 17, bottom: 0, right: 26) }
-
+    
     
 }
 
+extension GroupListVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return groupTable.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupTableViewCell.identifier)
+                as? GroupTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.setCell(group: groupTable[indexPath.row])
+        return cell
+        
+    }
+    
+    
 }
+

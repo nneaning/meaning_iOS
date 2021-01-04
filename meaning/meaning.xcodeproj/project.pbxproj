@@ -10,6 +10,8 @@
 		36A0C1BC25A1FF20005E3F8E /* GroupListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0C1BB25A1FF20005E3F8E /* GroupListVC.swift */; };
 		36A9422D25A29A6E009C28F2 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9422C25A29A6E009C28F2 /* GroupCell.swift */; };
 		36A9423025A2F126009C28F2 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9422F25A2F126009C28F2 /* Group.swift */; };
+		36A9424725A33DCD009C28F2 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9424625A33DCD009C28F2 /* GroupTableViewCell.swift */; };
+		36A9424A25A340DB009C28F2 /* GroupTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9424925A340DB009C28F2 /* GroupTable.swift */; };
 		6DC70DC41C332E65FC653BE0 /* Pods_meaning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E87AC0016D83A60227B184E6 /* Pods_meaning.framework */; };
 		9B2BA170259F58FF000EF4AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA16F259F58FF000EF4AA /* AppDelegate.swift */; };
 		9B2BA172259F58FF000EF4AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA171259F58FF000EF4AA /* SceneDelegate.swift */; };
@@ -60,9 +62,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		36A0C1BB25A1FF20005E3F8E /* GroupListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupListVC.swift; path = meaning/Screen/GroupList/GroupListVC.swift; sourceTree = SOURCE_ROOT; };
-		36A9422C25A29A6E009C28F2 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupCell.swift; path = meaning/Screen/GroupList/GroupCell.swift; sourceTree = SOURCE_ROOT; };
-		36A9422F25A2F126009C28F2 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Group.swift; path = meaning/Screen/GroupList/Group.swift; sourceTree = SOURCE_ROOT; };
+		36A0C1BB25A1FF20005E3F8E /* GroupListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupListVC.swift; path = meaning/Screen/GroupList/ViewController/GroupListVC.swift; sourceTree = SOURCE_ROOT; };
+		36A9422C25A29A6E009C28F2 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupCell.swift; path = meaning/Screen/GroupList/ViewController/GroupCell.swift; sourceTree = SOURCE_ROOT; };
+		36A9422F25A2F126009C28F2 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Group.swift; path = meaning/Screen/GroupList/ViewController/Group.swift; sourceTree = SOURCE_ROOT; };
+		36A9424625A33DCD009C28F2 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
+		36A9424925A340DB009C28F2 /* GroupTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTable.swift; sourceTree = "<group>"; };
 		9B2BA16C259F58FF000EF4AA /* meaning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meaning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2BA16F259F58FF000EF4AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B2BA171259F58FF000EF4AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -426,6 +430,8 @@
 				36A0C1BB25A1FF20005E3F8E /* GroupListVC.swift */,
 				36A9422F25A2F126009C28F2 /* Group.swift */,
 				36A9422C25A29A6E009C28F2 /* GroupCell.swift */,
+				36A9424625A33DCD009C28F2 /* GroupTableViewCell.swift */,
+				36A9424925A340DB009C28F2 /* GroupTable.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -640,11 +646,13 @@
 				9EB5CD0A25A194550070CD58 /* UITextView+Extension.swift in Sources */,
 				9B2BA1EC259F779B000EF4AA /* UIImageView+Extension.swift in Sources */,
 				9EB5CD0725A17DC90070CD58 /* DailyDiaryVC.swift in Sources */,
+				36A9424725A33DCD009C28F2 /* GroupTableViewCell.swift in Sources */,
 				9B2BA23E25A1B99F000EF4AA /* PhotoCheckVC.swift in Sources */,
 				9B2BA21D259FA9D0000EF4AA /* UIFont+Extension.swift in Sources */,
 				9EB5CCFF25A0B6820070CD58 /* DailyMaximVC.swift in Sources */,
 				36A9422D25A29A6E009C28F2 /* GroupCell.swift in Sources */,
 				9B2BA23A25A0E547000EF4AA /* UILabel+Extension.swift in Sources */,
+				36A9424A25A340DB009C28F2 /* GroupTable.swift in Sources */,
 				9B2BA170259F58FF000EF4AA /* AppDelegate.swift in Sources */,
 				9B2BA1E8259F74F7000EF4AA /* GenericResponse.swift in Sources */,
 				9B2BA172259F58FF000EF4AA /* SceneDelegate.swift in Sources */,

@@ -8,9 +8,11 @@
 import UIKit
 
 struct Group {
+    
+    var imageName : String
     var groupName : String
     var peopleCount : Int
-    var imageName : String
+    
     
     func makeImage () -> UIImage? {
         return UIImage (named: imageName)
