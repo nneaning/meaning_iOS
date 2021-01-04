@@ -28,6 +28,20 @@ class PhotoCheckVC: UIViewController {
     @IBOutlet weak var retakeButton: UIButton!
     @IBOutlet weak var useButton: UIButton!
     
+    // MARK: IBAction
+    
+    @IBAction func retakeButtonDidTap(_ sender: Any) {
+        // 다시 찍기 버튼 클릭 시
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func useButtonDidTap(_ sender: Any) {
+        // 사진 사용 버튼 클릭 시
+        UIImageWriteToSavedPhotosAlbum(frameView.snapShot(), self, #selector(finishSaving(_:didFinishSavingWithError:contextInfo:)), nil)
+        // frameView위치에 있는 모든것을 캡쳐해서 갤러리에 저장하기
+    }
+        
+    
     // MARK: Life Cycle Part
     
     override func viewDidLoad() {
@@ -77,4 +91,15 @@ extension PhotoCheckVC {
         useButton.tintColor = .white
     }
     
+    @objc func finishSaving(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+    //사진 저장버튼을 클릭해 갤러리에 저장이 끝났을 때
+        
+           if let error = error {
+            // 갤러리 저장 에러가 났을 경우(ex.사용자가 엑세스 허용을 안했을 때)
+            print(error.localizedDescription)
+           } else {
+            // 저장이 잘 됐을 때
+            // 다음뷰와 연결 코드 예정
+           }
+    }
 }
