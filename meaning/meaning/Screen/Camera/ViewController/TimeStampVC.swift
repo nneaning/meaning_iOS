@@ -40,8 +40,6 @@ class TimeStampVC: UIViewController {
         // jpeg 파일 형식으로 format
         stillImageOutput.capturePhoto(with: settings, delegate: self)
         // AVCapturePhotoCaptureDelegate 위임
-        
-        // 다음 뷰로 연결하는 코드 추가 예정
     }
     
     @IBAction func cancleButtonDidTap(_ sender: Any) {
@@ -161,6 +159,17 @@ extension TimeStampVC: AVCapturePhotoCaptureDelegate {
         
         let image = UIImage(data: imageData)
         timeStampImage = image?.cropToBounds(width: Double(cameraView.layer.frame.width), height: Double(cameraView.layer.frame.width))
-        // 현재 카메라 화면의 넓이를 기준으로 1:1 비율로 사진을 잘라줌
+        
+        // 다음 뷰로 연결
+        guard let checkVC = self.storyboard?.instantiateViewController(identifier: "PhotoCheckVC") as? PhotoCheckVC else {
+            return
+        }
+        
+        // 이미지,라벨 값을 넘겨줌
+        checkVC.photoImage = timeStampImage
+        checkVC.photoDate = self.stampDateLabel.text
+        checkVC.photoTime = self.stampTimeLabel.text
+        
+        self.navigationController?.pushViewController(checkVC, animated: true)
     }
 }

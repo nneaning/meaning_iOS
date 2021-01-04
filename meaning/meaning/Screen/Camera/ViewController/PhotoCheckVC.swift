@@ -12,8 +12,8 @@ class PhotoCheckVC: UIViewController {
     // MARK: Variable Part
     
     var photoImage: UIImage?
-    var photoTime: String = "15:00"
-    var photoDate: String = "2021년 01월 03일 (일)"
+    var photoTime: String?
+    var photoDate: String?
     // TimeStampVC 에서 받아와야 하는 데이터들(사진,시간)
 
     // MARK: IBOutlet
@@ -27,6 +27,20 @@ class PhotoCheckVC: UIViewController {
     
     @IBOutlet weak var retakeButton: UIButton!
     @IBOutlet weak var useButton: UIButton!
+    
+    // MARK: IBAction
+    
+    @IBAction func retakeButtonDidTap(_ sender: Any) {
+        // 다시 찍기 버튼 클릭 시
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func useButtonDidTap(_ sender: Any) {
+        // 사진 사용 버튼 클릭 시
+        UIImageWriteToSavedPhotosAlbum(frameView.snapShot(), self, #selector(finishSaving(_:didFinishSavingWithError:contextInfo:)), nil)
+        // frameView위치에 있는 모든것을 캡쳐해서 갤러리에 저장하기
+    }
+        
     
     // MARK: Life Cycle Part
     
@@ -54,11 +68,13 @@ extension PhotoCheckVC {
         stampDateLabel.font = UIFont.spoqaRegular(size: 16)
         stampDateLabel.textColor = .white
         
-        stampTimeLabel.text = photoTime
-        stampDateLabel.text = photoDate
-        
-        if let photoImage = photoImage {
+        if let photoImage = photoImage,
+           let photoTime = photoTime,
+           let photoDate = photoDate {
+            // 이전 뷰에서 넘겨온 값들 넣어주기
             stampImage.image = photoImage
+            stampTimeLabel.text = photoTime
+            stampDateLabel.text = photoDate
         }
         
         stampLogoImage.image = UIImage(named: "cameraTimestampLogo")
@@ -75,4 +91,15 @@ extension PhotoCheckVC {
         useButton.tintColor = .white
     }
     
+    @objc func finishSaving(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+    //사진 저장버튼을 클릭해 갤러리에 저장이 끝났을 때
+        
+           if let error = error {
+            // 갤러리 저장 에러가 났을 경우(ex.사용자가 엑세스 허용을 안했을 때)
+            print(error.localizedDescription)
+           } else {
+            // 저장이 잘 됐을 때
+            // 다음뷰와 연결 코드 예정
+           }
+    }
 }
