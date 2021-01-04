@@ -10,10 +10,11 @@ import UIKit
 class GroupTableViewCell: UITableViewCell {
     static let identifier = "GroupTableViewCell"
     
+
     @IBOutlet var groupName: UILabel!
     @IBOutlet var numberView: UIView!
     @IBOutlet var peopleCountLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setLabel()

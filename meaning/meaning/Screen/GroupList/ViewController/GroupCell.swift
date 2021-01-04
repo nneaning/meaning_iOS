@@ -10,12 +10,15 @@ import UIKit
 class GroupCell: UICollectionViewCell {
     static let identifier = "GroupCell"
     
+    
     @IBOutlet var groupImg: UIImageView!
     @IBOutlet var groupNameLabel: UILabel!
     @IBOutlet var peopleCountLabel: UILabel!
     @IBOutlet var enterBtn: UIButton!
     
+    
     func setCell(group: Group) {
+        //셀 데이터 설정
         groupImg.image = group.makeImage()
         
         groupNameLabel.text = group.groupName

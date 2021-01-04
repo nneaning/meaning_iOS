@@ -8,9 +8,9 @@
 import UIKit
 
 class GroupListVC: UIViewController {
-    
     static let identifier = "GroupListVC"
     
+    // MARK: - Variable Part
     var groupInfo: [Group] = []
     var groupTable: [GroupTable] = []
     
@@ -23,7 +23,9 @@ class GroupListVC: UIViewController {
         refreshControl.tintColor = UIColor.meaningNavy
         
         return refreshControl
-        }()
+    }()
+    
+    // MARK: - IBOutlet
     
     @IBOutlet var logoView: UIView!
     @IBOutlet var GroupTableView: UITableView!
@@ -50,6 +52,8 @@ class GroupListVC: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     
     
+    // MARK: - Life Cycle Part
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,6 +68,7 @@ class GroupListVC: UIViewController {
         
         GroupTableView.dataSource = self
         
+        //my group 유무에 따른 분기 처리
         if tmpCount == 0 {
             print(0)
             noGroupBoxView.isHidden = false
@@ -79,7 +84,10 @@ class GroupListVC: UIViewController {
     
 }
 
+// MARK: - Extension
+
 extension GroupListVC {
+    
     func setHeader() {
         //테이블뷰 헤더에 들어가는 라벨들 설정
         myGroupLabel.text = "내그룹"
@@ -118,6 +126,7 @@ extension GroupListVC {
     }
     
     func setGroupData() {
+        //컬렉션 뷰에 들어가는 임시 데이터
         groupInfo.append(contentsOf: [
             Group(imageName: "group_card4_img", groupName: "넹면", peopleCount: 12),
             Group(imageName: "group_card4_img", groupName: "넹면", peopleCount: 12),
@@ -127,6 +136,7 @@ extension GroupListVC {
     }
     
     func setGroupTableData() {
+        //그룹 리스트에 들어가는 임시 데이터
         groupTable.append(contentsOf: [
             GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
             GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
@@ -139,24 +149,27 @@ extension GroupListVC {
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-    refreshControl.endRefreshing()
+        //스크롤 내릴 때 refresh
+        refreshControl.endRefreshing()
     }
 }
 
 
 extension GroupListVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+        //컬렉션 뷰 Item 개수 지정
         return groupInfo.count
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+        //CollectionView의 IndexPath 별 Cell 지정
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GroupCell.identifier, for: indexPath) as? GroupCell else {
             return UICollectionViewCell()
         }
         cell.setCell(group: groupInfo[indexPath.row])
+        
+        //cell 테두리 설정
         cell.layer.borderColor = UIColor.gray5.cgColor
         cell.layer.borderWidth = 1.0
         cell.layer.cornerRadius = 8.0
@@ -170,32 +183,36 @@ extension GroupListVC: UICollectionViewDataSource {
 extension GroupListVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("hihihihihihi")
+        //cell의 width, height 지정
         return CGSize(width: 217/375 * self.view.frame.width, height: 182)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        //cell 위아래 간격 지정
         return 16
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        //cell 좌우 간격 지정
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        print("here")
+        //content 인셋 지정
         return UIEdgeInsets(top: 8, left: 17, bottom: 0, right: 0)
     }
-    
-    
+
 }
 
 extension GroupListVC: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //테이블 뷰 Item 개수 지정
         return groupTable.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //tableView의 IndexPath 별 Cell 지정
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupTableViewCell.identifier)
                 as? GroupTableViewCell else {
             return UITableViewCell()
