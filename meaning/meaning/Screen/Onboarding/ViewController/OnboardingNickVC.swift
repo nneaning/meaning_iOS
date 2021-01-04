@@ -22,6 +22,11 @@ class OnboardingNickVC: UIViewController {
         setView()
 
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // 뷰 클릭 시 키보드 내리기
+        view.endEditing(true)
+    }
 
 }
 
@@ -56,7 +61,6 @@ extension OnboardingNickVC {
         nextButton.setTitleColor(.gray4, for: .normal)
         nextButton.isEnabled = false
         // 닉네임이 설정 안되었을 때는 넘어가기 불가
-       
         
     }
 }
