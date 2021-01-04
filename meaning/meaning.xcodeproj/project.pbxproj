@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36ACC04A25A0CED600EE92D2 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ACC04925A0CED600EE92D2 /* TabBarVC.swift */; };
+		36ACC05225A0D22A00EE92D2 /* TestHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ACC05125A0D22A00EE92D2 /* TestHomeVC.swift */; };
+		36ACC05525A0D23700EE92D2 /* TestCameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ACC05425A0D23700EE92D2 /* TestCameraVC.swift */; };
+		36ACC05825A0D24A00EE92D2 /* TestGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ACC05725A0D24A00EE92D2 /* TestGroupVC.swift */; };
 		6DC70DC41C332E65FC653BE0 /* Pods_meaning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E87AC0016D83A60227B184E6 /* Pods_meaning.framework */; };
 		9B2BA170259F58FF000EF4AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA16F259F58FF000EF4AA /* AppDelegate.swift */; };
 		9B2BA172259F58FF000EF4AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA171259F58FF000EF4AA /* SceneDelegate.swift */; };
@@ -50,12 +54,17 @@
 		9B2BA22B25A0D2F5000EF4AA /* NanumSquareOTFBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA22725A0D2F4000EF4AA /* NanumSquareOTFBold.otf */; };
 		9B2BA22C25A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA22825A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf */; };
 		9B2BA23A25A0E547000EF4AA /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA23925A0E547000EF4AA /* UILabel+Extension.swift */; };
+		9B2BA23E25A1B99F000EF4AA /* PhotoCheckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA23D25A1B99F000EF4AA /* PhotoCheckVC.swift */; };
 		9EB5CCFF25A0B6820070CD58 /* DailyMaximVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */; };
 		9EB5CD0725A17DC90070CD58 /* DailyDiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CD0625A17DC90070CD58 /* DailyDiaryVC.swift */; };
 		9EB5CD0A25A194550070CD58 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CD0925A194540070CD58 /* UITextView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36ACC04925A0CED600EE92D2 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarVC.swift; path = meaning/Screen/TapBar/TabBarVC.swift; sourceTree = SOURCE_ROOT; };
+		36ACC05125A0D22A00EE92D2 /* TestHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestHomeVC.swift; path = meaning/Screen/TapBar/TestHomeVC.swift; sourceTree = SOURCE_ROOT; };
+		36ACC05425A0D23700EE92D2 /* TestCameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestCameraVC.swift; path = meaning/Screen/TapBar/TestCameraVC.swift; sourceTree = SOURCE_ROOT; };
+		36ACC05725A0D24A00EE92D2 /* TestGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestGroupVC.swift; path = meaning/Screen/TapBar/TestGroupVC.swift; sourceTree = SOURCE_ROOT; };
 		9B2BA16C259F58FF000EF4AA /* meaning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meaning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2BA16F259F58FF000EF4AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B2BA171259F58FF000EF4AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +109,7 @@
 		9B2BA22725A0D2F4000EF4AA /* NanumSquareOTFBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFBold.otf; sourceTree = "<group>"; };
 		9B2BA22825A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFExtraBold.otf; sourceTree = "<group>"; };
 		9B2BA23925A0E547000EF4AA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		9B2BA23D25A1B99F000EF4AA /* PhotoCheckVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCheckVC.swift; sourceTree = "<group>"; };
 		9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DailyMaximVC.swift; path = meaning/Screen/Mission/ViewController/DailyMaximVC.swift; sourceTree = SOURCE_ROOT; };
 		9EB5CD0625A17DC90070CD58 /* DailyDiaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDiaryVC.swift; sourceTree = "<group>"; };
 		9EB5CD0925A194540070CD58 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
@@ -315,6 +325,10 @@
 		9B2BA19C259F5C81000EF4AA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				36ACC04925A0CED600EE92D2 /* TabBarVC.swift */,
+				36ACC05125A0D22A00EE92D2 /* TestHomeVC.swift */,
+				36ACC05425A0D23700EE92D2 /* TestCameraVC.swift */,
+				36ACC05725A0D24A00EE92D2 /* TestGroupVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -376,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				9B2BA22225A0B9EA000EF4AA /* TimeStampVC.swift */,
+				9B2BA23D25A1B99F000EF4AA /* PhotoCheckVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -618,15 +633,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36ACC04A25A0CED600EE92D2 /* TabBarVC.swift in Sources */,
 				9B2BA219259FA97E000EF4AA /* UIView+Extension.swift in Sources */,
 				9B2BA1D0259F6FCE000EF4AA /* Date+Extension.swift in Sources */,
 				9B2BA1CD259F5FF0000EF4AA /* String+Extension.swift in Sources */,
+				36ACC05825A0D24A00EE92D2 /* TestGroupVC.swift in Sources */,
 				9B2BA174259F58FF000EF4AA /* ViewController.swift in Sources */,
 				9B2BA1F2259F7C65000EF4AA /* UIButton+Extension.swift in Sources */,
 				9EB5CD0A25A194550070CD58 /* UITextView+Extension.swift in Sources */,
 				9B2BA1EC259F779B000EF4AA /* UIImageView+Extension.swift in Sources */,
 				9EB5CD0725A17DC90070CD58 /* DailyDiaryVC.swift in Sources */,
+				9B2BA23E25A1B99F000EF4AA /* PhotoCheckVC.swift in Sources */,
 				9B2BA21D259FA9D0000EF4AA /* UIFont+Extension.swift in Sources */,
+				36ACC05225A0D22A00EE92D2 /* TestHomeVC.swift in Sources */,
 				9EB5CCFF25A0B6820070CD58 /* DailyMaximVC.swift in Sources */,
 				9B2BA23A25A0E547000EF4AA /* UILabel+Extension.swift in Sources */,
 				9B2BA170259F58FF000EF4AA /* AppDelegate.swift in Sources */,
@@ -636,6 +655,7 @@
 				9B2BA22325A0B9EA000EF4AA /* TimeStampVC.swift in Sources */,
 				9B2BA1D3259F71DD000EF4AA /* UIImage+Extension.swift in Sources */,
 				9B2BA1E5259F74BE000EF4AA /* NetworkResult.swift in Sources */,
+				36ACC05525A0D23700EE92D2 /* TestCameraVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
