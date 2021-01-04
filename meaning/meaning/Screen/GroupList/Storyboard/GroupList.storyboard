@@ -209,10 +209,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snN-hi-vOQ">
-                                                    <rect key="frame" x="349" y="18" width="42" height="27.5"/>
+                                                    <rect key="frame" x="333" y="18" width="58" height="35"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1p2-kI-y2T">
-                                                            <rect key="frame" x="0.0" y="3" width="42" height="21"/>
+                                                            <rect key="frame" x="8" y="7" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -220,9 +220,9 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="linkColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="1p2-kI-y2T" firstAttribute="centerX" secondItem="snN-hi-vOQ" secondAttribute="centerX" id="2Ka-cU-4Tq"/>
-                                                        <constraint firstItem="1p2-kI-y2T" firstAttribute="centerY" secondItem="snN-hi-vOQ" secondAttribute="centerY" id="Vc0-Qk-VZh"/>
-                                                        <constraint firstAttribute="width" secondItem="snN-hi-vOQ" secondAttribute="height" multiplier="20:13" id="eo8-j8-Baw"/>
+                                                        <constraint firstItem="1p2-kI-y2T" firstAttribute="centerX" secondItem="snN-hi-vOQ" secondAttribute="centerX" id="J91-wN-1vW"/>
+                                                        <constraint firstAttribute="width" secondItem="snN-hi-vOQ" secondAttribute="height" multiplier="5:3" id="Zby-8B-Ijy"/>
+                                                        <constraint firstItem="1p2-kI-y2T" firstAttribute="centerY" secondItem="snN-hi-vOQ" secondAttribute="centerY" id="luN-X2-OIr"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -232,9 +232,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="snN-hi-vOQ" secondAttribute="trailing" constant="23" id="Sfh-Ao-FGc"/>
                                                 <constraint firstItem="snN-hi-vOQ" firstAttribute="top" secondItem="nE3-TQ-9p3" secondAttribute="top" constant="18" id="Wrk-er-otg"/>
                                                 <constraint firstItem="8jg-O7-BF1" firstAttribute="top" secondItem="nE3-TQ-9p3" secondAttribute="top" constant="22" id="lFu-Ff-Xnz"/>
-                                                <constraint firstItem="snN-hi-vOQ" firstAttribute="height" secondItem="nE3-TQ-9p3" secondAttribute="height" multiplier="24/64" id="x6q-Zt-J4E"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="snN-hi-vOQ" firstAttribute="height" secondItem="DSM-2G-J9u" secondAttribute="height" multiplier="30/63" id="BUX-AX-K6S"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="groupName" destination="8jg-O7-BF1" id="qAx-QR-z31"/>
                                             <outlet property="numberView" destination="snN-hi-vOQ" id="zl4-bH-HBE"/>

@@ -38,6 +38,7 @@ extension GroupTableViewCell {
         groupName.textColor = UIColor.gray2
         
         numberView.backgroundColor = UIColor.gray6
+        numberView.layer.cornerRadius = 5.0
         
         peopleCountLabel.font = UIFont.spoqaMedium(size: 13)
         peopleCountLabel.textColor = UIColor.meaningNavy
