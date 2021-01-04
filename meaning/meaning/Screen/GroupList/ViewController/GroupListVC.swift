@@ -16,6 +16,15 @@ class GroupListVC: UIViewController {
     
     let tmpCount: Int = 1
     
+    lazy var refreshControl: UIRefreshControl = {
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.meaningNavy
+        
+        return refreshControl
+        }()
+    
     @IBOutlet var logoView: UIView!
     @IBOutlet var GroupTableView: UITableView!
     
@@ -47,6 +56,8 @@ class GroupListVC: UIViewController {
         setHeader()
         setGroupData()
         setGroupTableData()
+        
+        GroupTableView.addSubview(self.refreshControl)
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -91,7 +102,7 @@ extension GroupListVC {
         
         myGroupBoxView.backgroundColor = UIColor.meaningLightblue
         
-        myGroupNameLabel.text = "아직 없다"
+        myGroupNameLabel.text = "아침마다 불넹면"
         myGroupNameLabel.font = UIFont.spoqaRegular(size: 16)
         myGroupNameLabel.textColor = UIColor.meaningNavy
         
@@ -125,6 +136,10 @@ extension GroupListVC {
             GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
             GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14)
         ])
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+    refreshControl.endRefreshing()
     }
 }
 
