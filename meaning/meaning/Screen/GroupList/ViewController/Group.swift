@@ -9,13 +9,13 @@ import UIKit
 
 struct Group {
     
-    var imageName : String
-    var groupName : String
-    var peopleCount : Int
+    var headerImage: String
+    var groupName: String
+    var peopleCount: Int
     
     
     func makeImage () -> UIImage? {
-        return UIImage (named: imageName)
+        return UIImage (named: headerImage)
     }
 }
 

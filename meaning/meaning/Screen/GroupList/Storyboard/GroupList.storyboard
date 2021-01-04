@@ -311,9 +311,9 @@
                     </view>
                     <connections>
                         <outlet property="GroupTableView" destination="2aS-RI-aGI" id="Rnh-VL-tkW"/>
-                        <outlet property="collectionView" destination="NMt-DS-IvW" id="bre-b6-bUz"/>
                         <outlet property="groupAddBtn" destination="DBP-LH-asB" id="flH-Ap-X7R"/>
                         <outlet property="groupAddLabel" destination="ii6-LC-A4L" id="x8N-xP-Gkf"/>
+                        <outlet property="groupCollectionView" destination="NMt-DS-IvW" id="bre-b6-bUz"/>
                         <outlet property="headerView" destination="79R-Db-YC7" id="nf3-nu-Euh"/>
                         <outlet property="logoView" destination="UK8-UK-rIm" id="KBh-8k-LWO"/>
                         <outlet property="myGroupBoxView" destination="CFG-Of-EjG" id="tAH-wR-uGY"/>

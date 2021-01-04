@@ -9,8 +9,8 @@ import UIKit
 
 struct GroupTable {
     
-    var groupName : String
-    var peopleCount : Int
-    var peopleLimit : Int
+    var groupName: String
+    var peopleCount: Int
+    var peopleLimit: Int
 
 }

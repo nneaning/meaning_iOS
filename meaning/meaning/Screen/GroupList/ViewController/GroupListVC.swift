@@ -14,8 +14,8 @@ class GroupListVC: UIViewController {
     var groupInfo: [Group] = []
     var groupTable: [GroupTable] = []
     
-    let tmpCount: Int = 1
-    
+    var groupExist: Bool = false
+
     lazy var refreshControl: UIRefreshControl = {
         
         let refreshControl = UIRefreshControl()
@@ -49,7 +49,7 @@ class GroupListVC: UIViewController {
     @IBOutlet var otherGroupView: UIView!
     @IBOutlet var otherGroupLabel: UILabel!
     
-    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var groupCollectionView: UICollectionView!
     
     
     // MARK: - Life Cycle Part
@@ -63,19 +63,17 @@ class GroupListVC: UIViewController {
         
         GroupTableView.addSubview(self.refreshControl)
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        groupCollectionView.delegate = self
+        groupCollectionView.dataSource = self
         
         GroupTableView.dataSource = self
         
         //my group 유무에 따른 분기 처리
-        if tmpCount == 0 {
-            print(0)
+        if groupExist == false {
             noGroupBoxView.isHidden = false
             myGroupBoxView.isHidden = true
             
         } else {
-            print(1)
             myGroupBoxView.isHidden = false
             noGroupBoxView.isHidden = true
         }
@@ -128,10 +126,10 @@ extension GroupListVC {
     func setGroupData() {
         //컬렉션 뷰에 들어가는 임시 데이터
         groupInfo.append(contentsOf: [
-            Group(imageName: "group_card4_img", groupName: "넹면", peopleCount: 12),
-            Group(imageName: "group_card4_img", groupName: "넹면", peopleCount: 12),
-            Group(imageName: "group_card4_img", groupName: "넹면", peopleCount: 12),
-            Group(imageName: "group_card4_img", groupName: "넹면", peopleCount: 12)
+            Group(headerImage: "group_card4_img", groupName: "넹면", peopleCount: 12),
+            Group(headerImage: "group_card4_img", groupName: "넹면", peopleCount: 12),
+            Group(headerImage: "group_card4_img", groupName: "넹면", peopleCount: 12),
+            Group(headerImage: "group_card4_img", groupName: "넹면", peopleCount: 12)
         ])
     }
     
