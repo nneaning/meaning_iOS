@@ -48,7 +48,7 @@ class DailyDiaryVC: UIViewController {
         self.characterLimit.font = UIFont.notoMedium(size: 15)
         self.characterLimit.textColor = UIColor.gray7
         self.characterLimit.text = "0/200"
-        
+
         self.RegisterBtn.backgroundColor = UIColor.meaningNavy
         self.RegisterBtn.setTitleColor(UIColor.meaningWhite, for: .normal)
         self.RegisterBtn.titleLabel?.font=UIFont.spoqaMedium(size: 16)
@@ -86,4 +86,15 @@ extension DailyDiaryVC: UITextViewDelegate {
         }
     }
     
+    // 글자수 체크 기능, 200자 까지만 제한
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText string: String) -> Bool{
+        if(textView == bodyTextView){
+            let strLength = textView.text?.count ?? 0
+            let lengthToAdd = string.count
+            let lengthCount = strLength + lengthToAdd
+            self.characterLimit.text = "\(lengthCount)/200"
+            return lengthCount < 200
+        }
+        return true
+    }
 }
