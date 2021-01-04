@@ -9,15 +9,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Onboarding NickVC-->
         <scene sceneID="puz-en-nl2">
             <objects>
-                <viewController id="XYJ-4U-sGs" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardingNickVC" id="XYJ-4U-sGs" customClass="OnboardingNickVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XYT-oE-UdL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meaningBg1Img" translatesAutoresizingMaskIntoConstraints="NO" id="Qy3-kf-OAM">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meaningBg1Img" translatesAutoresizingMaskIntoConstraints="NO" id="Qy3-kf-OAM">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAE-SC-4ka">
@@ -42,7 +42,7 @@
                                             <constraint firstAttribute="width" secondItem="cnd-xb-1P0" secondAttribute="height" multiplier="272:40" id="dny-F3-xZi"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9d0-Fo-fur">
                                         <rect key="frame" x="0.0" y="53" width="300" height="1"/>
@@ -71,6 +71,11 @@
                             <constraint firstItem="mkq-qb-AUX" firstAttribute="centerX" secondItem="XYT-oE-UdL" secondAttribute="centerX" id="pjV-ZA-caL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="explainLabel" destination="vAE-SC-4ka" id="yPy-zi-Z2b"/>
+                        <outlet property="nextButton" destination="9lK-Qi-PCc" id="QgO-iO-XNF"/>
+                        <outlet property="nickTextField" destination="cnd-xb-1P0" id="8od-1J-sIH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NrS-1K-FBU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
