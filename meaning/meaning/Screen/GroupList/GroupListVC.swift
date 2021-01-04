@@ -26,6 +26,9 @@ class GroupListVC: UIViewController {
     @IBOutlet var noGroupLabel: UILabel!
     @IBOutlet var welcomeLabel: UILabel!
     
+    @IBOutlet var otherGroupView: UIView!
+    @IBOutlet var otherGroupLabel: UILabel!
+    
     @IBOutlet var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -61,6 +64,12 @@ extension GroupListVC {
         welcomeLabel.text = "그룹에 가입하고 그룹원들과 함께 미라클 모닝을 맞이해봐요!"
         welcomeLabel.font = UIFont.spoqaRegular(size: 14)
         welcomeLabel.textColor = UIColor.gray3
+        
+        otherGroupLabel.text = "다른 그룹 구경하기"
+        otherGroupLabel.font = UIFont.spoqaMedium(size: 18)
+        otherGroupLabel.textColor = UIColor.gray1
+        
+        
     }
     
     func setGroupData() {
@@ -71,20 +80,19 @@ extension GroupListVC {
                 Group(groupName: "넹면", peopleCount: 12, imageName: "group_card4_img")
             ])
         }
+    
+
+ 
+
     }
     
 
 extension GroupListVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return groupInfo.count
     }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: GroupHeaderCell.identifier, for: indexPath) as! GroupHeaderCell
-        
-        return headerView
-    }
+
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -111,16 +119,12 @@ extension GroupListVC: UICollectionViewDelegateFlowLayout {
         return 0 }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0 }
+        return 0}
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) }
+        return UIEdgeInsets(top: 0, left: 17, bottom: 0, right: 26) }
+
     
 }
-
-//    if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-//        layout.scrollDirection = .horizontal
-//    }
-
 
 }
