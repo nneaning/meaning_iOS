@@ -51,6 +51,7 @@ class DailyDiaryVC: UIViewController {
         self.headerView.backgroundColor = UIColor.meaningLightblue
         self.headerLabel.font = UIFont.notoMedium(size: 17.0)
         self.headerLabel.text = "회고 일기"
+        self.headerLabel.textColor = UIColor.gray1
         
         self.bodyUpperLabel.font = UIFont.notoRegular(size: 18.0)
         self.bodyUpperLabel.textColor = UIColor.gray2
@@ -71,6 +72,11 @@ class DailyDiaryVC: UIViewController {
         self.RegisterBtn.setTitle("등록하기", for: .normal)
         self.RegisterBtn.setRounded(radius: 6)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            // 뷰 클릭 시 키보드 내리기
+            view.endEditing(true)
+    }
 }
 
 // MARK: Extension
@@ -83,14 +89,14 @@ extension DailyDiaryVC: UITextViewDelegate {
     func placeholderSetting(){
         bodyTextView.delegate = self
         bodyTextView.text = placeholderPhrase
-        bodyTextView.lineSetting(kernValue: -1, lineSpacing: 10)
+        bodyTextView.lineSetting(kernValue: -0.9, lineSpacing: 10)
         bodyTextView.textColor = UIColor.gray3
         bodyTextView.font = UIFont.spoqaRegular(size: 16)
     }
     
     //편집 시작
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.gray3 {
+        if textView.text == placeholderPhrase {
             textView.text = nil
             textView.textColor = UIColor.gray1
         }
@@ -98,7 +104,7 @@ extension DailyDiaryVC: UITextViewDelegate {
     
     // TextView Place Holder
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
+        if (textView.text == "") {
             textView.text = placeholderPhrase
             textView.textColor = UIColor.lightGray
         }
