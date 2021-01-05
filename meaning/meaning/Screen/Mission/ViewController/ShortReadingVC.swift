@@ -58,7 +58,8 @@ class ShortReadingVC: UIViewController {
         self.headerView.backgroundColor = UIColor.meaningLightblue
         self.headerLabel.font = UIFont.notoMedium(size: 17.0)
         self.headerLabel.text = "짧은 독서"
-        
+        self.headerLabel.textColor = UIColor.gray1
+
         self.bodyUpperLabel.font = UIFont.notoRegular(size: 18.0)
         self.bodyUpperLabel.textColor = UIColor.gray2
         self.bodyUpperLabel.text = "책을 읽고 한줄평을 남겨봐요"
@@ -82,6 +83,11 @@ class ShortReadingVC: UIViewController {
         self.registerBtn.titleLabel?.font=UIFont.spoqaMedium(size: 16)
         self.registerBtn.setTitle("등록하기", for: .normal)
         self.registerBtn.setRounded(radius: 6)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            // 뷰 클릭 시 키보드 내리기
+            view.endEditing(true)
     }
     
 }
