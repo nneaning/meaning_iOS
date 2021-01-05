@@ -11,7 +11,7 @@ class OnboardingTimeVC: UIViewController {
 
     // MARK: Variable Part
     
-    var userNick: String = "이름"
+    var userNick: String?
     var wakeupTime: String?
     var hours: [Int] = []
     var minutes: [String] = []
@@ -42,7 +42,9 @@ extension OnboardingTimeVC {
     
     func setView() {
         // 뷰 Style Setting
-        explainLabel.text = "\(userNick)님의\n목표 기상시간을 알려주세요.\n하루를 길게 쓸 수 있게\n도와 드릴게요!"
+        if let userNick = userNick {
+            explainLabel.text = "\(userNick)님의\n목표 기상시간을 알려주세요.\n하루를 길게 쓸 수 있게\n도와 드릴게요!"
+        }
         explainLabel.numberOfLines = 0
         explainLabel.font = UIFont.spoqaLight(size: 22)
         explainLabel.textColor = .meaningWhite
