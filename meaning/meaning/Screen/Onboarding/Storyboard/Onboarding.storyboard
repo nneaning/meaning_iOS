@@ -115,7 +115,7 @@
                                 <state key="normal" title="Button"/>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J8C-ge-6yw">
-                                <rect key="frame" x="0.0" y="439" width="414" height="18.5"/>
+                                <rect key="frame" x="0.0" y="280.5" width="414" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -123,6 +123,7 @@
                         <viewLayoutGuide key="safeArea" id="omJ-k9-xC5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="J8C-ge-6yw" firstAttribute="top" secondItem="3qJ-Sz-QfN" secondAttribute="bottom" constant="87" id="2an-Ft-f5p"/>
                             <constraint firstAttribute="bottom" secondItem="WBz-fa-EpS" secondAttribute="bottom" id="3sb-u7-xAQ"/>
                             <constraint firstItem="J8C-ge-6yw" firstAttribute="leading" secondItem="omJ-k9-xC5" secondAttribute="leading" id="7Rp-yA-6C8"/>
                             <constraint firstAttribute="bottom" secondItem="gJI-wO-Pcc" secondAttribute="bottom" constant="86" id="9M1-gR-bJ8"/>
@@ -135,7 +136,6 @@
                             <constraint firstItem="omJ-k9-xC5" firstAttribute="trailing" secondItem="WBz-fa-EpS" secondAttribute="trailing" id="ga2-S3-aI4"/>
                             <constraint firstItem="3qJ-Sz-QfN" firstAttribute="leading" secondItem="omJ-k9-xC5" secondAttribute="leading" constant="21" id="hRk-wQ-O1G"/>
                             <constraint firstItem="J8C-ge-6yw" firstAttribute="centerX" secondItem="DoC-v1-cGz" secondAttribute="centerX" id="nGk-ui-jhj"/>
-                            <constraint firstItem="J8C-ge-6yw" firstAttribute="centerY" secondItem="DoC-v1-cGz" secondAttribute="centerY" id="q5a-HZ-bD3"/>
                             <constraint firstItem="IkS-8A-BBB" firstAttribute="top" secondItem="omJ-k9-xC5" secondAttribute="top" constant="21" id="umT-FM-Tpw"/>
                             <constraint firstItem="omJ-k9-xC5" firstAttribute="trailing" secondItem="J8C-ge-6yw" secondAttribute="trailing" id="viC-MT-GJh"/>
                         </constraints>
