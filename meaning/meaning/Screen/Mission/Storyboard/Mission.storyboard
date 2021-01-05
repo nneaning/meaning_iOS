@@ -241,11 +241,16 @@
         <!--DailyDiaryAlertVC-->
         <scene sceneID="o9I-mR-ttG">
             <objects>
+<<<<<<< HEAD
                 <viewController title="DailyDiaryAlertVC" id="XgK-Ic-xjb" customClass="ShortReadingVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
+=======
+                <viewController storyboardIdentifier="DailyDiaryAlertVC" title="DailyDiaryAlertVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XgK-Ic-xjb" customClass="DailyDiaryAlertVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
+>>>>>>> 01131ea15db231d9fc63d98fac45fed12c7d4b27
                     <view key="view" contentMode="scaleToFill" id="CEp-1M-hoz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< HEAD
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="di3-7C-gRs">
                                 <rect key="frame" x="0.0" y="63" width="414" height="44"/>
                                 <subviews>
@@ -258,11 +263,19 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회고 일기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGf-JU-BbD">
                                         <rect key="frame" x="175" y="11.5" width="64" height="21"/>
+=======
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1W-PP-JPL">
+                                <rect key="frame" x="105.5" y="672.5" width="203" height="35.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxS-X0-Lsu">
+                                        <rect key="frame" x="80.5" y="7.5" width="42" height="21"/>
+>>>>>>> 01131ea15db231d9fc63d98fac45fed12c7d4b27
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+<<<<<<< HEAD
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="zGf-JU-BbD" firstAttribute="centerX" secondItem="di3-7C-gRs" secondAttribute="centerX" id="7hR-o4-J8Z"/>
@@ -335,10 +348,20 @@
                                     <action selector="registerBtnPressed:" destination="72L-w0-AXE" eventType="touchUpInside" id="dyx-FL-xab"/>
                                 </connections>
                             </button>
+=======
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstItem="cxS-X0-Lsu" firstAttribute="centerY" secondItem="c1W-PP-JPL" secondAttribute="centerY" id="5kZ-rk-SyH"/>
+                                    <constraint firstAttribute="width" secondItem="c1W-PP-JPL" secondAttribute="height" multiplier="166:29" id="eaD-ni-Epu"/>
+                                    <constraint firstItem="cxS-X0-Lsu" firstAttribute="centerX" secondItem="c1W-PP-JPL" secondAttribute="centerX" id="ynZ-ko-B47"/>
+                                </constraints>
+                            </view>
+>>>>>>> 01131ea15db231d9fc63d98fac45fed12c7d4b27
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IXK-qV-Zxy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+<<<<<<< HEAD
                             <constraint firstItem="IXK-qV-Zxy" firstAttribute="trailing" secondItem="kTq-SC-cbv" secondAttribute="trailing" constant="16" id="57n-3R-KaX"/>
                             <constraint firstItem="di3-7C-gRs" firstAttribute="leading" secondItem="IXK-qV-Zxy" secondAttribute="leading" id="5aQ-a8-lww"/>
                             <constraint firstItem="di3-7C-gRs" firstAttribute="trailing" secondItem="IXK-qV-Zxy" secondAttribute="trailing" id="HjV-f2-CXb"/>
@@ -368,11 +391,25 @@
                         <outlet property="headerLabel" destination="zGf-JU-BbD" id="xjc-cA-idr"/>
                         <outlet property="headerView" destination="di3-7C-gRs" id="cdP-s2-KBt"/>
                         <outlet property="registerBtn" destination="irX-TE-LRp" id="qzP-XW-f3b"/>
+=======
+                            <constraint firstItem="c1W-PP-JPL" firstAttribute="leading" secondItem="IXK-qV-Zxy" secondAttribute="leading" constant="105.5" id="8bt-Sm-gQg"/>
+                            <constraint firstItem="IXK-qV-Zxy" firstAttribute="trailing" secondItem="c1W-PP-JPL" secondAttribute="trailing" constant="105.5" id="COJ-Y7-8I9"/>
+                            <constraint firstItem="IXK-qV-Zxy" firstAttribute="bottom" secondItem="c1W-PP-JPL" secondAttribute="bottom" constant="154" id="b1p-fD-N7D"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="alertLabel" destination="cxS-X0-Lsu" id="EP4-Hj-nx7"/>
+                        <outlet property="alertView" destination="c1W-PP-JPL" id="Lbu-fj-JQF"/>
+>>>>>>> 01131ea15db231d9fc63d98fac45fed12c7d4b27
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UsN-tl-k5Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="663.768115942029" y="122.54464285714285"/>
+=======
+            <point key="canvasLocation" x="745" y="123"/>
+>>>>>>> 01131ea15db231d9fc63d98fac45fed12c7d4b27
         </scene>
     </scenes>
     <resources>
@@ -382,6 +419,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
