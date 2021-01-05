@@ -24,6 +24,13 @@ class OnboardingTimeVC: UIViewController {
     @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
+    // MARK: IBAction
+    
+    @IBAction func backButtonDidTap(_ sender: Any) {
+        // 이전 뷰로 이동
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: Life Cycle Part
     
     override func viewDidLoad() {

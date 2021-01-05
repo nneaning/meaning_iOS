@@ -104,6 +104,9 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="whiteBackBtn"/>
+                                <connections>
+                                    <action selector="backButtonDidTap:" destination="X4c-mI-0dk" eventType="touchUpInside" id="Ogs-32-gkZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qJ-Sz-QfN">
                                 <rect key="frame" x="21" y="173" width="41.5" height="20.5"/>
