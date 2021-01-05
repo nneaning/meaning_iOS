@@ -37,7 +37,8 @@ class DailyMaximVC: UIViewController {
         self.headerView.backgroundColor = UIColor.meaningLightblue
         self.headerLabel.font = UIFont.notoMedium(size: 17.0)
         self.headerLabel.text = "하루 다짐"
-        
+        self.headerLabel.textColor = UIColor.gray1
+
         self.bodyUpperLabel.font = UIFont.notoRegular(size: 18.0)
         self.bodyUpperLabel.textColor = UIColor.gray2
         self.bodyUpperLabel.text = "하루의 시작부터 글귀를 읽으며\n성장과 발전의 의지를 다져요"
