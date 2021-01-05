@@ -81,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="-749" y="-87"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding TimeVC-->
         <scene sceneID="MPj-Uy-PUD">
             <objects>
-                <viewController id="X4c-mI-0dk" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardingTimeVC" id="X4c-mI-0dk" customClass="OnboardingTimeVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DoC-v1-cGz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
