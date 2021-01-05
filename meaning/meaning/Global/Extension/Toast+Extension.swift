@@ -8,7 +8,8 @@
 import UIKit
 
 
-extension UIViewController {    
+extension UIViewController {
+    
     func showToast(message : String, font: UIFont) {
         let guide = view.safeAreaInsets.bottom
         let height = self.view.frame.size.height-guide
