@@ -70,8 +70,7 @@ extension OnboardingTimeVC {
         nextButton.backgroundColor = .meaningIvory
         nextButton.setTitle("다음으로 넘어가기", for: .normal)
         nextButton.titleLabel?.font = UIFont.spoqaMedium(size: 16)
-        nextButton.setTitleColor(.gray4, for: .normal)
+        nextButton.setTitleColor(.meaningNavy, for: .normal)
         nextButton.makeRounded(cornerRadius: 6)
-        nextButton.isEnabled = false
     }
 }
