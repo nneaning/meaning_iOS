@@ -12,7 +12,8 @@ class PictureUploadVC: UIViewController {
     // MARK: Variable Part
 
     var userNick: String = "이름"
-
+    var nthMorning: Int = 22
+    
     // Mark: IBOutlet
 
     @IBOutlet var headerView: UIView!
@@ -50,8 +51,8 @@ class PictureUploadVC: UIViewController {
         
         self.bodyBottomLabel.font = UIFont.notoRegular(size: 16.0)
         self.bodyBottomLabel.textColor = UIColor.gray2
-        self.bodyBottomLabel.text = "\(userNick)님의 22번째 의미있는 아침"
-        self.bodyUpperLabel.lineSetting(kernValue: -0.5)
+        self.bodyBottomLabel.text = "\(userNick)님의 \(nthMorning)번째 의미있는 아침"
+        self.bodyBottomLabel.lineSetting(kernValue: -0.5)
         
         self.uploadBtn.backgroundColor = UIColor.meaningNavy
         self.uploadBtn.setTitleColor(.meaningWhite, for: .normal)
