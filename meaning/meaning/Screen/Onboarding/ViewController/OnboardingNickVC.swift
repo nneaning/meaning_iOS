@@ -15,6 +15,23 @@ class OnboardingNickVC: UIViewController {
     @IBOutlet weak var nickTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
+    // MARK: IBAction
+    
+    @IBAction func nextButtonDidTap(_ sender: Any) {
+        // 다음 뷰로 연결
+        guard let timeVC = self.storyboard?.instantiateViewController(identifier: "OnboardingTimeVC") as? OnboardingTimeVC else {
+            return
+        }
+        
+        // 닉네임값 넘겨주기
+        if let nick = nickTextField.text {
+            timeVC.userNick = nick
+        }
+        
+        self.navigationController?.pushViewController(timeVC, animated: true)
+    }
+    
+    
     // MARK: Life Cycle Part
     
     override func viewDidLoad() {

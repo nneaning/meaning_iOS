@@ -51,11 +51,13 @@ class DailyDiaryVC: UIViewController {
         self.headerView.backgroundColor = UIColor.meaningLightblue
         self.headerLabel.font = UIFont.notoMedium(size: 17.0)
         self.headerLabel.text = "회고 일기"
+        self.headerLabel.textColor = UIColor.gray1
         
         self.bodyUpperLabel.font = UIFont.notoRegular(size: 18.0)
         self.bodyUpperLabel.textColor = UIColor.gray2
         self.bodyUpperLabel.text = "오늘 아침을 글로 남겨봐요"
-        
+        self.bodyUpperLabel.lineSetting(kernValue: -0.72)
+
         self.bodyView.setRounded(radius: 6)
         self.bodyView.backgroundColor = UIColor.meaningIvory
         self.bodyTextView.backgroundColor = UIColor.white.withAlphaComponent(0)
@@ -70,6 +72,11 @@ class DailyDiaryVC: UIViewController {
         self.RegisterBtn.setTitle("등록하기", for: .normal)
         self.RegisterBtn.setRounded(radius: 6)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            // 뷰 클릭 시 키보드 내리기
+            view.endEditing(true)
+    }
 }
 
 // MARK: Extension
@@ -82,14 +89,14 @@ extension DailyDiaryVC: UITextViewDelegate {
     func placeholderSetting(){
         bodyTextView.delegate = self
         bodyTextView.text = placeholderPhrase
-        bodyTextView.lineSetting(kernValue: -1, lineSpacing: 10)
+        bodyTextView.lineSetting(kernValue: -0.9, lineSpacing: 10)
         bodyTextView.textColor = UIColor.gray3
         bodyTextView.font = UIFont.spoqaRegular(size: 16)
     }
     
     //편집 시작
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.gray3 {
+        if textView.text == placeholderPhrase {
             textView.text = nil
             textView.textColor = UIColor.gray1
         }
@@ -97,7 +104,7 @@ extension DailyDiaryVC: UITextViewDelegate {
     
     // TextView Place Holder
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
+        if (textView.text == "") {
             textView.text = placeholderPhrase
             textView.textColor = UIColor.lightGray
         }
@@ -116,38 +123,4 @@ extension DailyDiaryVC: UITextViewDelegate {
     }
 }
 
-// MARK: Extension
-
-extension UIViewController {
-    
-    // MARK: Function
-    
-    func showToast(message : String, font: UIFont) {
-        let guide = view.safeAreaInsets.bottom
-        let height = self.view.frame.size.height-guide
-        
-        let toastLabel = UILabel(
-            frame: CGRect( x: self.view.frame.size.width/2 - 83,
-                           y: height-181,
-                           width: 166,
-                           height: 29
-            )
-        )
-        
-        toastLabel.backgroundColor = UIColor.gray4
-        toastLabel.textColor = UIColor.gray6
-        toastLabel.font = font
-        toastLabel.textAlignment = .center
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 6
-        toastLabel.clipsToBounds  =  true
-        self.view.addSubview(toastLabel)
-        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
-            toastLabel.alpha = 0.0
-        }, completion: {(isCompleted) in
-            toastLabel.removeFromSuperview()
-        })
-    }
-}
 
