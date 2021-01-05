@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GHa-fy-7zx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jgf-yZ-bus">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -200,6 +200,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fkx-O1-6Oy">
                                                                 <rect key="frame" x="171" y="142" width="30" height="30"/>
                                                                 <state key="normal" title="버튼"/>
+                                                                <connections>
+                                                                    <action selector="goToDetailView:" destination="Jgf-yZ-bus" eventType="touchUpInside" id="mzV-QT-Hie"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRx-HB-O7P">
                                                                 <rect key="frame" x="87.5" y="48" width="42" height="21"/>
@@ -359,6 +362,9 @@
                                             <constraint firstAttribute="height" constant="40" id="WPQ-5w-Lp4"/>
                                         </constraints>
                                         <state key="normal" image="closeBtn"/>
+                                        <connections>
+                                            <action selector="closeThisView:" destination="GHa-fy-7zx" eventType="touchUpInside" id="nHb-Hk-IHh"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Po-Bc-Xzd">
                                         <rect key="frame" x="38.5" y="91.5" width="302.5" height="103.5"/>
@@ -427,7 +433,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="closeBtn" destination="x0p-wx-ntO" id="IR0-Mo-EFD"/>
+                        <outlet property="closeBtn" destination="x0p-wx-ntO" id="ZNc-D7-Q0F"/>
                         <outlet property="groupInfoBox" destination="9Po-Bc-Xzd" id="QuM-Cs-BxO"/>
                         <outlet property="groupInfoLabel" destination="X97-cs-Gfj" id="Zoy-Eb-L0B"/>
                         <outlet property="groupJoinBtn" destination="VAv-bE-CGL" id="FOg-dU-sV1"/>
@@ -441,10 +447,10 @@
             </objects>
             <point key="canvasLocation" x="994" y="27"/>
         </scene>
-        <!--View Controller-->
+        <!--GroupJoinVC-->
         <scene sceneID="1jN-jr-sab">
             <objects>
-                <viewController id="v8y-hC-PDe" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupJoinVC" title="GroupJoinVC" id="v8y-hC-PDe" customClass="GroupJoinVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R7Z-Ca-BRM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -459,6 +465,9 @@
                                             <constraint firstAttribute="width" secondItem="cwg-eR-okj" secondAttribute="height" multiplier="1:1" id="r6n-FD-KMx"/>
                                         </constraints>
                                         <state key="normal" image="closeBtn"/>
+                                        <connections>
+                                            <action selector="closeThisView:" destination="v8y-hC-PDe" eventType="touchUpInside" id="K87-p4-ndd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mR-Y0-pms">
                                         <rect key="frame" x="20.5" y="279" width="338" height="60"/>
@@ -496,6 +505,12 @@
                             <constraint firstItem="y83-kf-6g4" firstAttribute="width" secondItem="R7Z-Ca-BRM" secondAttribute="width" multiplier="343/375" id="bZe-ui-IHJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="closeBtn" destination="cwg-eR-okj" id="y0R-KV-Lxu"/>
+                        <outlet property="groupStatusLabel" destination="Vwi-Dy-NaY" id="W51-Do-RSS"/>
+                        <outlet property="okBtn" destination="2mR-Y0-pms" id="JOX-Xk-dgi"/>
+                        <outlet property="popUpBoxView" destination="y83-kf-6g4" id="isN-zr-H3i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPJ-eN-Obg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

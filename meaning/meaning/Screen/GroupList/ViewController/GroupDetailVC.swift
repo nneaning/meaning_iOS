@@ -8,7 +8,7 @@
 import UIKit
 
 class GroupDetailVC: ViewController {
-
+    
     @IBOutlet var popUpBox: UIView!
     
     @IBOutlet var groupNameLabel: UILabel!
@@ -21,6 +21,7 @@ class GroupDetailVC: ViewController {
     @IBOutlet var peopleNumberLabel: UILabel!
     @IBOutlet var groupJoinBtn: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setBox()
@@ -28,12 +29,17 @@ class GroupDetailVC: ViewController {
         setButton()
     }
     
-
+    @IBAction func closeThisView(_ sender: Any) {
+        //화면 닫기
+        self.presentingViewController?.dismiss(animated: true)
+    }
 }
+
 
 extension GroupDetailVC {
     
     func setBox() {
+        //uiView radius 설정
         popUpBox.layer.cornerRadius = 5.0
         
         groupInfoBox.layer.cornerRadius = 5.0
@@ -53,7 +59,7 @@ extension GroupDetailVC {
         groupInfoLabel.font = UIFont.notoRegular(size: 16)
         groupInfoLabel.textColor = UIColor.gray2
         groupNameLabel.lineSetting(kernValue: -0.48, lineSpacing: 10)
-
+        
         participantLabel.text = "참가 인원"
         participantLabel.font = UIFont.spoqaMedium(size: 14)
         participantLabel.textColor = UIColor.gray3

@@ -15,7 +15,7 @@ class GroupListVC: UIViewController {
     var groupTable: [GroupTable] = []
     
     var groupExist: Bool = false
-
+    
     lazy var refreshControl: UIRefreshControl = {
         
         let refreshControl = UIRefreshControl()
@@ -78,6 +78,18 @@ class GroupListVC: UIViewController {
             noGroupBoxView.isHidden = true
         }
         
+    }
+    
+    
+    @IBAction func goToDetailView(_ sender: Any) {
+        //detailView 로 이동
+        guard let groupDetailVC = self.storyboard?.instantiateViewController(identifier: "GroupDetailVC")
+                as? GroupDetailVC else {
+            return
+        }
+        groupDetailVC.modalPresentationStyle = .overCurrentContext
+        groupDetailVC.modalTransitionStyle = .crossDissolve
+        self.present(groupDetailVC, animated: true, completion: nil)
     }
     
 }
@@ -199,7 +211,7 @@ extension GroupListVC: UICollectionViewDelegateFlowLayout {
         //content 인셋 지정
         return UIEdgeInsets(top: 8, left: 17, bottom: 0, right: 0)
     }
-
+    
 }
 
 extension GroupListVC: UITableViewDataSource {
@@ -220,6 +232,17 @@ extension GroupListVC: UITableViewDataSource {
         
     }
     
+    func tableView(tableView: UITableView, didSelectRowAt:IndexPath, indexPath: IndexPath) {
+        
+//        let storyboard = UIStoryboard(name: "GroupDetailVC", bundle: nil)
+//        if indexPath.row == //index of that cell {
+//        let dvc = storyboard.instantiateViewController(identifier: "GroupDetailVC") as? GroupDetailVC {
+//        self.navigationController?.pushViewController(dvc, animated: true) }
+       
+    }
+    
     
 }
 
+
+   
