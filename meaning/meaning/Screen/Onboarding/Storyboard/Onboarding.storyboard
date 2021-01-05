@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XYJ-4U-sGs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X4c-mI-0dk">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -81,9 +81,79 @@
             </objects>
             <point key="canvasLocation" x="-749" y="-87"/>
         </scene>
+        <!--Onboarding TimeVC-->
+        <scene sceneID="MPj-Uy-PUD">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingTimeVC" id="X4c-mI-0dk" customClass="OnboardingTimeVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DoC-v1-cGz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meaningBg1Img" translatesAutoresizingMaskIntoConstraints="NO" id="WBz-fa-EpS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IkS-8A-BBB">
+                                <rect key="frame" x="1" y="65" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Zkp-wo-qqG"/>
+                                    <constraint firstAttribute="height" constant="40" id="ctd-w6-nCN"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="whiteBackBtn"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qJ-Sz-QfN">
+                                <rect key="frame" x="21" y="173" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJI-wO-Pcc">
+                                <rect key="frame" x="23" y="744" width="368" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gJI-wO-Pcc" secondAttribute="height" multiplier="333:60" id="jRG-SZ-JZQ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J8C-ge-6yw">
+                                <rect key="frame" x="0.0" y="280.5" width="414" height="18.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="omJ-k9-xC5"/>
+                        <color key="backgroundColor" red="0.075040034950000001" green="0.14227589960000001" blue="0.26263648270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="J8C-ge-6yw" firstAttribute="top" secondItem="3qJ-Sz-QfN" secondAttribute="bottom" constant="87" id="2an-Ft-f5p"/>
+                            <constraint firstAttribute="bottom" secondItem="WBz-fa-EpS" secondAttribute="bottom" id="3sb-u7-xAQ"/>
+                            <constraint firstItem="J8C-ge-6yw" firstAttribute="leading" secondItem="omJ-k9-xC5" secondAttribute="leading" id="7Rp-yA-6C8"/>
+                            <constraint firstAttribute="bottom" secondItem="gJI-wO-Pcc" secondAttribute="bottom" constant="86" id="9M1-gR-bJ8"/>
+                            <constraint firstItem="WBz-fa-EpS" firstAttribute="leading" secondItem="omJ-k9-xC5" secondAttribute="leading" id="Dre-JU-FxH"/>
+                            <constraint firstItem="3qJ-Sz-QfN" firstAttribute="top" secondItem="IkS-8A-BBB" secondAttribute="bottom" constant="68" id="JYN-P9-NO3"/>
+                            <constraint firstItem="gJI-wO-Pcc" firstAttribute="centerX" secondItem="DoC-v1-cGz" secondAttribute="centerX" id="Kc8-sb-i41"/>
+                            <constraint firstItem="WBz-fa-EpS" firstAttribute="top" secondItem="DoC-v1-cGz" secondAttribute="top" id="YQR-Ya-acU"/>
+                            <constraint firstItem="gJI-wO-Pcc" firstAttribute="width" secondItem="DoC-v1-cGz" secondAttribute="width" multiplier="333/375" id="Zwe-LC-B8A"/>
+                            <constraint firstItem="IkS-8A-BBB" firstAttribute="leading" secondItem="omJ-k9-xC5" secondAttribute="leading" constant="1" id="g0H-VL-frF"/>
+                            <constraint firstItem="omJ-k9-xC5" firstAttribute="trailing" secondItem="WBz-fa-EpS" secondAttribute="trailing" id="ga2-S3-aI4"/>
+                            <constraint firstItem="3qJ-Sz-QfN" firstAttribute="leading" secondItem="omJ-k9-xC5" secondAttribute="leading" constant="21" id="hRk-wQ-O1G"/>
+                            <constraint firstItem="J8C-ge-6yw" firstAttribute="centerX" secondItem="DoC-v1-cGz" secondAttribute="centerX" id="nGk-ui-jhj"/>
+                            <constraint firstItem="IkS-8A-BBB" firstAttribute="top" secondItem="omJ-k9-xC5" secondAttribute="top" constant="21" id="umT-FM-Tpw"/>
+                            <constraint firstItem="omJ-k9-xC5" firstAttribute="trailing" secondItem="J8C-ge-6yw" secondAttribute="trailing" id="viC-MT-GJh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="explainLabel" destination="3qJ-Sz-QfN" id="DhQ-9N-QY3"/>
+                        <outlet property="nextButton" destination="gJI-wO-Pcc" id="QgV-oo-wWl"/>
+                        <outlet property="timeTextField" destination="J8C-ge-6yw" id="JWS-Ai-CTD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YWq-uV-hjz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="175" y="-94"/>
+        </scene>
     </scenes>
     <resources>
         <image name="meaningBg1Img" width="375.5" height="812.5"/>
+        <image name="whiteBackBtn" width="40" height="40"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
