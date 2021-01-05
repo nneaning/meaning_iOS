@@ -11,7 +11,6 @@ class GroupJoinVC: ViewController {
     
     
     @IBOutlet var popUpBoxView: UIView!
-    @IBOutlet var closeBtn: UIButton!
     @IBOutlet var groupStatusLabel: UILabel!
     @IBOutlet var okBtn: UIButton!
     
@@ -21,18 +20,19 @@ class GroupJoinVC: ViewController {
         setButton()
     }
     
-    @IBAction func closeThisView(_ sender: Any) {
-        //화면 닫기
+
+    @IBAction func backToHome(_ sender: Any) {
+        //"네!"버튼 누를 때 화면 닫기
         self.presentingViewController?.dismiss(animated: true)
     }
-
 }
+
+
 
 extension GroupJoinVC {
 
     func setBox() {
         popUpBoxView.layer.cornerRadius = 5.0
-        
         groupStatusLabel.font = UIFont.spoqaMedium(size: 18)
         groupStatusLabel.textColor = UIColor.gray2
         groupStatusLabel.lineSetting(kernValue: -0.72,lineSpacing: 10)

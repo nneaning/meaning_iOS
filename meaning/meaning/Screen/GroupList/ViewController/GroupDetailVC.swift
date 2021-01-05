@@ -33,6 +33,17 @@ class GroupDetailVC: ViewController {
         //화면 닫기
         self.presentingViewController?.dismiss(animated: true)
     }
+    
+    
+    @IBAction func goToGroupJoin(_ sender: Any) {
+        guard let groupJoinVC = self.storyboard?.instantiateViewController(identifier: "GroupJoinVC")
+                as? GroupJoinVC else {
+            return
+        }
+        groupJoinVC.modalPresentationStyle = .overCurrentContext
+        groupJoinVC.modalTransitionStyle = .crossDissolve
+        self.present(groupJoinVC, animated: true, completion: nil)
+    }
 }
 
 
