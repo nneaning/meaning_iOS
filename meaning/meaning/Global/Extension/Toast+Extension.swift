@@ -7,6 +7,9 @@
 
 import UIKit
 
+// MARK: Toast Alert Extension
+
+// 사용법: showToast( "원하는 메시지 내용", UIFont.~ )
 
 extension UIViewController {
     

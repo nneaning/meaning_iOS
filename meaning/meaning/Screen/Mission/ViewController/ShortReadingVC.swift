@@ -37,11 +37,9 @@ class ShortReadingVC: UIViewController {
             self.showToast(message: "한줄평을 입력해주세요", font: UIFont.spoqaRegular(size: 16))
         } else if((bookTitleTextField.text?.isEmpty) != nil){
             self.showToast(message: "책 제목을 입력해주세요", font: UIFont.spoqaRegular(size: 16))
-        } else{
+        } else {
             // 다음 뷰로 넘어가기
         }
-        
-        
     }
     
     // MARK: Life Cycle Part
