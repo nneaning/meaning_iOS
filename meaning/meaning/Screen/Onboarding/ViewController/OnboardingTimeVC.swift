@@ -30,6 +30,7 @@ class OnboardingTimeVC: UIViewController {
         super.viewDidLoad()
         setView()
         setWakeDate()
+        createPickerView()
     }
     
 
@@ -99,5 +100,59 @@ extension OnboardingTimeVC {
             }
         }
     }
+    
+    func createPickerView() {
+        // timeTextField 클릭 시 나올 시간 선택 Pickerview 생성
+        let pickerView = UIPickerView()
+        pickerView.backgroundColor = .meaningWhite
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        timeTextField.inputView = pickerView
+        pickerView.selectRow(1, inComponent: 0, animated: false)
+        // pickerView 기본값은 오전 5시 00분
+    }
 
+}
+
+extension OnboardingTimeVC: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        // 시간, 분 -> 2개
+        return 2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        // 각자 갯수만큼 Componet를 표시한다
+        if component == 0 {
+            return hours.count
+        } else {
+            return minutes.count
+        }
+    }
+}
+
+extension OnboardingTimeVC: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if component == 0 { // 첫번째 칸에는 시간
+            return String(hours[row])
+        } else { // 두번째 칸에는 분
+            return String(minutes[row])
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if component == 0 {
+            // 시간 칸에서 고른것을 넣어준다
+            userHours = hours[row]
+        } else {
+            // 분 칸에서 고른것을 넣어준다
+            if minutes[row] != "00" {
+                userMinues = "\(minutes[row])"
+            } else {
+                // 정각이면 분은 표시하지 않는다
+                userMinues = nil
+            }
+        }
+        setTimeTextField()
+    }
 }
