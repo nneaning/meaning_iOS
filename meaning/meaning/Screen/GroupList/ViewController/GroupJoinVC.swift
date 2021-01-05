@@ -9,8 +9,6 @@ import UIKit
 
 class GroupJoinVC: ViewController {
     
-    var myGroupCount: Int?
-    
     @IBOutlet var popUpBoxView: UIView!
     @IBOutlet var groupStatusLabel: UILabel!
     @IBOutlet var okBtn: UIButton!
@@ -21,12 +19,12 @@ class GroupJoinVC: ViewController {
         setButton()
     }
     
+    @IBAction func backBtnDidTap(_ sender: Any) {
+        //이전뷰로 이동
+        self.dismiss(animated: true)
     
-    @IBAction func backToHome(_ sender: Any) {
-        //"네!"버튼 누를 때 화면 닫기
-        
-        
     }
+    
 }
 
 extension GroupJoinVC {
@@ -55,7 +53,6 @@ extension GroupJoinVC {
     @objc func packedGroup() {
         groupStatusLabel.text = "그룹 참가 가능 인원을 초과했어요."
     }
-    
     
     
     func setButton() {

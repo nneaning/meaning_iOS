@@ -67,6 +67,7 @@ class GroupListVC: UIViewController {
         groupCollectionView.dataSource = self
         
         GroupTableView.dataSource = self
+        GroupTableView.delegate = self
         
         //my group 유무에 따른 분기 처리
         if groupExist == false {
@@ -113,10 +114,12 @@ extension GroupListVC {
         noGroupLabel.text = "가입하신 그룹이 없네요!"
         noGroupLabel.font = UIFont.spoqaMedium(size: 15)
         noGroupLabel.textColor = UIColor.meaningNavy
+        noGroupLabel.lineSetting(kernValue: -0.6,lineSpacing: 10)
         
         welcomeLabel.text = "그룹에 가입하고 그룹원들과 함께 미라클 모닝을 맞이해봐요!"
         welcomeLabel.font = UIFont.spoqaRegular(size: 14)
         welcomeLabel.textColor = UIColor.gray3
+        welcomeLabel.lineSetting(kernValue: -0.56,lineSpacing: 10)
         
         myGroupBoxView.backgroundColor = UIColor.meaningLightblue
         
@@ -231,18 +234,19 @@ extension GroupListVC: UITableViewDataSource {
         return cell
         
     }
-    
-    func tableView(tableView: UITableView, didSelectRowAt:IndexPath, indexPath: IndexPath) {
-        
-//        let storyboard = UIStoryboard(name: "GroupDetailVC", bundle: nil)
-//        if indexPath.row == //index of that cell {
-//        let dvc = storyboard.instantiateViewController(identifier: "GroupDetailVC") as? GroupDetailVC {
-//        self.navigationController?.pushViewController(dvc, animated: true) }
-       
-    }
-    
-    
 }
 
 
-   
+extension GroupListVC: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let groupDetailVC = self.storyboard?.instantiateViewController(identifier: "GroupDetailVC")
+                as? GroupDetailVC else {
+            return
+        }
+        groupDetailVC.modalPresentationStyle = .overCurrentContext
+        groupDetailVC.modalTransitionStyle = .crossDissolve
+        self.present(groupDetailVC, animated: true, completion: nil)
+    }
+}

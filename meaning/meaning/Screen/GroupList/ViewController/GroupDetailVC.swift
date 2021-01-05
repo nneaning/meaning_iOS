@@ -9,6 +9,7 @@ import UIKit
 
 class GroupDetailVC: ViewController {
     
+    
     @IBOutlet var popUpBox: UIView!
     
     @IBOutlet var groupNameLabel: UILabel!
@@ -36,15 +37,25 @@ class GroupDetailVC: ViewController {
     
     
     @IBAction func goToGroupJoin(_ sender: Any) {
-        guard let groupJoinVC = self.storyboard?.instantiateViewController(identifier: "GroupJoinVC")
-                as? GroupJoinVC else {
-            return
-        }
-        groupJoinVC.modalPresentationStyle = .overCurrentContext
-        groupJoinVC.modalTransitionStyle = .crossDissolve
-        self.present(groupJoinVC, animated: true, completion: nil)
+        
+        weak var pvc = self.presentingViewController
+
+        self.dismiss(animated: true, completion: {
+            guard let groupJoinVC = self.storyboard?.instantiateViewController(identifier: "GroupJoinVC")
+                    as? GroupJoinVC else {
+                return
+            }
+            groupJoinVC.modalPresentationStyle = .overCurrentContext
+            groupJoinVC.modalTransitionStyle = .coverVertical
+            pvc?.present(groupJoinVC, animated: true, completion: nil)
+        })
+        
+//        groupJoinVC.modalPresentationStyle = .overCurrentContext
+//        groupJoinVC.modalTransitionStyle = .coverVertical
+//        self.present(groupJoinVC, animated: true, completion: nil)
     }
 }
+
 
 
 extension GroupDetailVC {

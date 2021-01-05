@@ -40,7 +40,6 @@ class GroupCell: UICollectionViewCell {
             enterBtn.setTitle("지금 참여하기 >", for: .normal)
             enterBtn.setTitleColor(UIColor.gray2, for: .normal)
             enterBtn.titleLabel!.font = UIFont.spoqaRegular(size: 12)
-            
         }
     }
 }
