@@ -28,10 +28,10 @@ class DailyDiaryVC: UIViewController {
     // MARK: IBAction
     
     @IBAction func registerBtnPressed(_ sender: UIButton) {
-        if(bodyTextView.text.isEmpty || bodyTextView.text == placeholderPhrase){
+        if (bodyTextView.text.isEmpty || bodyTextView.text == placeholderPhrase) {
             self.showToast(message: "내용을 입력해주세요", font: UIFont.spoqaRegular(size: 16))
-        }else{
-            
+        } else {
+        // nothing happens
         }
     }
     
@@ -121,14 +121,14 @@ extension DailyDiaryVC: UITextViewDelegate {
 extension UIViewController {
     
     // MARK: Function
-
+    
     func showToast(message : String, font: UIFont) {
         let guide = view.safeAreaInsets.bottom
         let height = self.view.frame.size.height-guide
         
         let toastLabel = UILabel(
             frame: CGRect( x: self.view.frame.size.width/2 - 83,
-                           y: height-(height*(181/height)),
+                           y: height-181,
                            width: 166,
                            height: 29
             )
@@ -137,10 +137,10 @@ extension UIViewController {
         toastLabel.backgroundColor = UIColor.gray4
         toastLabel.textColor = UIColor.gray6
         toastLabel.font = font
-        toastLabel.textAlignment = .center;
+        toastLabel.textAlignment = .center
         toastLabel.text = message
         toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 6;
+        toastLabel.layer.cornerRadius = 6
         toastLabel.clipsToBounds  =  true
         self.view.addSubview(toastLabel)
         UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
