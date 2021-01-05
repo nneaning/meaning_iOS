@@ -29,6 +29,7 @@ class OnboardingTimeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
+        setWakeDate()
     }
     
 
@@ -83,6 +84,19 @@ extension OnboardingTimeVC {
             attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: UIFont.spoqaMedium(size: 28), range: (text as NSString).range(of: wakeupTime))
             
             timeTextField.attributedText = attributedStr
+        }
+    }
+    
+    func setWakeDate() {
+        // 기상시간 선택 폭 만들기 (4시~8시)
+        hours = Array(4...8)
+        minutes = Array(0...59).compactMap {
+            if $0 < 10 { // 한자리수는 앞에 0을 붙여줌 (1분->01분)
+                return "0\($0)"
+            }
+            else {
+                return "\($0)"
+            }
         }
     }
 
