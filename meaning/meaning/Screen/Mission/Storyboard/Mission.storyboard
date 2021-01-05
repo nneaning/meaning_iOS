@@ -200,6 +200,9 @@
                                     <constraint firstAttribute="width" secondItem="otn-Vk-1TK" secondAttribute="height" multiplier="343:60" id="hLB-Cc-C6S"/>
                                 </constraints>
                                 <state key="normal" title="다 읽었어요"/>
+                                <connections>
+                                    <action selector="registerBtnPressed:" destination="72L-w0-AXE" eventType="touchUpInside" id="YYU-Jd-apP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WvU-t3-Hkf"/>
@@ -213,7 +216,7 @@
                             <constraint firstItem="otn-Vk-1TK" firstAttribute="leading" secondItem="WvU-t3-Hkf" secondAttribute="leading" constant="16" id="ZTb-Ii-Z1z"/>
                             <constraint firstItem="WvU-t3-Hkf" firstAttribute="bottom" secondItem="otn-Vk-1TK" secondAttribute="bottom" constant="77" id="ZVP-Fh-ElW"/>
                             <constraint firstItem="WvU-t3-Hkf" firstAttribute="trailing" secondItem="otn-Vk-1TK" secondAttribute="trailing" constant="16" id="bLA-Ka-f8T"/>
-                            <constraint firstItem="9ks-lZ-wwV" firstAttribute="top" secondItem="Pcs-4G-CyF" secondAttribute="top" constant="64" id="dud-5P-bf3"/>
+                            <constraint firstItem="9ks-lZ-wwV" firstAttribute="top" secondItem="WvU-t3-Hkf" secondAttribute="top" constant="20" id="dud-5P-bf3"/>
                             <constraint firstItem="WvU-t3-Hkf" firstAttribute="trailing" secondItem="xPf-UE-AhD" secondAttribute="trailing" constant="19" id="hZM-ux-cdc"/>
                             <constraint firstItem="otn-Vk-1TK" firstAttribute="width" secondItem="otn-Vk-1TK" secondAttribute="height" multiplier="343:60" id="llq-Q1-5Pf"/>
                             <constraint firstItem="xPf-UE-AhD" firstAttribute="top" secondItem="QaU-dY-0hA" secondAttribute="bottom" constant="9" id="nxM-fX-5Fa"/>
@@ -235,6 +238,49 @@
             </objects>
             <point key="canvasLocation" x="-62.318840579710148" y="122.54464285714285"/>
         </scene>
+        <!--DailyDiaryAlertVC-->
+        <scene sceneID="o9I-mR-ttG">
+            <objects>
+                <viewController storyboardIdentifier="DailyDiaryAlertVC" title="DailyDiaryAlertVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XgK-Ic-xjb" customClass="DailyDiaryAlertVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CEp-1M-hoz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1W-PP-JPL">
+                                <rect key="frame" x="105.5" y="672.5" width="203" height="35.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxS-X0-Lsu">
+                                        <rect key="frame" x="80.5" y="7.5" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstItem="cxS-X0-Lsu" firstAttribute="centerY" secondItem="c1W-PP-JPL" secondAttribute="centerY" id="5kZ-rk-SyH"/>
+                                    <constraint firstAttribute="width" secondItem="c1W-PP-JPL" secondAttribute="height" multiplier="166:29" id="eaD-ni-Epu"/>
+                                    <constraint firstItem="cxS-X0-Lsu" firstAttribute="centerX" secondItem="c1W-PP-JPL" secondAttribute="centerX" id="ynZ-ko-B47"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IXK-qV-Zxy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="c1W-PP-JPL" firstAttribute="leading" secondItem="IXK-qV-Zxy" secondAttribute="leading" constant="105.5" id="8bt-Sm-gQg"/>
+                            <constraint firstItem="IXK-qV-Zxy" firstAttribute="trailing" secondItem="c1W-PP-JPL" secondAttribute="trailing" constant="105.5" id="COJ-Y7-8I9"/>
+                            <constraint firstItem="IXK-qV-Zxy" firstAttribute="bottom" secondItem="c1W-PP-JPL" secondAttribute="bottom" constant="154" id="b1p-fD-N7D"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="alertLabel" destination="cxS-X0-Lsu" id="EP4-Hj-nx7"/>
+                        <outlet property="alertView" destination="c1W-PP-JPL" id="Lbu-fj-JQF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UsN-tl-k5Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="745" y="123"/>
+        </scene>
     </scenes>
     <resources>
         <image name="backBtn" width="40" height="40"/>
@@ -243,6 +289,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
