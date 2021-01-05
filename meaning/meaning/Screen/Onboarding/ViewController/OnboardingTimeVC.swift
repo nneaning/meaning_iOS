@@ -11,8 +11,8 @@ class OnboardingTimeVC: UIViewController {
 
     // MARK: Variable Part
     
-    var userNick: String = "(이름)"
-    var wakeupTime: String = "오전 5시"
+    var userNick: String = "이름"
+    var wakeupTime: String?
     var hours: [Int] = []
     var minutes: [String] = []
     var userHours: Int = 5
@@ -30,6 +30,7 @@ class OnboardingTimeVC: UIViewController {
         super.viewDidLoad()
         setView()
         setWakeDate()
+        createPickerView()
     }
     
 
@@ -41,7 +42,7 @@ extension OnboardingTimeVC {
     
     func setView() {
         // 뷰 Style Setting
-        explainLabel.text = "\(userNick) 님의\n목표 기상시간을 알려주세요.\n하루를 길게 쓸 수 있게\n도와 드릴게요!"
+        explainLabel.text = "\(userNick)님의\n목표 기상시간을 알려주세요.\n하루를 길게 쓸 수 있게\n도와 드릴게요!"
         explainLabel.numberOfLines = 0
         explainLabel.font = UIFont.spoqaLight(size: 22)
         explainLabel.textColor = .meaningWhite
@@ -70,20 +71,22 @@ extension OnboardingTimeVC {
     
     func setTimeTextField() {
         // timeTextField Sytle Setting
-        if let rightMinutes = userMinues {
-            wakeupTime = "오전 \(userHours)시 \(rightMinutes)분"
+        if let userMinues = userMinues {
+            wakeupTime = "오전 \(userHours)시 \(userMinues)분"
         } else {
             wakeupTime = "오전 \(userHours)시"
         }
         
-        timeTextField.text = "\(wakeupTime)에 일어날래요."
-        if let text = timeTextField.text {
-            // 시간에만 밑줄과 폰트 굵게 설정
-            let attributedStr = NSMutableAttributedString(string: text)
-            attributedStr.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.thick.rawValue,  range: (text as NSString).range(of: wakeupTime))
-            attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: UIFont.spoqaMedium(size: 28), range: (text as NSString).range(of: wakeupTime))
-            
-            timeTextField.attributedText = attributedStr
+        if let wakeupTime = wakeupTime {
+            timeTextField.text = "\(wakeupTime)에 일어날래요."
+            if let text = timeTextField.text {
+                // 시간에만 밑줄과 폰트 굵게 설정
+                let attributedStr = NSMutableAttributedString(string: text)
+                attributedStr.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.thick.rawValue,  range: (text as NSString).range(of: wakeupTime))
+                attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: UIFont.spoqaMedium(size: 28), range: (text as NSString).range(of: wakeupTime))
+                
+                timeTextField.attributedText = attributedStr
+            }
         }
     }
     
@@ -99,5 +102,65 @@ extension OnboardingTimeVC {
             }
         }
     }
+    
+    func createPickerView() {
+        // timeTextField 클릭 시 나올 시간 선택 Pickerview 생성
+        let pickerView = UIPickerView()
+        pickerView.backgroundColor = .meaningWhite
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        timeTextField.inputView = pickerView
+        pickerView.selectRow(1, inComponent: 0, animated: false)
+        // pickerView 기본값은 오전 5시 00분
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // 뷰 클릭 시 toolbar 내리기
+        setTimeTextField()
+        view.endEditing(true)
+    }
 
+}
+
+extension OnboardingTimeVC: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        // 시간, 분 -> 2개
+        return 2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        // 각자 갯수만큼 Componet를 표시한다
+        if component == 0 {
+            return hours.count
+        } else {
+            return minutes.count
+        }
+    }
+}
+
+extension OnboardingTimeVC: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if component == 0 { // 첫번째 칸에는 시간
+            return String(hours[row])
+        } else { // 두번째 칸에는 분
+            return String(minutes[row])
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if component == 0 {
+            // 시간 칸에서 고른것을 넣어준다
+            userHours = hours[row]
+        } else {
+            // 분 칸에서 고른것을 넣어준다
+            if minutes[row] != "00" {
+                userMinues = "\(minutes[row])"
+            } else {
+                // 정각이면 분은 표시하지 않는다
+                userMinues = nil
+            }
+        }
+        setTimeTextField()
+    }
 }
