@@ -9,7 +9,7 @@ import UIKit
 
 class GroupDetailVC: ViewController {
     
-    
+    // MARK: - IBOutlet
     @IBOutlet var popUpBox: UIView!
     
     @IBOutlet var groupNameLabel: UILabel!
@@ -22,6 +22,7 @@ class GroupDetailVC: ViewController {
     @IBOutlet var peopleNumberLabel: UILabel!
     @IBOutlet var groupJoinBtn: UIButton!
     
+    // MARK: - Life Cycle Part
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +31,16 @@ class GroupDetailVC: ViewController {
         setButton()
     }
     
+    // MARK: - IBAction
+    
     @IBAction func closeThisView(_ sender: Any) {
-        //화면 닫기
+        //현재 view 닫기
         self.presentingViewController?.dismiss(animated: true)
     }
     
     
     @IBAction func goToGroupJoin(_ sender: Any) {
-        
+        //현재 View 닫은 후 그룹조인뷰로 이동
         weak var pvc = self.presentingViewController
 
         self.dismiss(animated: true, completion: {
@@ -47,16 +50,14 @@ class GroupDetailVC: ViewController {
             }
             groupJoinVC.modalPresentationStyle = .overCurrentContext
             groupJoinVC.modalTransitionStyle = .coverVertical
+            
             pvc?.present(groupJoinVC, animated: true, completion: nil)
         })
-        
-//        groupJoinVC.modalPresentationStyle = .overCurrentContext
-//        groupJoinVC.modalTransitionStyle = .coverVertical
-//        self.present(groupJoinVC, animated: true, completion: nil)
     }
 }
 
 
+// MARK: - Extension
 
 extension GroupDetailVC {
     
@@ -91,7 +92,7 @@ extension GroupDetailVC {
         peopleNumberLabel.font = UIFont.spoqaMedium(size: 14)
         peopleNumberLabel.textColor = UIColor.meaningNavy
         
-        // 앞에 숫자 부분에만 색상 다르게 설정
+        //앞에 숫자 부분에만 색상 다르게 설정
         if let text = peopleNumberLabel.text {
             let attributedStr = NSMutableAttributedString(string: peopleNumberLabel.text ?? "")
             attributedStr.addAttribute(.foregroundColor, value: UIColor.skyBlue, range: (peopleNumberLabel.text! as NSString).range(of: "2"))

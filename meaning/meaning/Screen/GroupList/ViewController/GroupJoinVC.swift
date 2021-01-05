@@ -9,9 +9,13 @@ import UIKit
 
 class GroupJoinVC: ViewController {
     
+    // MARK: - IBOutlet
+    
     @IBOutlet var popUpBoxView: UIView!
     @IBOutlet var groupStatusLabel: UILabel!
     @IBOutlet var okBtn: UIButton!
+    
+    // MARK: - Life Cycle Part
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,23 +23,29 @@ class GroupJoinVC: ViewController {
         setButton()
     }
     
+    // MARK: - IBAction
+    
     @IBAction func backBtnDidTap(_ sender: Any) {
         //이전뷰로 이동
         self.dismiss(animated: true)
-    
     }
     
 }
 
+    // MARK: - Extension
+
 extension GroupJoinVC {
     
     func setBox() {
+        //uiView 레이아웃 설정
         popUpBoxView.layer.cornerRadius = 5.0
         
+        //그룹 상태 라벨 폰트, 색상 설정
         groupStatusLabel.font = UIFont.spoqaMedium(size: 18)
         groupStatusLabel.textColor = UIColor.gray2
         groupStatusLabel.lineSetting(kernValue: -0.72,lineSpacing: 10)
         
+        //그룹 상태에 따른 groupStatusLabel
         NotificationCenter.default.addObserver(self, selector: #selector(enterGroup), name: NSNotification.Name(rawValue: "enteenterGroupredRoom"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(alreadyGroup), name: NSNotification.Name(rawValue: "alreadyGroup"), object: nil)
