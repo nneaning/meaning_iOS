@@ -121,7 +121,7 @@
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="omJ-k9-xC5"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.075040034950000001" green="0.14227589960000001" blue="0.26263648270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="J8C-ge-6yw" firstAttribute="top" secondItem="3qJ-Sz-QfN" secondAttribute="bottom" constant="87" id="2an-Ft-f5p"/>
                             <constraint firstAttribute="bottom" secondItem="WBz-fa-EpS" secondAttribute="bottom" id="3sb-u7-xAQ"/>

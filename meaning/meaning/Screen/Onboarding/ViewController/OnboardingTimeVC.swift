@@ -13,6 +13,10 @@ class OnboardingTimeVC: UIViewController {
     
     var userNick: String = "(이름)"
     var wakeupTime: String = "오전 5시"
+    var hours: [Int] = []
+    var minutes: [String] = []
+    var userHours: Int = 5
+    var userMinues: String?
     
     // MARK: IBOutlet
     
@@ -25,7 +29,6 @@ class OnboardingTimeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
-        // Do any additional setup after loading the view.
     }
     
 
@@ -51,21 +54,11 @@ extension OnboardingTimeVC {
 
             explainLabel.attributedText = attributedStr
         }
-        
-        
-        timeTextField.text = "\(wakeupTime)에 일어날래요."
+    
         timeTextField.textColor = UIColor.meaningWhite
         timeTextField.font = UIFont.spoqaLight(size: 28)
-        
-        if let text = timeTextField.text {
-            // 시간에만 밑줄과 폰트 굵게 설정
-            let attributedStr = NSMutableAttributedString(string: text)
-            attributedStr.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.thick.rawValue,  range: (text as NSString).range(of: wakeupTime))
-            attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: UIFont.spoqaMedium(size: 28), range: (text as NSString).range(of: wakeupTime))
-            
-            timeTextField.attributedText = attributedStr
-
-        }
+        timeTextField.tintColor = .clear
+        setTimeTextField()
 
         nextButton.backgroundColor = .meaningIvory
         nextButton.setTitle("다음으로 넘어가기", for: .normal)
@@ -73,4 +66,24 @@ extension OnboardingTimeVC {
         nextButton.setTitleColor(.meaningNavy, for: .normal)
         nextButton.makeRounded(cornerRadius: 6)
     }
+    
+    func setTimeTextField() {
+        // timeTextField Sytle Setting
+        if let rightMinutes = userMinues {
+            wakeupTime = "오전 \(userHours)시 \(rightMinutes)분"
+        } else {
+            wakeupTime = "오전 \(userHours)시"
+        }
+        
+        timeTextField.text = "\(wakeupTime)에 일어날래요."
+        if let text = timeTextField.text {
+            // 시간에만 밑줄과 폰트 굵게 설정
+            let attributedStr = NSMutableAttributedString(string: text)
+            attributedStr.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.thick.rawValue,  range: (text as NSString).range(of: wakeupTime))
+            attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: UIFont.spoqaMedium(size: 28), range: (text as NSString).range(of: wakeupTime))
+            
+            timeTextField.attributedText = attributedStr
+        }
+    }
+
 }
