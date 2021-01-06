@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>&quot;meaning&quot;은 당신의 미라클 모닝을 갤러리에 저장합니다.</string>
+	<string>사진첩 접근 권한을 승인하지 않으면 당신의 미라클 모닝을 기록할 수 없어요! &apos;확인&apos;을 꼭 눌러주세요!</string>
 	<key>NSCameraUsageDescription</key>
 	<string>&quot;meaning&quot;은 당신의 미라클 모닝을 기록하기 위해 카메라를 사용합니다.</string>
 	<key>CFBundleDevelopmentRegion</key>
