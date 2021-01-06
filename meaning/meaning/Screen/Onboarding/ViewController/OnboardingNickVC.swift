@@ -15,6 +15,23 @@ class OnboardingNickVC: UIViewController {
     @IBOutlet weak var nickTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
+    // MARK: IBAction
+    
+    @IBAction func nextButtonDidTap(_ sender: Any) {
+        // 다음 뷰로 연결
+        guard let timeVC = self.storyboard?.instantiateViewController(identifier: "OnboardingTimeVC") as? OnboardingTimeVC else {
+            return
+        }
+        
+        // 닉네임값 넘겨주기
+        if let nick = nickTextField.text {
+            timeVC.userNick = nick
+        }
+        
+        self.navigationController?.pushViewController(timeVC, animated: true)
+    }
+    
+    
     // MARK: Life Cycle Part
     
     override func viewDidLoad() {
@@ -47,6 +64,7 @@ extension OnboardingNickVC {
         
         nickTextField.font = UIFont.spoqaRegular(size: 22)
         nickTextField.textColor = .meaningWhite
+        nickTextField.delegate = self
         
         nextButton.backgroundColor = .meaningIvory
         nextButton.titleLabel?.font = UIFont.spoqaMedium(size: 16)
@@ -56,7 +74,34 @@ extension OnboardingNickVC {
         nextButton.setTitleColor(.gray4, for: .normal)
         nextButton.isEnabled = false
         // 닉네임이 설정 안되었을 때는 넘어가기 불가
-       
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // 뷰 클릭 시 키보드 내리기
+        view.endEditing(true)
+    }
+}
+
+extension OnboardingNickVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // 키보드 리턴키 클릭 시 키보드 내려가기
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        // 텍스트필드 수정이 끝나면 검사하는 코드
+        if textField.text?.count != 0 {
+            // textfield가 비어있지 않을 때
+            nextButton.isEnabled = true
+            nextButton.setTitleColor(.meaningNavy, for: .normal)
+            
+        } else {
+            // textfield가 비어있을 때
+            nextButton.isEnabled = false
+            nextButton.setTitleColor(.gray4, for: .normal)
+        }
     }
 }
