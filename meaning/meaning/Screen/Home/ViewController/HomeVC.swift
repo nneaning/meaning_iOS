@@ -41,3 +41,20 @@ extension HomeVC {
         cardList = [mission1,mission2,mission3,mission4]
     }
 }
+
+extension HomeVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return cardList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let missionCardCell = collectionView.dequeueReusableCell(withReuseIdentifier: MissionCardCell.identifier, for: indexPath) as? MissionCardCell else {
+            return UICollectionViewCell()
+        }
+        missionCardCell.setCard(cardList[indexPath.row])
+        return missionCardCell
+    }
+    
+    
+}
