@@ -70,6 +70,7 @@
 		9EE0139125A4383300A2CB9A /* ShortReadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0139025A4383300A2CB9A /* ShortReadingVC.swift */; };
 		9EE0139925A4774700A2CB9A /* Toast+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0139825A4774700A2CB9A /* Toast+Extension.swift */; };
 		9EE0139C25A47B3A00A2CB9A /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0139B25A47B3A00A2CB9A /* UITextField+Extension.swift */; };
+		9EE013A725A4EAC000A2CB9A /* PictureUploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE013A625A4EAC000A2CB9A /* PictureUploadVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,6 +138,7 @@
 		9EE0139025A4383300A2CB9A /* ShortReadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortReadingVC.swift; sourceTree = "<group>"; };
 		9EE0139825A4774700A2CB9A /* Toast+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toast+Extension.swift"; sourceTree = "<group>"; };
 		9EE0139B25A47B3A00A2CB9A /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		9EE013A625A4EAC000A2CB9A /* PictureUploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureUploadVC.swift; sourceTree = "<group>"; };
 		B844C2BA9B913FD6701F17AE /* Pods-meaning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.debug.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.debug.xcconfig"; sourceTree = "<group>"; };
 		E87AC0016D83A60227B184E6 /* Pods_meaning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_meaning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9590DE5BB2516CE3A84BEAD /* Pods-meaning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meaning.release.xcconfig"; path = "Target Support Files/Pods-meaning/Pods-meaning.release.xcconfig"; sourceTree = "<group>"; };
@@ -519,6 +521,7 @@
 				9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */,
 				9EB5CD0625A17DC90070CD58 /* DailyDiaryVC.swift */,
 				9EE0139025A4383300A2CB9A /* ShortReadingVC.swift */,
+				9EE013A625A4EAC000A2CB9A /* PictureUploadVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				9B2BA220259FAA4A000EF4AA /* UIColor+Extension.swift in Sources */,
 				9B2BA22325A0B9EA000EF4AA /* TimeStampVC.swift in Sources */,
 				9B2BA1D3259F71DD000EF4AA /* UIImage+Extension.swift in Sources */,
+				9EE013A725A4EAC000A2CB9A /* PictureUploadVC.swift in Sources */,
 				9B2BA1E5259F74BE000EF4AA /* NetworkResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
