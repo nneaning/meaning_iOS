@@ -65,7 +65,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FBE-m5-KUg">
-                                <rect key="frame" x="20" y="237" width="394" height="556"/>
+                                <rect key="frame" x="20" y="237" width="394" height="566"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fLB-Tw-9me">
                                     <size key="itemSize" width="364" height="467"/>
@@ -75,7 +75,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MissionCardCell" reuseIdentifier="MissionCardCell" id="egL-KG-R5d" customClass="MissionCardCell" customModule="meaning" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="364" height="467"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="364" height="467"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dGq-3k-fkA">
                                             <rect key="frame" x="0.0" y="0.0" width="364" height="467"/>
@@ -98,10 +98,10 @@
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VCt-uU-fRh">
-                                                    <rect key="frame" x="150" y="121" width="64" height="64"/>
+                                                    <rect key="frame" x="160" y="141" width="44" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRq-K3-JVw">
-                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -114,6 +114,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="MRq-K3-JVw" secondAttribute="bottom" id="TfK-2p-Xew"/>
                                                         <constraint firstAttribute="width" secondItem="VCt-uU-fRh" secondAttribute="height" multiplier="1:1" id="jpA-VY-TlM"/>
                                                         <constraint firstItem="MRq-K3-JVw" firstAttribute="leading" secondItem="VCt-uU-fRh" secondAttribute="leading" id="tAM-fj-lCW"/>
+                                                        <constraint firstAttribute="width" constant="44" id="xVm-8T-Bbu"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -124,7 +125,6 @@
                                                 <constraint firstItem="VaK-JY-oUv" firstAttribute="top" secondItem="dGq-3k-fkA" secondAttribute="top" id="C3S-Bd-XcV"/>
                                                 <constraint firstAttribute="bottom" secondItem="VaK-JY-oUv" secondAttribute="bottom" id="EhF-MT-qNY"/>
                                                 <constraint firstItem="Owj-Ax-QDT" firstAttribute="top" secondItem="VCt-uU-fRh" secondAttribute="bottom" constant="30" id="F0v-hO-od8"/>
-                                                <constraint firstItem="VCt-uU-fRh" firstAttribute="width" secondItem="VaK-JY-oUv" secondAttribute="width" multiplier="44/250" id="VOY-ao-ZIT"/>
                                                 <constraint firstAttribute="bottom" secondItem="byr-Z1-gjk" secondAttribute="bottom" constant="31" id="Zdh-7l-Uge"/>
                                                 <constraint firstAttribute="trailing" secondItem="byr-Z1-gjk" secondAttribute="trailing" constant="15" id="e4m-fO-6Ri"/>
                                                 <constraint firstItem="VCt-uU-fRh" firstAttribute="centerX" secondItem="dGq-3k-fkA" secondAttribute="centerX" id="fH0-GP-8JQ"/>
@@ -136,6 +136,7 @@
                                             <outlet property="cardImage" destination="VaK-JY-oUv" id="GmP-da-WNS"/>
                                             <outlet property="circleView" destination="VCt-uU-fRh" id="ciH-AB-FR9"/>
                                             <outlet property="indexLabel" destination="MRq-K3-JVw" id="Ucd-DC-oGq"/>
+                                            <outlet property="mentCenter" destination="Bge-po-nC0" id="8Me-GX-cLT"/>
                                             <outlet property="mentLabel" destination="Owj-Ax-QDT" id="Q1d-Xa-QdK"/>
                                         </connections>
                                     </collectionViewCell>
@@ -149,7 +150,7 @@
                             <constraint firstItem="Mj5-pM-PJo" firstAttribute="trailing" secondItem="ZqM-Ev-SsX" secondAttribute="trailing" id="4q9-jT-yh0"/>
                             <constraint firstItem="Mj5-pM-PJo" firstAttribute="trailing" secondItem="hD0-JA-uCW" secondAttribute="trailing" id="Afj-YX-F3n"/>
                             <constraint firstItem="kcf-fI-rZf" firstAttribute="top" secondItem="6cI-5K-QXF" secondAttribute="bottom" constant="16" id="IF3-jt-iry"/>
-                            <constraint firstItem="ZqM-Ev-SsX" firstAttribute="top" secondItem="FBE-m5-KUg" secondAttribute="bottom" constant="54" id="KZH-JG-hQO"/>
+                            <constraint firstItem="ZqM-Ev-SsX" firstAttribute="top" secondItem="FBE-m5-KUg" secondAttribute="bottom" constant="44" id="KZH-JG-hQO"/>
                             <constraint firstItem="6cI-5K-QXF" firstAttribute="top" secondItem="hD0-JA-uCW" secondAttribute="bottom" constant="24" id="TyL-Hq-g8m"/>
                             <constraint firstItem="hD0-JA-uCW" firstAttribute="leading" secondItem="Mj5-pM-PJo" secondAttribute="leading" id="VOa-o0-tID"/>
                             <constraint firstItem="ZqM-Ev-SsX" firstAttribute="leading" secondItem="Mj5-pM-PJo" secondAttribute="leading" id="War-1T-IRj"/>
@@ -163,6 +164,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="9rW-tZ-C61"/>
                     <connections>
+                        <outlet property="bottomToCollectionView" destination="KZH-JG-hQO" id="G6A-fq-8Xv"/>
                         <outlet property="dateButton" destination="6cI-5K-QXF" id="OtR-yk-hC7"/>
                         <outlet property="explainLabel" destination="kcf-fI-rZf" id="svH-iL-ZKF"/>
                         <outlet property="missonCardCollectionView" destination="FBE-m5-KUg" id="uK9-ix-V0B"/>
