@@ -9,8 +9,12 @@ import UIKit
 
 struct MissionCard {
     var missionImage: UIImage?
+    var missionIndex: Int
+    var missonMent: String
     
-    init(imageName: String) {
+    init(index: Int, ment: String, imageName: String) {
+        self.missionIndex = index
+        self.missonMent = ment
         self.missionImage = UIImage(named: imageName)
     }
 }
