@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "biArrowRightShort.png"
+      "idiom" : "universal",
+      "filename" : "homeCard4.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "biArrowRightShort@2x.png",
+      "filename" : "homeCard4@2x.png",
       "scale" : "2x"
     },
     {
-      "filename" : "biArrowRightShort@3x.png",
+      "scale" : "3x",
       "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "homeCard4@3x.png"
     }
   ],
   "info" : {
