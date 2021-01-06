@@ -49,6 +49,8 @@ extension HomeVC {
 
             explainLabel.attributedText = attributedStr
         }
+        explainLabel.lineSetting(kernValue: -0.88, lineSpacing: 10)
+        explainLabel.textAlignment = .left
         
         dateButton.isEnabled = false
         dateButton.makeRounded(cornerRadius: 15)
@@ -56,7 +58,6 @@ extension HomeVC {
         dateButton.layer.borderWidth = 1
         dateButton.setTitle(Date().datePickerToString().recordDate(), for: .normal)
         dateButton.titleLabel?.font = UIFont.spoqaRegular(size: 14)
-        dateButton.titleLabel?.lineSetting(kernValue: -0.88, lineSpacing: 20)
         dateButton.setTitleColor(.meaningNavy, for: .normal)
         
     }
