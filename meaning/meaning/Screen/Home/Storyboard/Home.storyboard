@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hD0-JA-uCW">
-                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="60" width="414" height="50"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoImg" translatesAutoresizingMaskIntoConstraints="NO" id="xXJ-Qg-6a8">
                                         <rect key="frame" x="24" y="12" width="110.5" height="26.5"/>
@@ -44,11 +44,11 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cI-5K-QXF">
-                                <rect key="frame" x="20" y="118" width="46" height="30"/>
+                                <rect key="frame" x="20" y="134" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcf-fI-rZf">
-                                <rect key="frame" x="20" y="164" width="42" height="21"/>
+                                <rect key="frame" x="20" y="180" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -61,7 +61,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FBE-m5-KUg">
-                                <rect key="frame" x="20" y="217" width="394" height="576"/>
+                                <rect key="frame" x="20" y="233" width="394" height="560"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fLB-Tw-9me">
                                     <size key="itemSize" width="364" height="467"/>
@@ -71,7 +71,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MissonCardCell" id="egL-KG-R5d">
-                                        <rect key="frame" x="0.0" y="54.5" width="364" height="467"/>
+                                        <rect key="frame" x="0.0" y="46.5" width="364" height="467"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dGq-3k-fkA">
                                             <rect key="frame" x="0.0" y="0.0" width="364" height="467"/>
@@ -104,7 +104,7 @@
                             <constraint firstItem="6cI-5K-QXF" firstAttribute="top" secondItem="hD0-JA-uCW" secondAttribute="bottom" constant="24" id="TyL-Hq-g8m"/>
                             <constraint firstItem="hD0-JA-uCW" firstAttribute="leading" secondItem="Mj5-pM-PJo" secondAttribute="leading" id="VOa-o0-tID"/>
                             <constraint firstItem="ZqM-Ev-SsX" firstAttribute="leading" secondItem="Mj5-pM-PJo" secondAttribute="leading" id="War-1T-IRj"/>
-                            <constraint firstItem="hD0-JA-uCW" firstAttribute="top" secondItem="Mj5-pM-PJo" secondAttribute="top" id="YHs-CE-x2z"/>
+                            <constraint firstItem="hD0-JA-uCW" firstAttribute="top" secondItem="Mj5-pM-PJo" secondAttribute="top" constant="16" id="YHs-CE-x2z"/>
                             <constraint firstItem="FBE-m5-KUg" firstAttribute="top" secondItem="kcf-fI-rZf" secondAttribute="bottom" constant="32" id="cAI-pi-a86"/>
                             <constraint firstItem="6cI-5K-QXF" firstAttribute="leading" secondItem="Mj5-pM-PJo" secondAttribute="leading" constant="20" id="l2T-ku-PMt"/>
                             <constraint firstItem="FBE-m5-KUg" firstAttribute="leading" secondItem="kcf-fI-rZf" secondAttribute="leading" id="rnA-xU-aqq"/>
@@ -113,6 +113,11 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="9rW-tZ-C61"/>
+                    <connections>
+                        <outlet property="dateButton" destination="6cI-5K-QXF" id="OtR-yk-hC7"/>
+                        <outlet property="explainLabel" destination="kcf-fI-rZf" id="svH-iL-ZKF"/>
+                        <outlet property="missonCardCollectionView" destination="FBE-m5-KUg" id="uK9-ix-V0B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esb-7m-CpP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
