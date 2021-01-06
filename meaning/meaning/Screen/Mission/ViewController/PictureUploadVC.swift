@@ -13,7 +13,8 @@ class PictureUploadVC: UIViewController {
 
     var userNick: String = "이름"
     var nthMorning: Int = 22
-    
+    var uploadedImageData: UIImage?
+
     // Mark: IBOutlet
 
     @IBOutlet var headerView: UIView!
@@ -48,15 +49,17 @@ class PictureUploadVC: UIViewController {
         self.bodyUpperLabel.lineSetting(kernValue: -0.72, lineSpacing: 5)
         
         self.uploadedImage.setRounded(radius: 6)
+        self.uploadedImage.image = uploadedImageData
         
         self.bodyBottomLabel.font = UIFont.notoRegular(size: 16.0)
         self.bodyBottomLabel.textColor = UIColor.gray2
         self.bodyBottomLabel.text = "\(userNick)님의 \(nthMorning)번째 의미있는 아침"
         self.bodyBottomLabel.lineSetting(kernValue: -0.5)
         
+        
         self.uploadBtn.backgroundColor = UIColor.meaningNavy
         self.uploadBtn.setTitleColor(.meaningWhite, for: .normal)
-        self.uploadBtn.titleLabel?.font=UIFont.spoqaMedium(size: 16)
+        self.uploadBtn.titleLabel?.font = UIFont.spoqaMedium(size: 16)
         self.uploadBtn.titleLabel?.lineSetting(kernValue: -0.64)
         self.uploadBtn.setTitle("그룹에 사진올리기", for: .normal)
         self.uploadBtn.setRounded(radius: 6)
