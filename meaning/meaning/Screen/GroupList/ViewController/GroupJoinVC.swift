@@ -43,10 +43,10 @@ extension GroupJoinVC {
         //그룹 상태 라벨 폰트, 색상 설정
         groupStatusLabel.font = UIFont.spoqaMedium(size: 18)
         groupStatusLabel.textColor = UIColor.gray2
-        groupStatusLabel.lineSetting(kernValue: -0.72,lineSpacing: 10)
+        groupStatusLabel.lineSetting(kernValue: -0.72)
         
         //그룹 상태에 따른 groupStatusLabel
-        NotificationCenter.default.addObserver(self, selector: #selector(enterGroup), name: NSNotification.Name(rawValue: "enteenterGroupredRoom"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(enterGroup), name: NSNotification.Name(rawValue: "enterGroupredRoom"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(alreadyGroup), name: NSNotification.Name(rawValue: "alreadyGroup"), object: nil)
         

@@ -10,6 +10,7 @@ import UIKit
 class GroupDetailVC: ViewController {
     
     // MARK: - IBOutlet
+    
     @IBOutlet var popUpBox: UIView!
     
     @IBOutlet var groupNameLabel: UILabel!
@@ -76,17 +77,17 @@ extension GroupDetailVC {
         groupNameLabel.text = "코테 준비생 아침인증 그룹"
         groupNameLabel.font = UIFont.notoBold(size: 18)
         groupNameLabel.textColor = UIColor.gray2
-        groupNameLabel.lineSetting(kernValue: -0.54, lineSpacing: 10)
+        groupNameLabel.lineSetting(kernValue: -0.54)
         
         groupInfoLabel.text = "취준생끼리 개발 습관 만들어요"
         groupInfoLabel.font = UIFont.notoRegular(size: 16)
         groupInfoLabel.textColor = UIColor.gray2
-        groupNameLabel.lineSetting(kernValue: -0.48, lineSpacing: 10)
+        groupNameLabel.lineSetting(kernValue: -0.48)
         
         participantLabel.text = "참가 인원"
         participantLabel.font = UIFont.spoqaMedium(size: 14)
         participantLabel.textColor = UIColor.gray3
-        groupNameLabel.lineSetting(kernValue: -0.56, lineSpacing: 10)
+        groupNameLabel.lineSetting(kernValue: -0.56)
         
         peopleNumberLabel.text = "2/5"
         peopleNumberLabel.font = UIFont.spoqaMedium(size: 14)
