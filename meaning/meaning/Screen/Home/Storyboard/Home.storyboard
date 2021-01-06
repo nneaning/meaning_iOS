@@ -128,6 +128,12 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="364" height="467"/>
+                                        <connections>
+                                            <outlet property="cardImage" destination="VaK-JY-oUv" id="GmP-da-WNS"/>
+                                            <outlet property="circleView" destination="VCt-uU-fRh" id="ciH-AB-FR9"/>
+                                            <outlet property="indexLabel" destination="MRq-K3-JVw" id="Ucd-DC-oGq"/>
+                                            <outlet property="mentLabel" destination="Owj-Ax-QDT" id="Q1d-Xa-QdK"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
