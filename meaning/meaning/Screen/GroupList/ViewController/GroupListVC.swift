@@ -15,7 +15,7 @@ class GroupListVC: UIViewController {
     var groupTable: [GroupTable] = []
     
     var groupExist: Bool = false
-
+    
     lazy var refreshControl: UIRefreshControl = {
         
         let refreshControl = UIRefreshControl()
@@ -67,6 +67,7 @@ class GroupListVC: UIViewController {
         groupCollectionView.dataSource = self
         
         GroupTableView.dataSource = self
+        GroupTableView.delegate = self
         
         //my group 유무에 따른 분기 처리
         if groupExist == false {
@@ -78,6 +79,18 @@ class GroupListVC: UIViewController {
             noGroupBoxView.isHidden = true
         }
         
+    }
+    
+    
+    @IBAction func goToDetailView(_ sender: Any) {
+        //detailView 로 이동
+        guard let groupDetailVC = self.storyboard?.instantiateViewController(identifier: "GroupDetailVC")
+                as? GroupDetailVC else {
+            return
+        }
+        groupDetailVC.modalPresentationStyle = .overCurrentContext
+        groupDetailVC.modalTransitionStyle = .crossDissolve
+        self.present(groupDetailVC, animated: true, completion: nil)
     }
     
 }
@@ -101,10 +114,12 @@ extension GroupListVC {
         noGroupLabel.text = "가입하신 그룹이 없네요!"
         noGroupLabel.font = UIFont.spoqaMedium(size: 15)
         noGroupLabel.textColor = UIColor.meaningNavy
+        noGroupLabel.lineSetting(kernValue: -0.6)
         
         welcomeLabel.text = "그룹에 가입하고 그룹원들과 함께 미라클 모닝을 맞이해봐요!"
         welcomeLabel.font = UIFont.spoqaRegular(size: 14)
         welcomeLabel.textColor = UIColor.gray3
+        welcomeLabel.lineSetting(kernValue: -0.56)
         
         myGroupBoxView.backgroundColor = UIColor.meaningLightblue
         
@@ -199,7 +214,7 @@ extension GroupListVC: UICollectionViewDelegateFlowLayout {
         //content 인셋 지정
         return UIEdgeInsets(top: 8, left: 17, bottom: 0, right: 0)
     }
-
+    
 }
 
 extension GroupListVC: UITableViewDataSource {
@@ -219,7 +234,19 @@ extension GroupListVC: UITableViewDataSource {
         return cell
         
     }
-    
-    
 }
 
+
+extension GroupListVC: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let groupDetailVC = self.storyboard?.instantiateViewController(identifier: "GroupDetailVC")
+                as? GroupDetailVC else {
+            return
+        }
+        groupDetailVC.modalPresentationStyle = .overCurrentContext
+        groupDetailVC.modalTransitionStyle = .crossDissolve
+        self.present(groupDetailVC, animated: true, completion: nil)
+    }
+}
