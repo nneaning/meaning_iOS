@@ -13,7 +13,6 @@ class GroupInfoVC: ViewController {
     
     var groupName: String = "서울 대학생 아침인증 그룹"
     var groupBirthDate: String = "2020.12.26"
-    var memberCount: Int = 5
     
     var member: [MemberInfo] = []
     
@@ -76,7 +75,7 @@ extension GroupInfoVC {
             groupBirthLabel.attributedText = attributedStr
         }
         
-        memberCountLabel.text = "그룹 멤버 수 : \(memberCount)명"
+        memberCountLabel.text = "그룹 멤버 수 : \(member.count)명"
         memberCountLabel.font = UIFont.spoqaMedium(size: 15)
         memberCountLabel.textColor = UIColor.gray3
         memberCountLabel.lineSetting(kernValue: -0.6)
@@ -86,7 +85,7 @@ extension GroupInfoVC {
             // "\(group.peopleCount)명" 부분에만 폰트를 다르게 설정
             let attributedStr = NSMutableAttributedString(string: memberCountLabel.text ?? "")
             attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String),
-                                       value: UIFont.spoqaRegular(size: 13), range: (text as NSString).range(of: "\(memberCount)명"))
+                                       value: UIFont.spoqaRegular(size: 13), range: (text as NSString).range(of: "\(member.count)명"))
             
             memberCountLabel.attributedText = attributedStr
         }
