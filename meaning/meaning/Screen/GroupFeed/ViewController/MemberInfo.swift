@@ -2,16 +2,15 @@
 //  MemberInfo.swift
 //  meaning
 //
-//  Created by Seri Park on 2021/01/07.
+//  Created by Seri Park on 2021/01/08.
 //
 
-import UIKit
+import Foundation
 
 struct MemberInfo {
-      
-    var lastName: String
+    
     var memberName: String
     var wakeUpTime: String
-    var howLong: String
+    var howLong: Int
 
 }
