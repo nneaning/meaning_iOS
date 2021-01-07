@@ -66,6 +66,7 @@
 		9B2BA22C25A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA22825A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf */; };
 		9B2BA23A25A0E547000EF4AA /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA23925A0E547000EF4AA /* UILabel+Extension.swift */; };
 		9B2BA23E25A1B99F000EF4AA /* PhotoCheckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA23D25A1B99F000EF4AA /* PhotoCheckVC.swift */; };
+		9B2CAA7025A5FC0300099356 /* AnimationFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2CAA6F25A5FC0300099356 /* AnimationFlowLayout.swift */; };
 		9B70C10125A42AD700A5EFDD /* OnboardingTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */; };
 		9EB5CCFF25A0B6820070CD58 /* DailyMaximVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */; };
 		9EB5CD0725A17DC90070CD58 /* DailyDiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CD0625A17DC90070CD58 /* DailyDiaryVC.swift */; };
@@ -86,11 +87,11 @@
 		36A9425125A45B4A009C28F2 /* TestHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHomeVC.swift; sourceTree = "<group>"; };
 		36A9425425A45B53009C28F2 /* TestCameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCameraVC.swift; sourceTree = "<group>"; };
 		36A9425725A45B62009C28F2 /* TestGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGroupVC.swift; sourceTree = "<group>"; };
+		36A9425E25A48E83009C28F2 /* GroupDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailVC.swift; sourceTree = "<group>"; };
+		36A9426225A48E9E009C28F2 /* GroupJoinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupJoinVC.swift; sourceTree = "<group>"; };
 		9B1B6B3A25A5AB9300CCA4CC /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		9B1B6B3D25A5AD8B00CCA4CC /* MissionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCard.swift; sourceTree = "<group>"; };
 		9B1B6B4125A5AFB700CCA4CC /* MissionCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCardCell.swift; sourceTree = "<group>"; };
-		36A9425E25A48E83009C28F2 /* GroupDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailVC.swift; sourceTree = "<group>"; };
-		36A9426225A48E9E009C28F2 /* GroupJoinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupJoinVC.swift; sourceTree = "<group>"; };
 		9B245A5325A302C700C45B76 /* OnboardingNickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNickVC.swift; sourceTree = "<group>"; };
 		9B2BA16C259F58FF000EF4AA /* meaning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meaning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2BA16F259F58FF000EF4AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 		9B2BA22825A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFExtraBold.otf; sourceTree = "<group>"; };
 		9B2BA23925A0E547000EF4AA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		9B2BA23D25A1B99F000EF4AA /* PhotoCheckVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCheckVC.swift; sourceTree = "<group>"; };
+		9B2CAA6F25A5FC0300099356 /* AnimationFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationFlowLayout.swift; sourceTree = "<group>"; };
 		9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTimeVC.swift; sourceTree = "<group>"; };
 		9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DailyMaximVC.swift; path = meaning/Screen/Mission/ViewController/DailyMaximVC.swift; sourceTree = SOURCE_ROOT; };
 		9EB5CD0625A17DC90070CD58 /* DailyDiaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDiaryVC.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				9B1B6B4125A5AFB700CCA4CC /* MissionCardCell.swift */,
+				9B2CAA6F25A5FC0300099356 /* AnimationFlowLayout.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -699,6 +702,7 @@
 				9B2BA174259F58FF000EF4AA /* ViewController.swift in Sources */,
 				36A0C1BC25A1FF20005E3F8E /* GroupListVC.swift in Sources */,
 				36A9425825A45B62009C28F2 /* TestGroupVC.swift in Sources */,
+				9B2CAA7025A5FC0300099356 /* AnimationFlowLayout.swift in Sources */,
 				9B2BA1F2259F7C65000EF4AA /* UIButton+Extension.swift in Sources */,
 				9B70C10125A42AD700A5EFDD /* OnboardingTimeVC.swift in Sources */,
 				36A9423025A2F126009C28F2 /* Group.swift in Sources */,

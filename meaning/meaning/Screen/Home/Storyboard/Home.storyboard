@@ -85,7 +85,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="364" height="467"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Owj-Ax-QDT">
-                                                    <rect key="frame" x="161" y="215" width="42" height="21"/>
+                                                    <rect key="frame" x="161" y="208" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -98,7 +98,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VCt-uU-fRh">
-                                                    <rect key="frame" x="160" y="141" width="44" height="44"/>
+                                                    <rect key="frame" x="160" y="134" width="44" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRq-K3-JVw">
                                                             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -121,7 +121,7 @@
                                             <constraints>
                                                 <constraint firstItem="Owj-Ax-QDT" firstAttribute="centerX" secondItem="dGq-3k-fkA" secondAttribute="centerX" id="4NI-6U-WRm"/>
                                                 <constraint firstItem="VaK-JY-oUv" firstAttribute="leading" secondItem="dGq-3k-fkA" secondAttribute="leading" id="AaY-xE-gLw"/>
-                                                <constraint firstItem="Owj-Ax-QDT" firstAttribute="centerY" secondItem="dGq-3k-fkA" secondAttribute="centerY" constant="-8" id="Bge-po-nC0"/>
+                                                <constraint firstItem="Owj-Ax-QDT" firstAttribute="centerY" secondItem="dGq-3k-fkA" secondAttribute="centerY" constant="-15" id="Bge-po-nC0"/>
                                                 <constraint firstItem="VaK-JY-oUv" firstAttribute="top" secondItem="dGq-3k-fkA" secondAttribute="top" id="C3S-Bd-XcV"/>
                                                 <constraint firstAttribute="bottom" secondItem="VaK-JY-oUv" secondAttribute="bottom" id="EhF-MT-qNY"/>
                                                 <constraint firstItem="Owj-Ax-QDT" firstAttribute="top" secondItem="VCt-uU-fRh" secondAttribute="bottom" constant="30" id="F0v-hO-od8"/>
