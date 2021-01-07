@@ -22,6 +22,9 @@
 		36D1E77C25A5EBC5001C1D71 /* GroupInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D1E77B25A5EBC5001C1D71 /* GroupInfoVC.swift */; };
 		36D6998225A76B1100227FB1 /* MemberInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D6998125A76B1100227FB1 /* MemberInfo.swift */; };
 		6DC70DC41C332E65FC653BE0 /* Pods_meaning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E87AC0016D83A60227B184E6 /* Pods_meaning.framework */; };
+		9B1B6B3B25A5AB9300CCA4CC /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1B6B3A25A5AB9300CCA4CC /* HomeVC.swift */; };
+		9B1B6B3E25A5AD8B00CCA4CC /* MissionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1B6B3D25A5AD8B00CCA4CC /* MissionCard.swift */; };
+		9B1B6B4225A5AFB700CCA4CC /* MissionCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1B6B4125A5AFB700CCA4CC /* MissionCardCell.swift */; };
 		9B245A5425A302C700C45B76 /* OnboardingNickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B245A5325A302C700C45B76 /* OnboardingNickVC.swift */; };
 		9B2BA170259F58FF000EF4AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA16F259F58FF000EF4AA /* AppDelegate.swift */; };
 		9B2BA172259F58FF000EF4AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA171259F58FF000EF4AA /* SceneDelegate.swift */; };
@@ -66,6 +69,7 @@
 		9B2BA22C25A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2BA22825A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf */; };
 		9B2BA23A25A0E547000EF4AA /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA23925A0E547000EF4AA /* UILabel+Extension.swift */; };
 		9B2BA23E25A1B99F000EF4AA /* PhotoCheckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA23D25A1B99F000EF4AA /* PhotoCheckVC.swift */; };
+		9B2CAA7025A5FC0300099356 /* AnimationFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2CAA6F25A5FC0300099356 /* AnimationFlowLayout.swift */; };
 		9B70C10125A42AD700A5EFDD /* OnboardingTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */; };
 		9EB5CCFF25A0B6820070CD58 /* DailyMaximVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */; };
 		9EB5CD0725A17DC90070CD58 /* DailyDiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CD0625A17DC90070CD58 /* DailyDiaryVC.swift */; };
@@ -91,6 +95,9 @@
 		36D0708B25A6F69100024EC3 /* MemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTableViewCell.swift; sourceTree = "<group>"; };
 		36D1E77B25A5EBC5001C1D71 /* GroupInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfoVC.swift; sourceTree = "<group>"; };
 		36D6998125A76B1100227FB1 /* MemberInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberInfo.swift; sourceTree = "<group>"; };
+		9B1B6B3A25A5AB9300CCA4CC /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		9B1B6B3D25A5AD8B00CCA4CC /* MissionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCard.swift; sourceTree = "<group>"; };
+		9B1B6B4125A5AFB700CCA4CC /* MissionCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCardCell.swift; sourceTree = "<group>"; };
 		9B245A5325A302C700C45B76 /* OnboardingNickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNickVC.swift; sourceTree = "<group>"; };
 		9B2BA16C259F58FF000EF4AA /* meaning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meaning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2BA16F259F58FF000EF4AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +144,7 @@
 		9B2BA22825A0D2F5000EF4AA /* NanumSquareOTFExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFExtraBold.otf; sourceTree = "<group>"; };
 		9B2BA23925A0E547000EF4AA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		9B2BA23D25A1B99F000EF4AA /* PhotoCheckVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCheckVC.swift; sourceTree = "<group>"; };
+		9B2CAA6F25A5FC0300099356 /* AnimationFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationFlowLayout.swift; sourceTree = "<group>"; };
 		9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTimeVC.swift; sourceTree = "<group>"; };
 		9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DailyMaximVC.swift; path = meaning/Screen/Mission/ViewController/DailyMaximVC.swift; sourceTree = SOURCE_ROOT; };
 		9EB5CD0625A17DC90070CD58 /* DailyDiaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDiaryVC.swift; sourceTree = "<group>"; };
@@ -169,6 +177,15 @@
 				E9590DE5BB2516CE3A84BEAD /* Pods-meaning.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9B1B6B4025A5AF9B00CCA4CC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9B1B6B4125A5AFB700CCA4CC /* MissionCardCell.swift */,
+				9B2CAA6F25A5FC0300099356 /* AnimationFlowLayout.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		9B2BA163259F58FF000EF4AA = {
@@ -323,6 +340,7 @@
 		9B2BA198259F5BEC000EF4AA /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9B1B6B4025A5AF9B00CCA4CC /* Cell */,
 				9B2BA1A3259F5D16000EF4AA /* Storyboard */,
 				9B2BA1A2259F5D0F000EF4AA /* ViewController */,
 			);
@@ -410,6 +428,8 @@
 		9B2BA1A2259F5D0F000EF4AA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9B1B6B3A25A5AB9300CCA4CC /* HomeVC.swift */,
+				9B1B6B3D25A5AD8B00CCA4CC /* MissionCard.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -683,13 +703,16 @@
 			files = (
 				9B2BA219259FA97E000EF4AA /* UIView+Extension.swift in Sources */,
 				9B245A5425A302C700C45B76 /* OnboardingNickVC.swift in Sources */,
+				9B1B6B3E25A5AD8B00CCA4CC /* MissionCard.swift in Sources */,
 				36D6998225A76B1100227FB1 /* MemberInfo.swift in Sources */,
 				9B2BA1D0259F6FCE000EF4AA /* Date+Extension.swift in Sources */,
 				36A9425525A45B53009C28F2 /* TestCameraVC.swift in Sources */,
 				9B2BA1CD259F5FF0000EF4AA /* String+Extension.swift in Sources */,
+				9B1B6B3B25A5AB9300CCA4CC /* HomeVC.swift in Sources */,
 				9B2BA174259F58FF000EF4AA /* ViewController.swift in Sources */,
 				36A0C1BC25A1FF20005E3F8E /* GroupListVC.swift in Sources */,
 				36A9425825A45B62009C28F2 /* TestGroupVC.swift in Sources */,
+				9B2CAA7025A5FC0300099356 /* AnimationFlowLayout.swift in Sources */,
 				9B2BA1F2259F7C65000EF4AA /* UIButton+Extension.swift in Sources */,
 				9B70C10125A42AD700A5EFDD /* OnboardingTimeVC.swift in Sources */,
 				36A9423025A2F126009C28F2 /* Group.swift in Sources */,
@@ -715,6 +738,7 @@
 				9B2BA1E8259F74F7000EF4AA /* GenericResponse.swift in Sources */,
 				9B2BA172259F58FF000EF4AA /* SceneDelegate.swift in Sources */,
 				9B2BA220259FAA4A000EF4AA /* UIColor+Extension.swift in Sources */,
+				9B1B6B4225A5AFB700CCA4CC /* MissionCardCell.swift in Sources */,
 				36D0708C25A6F69100024EC3 /* MemberTableViewCell.swift in Sources */,
 				9B2BA22325A0B9EA000EF4AA /* TimeStampVC.swift in Sources */,
 				9B2BA1D3259F71DD000EF4AA /* UIImage+Extension.swift in Sources */,
