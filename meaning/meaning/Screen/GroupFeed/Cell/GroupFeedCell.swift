@@ -8,5 +8,17 @@
 import UIKit
 
 class GroupFeedCell: UICollectionViewCell {
+    
+    // MARK: Variable Part
+    
     static let identifier: String = "GroupFeedCell"
+
+    // MARK: IBOutlet
+    
+    @IBOutlet weak var feedImageView: UIImageView!
+    
+    func setCell(_ feedImage: FeedImage) {
+        feedImageView.image = feedImage.makeFeedImage()
+    }
+
 }

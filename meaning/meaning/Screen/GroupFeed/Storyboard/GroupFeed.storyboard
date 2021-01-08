@@ -42,7 +42,6 @@
                                         <state key="normal" title="Button"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGray3Color"/>
                                 <constraints>
                                     <constraint firstItem="4gL-UD-ubL" firstAttribute="centerY" secondItem="cOh-a7-0Cw" secondAttribute="centerY" id="29L-7J-BjO"/>
                                     <constraint firstItem="gpZ-10-FBP" firstAttribute="leading" secondItem="cOh-a7-0Cw" secondAttribute="leading" constant="1" id="Yx7-3y-lYC"/>
@@ -85,6 +84,9 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="148" height="151"/>
+                                        <connections>
+                                            <outlet property="feedImageView" destination="6he-K8-pVH" id="q3N-om-EXS"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GroupFeedReusableView" id="Txr-v8-4AA">
@@ -133,6 +135,7 @@
                     </view>
                     <connections>
                         <outlet property="groupFeedCollectionView" destination="w2r-VM-Dlw" id="Mde-l2-udq"/>
+                        <outlet property="groupNameLabel" destination="4gL-UD-ubL" id="Bla-M6-UjX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Msp-BJ-IZ2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
