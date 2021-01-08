@@ -60,7 +60,7 @@ extension HomeVC {
 
             explainLabel.attributedText = attributedStr
         }
-        explainLabel.lineSetting(kernValue: -0.88, lineSpacing: 10)
+        explainLabel.lineSetting(kernValue: -0.88)
         explainLabel.textAlignment = .left
         
         dateButton.isEnabled = false
@@ -72,10 +72,14 @@ extension HomeVC {
         dateButton.setTitleColor(.meaningNavy, for: .normal)
         
         missonCardCollectionView.backgroundColor = .none
-        missonCardCollectionView.delegate = self
-        missonCardCollectionView.dataSource = self
         missonCardCollectionView.showsHorizontalScrollIndicator = false
         // 스크롤 안보이게 해두기
+        missonCardCollectionView.delegate = self
+        missonCardCollectionView.dataSource = self
+        
+        let customLayout = AnimationFlowLayout()
+        missonCardCollectionView.collectionViewLayout = customLayout
+
     }
     
     func setList() {
@@ -123,7 +127,7 @@ extension HomeVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
-        return 32
+        return 0
         
     }
     

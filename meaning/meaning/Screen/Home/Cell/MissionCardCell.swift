@@ -36,7 +36,7 @@ class MissionCardCell: UICollectionViewCell {
         indexLabel.text = "\(missionCard.missionIndex)"
         mentLabel.text = missionCard.missonMent
         mentLabel.lineSetting(kernValue: -0.10, lineSpacing: 10)
-        if safeArea < 50 {
+        if safeArea == 0 {
             // 홈버튼 있을때는 멘트를 가운데보다 아래로 내려주기
             mentCenter.constant = 15
         }
