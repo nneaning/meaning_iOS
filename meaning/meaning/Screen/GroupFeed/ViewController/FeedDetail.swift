@@ -12,14 +12,14 @@ struct FeedDetail {
     var writeTime: String
     var wakeupTime: String
     var context: String
-    var timeStamp: UIImage?
+    var timeStamp: String
     
     init(nick: String, writeTime: String, wakeupTime: String, context: String, imageName: String) {
         self.nick = nick
-        self.writeTime = writeTime.stringToDate().timeAgoSince()
+        self.writeTime = writeTime
         self.wakeupTime = wakeupTime
         self.context = context
-        self.timeStamp = UIImage(named: imageName)
+        self.timeStamp = imageName
     }
     
     

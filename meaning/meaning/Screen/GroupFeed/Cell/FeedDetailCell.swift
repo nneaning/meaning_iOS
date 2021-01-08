@@ -27,6 +27,8 @@ class FeedDetailCell: UITableViewCell {
     
     @IBOutlet weak var contextLabel: UILabel!
     
+    @IBOutlet weak var uploadImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setCell()
@@ -39,6 +41,7 @@ class FeedDetailCell: UITableViewCell {
     // MARK: Function
     
     func setCell() {
+        // Cell default Style Setting
         profileView.setRounded(radius: nil)
         
         profileLabel.font = UIFont.spoqaMedium(size: 13)
@@ -62,6 +65,31 @@ class FeedDetailCell: UITableViewCell {
         
         contextLabel.font = UIFont.spoqaRegular(size: 14)
         contextLabel.text = "기상인증"
+        contextLabel.numberOfLines = 0
+    }
+    
+    func setData(nick: String,writeTime: String, wakeupTime: String, context: String, uploadImageName: String, index: Int) {
+        // 서버 데이터 넣기
+        self.nickLabel.text = nick
+        self.writeTimeLabel.text = writeTime.stringToDate().timeAgoSince()
+        self.wakeupLabel.text = wakeupTime
+        self.contextLabel.text = context
+        self.uploadImage.image = UIImage(named: uploadImageName)
+        profileLabel.text = "\(nick[nick.startIndex])"
+        if wakeupTime.count == 11 {
+            // 정각일때
+            wakeupViewWidth.constant = 120
+        }
+        if index == 0 {
+            profileView.backgroundColor = .meaningNavy
+            profileLabel.textColor = .white
+        } else {
+            profileView.backgroundColor = .meaningLightblue
+            profileLabel.textColor = .gray1
+        }
+        contextLabel.lineSetting(kernValue: -0.56, lineSpacing: 10)
+        contextLabel.textAlignment = .left
+        
     }
 
 }
