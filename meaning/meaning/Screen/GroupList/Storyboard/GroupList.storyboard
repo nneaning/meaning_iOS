@@ -427,7 +427,6 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="createBtnPressed:" destination="X0l-kD-9Kx" eventType="touchUpInside" id="GfW-M4-aPh"/>
-                                    <action selector="goToGroupComplete:" destination="X0l-kD-9Kx" eventType="touchUpInside" id="FEh-LW-22S"/>
                                 </connections>
                             </button>
                         </subviews>

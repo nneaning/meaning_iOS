@@ -9,8 +9,6 @@ import UIKit
 
 class GroupCreateVC: UIViewController {
     
-    var flag: [Int] = [0,0,0]
-    
     //MARK: - IBOutlet
     
     @IBOutlet var backBtn: UIButton!
@@ -54,48 +52,36 @@ class GroupCreateVC: UIViewController {
         //그룹 이름이 비었을 경우
         if nameTextField.text?.isEmpty == true {
             self.showToast(message: "내용을 입력해주세요!", font: UIFont.spoqaRegular(size: 15))
-            flag[0] = 0
-        } else {
-            flag[0] = 1
-        }
-        
-        //인원수 비었을 때, 값을 충족시키지 못할 경우
-        if countTextField.text?.isEmpty == true || Int(countTextField.text!)! < 2 || Int(countTextField.text!)! > 100 {
-            self.showToast(message: "정확한 숫자를 입력해주세요", font: UIFont.spoqaRegular(size: 15))
-            numberInfoLabel.text = "최소 2명부터 최대 100명까지 참여할 수 있어요!"
-            numberInfoLabel.font = UIFont.spoqaRegular(size: 12)
-            numberInfoLabel.textColor = .red
-            numberInfoLabel.lineSetting(kernValue: -0.48)
-            flag[1] = 0
             
         } else {
-            numberInfoLabel.text = "최소 2명부터 최대 100명까지 참여할 수 있어요!"
-            numberInfoLabel.font = UIFont.spoqaRegular(size: 12)
-            numberInfoLabel.textColor = .gray3
-            numberInfoLabel.lineSetting(kernValue: -0.48)
-            flag[1] = 1
-        }
-            
-        //그룹 정보가 비었을 경우
-        if infoTextView.text.isEmpty || infoTextView.text == "그룹을 자유롭게 소개해주세요!" {
-            self.showToast(message: "내용을 입력해주세요!", font: UIFont.spoqaRegular(size: 15))
-            flag[2] = 0
-        } else {
-            flag[2] = 1
-        }
-        
-
-   
-    }
-    
-    @IBAction func goToGroupComplete(_ sender: Any) {
-        // 다음 뷰로 연결
-        if flag == [1,1,1] {
-            guard let groupCompleteVC = self.storyboard?.instantiateViewController(identifier: "GroupCompleteVC") as? GroupCompleteVC else {
-                return
+            //textField 비었거나 값 충족 못하는 경우
+            if countTextField.text?.isEmpty == true || Int(countTextField.text!)! < 2 || Int(countTextField.text!)! > 100 {
+                
+                self.showNumberToast(message: "정확한 숫자를 입력해주세요", font: UIFont.spoqaRegular(size: 15))
+                numberInfoLabel.text = "최소 2명부터 최대 100명까지 참여할 수 있어요!"
+                numberInfoLabel.font = UIFont.spoqaRegular(size: 12)
+                numberInfoLabel.textColor = .red
+                numberInfoLabel.lineSetting(kernValue: -0.48)
+                
+            } else {
+                numberInfoLabel.text = "최소 2명부터 최대 100명까지 참여할 수 있어요!"
+                numberInfoLabel.font = UIFont.spoqaRegular(size: 12)
+                numberInfoLabel.textColor = .gray3
+                numberInfoLabel.lineSetting(kernValue: -0.48)
+                
+                //그룹 정보 값이 없는 경우
+                if infoTextView.text.isEmpty || infoTextView.text == "그룹을 자유롭게 소개해주세요!" {
+                    self.showToast(message: "내용을 입력해주세요!", font: UIFont.spoqaRegular(size: 15))
+                } else {
+                    //다음 뷰로 이동
+                    guard let groupCompleteVC = self.storyboard?.instantiateViewController(identifier: "GroupCompleteVC") as? GroupCompleteVC else {
+                        return
+                    }
+                    self.navigationController?.pushViewController(groupCompleteVC, animated: true)
+                }
             }
-            self.navigationController?.pushViewController(groupCompleteVC, animated: true)
         }
+        
     }
     
 }
