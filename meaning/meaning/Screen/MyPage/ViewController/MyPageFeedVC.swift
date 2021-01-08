@@ -39,21 +39,29 @@ class MyPageFeedVC: UIViewController {
         super.viewDidLoad()
         setFeedImageData()
         setLayout()
-        
-        let layout = UICollectionViewFlowLayout()
-        feedCollectionView.collectionViewLayout = layout
-        feedCollectionView.register(FeedCollectionViewCell.nib(), forCellWithReuseIdentifier: FeedCollectionViewCell.identifier)
-        feedCollectionView.delegate = self
-        feedCollectionView.dataSource = self
-        
-        if #available(iOS 11.0, *) {
-            feedCollectionView.contentInsetAdjustmentBehavior = .never
-        }
+        setCollectionView()
     }
     
     override func viewWillLayoutSubviews() {
         self.myProfileView.setRounded(radius: nil)
         self.myProfileView.backgroundColor = .meaningLightblue
+    }
+    
+    // MARK: CollectionView
+
+    func setCollectionView(){
+        feedCollectionView.delegate = self
+        feedCollectionView.dataSource = self
+        
+        let layout = UICollectionViewFlowLayout()
+        feedCollectionView.collectionViewLayout = layout
+        feedCollectionView.register(FeedCollectionViewCell.nib(), forCellWithReuseIdentifier: FeedCollectionViewCell.identifier)
+
+        // SE 외는 scroll view inset adjustment behavior = never 처리
+        
+        if #available(iOS 11.0, *) {
+            feedCollectionView.contentInsetAdjustmentBehavior = .never
+        }
     }
     
     // MARK: Layout
@@ -96,7 +104,6 @@ class MyPageFeedVC: UIViewController {
         self.userWakeTimeLabel.textAlignment = .center
         
         self.feedHeaderView.backgroundColor = .meaningLightblue
-        print(feedImageList.count)
         self.feedHeaderLabel.text = "오늘은 365일 중에 \(feedImageList.count)번째 의미있는 아침입니다."
         self.feedHeaderLabel.font = .spoqaMedium(size: 14)
         self.feedHeaderLabel.lineSetting(kernValue: -0.56)
@@ -124,8 +131,7 @@ class MyPageFeedVC: UIViewController {
 extension MyPageFeedVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        
-        print("tapped")
+        // 다음 뷰로 넘어가도록 해야함
     }
 }
 
