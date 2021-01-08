@@ -385,6 +385,15 @@
                                                 <constraint firstItem="Y5b-NR-sjM" firstAttribute="leading" secondItem="RWN-4Q-e3j" secondAttribute="leading" constant="16" id="vcY-Qb-m1Z"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nickLabel" destination="Itx-Qh-9dH" id="0UW-Eb-Tm1"/>
+                                            <outlet property="profileLabel" destination="jmD-L7-sSb" id="myQ-O3-V4D"/>
+                                            <outlet property="profileView" destination="Y5b-NR-sjM" id="JYj-ox-3f1"/>
+                                            <outlet property="wakeupLabel" destination="Ogn-oZ-WKg" id="wad-S6-VL4"/>
+                                            <outlet property="wakeupView" destination="LNU-4f-sIi" id="SbO-rS-geL"/>
+                                            <outlet property="wakeupViewWidth" destination="tot-66-4AN" id="ktz-cR-jEc"/>
+                                            <outlet property="writeTimeLabel" destination="RXy-S2-dCu" id="8vC-ex-nDa"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -405,7 +414,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="feedDetailTableView" destination="SSa-rp-wnb" id="Hqb-d4-i18"/>
+                        <outlet property="feedDetailTableView" destination="SSa-rp-wnb" id="8HS-Ch-4QN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPR-ki-2NU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
