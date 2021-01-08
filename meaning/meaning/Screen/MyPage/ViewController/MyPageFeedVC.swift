@@ -12,7 +12,7 @@ class MyPageFeedVC: UIViewController {
     // MARK: Variable Part
     
     var userNick: String = "이기상"
-
+    var feedImageList: [FeedImage] = []
     
     // MARK: IBOutlet
     
@@ -37,10 +37,10 @@ class MyPageFeedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setFeedImageData()
         setLayout()
         
         let layout = UICollectionViewFlowLayout()
-//        layout.itemSize = CGSize(width: 120, height: 120)
         feedCollectionView.collectionViewLayout = layout
         feedCollectionView.register(FeedCollectionViewCell.nib(), forCellWithReuseIdentifier: FeedCollectionViewCell.identifier)
         feedCollectionView.delegate = self
@@ -92,12 +92,19 @@ class MyPageFeedVC: UIViewController {
         self.userWakeTimeLabel.textAlignment = .center
         
         self.feedHeaderView.backgroundColor = .meaningLightblue
-        self.feedHeaderLabel.text = "오늘은 365일 중에 30번째 의미있는 아침입니다."
+        print(feedImageList.count)
+        self.feedHeaderLabel.text = "오늘은 365일 중에 \(feedImageList.count)번째 의미있는 아침입니다."
         self.feedHeaderLabel.font = .spoqaMedium(size: 14)
         self.feedHeaderLabel.lineSetting(kernValue: -0.56)
         self.feedHeaderLabel.textAlignment = .center
         
         
+    }
+    
+    func setFeedImageData(){
+        feedImageList.append(contentsOf: [
+            FeedImage(feedImageName: "test_img")
+        ])
     }
     
 }
@@ -112,13 +119,13 @@ extension MyPageFeedVC: UICollectionViewDelegate {
 
 extension MyPageFeedVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 36
+        return feedImageList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCollectionViewCell.identifier, for: indexPath) as! FeedCollectionViewCell
         
-        cell.configure(with: UIImage(named: "test_img")!)
+        cell.configure(with: feedImageList[indexPath.row])
         
         return cell
     }

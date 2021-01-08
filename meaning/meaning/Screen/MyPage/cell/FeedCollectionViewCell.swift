@@ -17,8 +17,8 @@ class FeedCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
 
     }
-    public func configure(with image:UIImage) {
-        feedImage.image = image
+    public func configure(with image:FeedImage) {
+        feedImage.image = image.makeFeedImage()
     }
     
     //cell register 해줌 
