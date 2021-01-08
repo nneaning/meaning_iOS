@@ -60,7 +60,7 @@ extension GroupCreateVC {
         nameTextField.placeholder = "이름을 설정해주세요!"
         nameTextField.font = UIFont.spoqaRegular(size: 15)
         nameTextField.textColor = UIColor.gray2
-        nameTextField.addNameLeftPadding()
+        nameTextField.addLeftPadding()
         
         memberCountLabel.text = "인원수"
         memberCountLabel.font = UIFont.spoqaMedium(size: 17)
@@ -73,7 +73,7 @@ extension GroupCreateVC {
         countTextField.placeholder = "100"
         countTextField.font = UIFont.spoqaRegular(size: 15)
         countTextField.textColor = UIColor.gray2
-        countTextField.addCountLeftPadding()
+        countTextField.addRightPadding()
         
         personsLabel.text = "명"
         personsLabel.font = UIFont.spoqaRegular(size: 17)
@@ -104,19 +104,20 @@ extension GroupCreateVC {
 
 extension UITextField {
     
-    func addNameLeftPadding() {
+    func addLeftPadding() {
         //nameTextField padding 설정
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 13, height: self.frame.height))
         self.leftView = paddingView
         self.leftViewMode = ViewMode.always
     }
     
-    func addCountLeftPadding() {
-        //countTextField padding 설정
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: self.frame.height))
-        self.leftView = paddingView
-        self.leftViewMode = ViewMode.always
-    }
+    func addRightPadding() {
+        //명수 입력 오른쪽에 여백 주기
+            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: self.frame.size.height))
+            self.rightView = paddingView
+            self.rightViewMode = ViewMode.always
+        }
+
     
 }
 
@@ -124,7 +125,7 @@ extension GroupCreateVC: UITextViewDelegate {
     
     func TextViewAddPadding() {
         //TextView padding
-        infoTextView.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 18, right: 16)
+        infoTextView.textContainerInset = UIEdgeInsets(top: 16, left: 13, bottom: 18, right: 13)
     }
     
     //디폴트 placeholder 지정
