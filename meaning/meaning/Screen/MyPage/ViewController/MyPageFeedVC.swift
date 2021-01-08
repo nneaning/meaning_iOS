@@ -26,6 +26,8 @@ class MyPageFeedVC: UIViewController {
     @IBOutlet var userNameLabel: UILabel!
     
     @IBOutlet var userWakeTimeView: UIView!
+    
+    @IBOutlet var timeViewWidth: NSLayoutConstraint!
     @IBOutlet var userWakeTimeLabel: UILabel!
     
     @IBOutlet var feedHeaderView: UIView!
@@ -40,20 +42,25 @@ class MyPageFeedVC: UIViewController {
         setFeedImageData()
         setLayout()
         setCollectionView()
+
     }
+    
     
     override func viewWillLayoutSubviews() {
         self.myProfileView.setRounded(radius: nil)
         
         if (randomProfile == 0) {
             self.myProfileView.backgroundColor = .meaningLightblue
+            self.userNameInitial.textColor = .meaningNavy
         } else if (randomProfile == 1) {
-             self.myProfileView.backgroundColor = .meaningNavy
+            self.myProfileView.backgroundColor = .meaningNavy
+            self.userNameInitial.textColor = .meaningIvory
         }
+        
     }
     
     // MARK: CollectionView
-
+    
     func setCollectionView(){
         feedCollectionView.delegate = self
         feedCollectionView.dataSource = self
@@ -61,7 +68,7 @@ class MyPageFeedVC: UIViewController {
         let layout = UICollectionViewFlowLayout()
         feedCollectionView.collectionViewLayout = layout
         feedCollectionView.register(FeedCollectionViewCell.nib(), forCellWithReuseIdentifier: FeedCollectionViewCell.identifier)
-
+        
         // SE 외는 scroll view inset adjustment behavior = never 처리
         
         if #available(iOS 11.0, *) {
@@ -86,26 +93,21 @@ class MyPageFeedVC: UIViewController {
         self.userNameInitial.font = .spoqaMedium(size: 30)
         self.userNameInitial.textAlignment = .center
         
-        if (randomProfile == 0) {
-            self.userNameInitial.textColor = .meaningNavy
-        } else {
-            self.userNameInitial.textColor = .meaningIvory
-        }
-        
         self.userNameLabel.text = userNick
         self.userNameInitial.font = .spoqaMedium(size: 16)
         self.userNameLabel.textColor = .gray1
         self.userNameLabel.lineSetting(kernValue: -0.64)
-        
-        self.userWakeTimeView.setBorder(borderColor: .skyBlue, borderWidth: 1)
-        self.userWakeTimeView.setRounded(radius: 13.5)
-        self.userWakeTimeView.backgroundColor = .meaningWhite
-        
-        self.userWakeTimeLabel.text = "매일 오전 5시 기상"
+
+        self.userWakeTimeLabel.text = dateConverter(dateData: "00:00:00",
+                                                    originalConstraint: timeViewWidth,
+                                                    convertedWidth: 150)
         self.userWakeTimeLabel.textColor = .skyBlue
         self.userWakeTimeLabel.font = .spoqaMedium(size: 13)
         self.userWakeTimeLabel.lineSetting(kernValue: -0.52)
         self.userWakeTimeLabel.textAlignment = .center
+        self.userWakeTimeView.setBorder(borderColor: .skyBlue, borderWidth: 1)
+        self.userWakeTimeView.setRounded(radius: 13.5)
+        self.userWakeTimeView.backgroundColor = .meaningWhite
         
         self.feedHeaderView.backgroundColor = .meaningLightblue
         self.feedHeaderLabel.text = "오늘은 365일 중에 \(feedImageList.count)번째 의미있는 아침입니다."
@@ -177,4 +179,5 @@ extension MyPageFeedVC: UICollectionViewDelegateFlowLayout {
         return 1
     }
 }
+
 
