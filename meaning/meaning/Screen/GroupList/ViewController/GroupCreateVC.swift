@@ -7,11 +7,10 @@
 
 import UIKit
 
-class GroupCreateVC: UIViewController {
+class GroupCreateVC: UIViewController, UITextFieldDelegate {
     
     //MARK: - IBOutlet
-    
-    
+
     @IBOutlet var backBtn: UIButton!
     @IBOutlet var GroupCreateLabel: UILabel!
     
@@ -28,6 +27,41 @@ class GroupCreateVC: UIViewController {
     
     @IBOutlet var createBtn: UIButton!
     
+    
+    
+    @IBAction func createBtnPressed(_ sender: UIButton) {
+        if infoTextView.text.isEmpty || infoTextView.text == "그룹을 자유롭게 소개해주세요!" {
+            self.showToast(message: "내용을 입력해주세요", font: UIFont.spoqaRegular(size: 15))
+        } else if nameTextField.text?.isEmpty == true {
+            self.showToast(message: "내용을 입력해주세요", font: UIFont.spoqaRegular(size: 15))
+        }
+    }
+    
+    
+    @IBAction func editChanged(_ sender: UITextField) {
+        
+        if sender.text?.isEmpty == true {
+            self.showToast(message: "정확한 숫자를 입력해주세요", font: UIFont.spoqaRegular(size: 15))
+            numberInfoLabel.text = "최소 2명부터 최대 100명까지 참여할 수 있어요!"
+            numberInfoLabel.font = UIFont.spoqaRegular(size: 12)
+            numberInfoLabel.textColor = .red
+            numberInfoLabel.lineSetting(kernValue: -0.48)
+            
+        } else if Int(sender.text!)! < 2 || Int(sender.text!)! > 100 {
+                self.showToast(message: "정확한 숫자를 입력해주세요", font: UIFont.spoqaRegular(size: 15))
+                numberInfoLabel.text = "최소 2명부터 최대 100명까지 참여할 수 있어요!"
+                numberInfoLabel.font = UIFont.spoqaRegular(size: 12)
+                numberInfoLabel.textColor = .red
+                numberInfoLabel.lineSetting(kernValue: -0.48)
+        } else {
+            numberInfoLabel.text = "최소 2명부터 최대 100명까지 참여할 수 있어요!"
+            numberInfoLabel.font = UIFont.spoqaRegular(size: 12)
+            numberInfoLabel.textColor = .gray3
+            numberInfoLabel.lineSetting(kernValue: -0.48)
+        }
+    }
+    
+    
     //MARK: - Life Cycle Part
     
     override func viewDidLoad() {
@@ -35,13 +69,34 @@ class GroupCreateVC: UIViewController {
         setLayout()
         placeholderSetting()
         TextViewAddPadding()
+        
+        nameTextField.delegate = self
     }
-
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        //그룹 이름 20자 글자수 제한
+        let currentText = textField.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        return updatedText.count <= 20
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+        return true
+    }
+    
 }
 
     //MARK: - extension
 
 extension GroupCreateVC {
+    
     func setLayout() {
     
         GroupCreateLabel.text = "그룹 생성"
@@ -100,6 +155,8 @@ extension GroupCreateVC {
 
     }
     
+
+    
 }
 
 extension UITextField {
@@ -117,19 +174,18 @@ extension UITextField {
             self.rightView = paddingView
             self.rightViewMode = ViewMode.always
         }
-
     
 }
 
 extension GroupCreateVC: UITextViewDelegate {
-    
+
     func TextViewAddPadding() {
         //TextView padding
         infoTextView.textContainerInset = UIEdgeInsets(top: 16, left: 13, bottom: 18, right: 13)
     }
     
-    //디폴트 placeholder 지정
     func placeholderSetting(){
+        //디폴트 placeholder 지정
         infoTextView.delegate = self
         infoTextView.text = "그룹을 자유롭게 소개해주세요!"
         infoTextView.lineSetting(kernValue: -0.6, lineSpacing: 10)
@@ -137,22 +193,32 @@ extension GroupCreateVC: UITextViewDelegate {
         infoTextView.font = UIFont.spoqaRegular(size: 15)
     }
     
-    //편집 시작
     func textViewDidBeginEditing(_ textView: UITextView) {
+        //편집 시작
         if infoTextView.text == "그룹을 자유롭게 소개해주세요!" {
             infoTextView.text = nil
             infoTextView.textColor = UIColor.gray2
         }
     }
     
-    // TextView Place Holder
     func textViewDidEndEditing(_ textView: UITextView) {
+        // TextView Place Holder
         if (infoTextView.text == "") {
             infoTextView.text = "그룹을 자유롭게 소개해주세요!"
             infoTextView.textColor = UIColor.gray4
         }
     }
-
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText string: String) -> Bool{
+        // 글자수 체크 기능, 45자 까지만 제한
+        if(textView == infoTextView){
+            let strLength = infoTextView.text?.count ?? 0
+            let lengthToAdd = string.count
+            let lengthCount = strLength + lengthToAdd
+            return lengthCount <= 45
+        }
+        return true
+    }
 }
 
 
