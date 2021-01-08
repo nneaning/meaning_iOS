@@ -73,6 +73,7 @@
 		9B70C10125A42AD700A5EFDD /* OnboardingTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */; };
 		9BEA213C25A8304500F240E5 /* FeedDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA213B25A8304500F240E5 /* FeedDetailVC.swift */; };
 		9BEA214125A854C800F240E5 /* FeedDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA214025A854C800F240E5 /* FeedDetailCell.swift */; };
+		9BEA214525A86BA300F240E5 /* FeedDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA214425A86BA300F240E5 /* FeedDetail.swift */; };
 		9EB5CCFF25A0B6820070CD58 /* DailyMaximVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */; };
 		9EB5CD0725A17DC90070CD58 /* DailyDiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CD0625A17DC90070CD58 /* DailyDiaryVC.swift */; };
 		9EB5CD0A25A194550070CD58 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CD0925A194540070CD58 /* UITextView+Extension.swift */; };
@@ -150,6 +151,7 @@
 		9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTimeVC.swift; sourceTree = "<group>"; };
 		9BEA213B25A8304500F240E5 /* FeedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailVC.swift; sourceTree = "<group>"; };
 		9BEA214025A854C800F240E5 /* FeedDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailCell.swift; sourceTree = "<group>"; };
+		9BEA214425A86BA300F240E5 /* FeedDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetail.swift; sourceTree = "<group>"; };
 		9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DailyMaximVC.swift; path = meaning/Screen/Mission/ViewController/DailyMaximVC.swift; sourceTree = SOURCE_ROOT; };
 		9EB5CD0625A17DC90070CD58 /* DailyDiaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDiaryVC.swift; sourceTree = "<group>"; };
 		9EB5CD0925A194540070CD58 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 				36D0708B25A6F69100024EC3 /* MemberTableViewCell.swift */,
 				36D6998125A76B1100227FB1 /* MemberInfo.swift */,
 				9BEA213B25A8304500F240E5 /* FeedDetailVC.swift */,
+				9BEA214425A86BA300F240E5 /* FeedDetail.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -747,6 +750,7 @@
 				9B2BA23A25A0E547000EF4AA /* UILabel+Extension.swift in Sources */,
 				36A9425F25A48E83009C28F2 /* GroupDetailVC.swift in Sources */,
 				36A9426325A48E9E009C28F2 /* GroupJoinVC.swift in Sources */,
+				9BEA214525A86BA300F240E5 /* FeedDetail.swift in Sources */,
 				36D1E77C25A5EBC5001C1D71 /* GroupInfoVC.swift in Sources */,
 				36A9424A25A340DB009C28F2 /* GroupTable.swift in Sources */,
 				9BEA213C25A8304500F240E5 /* FeedDetailVC.swift in Sources */,
