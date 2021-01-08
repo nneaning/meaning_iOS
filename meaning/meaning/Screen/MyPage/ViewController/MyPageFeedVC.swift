@@ -13,6 +13,7 @@ class MyPageFeedVC: UIViewController {
     
     let randomProfile = Int.random(in: 0...1)
     var userNick: String = "이기상"
+    var wakeUpTimeText: String = ""
     var feedImageList: [FeedImage] = []
     
     // MARK: IBOutlet
@@ -98,9 +99,15 @@ class MyPageFeedVC: UIViewController {
         self.userNameLabel.textColor = .gray1
         self.userNameLabel.lineSetting(kernValue: -0.64)
 
-        self.userWakeTimeLabel.text = dateConverter(dateData: "00:00:00",
-                                                    originalConstraint: timeViewWidth,
-                                                    convertedWidth: 150)
+        wakeUpTimeText = dateConverter(dateData: "09:50:00")
+        self.userWakeTimeLabel.text = wakeUpTimeText
+
+        if (wakeUpTimeText == "시간 설정을 해주세요.") {
+            timeViewWidth.constant = 130
+        } else if (wakeUpTimeText.count > 12) {
+            timeViewWidth.constant = 150
+        }
+        
         self.userWakeTimeLabel.textColor = .skyBlue
         self.userWakeTimeLabel.font = .spoqaMedium(size: 13)
         self.userWakeTimeLabel.lineSetting(kernValue: -0.52)
