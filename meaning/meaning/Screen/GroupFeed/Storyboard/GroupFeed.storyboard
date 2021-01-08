@@ -131,6 +131,9 @@
                             <constraint firstItem="w2r-VM-Dlw" firstAttribute="top" secondItem="cOh-a7-0Cw" secondAttribute="bottom" id="xi8-RC-D6P"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="groupFeedCollectionView" destination="w2r-VM-Dlw" id="Mde-l2-udq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Msp-BJ-IZ2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
