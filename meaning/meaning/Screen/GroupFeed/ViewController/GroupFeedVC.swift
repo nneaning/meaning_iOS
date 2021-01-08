@@ -13,6 +13,7 @@ class GroupFeedVC: UIViewController {
     
     var feedList: [FeedImage] = []
     var groupName: String = "미닝 아요팀 최고야"
+    var groupPersonCount: Int = 3
     
     // MARK: IBOutlet
     
@@ -93,7 +94,10 @@ extension GroupFeedVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         // CollectionView Header 지정
         
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "GroupFeedReusableView", for: indexPath)
+        guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "GroupFeedReusableView", for: indexPath) as? GroupFeedReusableView else {
+            return UICollectionReusableView()
+        }
+        headerView.setMent(count: groupPersonCount)
         return headerView
 
     }

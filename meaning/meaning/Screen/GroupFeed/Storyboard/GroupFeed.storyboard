@@ -118,6 +118,10 @@
                                         <constraint firstAttribute="trailing" secondItem="rQw-7s-JfK" secondAttribute="trailing" id="MUD-df-5eu"/>
                                         <constraint firstAttribute="bottom" secondItem="rQw-7s-JfK" secondAttribute="bottom" id="Ppf-eS-AP6"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="sloganLabel" destination="ULQ-3H-sfo" id="jKM-tu-5Hx"/>
+                                        <outlet property="sloganView" destination="rQw-7s-JfK" id="g5X-MD-aHN"/>
+                                    </connections>
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>
