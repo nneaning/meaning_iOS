@@ -292,7 +292,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedDetailCell" rowHeight="548" id="4Va-SS-gJz">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedDetailCell" rowHeight="548" id="4Va-SS-gJz" customClass="FeedDetailCell" customModule="meaning" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="75" width="414" height="548"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Va-SS-gJz" id="RWN-4Q-e3j">
@@ -357,7 +357,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8Z-l3-3qm">
-                                                    <rect key="frame" x="16" y="77" width="41.5" height="47"/>
+                                                    <rect key="frame" x="16" y="77" width="380" height="47"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -372,6 +372,7 @@
                                             <constraints>
                                                 <constraint firstItem="8MI-RV-jqn" firstAttribute="leading" secondItem="RWN-4Q-e3j" secondAttribute="leading" id="1Px-9z-Ehe"/>
                                                 <constraint firstAttribute="bottom" secondItem="8MI-RV-jqn" secondAttribute="bottom" id="Emh-gU-lEN"/>
+                                                <constraint firstAttribute="trailing" secondItem="k8Z-l3-3qm" secondAttribute="trailing" constant="18" id="F6U-k0-5ze"/>
                                                 <constraint firstItem="WtD-TD-jeR" firstAttribute="centerY" secondItem="Y5b-NR-sjM" secondAttribute="centerY" id="Ih5-jU-oZr"/>
                                                 <constraint firstItem="Y5b-NR-sjM" firstAttribute="top" secondItem="RWN-4Q-e3j" secondAttribute="top" constant="18" id="Mvx-O2-fX9"/>
                                                 <constraint firstItem="k8Z-l3-3qm" firstAttribute="top" secondItem="WtD-TD-jeR" secondAttribute="bottom" constant="17" id="QbV-br-gtj"/>
@@ -403,6 +404,9 @@
                             <constraint firstItem="Msx-AX-LUr" firstAttribute="trailing" secondItem="SSa-rp-wnb" secondAttribute="trailing" id="pam-t0-DpN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="feedDetailTableView" destination="SSa-rp-wnb" id="Hqb-d4-i18"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPR-ki-2NU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,6 +9,8 @@ import UIKit
 
 class FeedDetailVC: UIViewController {
 
+    @IBOutlet weak var feedDetailTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
