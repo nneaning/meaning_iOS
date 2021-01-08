@@ -11,6 +11,7 @@ class MyPageFeedVC: UIViewController {
     
     // MARK: Variable Part
     
+    let randomProfile = Int.random(in: 0...1)
     var userNick: String = "이기상"
     var feedImageList: [FeedImage] = []
     
@@ -32,7 +33,6 @@ class MyPageFeedVC: UIViewController {
     
     @IBOutlet var feedCollectionView: UICollectionView!
     
-    
     // MARK: Life Cycle Part
     
     override func viewDidLoad() {
@@ -44,7 +44,12 @@ class MyPageFeedVC: UIViewController {
     
     override func viewWillLayoutSubviews() {
         self.myProfileView.setRounded(radius: nil)
-        self.myProfileView.backgroundColor = .meaningLightblue
+        
+        if (randomProfile == 0) {
+            self.myProfileView.backgroundColor = .meaningLightblue
+        } else if (randomProfile == 1) {
+             self.myProfileView.backgroundColor = .meaningNavy
+        }
     }
     
     // MARK: CollectionView
@@ -77,20 +82,19 @@ class MyPageFeedVC: UIViewController {
         self.headerLabel.text = "마이 피드"
         self.headerLabel.textColor = UIColor.gray1
         
-        
         self.userNameInitial.text = initial
         self.userNameInitial.font = .spoqaMedium(size: 30)
-        self.userNameInitial.textColor = .meaningNavy
         self.userNameInitial.textAlignment = .center
-        self.userNameInitial.adjustsFontSizeToFitWidth = true
         
-        //랜덤하게
-        // self.myProfileView.backgroundColor = .meaningNavy
-        // self.userNameInitial.textColor = .meaningIvory
+        if (randomProfile == 0) {
+            self.userNameInitial.textColor = .meaningNavy
+        } else {
+            self.userNameInitial.textColor = .meaningIvory
+        }
         
         self.userNameLabel.text = userNick
         self.userNameInitial.font = .spoqaMedium(size: 16)
-        self.userNameInitial.textColor = .gray1
+        self.userNameLabel.textColor = .gray1
         self.userNameLabel.lineSetting(kernValue: -0.64)
         
         self.userWakeTimeView.setBorder(borderColor: .skyBlue, borderWidth: 1)
@@ -109,12 +113,11 @@ class MyPageFeedVC: UIViewController {
         self.feedHeaderLabel.lineSetting(kernValue: -0.56)
         self.feedHeaderLabel.textAlignment = .center
         
-        
     }
     
     // MARK: setData
     
-    func setFeedImageData(){
+    func setFeedImageData() {
         // 임의로 40개 피드를 같은 사진으로 만들었음, 서버 연동을 하면서 수정하면 됨
         for _ in 0...40 {
             feedImageList.append(contentsOf: [
