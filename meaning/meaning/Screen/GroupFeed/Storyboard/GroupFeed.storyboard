@@ -415,6 +415,9 @@
                     </view>
                     <connections>
                         <outlet property="feedDetailTableView" destination="SSa-rp-wnb" id="8HS-Ch-4QN"/>
+                        <outlet property="feedNameLabel" destination="O3G-OA-JHO" id="YcB-xP-akV"/>
+                        <outlet property="sloganLabel" destination="gx5-UK-pcr" id="O5y-Bk-qD1"/>
+                        <outlet property="sloganView" destination="UVO-u9-1yz" id="QJk-8U-FRL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPR-ki-2NU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
