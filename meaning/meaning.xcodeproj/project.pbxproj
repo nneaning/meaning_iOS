@@ -71,6 +71,9 @@
 		9EB5CCFF25A0B6820070CD58 /* DailyMaximVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */; };
 		9EB5CD0725A17DC90070CD58 /* DailyDiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CD0625A17DC90070CD58 /* DailyDiaryVC.swift */; };
 		9EB5CD0A25A194550070CD58 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CD0925A194540070CD58 /* UITextView+Extension.swift */; };
+		9EB8610E25A6EC3E009E4234 /* MyPageFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB8610D25A6EC3E009E4234 /* MyPageFeedVC.swift */; };
+		9EB8611625A756E3009E4234 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB8611425A756E2009E4234 /* FeedCollectionViewCell.swift */; };
+		9EB8611725A756E3009E4234 /* FeedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB8611525A756E2009E4234 /* FeedCollectionViewCell.xib */; };
 		9EE0139125A4383300A2CB9A /* ShortReadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0139025A4383300A2CB9A /* ShortReadingVC.swift */; };
 		9EE0139925A4774700A2CB9A /* Toast+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0139825A4774700A2CB9A /* Toast+Extension.swift */; };
 		9EE0139C25A47B3A00A2CB9A /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0139B25A47B3A00A2CB9A /* UITextField+Extension.swift */; };
@@ -143,6 +146,9 @@
 		9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DailyMaximVC.swift; path = meaning/Screen/Mission/ViewController/DailyMaximVC.swift; sourceTree = SOURCE_ROOT; };
 		9EB5CD0625A17DC90070CD58 /* DailyDiaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDiaryVC.swift; sourceTree = "<group>"; };
 		9EB5CD0925A194540070CD58 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
+		9EB8610D25A6EC3E009E4234 /* MyPageFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPageFeedVC.swift; path = meaning/Screen/MyPage/ViewController/MyPageFeedVC.swift; sourceTree = SOURCE_ROOT; };
+		9EB8611425A756E2009E4234 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
+		9EB8611525A756E2009E4234 /* FeedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCollectionViewCell.xib; sourceTree = "<group>"; };
 		9EE0139025A4383300A2CB9A /* ShortReadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortReadingVC.swift; sourceTree = "<group>"; };
 		9EE0139825A4774700A2CB9A /* Toast+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toast+Extension.swift"; sourceTree = "<group>"; };
 		9EE0139B25A47B3A00A2CB9A /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
@@ -307,8 +313,9 @@
 		9B2BA195259F5BC6000EF4AA /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				9EB8611325A756B9009E4234 /* cell */,
+				9EB8611125A6EC49009E4234 /* ViewController */,
 				9B2BA1A9259F5D52000EF4AA /* Storyboard */,
-				9B2BA1A8259F5D4B000EF4AA /* ViewController */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -461,13 +468,6 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		9B2BA1A8259F5D4B000EF4AA /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		9B2BA1A9259F5D52000EF4AA /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,6 +544,23 @@
 				9EE013A625A4EAC000A2CB9A /* PictureUploadVC.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9EB8611125A6EC49009E4234 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9EB8610D25A6EC3E009E4234 /* MyPageFeedVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9EB8611325A756B9009E4234 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				9EB8611425A756E2009E4234 /* FeedCollectionViewCell.swift */,
+				9EB8611525A756E2009E4234 /* FeedCollectionViewCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		F3125DA1C1951212B6AAE898 /* Frameworks */ = {
@@ -631,6 +648,7 @@
 				9B2BA17C259F5904000EF4AA /* LaunchScreen.storyboard in Resources */,
 				9B2BA1E2259F7302000EF4AA /* Spoqa Han Sans Neo Thin.otf in Resources */,
 				9B2BA179259F5904000EF4AA /* Assets.xcassets in Resources */,
+				9EB8611725A756E3009E4234 /* FeedCollectionViewCell.xib in Resources */,
 				9B2BA1C7259F5EE3000EF4AA /* GroupList.storyboard in Resources */,
 				9B2BA213259FA8C5000EF4AA /* NotoSansKR-Regular.otf in Resources */,
 				9B2BA22A25A0D2F5000EF4AA /* NanumSquareOTFLight.otf in Resources */,
@@ -715,8 +733,10 @@
 				9EE0139925A4774700A2CB9A /* Toast+Extension.swift in Sources */,
 				36A9424725A33DCD009C28F2 /* GroupTableViewCell.swift in Sources */,
 				9EE0139125A4383300A2CB9A /* ShortReadingVC.swift in Sources */,
+				9EB8610E25A6EC3E009E4234 /* MyPageFeedVC.swift in Sources */,
 				9B2BA23E25A1B99F000EF4AA /* PhotoCheckVC.swift in Sources */,
 				9B2BA21D259FA9D0000EF4AA /* UIFont+Extension.swift in Sources */,
+				9EB8611625A756E3009E4234 /* FeedCollectionViewCell.swift in Sources */,
 				9EB5CCFF25A0B6820070CD58 /* DailyMaximVC.swift in Sources */,
 				36A9422D25A29A6E009C28F2 /* GroupCell.swift in Sources */,
 				9B2BA23A25A0E547000EF4AA /* UILabel+Extension.swift in Sources */,
