@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GroupCreateVC: UIViewController, UITextFieldDelegate {
+class GroupCreateVC: UIViewController {
     
     //MARK: - IBOutlet
 
@@ -30,16 +30,17 @@ class GroupCreateVC: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func createBtnPressed(_ sender: UIButton) {
+        //그룹 만들기 눌렀을 때 textField 값이 없으면 토스트 팝업
         if infoTextView.text.isEmpty || infoTextView.text == "그룹을 자유롭게 소개해주세요!" {
             self.showToast(message: "내용을 입력해주세요", font: UIFont.spoqaRegular(size: 15))
+            
         } else if nameTextField.text?.isEmpty == true {
             self.showToast(message: "내용을 입력해주세요", font: UIFont.spoqaRegular(size: 15))
         }
     }
     
-    
     @IBAction func editChanged(_ sender: UITextField) {
-        
+        //인원수 값이 없는 경우와 값 충족을 못 시키는 경우
         if sender.text?.isEmpty == true {
             self.showToast(message: "정확한 숫자를 입력해주세요", font: UIFont.spoqaRegular(size: 15))
             numberInfoLabel.text = "최소 2명부터 최대 100명까지 참여할 수 있어요!"
@@ -71,24 +72,6 @@ class GroupCreateVC: UIViewController, UITextFieldDelegate {
         TextViewAddPadding()
         
         nameTextField.delegate = self
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
-                   replacementString string: String) -> Bool {
-        //그룹 이름 20자 글자수 제한
-        let currentText = textField.text ?? ""
-        guard let stringRange = Range(range, in: currentText) else { return false }
-        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-        return updatedText.count <= 20
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        nameTextField.resignFirstResponder()
-        return true
     }
     
 }
@@ -154,9 +137,7 @@ extension GroupCreateVC {
         createBtn.setTitleColor(UIColor.meaningWhite, for: .normal)
 
     }
-    
 
-    
 }
 
 extension UITextField {
@@ -174,6 +155,30 @@ extension UITextField {
             self.rightView = paddingView
             self.rightViewMode = ViewMode.always
         }
+}
+
+extension GroupCreateVC: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        //그룹 이름 20자 글자수 제한
+        let currentText = textField.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        return updatedText.count <= 20
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // 뷰 클릭 시 키보드 내리기
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // 키보드 리턴키 클릭 시 키보드 내려가기
+        textField.resignFirstResponder()
+        return true
+    }
+    
     
 }
 
