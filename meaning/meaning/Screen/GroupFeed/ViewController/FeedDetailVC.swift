@@ -91,7 +91,7 @@ extension FeedDetailVC: UITableViewDataSource {
             return UITableViewCell()
             
         }
-        feedDetailCell.setData(nick: feedDetailList[indexPath.row].nick, writeTime: feedDetailList[indexPath.row].writeTime, wakeupTime: dateConverter1(dateData: feedDetailList[indexPath.row].wakeupTime), context: feedDetailList[indexPath.row].context, uploadImageName: feedDetailList[indexPath.row].timeStamp, index: indexPath.row % 2)
+        feedDetailCell.setData(nick: feedDetailList[indexPath.row].nick, writeTime: feedDetailList[indexPath.row].writeTime, wakeupTime: dateConverter(dateData: feedDetailList[indexPath.row].wakeupTime), context: feedDetailList[indexPath.row].context, uploadImageName: feedDetailList[indexPath.row].timeStamp, index: indexPath.row % 2)
         return feedDetailCell
     }
     
