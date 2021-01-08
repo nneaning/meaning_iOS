@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X0l-kD-9Kx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l1a-qL-4dN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -470,6 +470,54 @@
             </objects>
             <point key="canvasLocation" x="4088" y="595"/>
         </scene>
+        <!--GroupCompleteVC-->
+        <scene sceneID="amD-eh-6Q9">
+            <objects>
+                <viewController storyboardIdentifier="GroupCompleteVC" title="GroupCompleteVC" id="l1a-qL-4dN" customClass="GroupCompleteVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MBM-Xj-cMg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImg" translatesAutoresizingMaskIntoConstraints="NO" id="c37-sB-1pu">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSN-g5-cYv">
+                                <rect key="frame" x="186" y="348" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiX-Cc-nWo">
+                                <rect key="frame" x="47" y="418" width="320" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hiX-Cc-nWo" secondAttribute="height" multiplier="290:54" id="F0n-9X-IZv"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="U5K-BP-bDb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hiX-Cc-nWo" firstAttribute="top" secondItem="OSN-g5-cYv" secondAttribute="bottom" constant="49" id="7G0-rv-6e2"/>
+                            <constraint firstItem="hiX-Cc-nWo" firstAttribute="width" secondItem="MBM-Xj-cMg" secondAttribute="width" multiplier="290:375" id="9q8-dr-E7L"/>
+                            <constraint firstItem="hiX-Cc-nWo" firstAttribute="centerY" secondItem="MBM-Xj-cMg" secondAttribute="centerY" id="GsU-df-F9M"/>
+                            <constraint firstItem="hiX-Cc-nWo" firstAttribute="centerX" secondItem="MBM-Xj-cMg" secondAttribute="centerX" id="JWq-M8-Hbv"/>
+                            <constraint firstItem="OSN-g5-cYv" firstAttribute="centerX" secondItem="MBM-Xj-cMg" secondAttribute="centerX" id="PoI-Tn-o9M"/>
+                            <constraint firstItem="U5K-BP-bDb" firstAttribute="trailing" secondItem="c37-sB-1pu" secondAttribute="trailing" id="gdl-SR-FJl"/>
+                            <constraint firstAttribute="bottom" secondItem="c37-sB-1pu" secondAttribute="bottom" id="nA2-Ne-c2E"/>
+                            <constraint firstItem="c37-sB-1pu" firstAttribute="leading" secondItem="U5K-BP-bDb" secondAttribute="leading" id="nVg-EK-eLM"/>
+                            <constraint firstItem="c37-sB-1pu" firstAttribute="top" secondItem="MBM-Xj-cMg" secondAttribute="top" id="pN3-on-Lhk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backToMainBtn" destination="hiX-Cc-nWo" id="fGs-Ua-1ib"/>
+                        <outlet property="completeLabel" destination="OSN-g5-cYv" id="K7S-Jf-3dY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mqa-e0-lIG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4886.9565217391309" y="591.96428571428567"/>
+        </scene>
         <!--GroupDetailVC-->
         <scene sceneID="B7m-k7-r6z">
             <objects>
@@ -661,6 +709,7 @@
     <resources>
         <image name="addBtn" width="38" height="38"/>
         <image name="backBtn" width="40" height="40"/>
+        <image name="backgroundImg" width="375" height="812"/>
         <image name="closeBtn" width="29" height="29"/>
         <image name="group_card1_img" width="434" height="212"/>
         <image name="logoImg" width="100" height="24"/>
