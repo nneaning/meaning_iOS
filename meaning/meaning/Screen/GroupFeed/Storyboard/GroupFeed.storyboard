@@ -215,10 +215,10 @@
             </objects>
             <point key="canvasLocation" x="831.88405797101461" y="34.821428571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed DetailVC-->
         <scene sceneID="4zS-fR-QXL">
             <objects>
-                <viewController id="egr-r7-dbm" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedDetailVC" id="egr-r7-dbm" customClass="FeedDetailVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qWn-Nj-00y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
