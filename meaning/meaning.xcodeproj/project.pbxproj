@@ -21,6 +21,7 @@
 		36D0708C25A6F69100024EC3 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D0708B25A6F69100024EC3 /* MemberTableViewCell.swift */; };
 		36D1E77C25A5EBC5001C1D71 /* GroupInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D1E77B25A5EBC5001C1D71 /* GroupInfoVC.swift */; };
 		36D6998225A76B1100227FB1 /* MemberInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D6998125A76B1100227FB1 /* MemberInfo.swift */; };
+		36D6998825A8413A00227FB1 /* GroupCreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D6998725A8413A00227FB1 /* GroupCreateVC.swift */; };
 		6DC70DC41C332E65FC653BE0 /* Pods_meaning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E87AC0016D83A60227B184E6 /* Pods_meaning.framework */; };
 		9B1B6B3B25A5AB9300CCA4CC /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1B6B3A25A5AB9300CCA4CC /* HomeVC.swift */; };
 		9B1B6B3E25A5AD8B00CCA4CC /* MissionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1B6B3D25A5AD8B00CCA4CC /* MissionCard.swift */; };
@@ -95,6 +96,7 @@
 		36D0708B25A6F69100024EC3 /* MemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTableViewCell.swift; sourceTree = "<group>"; };
 		36D1E77B25A5EBC5001C1D71 /* GroupInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfoVC.swift; sourceTree = "<group>"; };
 		36D6998125A76B1100227FB1 /* MemberInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberInfo.swift; sourceTree = "<group>"; };
+		36D6998725A8413A00227FB1 /* GroupCreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreateVC.swift; sourceTree = "<group>"; };
 		9B1B6B3A25A5AB9300CCA4CC /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		9B1B6B3D25A5AD8B00CCA4CC /* MissionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCard.swift; sourceTree = "<group>"; };
 		9B1B6B4125A5AFB700CCA4CC /* MissionCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCardCell.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 				36A9424925A340DB009C28F2 /* GroupTable.swift */,
 				36A9425E25A48E83009C28F2 /* GroupDetailVC.swift */,
 				36A9426225A48E9E009C28F2 /* GroupJoinVC.swift */,
+				36D6998725A8413A00227FB1 /* GroupCreateVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -721,6 +724,7 @@
 				9EE0139C25A47B3A00A2CB9A /* UITextField+Extension.swift in Sources */,
 				9B2BA1EC259F779B000EF4AA /* UIImageView+Extension.swift in Sources */,
 				36A9425225A45B4A009C28F2 /* TestHomeVC.swift in Sources */,
+				36D6998825A8413A00227FB1 /* GroupCreateVC.swift in Sources */,
 				9EB5CD0725A17DC90070CD58 /* DailyDiaryVC.swift in Sources */,
 				9EE0139925A4774700A2CB9A /* Toast+Extension.swift in Sources */,
 				36A9424725A33DCD009C28F2 /* GroupTableViewCell.swift in Sources */,
