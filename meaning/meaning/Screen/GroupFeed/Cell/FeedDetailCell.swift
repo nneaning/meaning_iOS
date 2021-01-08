@@ -25,6 +25,8 @@ class FeedDetailCell: UITableViewCell {
     @IBOutlet weak var wakeupLabel: UILabel!
     @IBOutlet weak var wakeupViewWidth: NSLayoutConstraint!
     
+    @IBOutlet weak var contextLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setCell()
@@ -57,6 +59,9 @@ class FeedDetailCell: UITableViewCell {
         wakeupLabel.text = "매일 오전 5시 기상"
         wakeupLabel.font = UIFont.notoMedium(size: 13)
         wakeupLabel.textColor = .skyBlue
+        
+        contextLabel.font = UIFont.spoqaRegular(size: 14)
+        contextLabel.text = "기상인증"
     }
 
 }

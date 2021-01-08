@@ -386,6 +386,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="contextLabel" destination="k8Z-l3-3qm" id="B6w-nJ-v7t"/>
                                             <outlet property="nickLabel" destination="Itx-Qh-9dH" id="0UW-Eb-Tm1"/>
                                             <outlet property="profileLabel" destination="jmD-L7-sSb" id="myQ-O3-V4D"/>
                                             <outlet property="profileView" destination="Y5b-NR-sjM" id="JYj-ox-3f1"/>
