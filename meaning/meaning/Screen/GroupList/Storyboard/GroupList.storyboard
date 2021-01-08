@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X0l-kD-9Kx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="82q-1U-28c">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -53,6 +53,9 @@
                                                         <constraint firstAttribute="width" secondItem="DBP-LH-asB" secondAttribute="height" multiplier="1:1" id="r00-72-1Wv"/>
                                                     </constraints>
                                                     <state key="normal" image="addBtn"/>
+                                                    <connections>
+                                                        <action selector="goToGroupDetail:" destination="Jgf-yZ-bus" eventType="touchUpInside" id="saw-D3-HlW"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ii6-LC-A4L">
                                                     <rect key="frame" x="322" y="24" width="42" height="21"/>
@@ -337,7 +340,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VAM-Gl-cVq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3235" y="494"/>
+            <point key="canvasLocation" x="3234.7826086956525" y="493.52678571428567"/>
         </scene>
         <!--GroupCreateVC-->
         <scene sceneID="BLg-I9-Fte">
@@ -350,6 +353,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNN-Ve-LrH">
                                 <rect key="frame" x="5" y="44" width="40" height="40"/>
                                 <state key="normal" image="backBtn"/>
+                                <connections>
+                                    <action selector="backToMain:" destination="X0l-kD-9Kx" eventType="touchUpInside" id="b9z-7m-BvE"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdL-WP-60L">
                                 <rect key="frame" x="186" y="55" width="42" height="21"/>
@@ -384,9 +390,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <connections>
-                                    <action selector="editChanged:" destination="X0l-kD-9Kx" eventType="editingDidEnd" id="Ik2-gr-RLy"/>
-                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YeR-Vh-rZq">
                                 <rect key="frame" x="68" y="303" width="42" height="21"/>
@@ -424,6 +427,7 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="createBtnPressed:" destination="X0l-kD-9Kx" eventType="touchUpInside" id="GfW-M4-aPh"/>
+                                    <action selector="goToGroupComplete:" destination="X0l-kD-9Kx" eventType="touchUpInside" id="FEh-LW-22S"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -499,6 +503,9 @@
                                     <constraint firstAttribute="width" secondItem="hiX-Cc-nWo" secondAttribute="height" multiplier="290:54" id="F0n-9X-IZv"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="backToMain:" destination="l1a-qL-4dN" eventType="touchUpInside" id="ssO-YW-3Z7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="U5K-BP-bDb"/>
@@ -516,7 +523,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backToMainBtn" destination="hiX-Cc-nWo" id="fGs-Ua-1ib"/>
+                        <outlet property="backToMainBtn" destination="hiX-Cc-nWo" id="M8G-0l-3bX"/>
                         <outlet property="completeLabel" destination="OSN-g5-cYv" id="K7S-Jf-3dY"/>
                     </connections>
                 </viewController>

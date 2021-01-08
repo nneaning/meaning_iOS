@@ -14,6 +14,12 @@ class GroupCompleteVC: UIViewController {
     @IBOutlet var completeLabel: UILabel!
     @IBOutlet var backToMainBtn: UIButton!
     
+    //MARK: - IBAction
+    
+    @IBAction func backToMain(_ sender: Any) {
+        //버튼 클릭 시 메인으로 돌아가기
+        self.navigationController?.popToRootViewController(animated: true)
+    }
     
     //MARK: - Life Cycle Part
     
@@ -21,7 +27,7 @@ class GroupCompleteVC: UIViewController {
         super.viewDidLoad()
         setLayout()
     }
-
+    
 }
 
 //MARK: - extension

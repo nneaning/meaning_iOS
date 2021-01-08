@@ -9,8 +9,10 @@ import UIKit
 
 class GroupCreateVC: UIViewController {
     
+    var flag: [Int] = [0,0,0]
+    
     //MARK: - IBOutlet
-
+    
     @IBOutlet var backBtn: UIButton!
     @IBOutlet var GroupCreateLabel: UILabel!
     
@@ -27,42 +29,6 @@ class GroupCreateVC: UIViewController {
     
     @IBOutlet var createBtn: UIButton!
     
-    
-    
-    @IBAction func createBtnPressed(_ sender: UIButton) {
-        //그룹 만들기 눌렀을 때 textField 값이 없으면 토스트 팝업
-        if infoTextView.text.isEmpty || infoTextView.text == "그룹을 자유롭게 소개해주세요!" {
-            self.showToast(message: "내용을 입력해주세요", font: UIFont.spoqaRegular(size: 15))
-            
-        } else if nameTextField.text?.isEmpty == true {
-            self.showToast(message: "내용을 입력해주세요", font: UIFont.spoqaRegular(size: 15))
-        }
-    }
-    
-    @IBAction func editChanged(_ sender: UITextField) {
-        //인원수 값이 없는 경우와 값 충족을 못 시키는 경우
-        if sender.text?.isEmpty == true {
-            self.showToast(message: "정확한 숫자를 입력해주세요", font: UIFont.spoqaRegular(size: 15))
-            numberInfoLabel.text = "최소 2명부터 최대 100명까지 참여할 수 있어요!"
-            numberInfoLabel.font = UIFont.spoqaRegular(size: 12)
-            numberInfoLabel.textColor = .red
-            numberInfoLabel.lineSetting(kernValue: -0.48)
-            
-        } else if Int(sender.text!)! < 2 || Int(sender.text!)! > 100 {
-                self.showToast(message: "정확한 숫자를 입력해주세요", font: UIFont.spoqaRegular(size: 15))
-                numberInfoLabel.text = "최소 2명부터 최대 100명까지 참여할 수 있어요!"
-                numberInfoLabel.font = UIFont.spoqaRegular(size: 12)
-                numberInfoLabel.textColor = .red
-                numberInfoLabel.lineSetting(kernValue: -0.48)
-        } else {
-            numberInfoLabel.text = "최소 2명부터 최대 100명까지 참여할 수 있어요!"
-            numberInfoLabel.font = UIFont.spoqaRegular(size: 12)
-            numberInfoLabel.textColor = .gray3
-            numberInfoLabel.lineSetting(kernValue: -0.48)
-        }
-    }
-    
-    
     //MARK: - Life Cycle Part
     
     override func viewDidLoad() {
@@ -74,14 +40,72 @@ class GroupCreateVC: UIViewController {
         nameTextField.delegate = self
     }
     
+    //MARK: - IBAction
+    
+    
+    @IBAction func backToMain(_ sender: Any) {
+        //뒤로가기 버튼 클릭 시 메인으로 이동
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func createBtnPressed(_ sender: UIButton) {
+        //그룹 만들기 눌렀을 때 textField 값이 없으면 토스트 팝업
+        
+        //그룹 이름이 비었을 경우
+        if nameTextField.text?.isEmpty == true {
+            self.showToast(message: "내용을 입력해주세요!", font: UIFont.spoqaRegular(size: 15))
+            flag[0] = 0
+        } else {
+            flag[0] = 1
+        }
+        
+        //인원수 비었을 때, 값을 충족시키지 못할 경우
+        if countTextField.text?.isEmpty == true || Int(countTextField.text!)! < 2 || Int(countTextField.text!)! > 100 {
+            self.showToast(message: "정확한 숫자를 입력해주세요", font: UIFont.spoqaRegular(size: 15))
+            numberInfoLabel.text = "최소 2명부터 최대 100명까지 참여할 수 있어요!"
+            numberInfoLabel.font = UIFont.spoqaRegular(size: 12)
+            numberInfoLabel.textColor = .red
+            numberInfoLabel.lineSetting(kernValue: -0.48)
+            flag[1] = 0
+            
+        } else {
+            numberInfoLabel.text = "최소 2명부터 최대 100명까지 참여할 수 있어요!"
+            numberInfoLabel.font = UIFont.spoqaRegular(size: 12)
+            numberInfoLabel.textColor = .gray3
+            numberInfoLabel.lineSetting(kernValue: -0.48)
+            flag[1] = 1
+        }
+            
+        //그룹 정보가 비었을 경우
+        if infoTextView.text.isEmpty || infoTextView.text == "그룹을 자유롭게 소개해주세요!" {
+            self.showToast(message: "내용을 입력해주세요!", font: UIFont.spoqaRegular(size: 15))
+            flag[2] = 0
+        } else {
+            flag[2] = 1
+        }
+        
+
+   
+    }
+    
+    @IBAction func goToGroupComplete(_ sender: Any) {
+        // 다음 뷰로 연결
+        if flag == [1,1,1] {
+            guard let groupCompleteVC = self.storyboard?.instantiateViewController(identifier: "GroupCompleteVC") as? GroupCompleteVC else {
+                return
+            }
+            self.navigationController?.pushViewController(groupCompleteVC, animated: true)
+        }
+    }
+    
 }
 
-    //MARK: - extension
+//MARK: - extension
 
 extension GroupCreateVC {
     
     func setLayout() {
-    
+        
         GroupCreateLabel.text = "그룹 생성"
         GroupCreateLabel.font = UIFont.spoqaMedium(size: 17)
         GroupCreateLabel.textColor = .gray1
@@ -135,9 +159,9 @@ extension GroupCreateVC {
         createBtn.setTitle("그룹 만들기", for: .normal)
         createBtn.titleLabel?.font = UIFont.notoMedium(size: 16)
         createBtn.setTitleColor(UIColor.meaningWhite, for: .normal)
-
+        
     }
-
+    
 }
 
 extension UITextField {
@@ -151,17 +175,17 @@ extension UITextField {
     
     func addRightPadding() {
         //명수 입력 오른쪽에 여백 주기
-            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: self.frame.size.height))
-            self.rightView = paddingView
-            self.rightViewMode = ViewMode.always
-        }
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: self.frame.size.height))
+        self.rightView = paddingView
+        self.rightViewMode = ViewMode.always
+    }
 }
 
 extension GroupCreateVC: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
-        //그룹 이름 20자 글자수 제한
+        //글자 수 20자 글자수 제한
         let currentText = textField.text ?? ""
         guard let stringRange = Range(range, in: currentText) else { return false }
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
@@ -179,11 +203,10 @@ extension GroupCreateVC: UITextFieldDelegate {
         return true
     }
     
-    
 }
 
 extension GroupCreateVC: UITextViewDelegate {
-
+    
     func TextViewAddPadding() {
         //TextView padding
         infoTextView.textContainerInset = UIEdgeInsets(top: 16, left: 13, bottom: 18, right: 13)
