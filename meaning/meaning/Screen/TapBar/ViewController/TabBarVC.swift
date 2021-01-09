@@ -36,12 +36,12 @@ extension TabBarVC {
     @objc func buttonClicked(sender : UIButton) {
         //버튼 클릭 시 CameraVC 이동
         let homeStoryboard = UIStoryboard.init(name: "Camera", bundle: nil)
-        guard let cameraVC = homeStoryboard.instantiateViewController(identifier: "CameraNavigationController") as? CameraNavigationController
+        guard let cameraNaviVC = homeStoryboard.instantiateViewController(identifier: "CameraNavigationController") as? CameraNavigationController
         else {
             return
         }
-        cameraVC.modalPresentationStyle = .fullScreen
-        present(cameraVC, animated: true, completion: nil)
+        cameraNaviVC.modalPresentationStyle = .fullScreen
+        present(cameraNaviVC, animated: true, completion: nil)
     }
     
     

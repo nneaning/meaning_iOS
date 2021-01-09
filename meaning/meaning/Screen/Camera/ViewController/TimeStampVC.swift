@@ -20,6 +20,7 @@ class TimeStampVC: UIViewController {
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     // 캡쳐된 비디오를 표시해주는 Layer
     var timeStampImage: UIImage?
+    var rootView: String?
     
     // MARK: IBOutlet
     
@@ -44,7 +45,13 @@ class TimeStampVC: UIViewController {
     
     @IBAction func cancleButtonDidTap(_ sender: Any) {
         // 취소 버튼 클릭 시 Action
-        self.navigationController?.popViewController(animated: true)
+        if rootView == nil {
+            // 탭에서 왔다
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            // 미션 카드에서 왔다
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     // MARK: Life Cycle Part
@@ -169,6 +176,7 @@ extension TimeStampVC: AVCapturePhotoCaptureDelegate {
         checkVC.photoImage = timeStampImage
         checkVC.photoDate = self.stampDateLabel.text
         checkVC.photoTime = self.stampTimeLabel.text
+        checkVC.rootView = rootView
         
         self.navigationController?.pushViewController(checkVC, animated: true)
     }

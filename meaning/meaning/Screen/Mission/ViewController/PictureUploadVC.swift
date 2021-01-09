@@ -29,7 +29,7 @@ class PictureUploadVC: UIViewController {
     // MARK: IBAction
     
     @IBAction func backBtnPressed(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     // Mark: Life Cycle Part
