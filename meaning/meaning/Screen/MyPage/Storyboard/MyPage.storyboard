@@ -27,6 +27,9 @@
                                             <constraint firstAttribute="width" secondItem="mcT-BX-dCd" secondAttribute="height" multiplier="1:1" id="kGo-Kg-acb"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="backBtn"/>
+                                        <connections>
+                                            <action selector="backButtonDidTap:" destination="kzA-wc-Bcv" eventType="touchUpInside" id="MyT-NQ-T4N"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회고 일기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="378-It-uu6">
                                         <rect key="frame" x="175" y="11.5" width="64" height="21"/>
