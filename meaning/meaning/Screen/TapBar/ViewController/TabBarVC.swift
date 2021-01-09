@@ -45,19 +45,26 @@ extension TabBarVC {
     
     func setTabBar() {
         //탭바 설정
-        guard let homeVC = self.storyboard?.instantiateViewController(identifier: "TestHomeVC") as? TestHomeVC,
-              let groupVC = self.storyboard?.instantiateViewController(identifier: "TestGroupVC") as? TestGroupVC
-        else {
+        let homeStoryboard = UIStoryboard.init(name: "Home", bundle: nil)
+        
+        guard let homeVC = homeStoryboard.instantiateViewController(identifier: "HomeVC") as? HomeVC else {
+            return
+        }
+        
+        let groupStoryboard = UIStoryboard.init(name: "GroupList", bundle: nil)
+        guard let groupVC = groupStoryboard.instantiateViewController(identifier: "GroupListVC") as? GroupListVC else {
             return
         }
         
         homeVC.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: -20, bottom: -5, right: 0)
         homeVC.tabBarItem.image = UIImage(named: "tabBarHomeIcInactive")
         homeVC.tabBarItem.selectedImage = UIImage(named: "tabBarHomeIcActive")
+        homeVC.title = ""
         
         groupVC.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -5, right: -20)
         groupVC.tabBarItem.image = UIImage(named: "tabBarGroupIcInactive")
         groupVC.tabBarItem.selectedImage = UIImage(named: "tabBarGroupIcActive")
+        groupVC.title = ""
         
         setViewControllers([homeVC, groupVC], animated: true)
         
