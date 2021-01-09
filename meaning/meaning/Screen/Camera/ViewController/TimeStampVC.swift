@@ -176,6 +176,7 @@ extension TimeStampVC: AVCapturePhotoCaptureDelegate {
         checkVC.photoImage = timeStampImage
         checkVC.photoDate = self.stampDateLabel.text
         checkVC.photoTime = self.stampTimeLabel.text
+        checkVC.timeToServer = Date().datePickerToString()
         checkVC.rootView = rootView
         
         self.navigationController?.pushViewController(checkVC, animated: true)

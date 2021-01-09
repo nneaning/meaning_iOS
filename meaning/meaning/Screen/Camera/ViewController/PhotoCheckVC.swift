@@ -15,6 +15,7 @@ class PhotoCheckVC: UIViewController {
     var photoTime: String?
     var photoDate: String?
     var rootView: String?
+    var timeToServer: String? // 서버에다 줄 사진 찍은 시간
     // TimeStampVC 에서 받아와야 하는 데이터들(사진,시간)
 
     // MARK: IBOutlet
@@ -53,6 +54,7 @@ class PhotoCheckVC: UIViewController {
                 return
             }
             uploadVC.uploadedImageData = frameView.snapShot()
+            uploadVC.timeToServer = timeToServer
             self.navigationController?.pushViewController(uploadVC, animated: true)
         }
     }
