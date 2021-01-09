@@ -34,4 +34,20 @@ extension UITextField {
         
         self.attributedText = attributedString
     }
+    
+    func addLeftPadding() {
+        //왼쪽에 padding 설정
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 13, height: self.frame.height))
+        self.leftView = paddingView
+        self.leftViewMode = ViewMode.always
+    }
+    
+    func addRightPadding() {
+        //오른쪽에 padding 설정
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: self.frame.size.height))
+        self.rightView = paddingView
+        self.rightViewMode = ViewMode.always
+    }
 }
+
+
