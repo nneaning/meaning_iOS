@@ -13,7 +13,8 @@ class PictureUploadVC: UIViewController {
 
     var userNick: String = "이름"
     var nthMorning: Int = 22
-    var uploadedImageData: UIImage?
+    var uploadedImageData: UIImage? // 서버에다 줄 사진
+    var timeToServer: String? // 서버에다 줄 사진 찍을 시간
 
     // Mark: IBOutlet
 
@@ -29,7 +30,7 @@ class PictureUploadVC: UIViewController {
     // MARK: IBAction
     
     @IBAction func backBtnPressed(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     // Mark: Life Cycle Part

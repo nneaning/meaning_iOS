@@ -147,6 +147,7 @@ extension HomeVC: UICollectionViewDataSource {
                     return
                 }
                 cameraTap.hidesBottomBarWhenPushed = true
+                cameraTap.rootView = "mission"
                 self.navigationController?.pushViewController(cameraTap, animated: true)
             }
             
