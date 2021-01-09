@@ -21,6 +21,17 @@ class HomeVC: UIViewController {
     @IBOutlet weak var explainLabel: UILabel!
     @IBOutlet weak var missonCardCollectionView: UICollectionView!
     
+    // MARK: IBAction
+    
+    @IBAction func mypageButtonDidTap(_ sender: Any) {
+        let mypageStoryboard = UIStoryboard.init(name: "MyPage", bundle: nil)
+        guard let mypageVC = mypageStoryboard.instantiateViewController(identifier: "MyPageFeedVC") as? MyPageFeedVC else {
+            return
+        }
+        mypageVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(mypageVC, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
@@ -135,6 +146,7 @@ extension HomeVC: UICollectionViewDataSource {
                 guard let cameraTap = cameraStoryboard.instantiateViewController(identifier: "TimeStampVC") as? TimeStampVC else {
                     return
                 }
+                cameraTap.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(cameraTap, animated: true)
             }
             
@@ -144,6 +156,7 @@ extension HomeVC: UICollectionViewDataSource {
                 guard let dailyMaxTap = missionStoryboard.instantiateViewController(identifier: "DailyMaximVC") as? DailyMaximVC else {
                     return
                 }
+                dailyMaxTap.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(dailyMaxTap, animated: true)
             }
             
@@ -153,6 +166,7 @@ extension HomeVC: UICollectionViewDataSource {
                 guard let dailyDiaryTap = missionStoryboard.instantiateViewController(identifier: "DailyDiaryVC") as? DailyDiaryVC else {
                     return
                 }
+                dailyDiaryTap.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(dailyDiaryTap, animated: true)
             }
             
@@ -162,6 +176,7 @@ extension HomeVC: UICollectionViewDataSource {
                 guard let shortReadingTap = missionStoryboard.instantiateViewController(identifier: "ShortReadingVC") as? ShortReadingVC else {
                     return
                 }
+                shortReadingTap.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(shortReadingTap, animated: true)
             }
             
