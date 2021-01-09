@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="emp-wu-AN6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="emp-wu-AN6">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +12,7 @@
         <!--Daily MaximVC-->
         <scene sceneID="Ot9-GA-ccW">
             <objects>
-                <viewController id="KNH-nc-P9h" customClass="DailyMaximVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DailyMaximVC" id="KNH-nc-P9h" customClass="DailyMaximVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yJd-tc-gpw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,7 +123,7 @@
         <!--Daily DiaryVC-->
         <scene sceneID="LQy-GA-eSx">
             <objects>
-                <viewController id="72L-w0-AXE" customClass="DailyDiaryVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DailyDiaryVC" id="72L-w0-AXE" customClass="DailyDiaryVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pcs-4G-CyF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,7 +241,7 @@
         <!--DailyDiaryAlertVC-->
         <scene sceneID="o9I-mR-ttG">
             <objects>
-                <viewController title="DailyDiaryAlertVC" id="XgK-Ic-xjb" customClass="ShortReadingVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShortReadingVC" title="DailyDiaryAlertVC" id="XgK-Ic-xjb" customClass="ShortReadingVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CEp-1M-hoz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -377,7 +377,7 @@
         <!--Picture UploadVC-->
         <scene sceneID="Fvf-va-Jia">
             <objects>
-                <viewController id="emp-wu-AN6" customClass="PictureUploadVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PictureUploadVC" id="emp-wu-AN6" customClass="PictureUploadVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Bb-1W-TKs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

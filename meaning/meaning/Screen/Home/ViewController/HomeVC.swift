@@ -109,6 +109,42 @@ extension HomeVC: UICollectionViewDataSource {
         return missionCardCell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let cameraStoryboard = UIStoryboard.init(name: "Camera", bundle: nil)
+        let missionStoryboard = UIStoryboard.init(name: "Mission", bundle: nil)
+        
+        if indexPath.row == 0 { // 타임카메라
+            
+            guard let cameraTap = cameraStoryboard.instantiateViewController(identifier: "TimeStampVC") as? TimeStampVC else {
+                return
+            }
+            self.navigationController?.pushViewController(cameraTap, animated: true)
+            
+        } else if indexPath.row == 1 { // 하루다짐
+            
+            guard let dailyMaxTap = missionStoryboard.instantiateViewController(identifier: "DailyMaximVC") as? DailyMaximVC else {
+                return
+            }
+            self.navigationController?.pushViewController(dailyMaxTap, animated: true)
+            
+        } else if indexPath.row == 2 { // 감사회고
+
+            guard let dailyDiaryTap = missionStoryboard.instantiateViewController(identifier: "DailyDiaryVC") as? DailyDiaryVC else {
+                return
+            }
+            self.navigationController?.pushViewController(dailyDiaryTap, animated: true)
+            
+        } else if indexPath.row == 3 { // 짧은 독서
+            
+            guard let shortReadingTap = missionStoryboard.instantiateViewController(identifier: "ShortReadingVC") as? ShortReadingVC else {
+                return
+            }
+            self.navigationController?.pushViewController(shortReadingTap, animated: true)
+            
+        }
+    }
+    
     
 }
 extension HomeVC: UICollectionViewDelegateFlowLayout {
