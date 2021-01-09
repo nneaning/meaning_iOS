@@ -27,19 +27,20 @@
                                             <constraint firstAttribute="width" secondItem="xXJ-Qg-6a8" secondAttribute="height" multiplier="100:24" id="jwO-Rq-q8c"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypageBtn" translatesAutoresizingMaskIntoConstraints="NO" id="IqG-50-yRd">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B90-yK-BCf">
                                         <rect key="frame" x="366" y="10" width="30" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="IqG-50-yRd" secondAttribute="height" multiplier="1:1" id="Io6-Ga-t4J"/>
+                                            <constraint firstAttribute="width" secondItem="B90-yK-BCf" secondAttribute="height" multiplier="1:1" id="knw-eU-bbl"/>
                                         </constraints>
-                                    </imageView>
+                                        <state key="normal" image="mypageBtn"/>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="B90-yK-BCf" secondAttribute="trailing" constant="18" id="0dN-Yv-HXK"/>
                                     <constraint firstItem="xXJ-Qg-6a8" firstAttribute="centerY" secondItem="hD0-JA-uCW" secondAttribute="centerY" id="87a-jy-adl"/>
-                                    <constraint firstItem="IqG-50-yRd" firstAttribute="centerY" secondItem="hD0-JA-uCW" secondAttribute="centerY" id="UcG-IP-9Ti"/>
+                                    <constraint firstItem="B90-yK-BCf" firstAttribute="centerY" secondItem="xXJ-Qg-6a8" secondAttribute="centerY" id="QRM-hV-cBs"/>
                                     <constraint firstItem="xXJ-Qg-6a8" firstAttribute="leading" secondItem="hD0-JA-uCW" secondAttribute="leading" constant="24" id="bCA-Y9-Gfy"/>
                                     <constraint firstItem="xXJ-Qg-6a8" firstAttribute="width" secondItem="hD0-JA-uCW" secondAttribute="width" multiplier="100/375" id="lmB-n5-zuW"/>
-                                    <constraint firstAttribute="trailing" secondItem="IqG-50-yRd" secondAttribute="trailing" constant="18" id="mHa-nx-htr"/>
                                     <constraint firstAttribute="height" constant="50" id="nGa-Mq-zdR"/>
                                 </constraints>
                             </view>

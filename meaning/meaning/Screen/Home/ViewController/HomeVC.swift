@@ -21,6 +21,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var explainLabel: UILabel!
     @IBOutlet weak var missonCardCollectionView: UICollectionView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
