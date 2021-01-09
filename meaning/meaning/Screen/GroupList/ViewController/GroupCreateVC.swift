@@ -150,23 +150,6 @@ extension GroupCreateVC {
     
 }
 
-extension UITextField {
-    
-    func addLeftPadding() {
-        //nameTextField padding 설정
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 13, height: self.frame.height))
-        self.leftView = paddingView
-        self.leftViewMode = ViewMode.always
-    }
-    
-    func addRightPadding() {
-        //명수 입력 오른쪽에 여백 주기
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: self.frame.size.height))
-        self.rightView = paddingView
-        self.rightViewMode = ViewMode.always
-    }
-}
-
 extension GroupCreateVC: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
