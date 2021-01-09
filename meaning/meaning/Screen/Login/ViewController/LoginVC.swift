@@ -36,7 +36,7 @@ class LoginVC: UIViewController {
     
     @IBAction func backBtnPressed(_ sender: UIButton) {
         loginBtnFirstPressed = false
-
+        
         UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.transitionFlipFromTop, animations: {
             
             //뒤로 가기 버튼 없애기
@@ -53,11 +53,14 @@ class LoginVC: UIViewController {
             self.findPasswordBtn.alpha = 0
             
             //TextFields & Label 없어지기
-
             self.IDLabel.alpha = 0
             self.IDTextField.alpha = 0
             self.PWLabel.alpha = 0
             self.PWTextField.alpha = 0
+            self.IDTextField.center.y += 200
+            self.PWTextField.center.y += 200
+            self.IDLabel.center.y += 200
+            self.PWLabel.center.y += 200
             
             self.logoImage.isHidden = false
             self.logoImage.alpha = 1
@@ -69,6 +72,8 @@ class LoginVC: UIViewController {
             self.IDTextField.isHidden = true
             self.PWLabel.isHidden = true
             self.PWTextField.isHidden = true
+            self.IDTextField.text = nil
+            self.PWTextField.text = nil
         })
         
         
@@ -76,10 +81,7 @@ class LoginVC: UIViewController {
     
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         if(!loginBtnFirstPressed){
-                    IDTextField.center.y += 200
-                    PWTextField.center.y += 200
-                    IDLabel.center.y += 200
-                    PWLabel.center.y += 200
+
             UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.transitionFlipFromTop, animations: {
                 
                 //뒤로 가기 버튼 나타나기
@@ -155,6 +157,11 @@ class LoginVC: UIViewController {
 
 
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // 뷰 클릭 시 키보드 내리기
+        view.endEditing(true)
     }
     
     func setLottie(){
