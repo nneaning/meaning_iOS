@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4VA-VY-tWE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dHy-Fg-ydt">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--HomeVC-->
         <scene sceneID="92r-fW-EpW">
             <objects>
                 <viewController storyboardIdentifier="HomeVC" id="4VA-VY-tWE" customClass="HomeVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
@@ -162,7 +162,7 @@
                             <constraint firstItem="Mj5-pM-PJo" firstAttribute="trailing" secondItem="FBE-m5-KUg" secondAttribute="trailing" id="wfd-cq-KNd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="9rW-tZ-C61"/>
+                    <navigationItem key="navigationItem" id="f71-ZP-sVY"/>
                     <connections>
                         <outlet property="bottomToCollectionView" destination="KZH-JG-hQO" id="G6A-fq-8Xv"/>
                         <outlet property="dateButton" destination="6cI-5K-QXF" id="OtR-yk-hC7"/>
@@ -171,6 +171,24 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esb-7m-CpP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2542.0289855072465" y="-50.223214285714285"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="ZSQ-Bf-fbO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="dHy-Fg-ydt" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="9rW-tZ-C61"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E1P-SC-IvT">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4VA-VY-tWE" kind="relationship" relationship="rootViewController" id="mYv-Eu-jW1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ycg-yh-xKm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1631.8840579710147" y="-50.223214285714285"/>
         </scene>

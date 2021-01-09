@@ -26,6 +26,12 @@ class PictureUploadVC: UIViewController {
     @IBOutlet var bodyBottomLabel: UILabel!
     @IBOutlet var uploadBtn: UIButton!
     
+    // MARK: IBAction
+    
+    @IBAction func backBtnPressed(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
     // Mark: Life Cycle Part
 
     override func viewDidLoad() {
