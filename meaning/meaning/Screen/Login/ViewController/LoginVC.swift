@@ -11,7 +11,6 @@ import Lottie
 class LoginVC: UIViewController {
     
     var loginBtnFirstPressed: Bool = false
-    
     let yourAttributes : [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.font : UIFont.spoqaRegular(size: 16),
         NSAttributedString.Key.foregroundColor : UIColor.meaningWhite,
@@ -33,20 +32,54 @@ class LoginVC: UIViewController {
     @IBOutlet var signUpBtn: UIButton!
     @IBOutlet var findPasswordBtn: UIButton!
     
-    @IBAction func backBtnPressed(_ sender: Any) {
+
+    
+    @IBAction func backBtnPressed(_ sender: UIButton) {
+        loginBtnFirstPressed = false
+
+        UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.transitionFlipFromTop, animations: {
+            
+            //뒤로 가기 버튼 없애기
+            self.backBtn.alpha = 0
+            
+            //회원가입 버튼 위로 올라오기
+            self.signUpBtn.center.y -= self.view.bounds.height
+            
+            //로그인 버튼 아래로 내려가기
+            self.loginBtn.center.y += 98
+            
+            //비밀번호를 잊어버리셨습니까? 버튼 없어지기
+            self.findPasswordBtn.center.y += 98
+            self.findPasswordBtn.alpha = 0
+            
+            //TextFields & Label 없어지기
+
+            self.IDLabel.alpha = 0
+            self.IDTextField.alpha = 0
+            self.PWLabel.alpha = 0
+            self.PWTextField.alpha = 0
+            
+            self.logoImage.isHidden = false
+            self.logoImage.alpha = 1
+
+        }, completion: { finished in
+            self.backBtn.isHidden = true
+            self.findPasswordBtn.isHidden = true
+            self.IDLabel.isHidden = true
+            self.IDTextField.isHidden = true
+            self.PWLabel.isHidden = true
+            self.PWTextField.isHidden = true
+        })
         
         
     }
     
     @IBAction func loginBtnPressed(_ sender: UIButton) {
-        logoImage.isHidden = false
-
         if(!loginBtnFirstPressed){
-            IDLabel.center.y += 200
-            IDTextField.center.y += 200
-            PWLabel.center.y += 200
-            PWTextField.center.y += 200
-
+                    IDTextField.center.y += 200
+                    PWTextField.center.y += 200
+                    IDLabel.center.y += 200
+                    PWLabel.center.y += 200
             UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.transitionFlipFromTop, animations: {
                 
                 //뒤로 가기 버튼 나타나기
@@ -78,10 +111,9 @@ class LoginVC: UIViewController {
                 self.PWLabel.alpha = 1
                 self.PWTextField.alpha = 1
                 
-            })
-            
-            UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.transitionFlipFromTop, animations: {
                 self.logoImage.alpha = 0
+
+                
             }, completion: { finished in
                 self.logoImage.isHidden = true
             })
@@ -99,6 +131,7 @@ class LoginVC: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
+
         //ID Textfield 설정
         IDTextField.borderStyle = .none
         let IDborder = CALayer()
@@ -119,6 +152,9 @@ class LoginVC: UIViewController {
         PWTextField.textColor = UIColor.meaningWhite
         PWTextField.font = .spoqaRegular(size: 18)
         PWTextField.isSecureTextEntry = true
+
+
+        
     }
     
     func setLottie(){
@@ -145,7 +181,8 @@ class LoginVC: UIViewController {
         backBtn.alpha = 0
         
         logoImage.image = UIImage(named:"splashlogoImg")
-        
+        logoImage.isHidden = false
+
         IDLabel.text = "아이디"
         IDLabel.font = .spoqaMedium(size: 18)
         IDLabel.lineSetting(kernValue: -0.54)
@@ -162,6 +199,7 @@ class LoginVC: UIViewController {
         IDTextField.alpha = 0
         PWLabel.alpha = 0
         PWTextField.alpha = 0
+        
 
         loginBtn.backgroundColor = UIColor.meaningIvory
         loginBtn.setTitleColor(UIColor.meaningNavy, for: .normal)
