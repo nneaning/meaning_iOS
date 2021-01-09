@@ -33,6 +33,9 @@
                                             <constraint firstAttribute="width" secondItem="B90-yK-BCf" secondAttribute="height" multiplier="1:1" id="knw-eU-bbl"/>
                                         </constraints>
                                         <state key="normal" image="mypageBtn"/>
+                                        <connections>
+                                            <action selector="mypageButtonDidTap:" destination="4VA-VY-tWE" eventType="touchUpInside" id="ELC-VG-Ci4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

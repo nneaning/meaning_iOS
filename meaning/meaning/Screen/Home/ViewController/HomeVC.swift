@@ -21,7 +21,16 @@ class HomeVC: UIViewController {
     @IBOutlet weak var explainLabel: UILabel!
     @IBOutlet weak var missonCardCollectionView: UICollectionView!
     
+    // MARK: IBAction
     
+    @IBAction func mypageButtonDidTap(_ sender: Any) {
+        let mypageStoryboard = UIStoryboard.init(name: "MyPage", bundle: nil)
+        guard let mypageVC = mypageStoryboard.instantiateViewController(identifier: "MyPageFeedVC") as? MyPageFeedVC else {
+            return
+        }
+        mypageVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(mypageVC, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
