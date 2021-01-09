@@ -47,7 +47,7 @@ extension TabBarVC {
         //탭바 설정
         let homeStoryboard = UIStoryboard.init(name: "Home", bundle: nil)
         
-        guard let homeVC = homeStoryboard.instantiateViewController(identifier: "HomeVC") as? HomeVC else {
+        guard let homeVC = homeStoryboard.instantiateViewController(identifier: "HomeNavigationController") as? HomeNavigationController else {
             return
         }
         
