@@ -72,6 +72,8 @@
 		9B2BA23A25A0E547000EF4AA /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA23925A0E547000EF4AA /* UILabel+Extension.swift */; };
 		9B2BA23E25A1B99F000EF4AA /* PhotoCheckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA23D25A1B99F000EF4AA /* PhotoCheckVC.swift */; };
 		9B2CAA7025A5FC0300099356 /* AnimationFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2CAA6F25A5FC0300099356 /* AnimationFlowLayout.swift */; };
+		9B4057D425A9C8CC001D0954 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4057D325A9C8CC001D0954 /* HomeNavigationController.swift */; };
+		9B4057D725A9CA8A001D0954 /* GroupListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4057D625A9CA8A001D0954 /* GroupListNavigationController.swift */; };
 		9B40579125A8E72F001D0954 /* GroupFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40579025A8E72F001D0954 /* GroupFeedVC.swift */; };
 		9B40579425A8E8C4001D0954 /* GroupFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40579325A8E8C4001D0954 /* GroupFeedCell.swift */; };
 		9B40579725A8EE57001D0954 /* GroupFeedReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40579625A8EE56001D0954 /* GroupFeedReusableView.swift */; };
@@ -159,6 +161,8 @@
 		9B2BA23925A0E547000EF4AA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		9B2BA23D25A1B99F000EF4AA /* PhotoCheckVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCheckVC.swift; sourceTree = "<group>"; };
 		9B2CAA6F25A5FC0300099356 /* AnimationFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationFlowLayout.swift; sourceTree = "<group>"; };
+		9B4057D325A9C8CC001D0954 /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
+		9B4057D625A9CA8A001D0954 /* GroupListNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListNavigationController.swift; sourceTree = "<group>"; };
 		9B40579025A8E72F001D0954 /* GroupFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedVC.swift; sourceTree = "<group>"; };
 		9B40579325A8E8C4001D0954 /* GroupFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedCell.swift; sourceTree = "<group>"; };
 		9B40579625A8EE56001D0954 /* GroupFeedReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedReusableView.swift; sourceTree = "<group>"; };
@@ -456,6 +460,7 @@
 			children = (
 				9B1B6B3A25A5AB9300CCA4CC /* HomeVC.swift */,
 				9B1B6B3D25A5AD8B00CCA4CC /* MissionCard.swift */,
+				9B4057D325A9C8CC001D0954 /* HomeNavigationController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -513,6 +518,7 @@
 				36A9426225A48E9E009C28F2 /* GroupJoinVC.swift */,
 				36D6998725A8413A00227FB1 /* GroupCreateVC.swift */,
 				36D6998A25A8756200227FB1 /* GroupCompleteVC.swift */,
+				9B4057D625A9CA8A001D0954 /* GroupListNavigationController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -786,11 +792,13 @@
 				9EB8610E25A6EC3E009E4234 /* MyPageFeedVC.swift in Sources */,
 				9B2BA23E25A1B99F000EF4AA /* PhotoCheckVC.swift in Sources */,
 				9B2BA21D259FA9D0000EF4AA /* UIFont+Extension.swift in Sources */,
+				9B4057D425A9C8CC001D0954 /* HomeNavigationController.swift in Sources */,
 				9EB8611625A756E3009E4234 /* FeedCollectionViewCell.swift in Sources */,
 				9EB5CCFF25A0B6820070CD58 /* DailyMaximVC.swift in Sources */,
 				36A9422D25A29A6E009C28F2 /* GroupCell.swift in Sources */,
 				9B2BA23A25A0E547000EF4AA /* UILabel+Extension.swift in Sources */,
 				36A9425F25A48E83009C28F2 /* GroupDetailVC.swift in Sources */,
+				9B4057D725A9CA8A001D0954 /* GroupListNavigationController.swift in Sources */,
 				36A9426325A48E9E009C28F2 /* GroupJoinVC.swift in Sources */,
 				9BEA214525A86BA300F240E5 /* FeedDetail.swift in Sources */,
 				36D1E77C25A5EBC5001C1D71 /* GroupInfoVC.swift in Sources */,
