@@ -69,7 +69,7 @@ class GroupListVC: UIViewController {
         guard let groupCreateVC = self.storyboard?.instantiateViewController(identifier: "GroupCreateVC") as? GroupCreateVC else {
             return
         }
-        
+        groupCreateVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(groupCreateVC, animated: true)
     }
     
