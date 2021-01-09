@@ -73,6 +73,7 @@
 		9B2BA23E25A1B99F000EF4AA /* PhotoCheckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2BA23D25A1B99F000EF4AA /* PhotoCheckVC.swift */; };
 		9B2CAA7025A5FC0300099356 /* AnimationFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2CAA6F25A5FC0300099356 /* AnimationFlowLayout.swift */; };
 		9B4057D425A9C8CC001D0954 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4057D325A9C8CC001D0954 /* HomeNavigationController.swift */; };
+		9B4057D725A9CA8A001D0954 /* GroupListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4057D625A9CA8A001D0954 /* GroupListNavigationController.swift */; };
 		9B70C10125A42AD700A5EFDD /* OnboardingTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */; };
 		9BEA213C25A8304500F240E5 /* FeedDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA213B25A8304500F240E5 /* FeedDetailVC.swift */; };
 		9BEA214125A854C800F240E5 /* FeedDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA214025A854C800F240E5 /* FeedDetailCell.swift */; };
@@ -158,6 +159,7 @@
 		9B2BA23D25A1B99F000EF4AA /* PhotoCheckVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCheckVC.swift; sourceTree = "<group>"; };
 		9B2CAA6F25A5FC0300099356 /* AnimationFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationFlowLayout.swift; sourceTree = "<group>"; };
 		9B4057D325A9C8CC001D0954 /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
+		9B4057D625A9CA8A001D0954 /* GroupListNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListNavigationController.swift; sourceTree = "<group>"; };
 		9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTimeVC.swift; sourceTree = "<group>"; };
 		9BEA213B25A8304500F240E5 /* FeedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailVC.swift; sourceTree = "<group>"; };
 		9BEA214025A854C800F240E5 /* FeedDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailCell.swift; sourceTree = "<group>"; };
@@ -510,6 +512,7 @@
 				36A9426225A48E9E009C28F2 /* GroupJoinVC.swift */,
 				36D6998725A8413A00227FB1 /* GroupCreateVC.swift */,
 				36D6998A25A8756200227FB1 /* GroupCompleteVC.swift */,
+				9B4057D625A9CA8A001D0954 /* GroupListNavigationController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -784,6 +787,7 @@
 				36A9422D25A29A6E009C28F2 /* GroupCell.swift in Sources */,
 				9B2BA23A25A0E547000EF4AA /* UILabel+Extension.swift in Sources */,
 				36A9425F25A48E83009C28F2 /* GroupDetailVC.swift in Sources */,
+				9B4057D725A9CA8A001D0954 /* GroupListNavigationController.swift in Sources */,
 				36A9426325A48E9E009C28F2 /* GroupJoinVC.swift in Sources */,
 				9BEA214525A86BA300F240E5 /* FeedDetail.swift in Sources */,
 				36D1E77C25A5EBC5001C1D71 /* GroupInfoVC.swift in Sources */,

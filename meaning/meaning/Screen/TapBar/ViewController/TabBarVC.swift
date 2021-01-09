@@ -52,7 +52,7 @@ extension TabBarVC {
         }
         
         let groupStoryboard = UIStoryboard.init(name: "GroupList", bundle: nil)
-        guard let groupVC = groupStoryboard.instantiateViewController(identifier: "GroupListVC") as? GroupListVC else {
+        guard let groupVC = groupStoryboard.instantiateViewController(identifier: "GroupListNavigationController") as? GroupListNavigationController else {
             return
         }
         
