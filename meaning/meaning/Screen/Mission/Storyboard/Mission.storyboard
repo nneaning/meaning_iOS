@@ -26,6 +26,9 @@
                                             <constraint firstAttribute="width" secondItem="gR4-kD-9q8" secondAttribute="height" multiplier="1:1" id="sbe-uP-GGP"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="backBtn"/>
+                                        <connections>
+                                            <action selector="backBtnPressed:" destination="KNH-nc-P9h" eventType="touchUpInside" id="itd-9k-czu"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="하루 다짐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cic-zK-1pT">
                                         <rect key="frame" x="175" y="11.5" width="64" height="21"/>
@@ -137,6 +140,9 @@
                                             <constraint firstAttribute="width" secondItem="2uO-Zr-kJd" secondAttribute="height" multiplier="1:1" id="UiF-dZ-VHS"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="backBtn"/>
+                                        <connections>
+                                            <action selector="backBtnPressed:" destination="72L-w0-AXE" eventType="touchUpInside" id="rru-hV-XHI"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회고 일기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4U-hF-kkZ">
                                         <rect key="frame" x="175" y="11.5" width="64" height="21"/>
@@ -255,6 +261,9 @@
                                             <constraint firstAttribute="width" secondItem="lFI-vC-56D" secondAttribute="height" multiplier="1:1" id="1t3-GG-twj"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="backBtn"/>
+                                        <connections>
+                                            <action selector="backBtnPressed:" destination="XgK-Ic-xjb" eventType="touchUpInside" id="YcM-qd-J50"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회고 일기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGf-JU-BbD">
                                         <rect key="frame" x="175" y="11.5" width="64" height="21"/>
@@ -391,6 +400,9 @@
                                             <constraint firstAttribute="width" secondItem="sXp-II-xnz" secondAttribute="height" multiplier="1:1" id="rFA-gA-wde"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="backBtn"/>
+                                        <connections>
+                                            <action selector="backBtnPressed:" destination="emp-wu-AN6" eventType="touchUpInside" id="92F-to-0ad"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회고 일기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8J-Zh-1yT">
                                         <rect key="frame" x="175" y="11.5" width="64" height="21"/>
