@@ -287,6 +287,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ewd-ms-DbZ"/>
+                    <connections>
+                        <outlet property="dateButton" destination="Jyi-rK-Knh" id="6sC-iQ-7NB"/>
+                        <outlet property="explainLabel" destination="lPR-Av-Q1u" id="vj7-Sf-gvZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FQ2-TM-JdS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
