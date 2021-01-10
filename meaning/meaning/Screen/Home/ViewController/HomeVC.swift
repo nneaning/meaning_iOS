@@ -86,14 +86,13 @@ extension HomeVC {
 
             explainLabel.attributedText = attributedStr
         }
-        explainLabel.lineSetting(kernValue: -0.88)
+        explainLabel.lineSetting(kernValue: -0.88, lineSpacing: 10)
         explainLabel.textAlignment = .left
         
-        dateButton.isEnabled = false
         dateButton.makeRounded(cornerRadius: 15)
         dateButton.layer.borderColor = UIColor.meaningNavy.cgColor
         dateButton.layer.borderWidth = 1
-        dateButton.setTitle(Date().datePickerToString().recordDate(), for: .normal)
+        dateButton.setTitle("\(Date().datePickerToString().recordDate()) >", for: .normal)
         dateButton.titleLabel?.font = UIFont.spoqaRegular(size: 14)
         dateButton.setTitleColor(.meaningNavy, for: .normal)
         
