@@ -48,9 +48,9 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cI-5K-QXF">
-                                <rect key="frame" x="20" y="134" width="134" height="34"/>
+                                <rect key="frame" x="20" y="134" width="144" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="134" id="SrH-u8-7o7"/>
+                                    <constraint firstAttribute="width" constant="144" id="SrH-u8-7o7"/>
                                     <constraint firstAttribute="height" constant="34" id="Vuj-h5-S7u"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
