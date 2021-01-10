@@ -16,17 +16,17 @@ enum APITarget {
 extension APITarget: TargetType {
     var baseURL: URL {
     // baseURL - 서버의 도메인
-        return URL(string: "경로")!
+        return URL(string: "http://13.124.61.0:3000")!
     }
     
     var path: String {
     // path - 서버의 도메인 뒤에 추가 될 경로
-        <#code#>
+        return ""
     }
     
     var method: Moya.Method {
     // method - 통신 method (get, post, put, delete ...)
-        <#code#>
+        return .get
     }
     
     var sampleData: Data {
@@ -39,7 +39,7 @@ extension APITarget: TargetType {
     // 파라미터가 없을 때는 - .requestPlain
     // 파라미터 존재시에는 - .requestParameters(parameters: ["first_name": firstName, "last_name": lastName], encoding: JSONEncoding.default)
                 
-        <#code#>
+        return .requestPlain
     }
     
     var validationType: Moya.ValidationType {
@@ -52,7 +52,7 @@ extension APITarget: TargetType {
     // ex. ["Content-Type" : "application/json"]
     // ex. ["Content-Type" : "multipart/form-data"]
     // ex. ["jwt" : "token"]
-        <#code#>
+        return ["Content-Type" : "application/json"]
     }
     
     
