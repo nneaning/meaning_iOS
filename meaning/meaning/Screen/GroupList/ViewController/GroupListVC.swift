@@ -61,6 +61,7 @@ class GroupListVC: UIViewController {
             return
         }
         groupFeedTap.hidesBottomBarWhenPushed = true
+        groupFeedTap.groupName = myGroupNameLabel.text
         self.navigationController?.pushViewController(groupFeedTap, animated: true)
         
     }

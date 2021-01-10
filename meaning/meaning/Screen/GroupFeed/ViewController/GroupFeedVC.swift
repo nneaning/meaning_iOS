@@ -12,7 +12,7 @@ class GroupFeedVC: UIViewController {
     // MARK: Variable Part
     
     var feedList: [FeedImage] = []
-    var groupName: String = "미닝 아요팀 최고야"
+    var groupName: String?
     var groupPersonCount: Int = 3
     
     // MARK: IBOutlet
