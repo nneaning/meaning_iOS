@@ -359,6 +359,9 @@
                                             <constraint firstAttribute="width" secondItem="c4h-le-fMY" secondAttribute="height" multiplier="1:1" id="8iB-Fq-Ske"/>
                                         </constraints>
                                         <state key="normal" image="backBtn"/>
+                                        <connections>
+                                            <action selector="backButtonDidTap:" destination="egr-r7-dbm" eventType="touchUpInside" id="p78-Ez-weN"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3G-OA-JHO">
                                         <rect key="frame" x="58.5" y="14" width="355.5" height="20.5"/>
