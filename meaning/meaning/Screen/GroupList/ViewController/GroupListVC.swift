@@ -14,7 +14,7 @@ class GroupListVC: UIViewController {
     var groupInfo: [Group] = []
     var groupTable: [GroupTable] = []
     
-    var groupExist: Bool = false
+    var groupExist: Bool = true
     
     lazy var refreshControl: UIRefreshControl = {
         
@@ -53,6 +53,18 @@ class GroupListVC: UIViewController {
     
     //MARK: - IBACtion
     
+
+    @IBAction func goToMyGroupView(_ sender: Any) {
+        // 내 그룹 피드로 이동
+        let feedStoryboard = UIStoryboard.init(name: "GroupFeed", bundle: nil)
+        guard let groupFeedTap = feedStoryboard.instantiateViewController(identifier: "GroupFeedVC") as? GroupFeedVC else {
+            return
+        }
+        groupFeedTap.hidesBottomBarWhenPushed = true
+        groupFeedTap.groupName = myGroupNameLabel.text
+        self.navigationController?.pushViewController(groupFeedTap, animated: true)
+        
+    }
     @IBAction func goToDetailView(_ sender: Any) {
         //detailView 로 이동
         guard let groupDetailVC = self.storyboard?.instantiateViewController(identifier: "GroupDetailVC")

@@ -12,13 +12,19 @@ class GroupFeedVC: UIViewController {
     // MARK: Variable Part
     
     var feedList: [FeedImage] = []
-    var groupName: String = "미닝 아요팀 최고야"
+    var groupName: String?
     var groupPersonCount: Int = 3
     
     // MARK: IBOutlet
     
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var groupFeedCollectionView: UICollectionView!
+    
+    // MARK: IBAction
+    
+    @IBAction func backButtonDidTap(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     // MARK: Life Cycle Part
     
@@ -106,6 +112,19 @@ extension GroupFeedVC: UICollectionViewDataSource {
         // CollectionView Header 높이 지정
         
         return CGSize(width: collectionView.frame.width, height: 50)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 이미지 클릭 시 디테일 뷰로 이동
+        
+        let detailStoryboard = UIStoryboard.init(name: "GroupFeed", bundle: nil)
+        guard let feedDetailTap = detailStoryboard.instantiateViewController(identifier: "FeedDetailVC") as? FeedDetailVC else {
+            return
+        }
+        
+        feedDetailTap.indexScroll = indexPath
+        feedDetailTap.groupName = groupName
+        self.navigationController?.pushViewController(feedDetailTap, animated: true)
     }
 
 }
