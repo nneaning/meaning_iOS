@@ -27,6 +27,9 @@
                                             <constraint firstAttribute="width" secondItem="gpZ-10-FBP" secondAttribute="height" multiplier="1:1" id="gOU-p0-s3z"/>
                                         </constraints>
                                         <state key="normal" image="backBtn"/>
+                                        <connections>
+                                            <action selector="backButtonDidTap:" destination="Mcw-KC-poi" eventType="touchUpInside" id="t2s-Ty-Q63"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gL-UD-ubL">
                                         <rect key="frame" x="45" y="11.5" width="318" height="21"/>
