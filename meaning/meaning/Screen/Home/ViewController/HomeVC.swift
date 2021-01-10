@@ -89,7 +89,6 @@ extension HomeVC {
         explainLabel.lineSetting(kernValue: -0.88)
         explainLabel.textAlignment = .left
         
-        dateButton.isEnabled = false
         dateButton.makeRounded(cornerRadius: 15)
         dateButton.layer.borderColor = UIColor.meaningNavy.cgColor
         dateButton.layer.borderWidth = 1
