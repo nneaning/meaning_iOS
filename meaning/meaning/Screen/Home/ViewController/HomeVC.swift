@@ -86,7 +86,7 @@ extension HomeVC {
 
             explainLabel.attributedText = attributedStr
         }
-        explainLabel.lineSetting(kernValue: -0.88)
+        explainLabel.lineSetting(kernValue: -0.88, lineSpacing: 10)
         explainLabel.textAlignment = .left
         
         dateButton.makeRounded(cornerRadius: 15)
