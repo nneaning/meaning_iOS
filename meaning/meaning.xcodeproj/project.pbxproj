@@ -80,6 +80,7 @@
 		9B4057DC25AA342A001D0954 /* CameraNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4057DB25AA342A001D0954 /* CameraNavigationController.swift */; };
 		9B4057E225AADC1B001D0954 /* APITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4057E125AADC1B001D0954 /* APITarget.swift */; };
 		9B4057E525AADDDD001D0954 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4057E425AADDDD001D0954 /* APIService.swift */; };
+		9B4057ED25AB72A2001D0954 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4057EC25AB72A2001D0954 /* CalendarVC.swift */; };
 		9B70C10125A42AD700A5EFDD /* OnboardingTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */; };
 		9BEA213C25A8304500F240E5 /* FeedDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA213B25A8304500F240E5 /* FeedDetailVC.swift */; };
 		9BEA214125A854C800F240E5 /* FeedDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA214025A854C800F240E5 /* FeedDetailCell.swift */; };
@@ -172,6 +173,7 @@
 		9B4057DB25AA342A001D0954 /* CameraNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraNavigationController.swift; sourceTree = "<group>"; };
 		9B4057E125AADC1B001D0954 /* APITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITarget.swift; sourceTree = "<group>"; };
 		9B4057E425AADDDD001D0954 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		9B4057EC25AB72A2001D0954 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTimeVC.swift; sourceTree = "<group>"; };
 		9BEA213B25A8304500F240E5 /* FeedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailVC.swift; sourceTree = "<group>"; };
 		9BEA214025A854C800F240E5 /* FeedDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailCell.swift; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 				9B1B6B3A25A5AB9300CCA4CC /* HomeVC.swift */,
 				9B1B6B3D25A5AD8B00CCA4CC /* MissionCard.swift */,
 				9B4057D325A9C8CC001D0954 /* HomeNavigationController.swift */,
+				9B4057EC25AB72A2001D0954 /* CalendarVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -819,6 +822,7 @@
 				9B2BA170259F58FF000EF4AA /* AppDelegate.swift in Sources */,
 				36D6998B25A8756300227FB1 /* GroupCompleteVC.swift in Sources */,
 				9B2BA1E8259F74F7000EF4AA /* GenericResponse.swift in Sources */,
+				9B4057ED25AB72A2001D0954 /* CalendarVC.swift in Sources */,
 				9B2BA172259F58FF000EF4AA /* SceneDelegate.swift in Sources */,
 				9B2BA220259FAA4A000EF4AA /* UIColor+Extension.swift in Sources */,
 				9B1B6B4225A5AFB700CCA4CC /* MissionCardCell.swift in Sources */,
