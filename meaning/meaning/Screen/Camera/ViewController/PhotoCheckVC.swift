@@ -42,23 +42,7 @@ class PhotoCheckVC: UIViewController {
         
         // 갤러리에 사진 저장
         UIImageWriteToSavedPhotosAlbum(frameView.snapShot(), self, #selector(finishSaving(_:didFinishSavingWithError:contextInfo:)), nil)
-        
-        if rootView == nil {
-            // 탭에서 왔으면 탭으로 이동
-            self.presentingViewController?.dismiss(animated: true)
-        } else {
-            // 미션 클릭해서 왔다면 업로드 탭으로 이동
-            let missionStoryboard = UIStoryboard.init(name: "Mission", bundle: nil)
-            guard let uploadVC = missionStoryboard.instantiateViewController(identifier: "PictureUploadVC") as? PictureUploadVC
-            else {
-                return
-            }
-            uploadVC.uploadedImageData = frameView.snapShot()
-            uploadVC.timeToServer = timeToServer
-            self.navigationController?.pushViewController(uploadVC, animated: true)
-        }
     }
-        
     
     // MARK: Life Cycle Part
     
@@ -120,9 +104,31 @@ extension PhotoCheckVC {
            if let error = error {
             // 갤러리 저장 에러가 났을 경우(ex.사용자가 엑세스 허용을 안했을 때)
             print(error.localizedDescription)
-           } else {
-            // 저장이 잘 됐을 때
-            // 다음뷰와 연결 코드 예정
+           } else { // 저장이 잘 됐을 때
+            // toast 띄우기
+            showNumberToast(message: "갤러리에 사진이 저장되었습니다", font: UIFont.spoqaRegular(size: 13))
+            
+            // toast 사라지면 다음 뷰로 넘어가기
+            Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(goNextView), userInfo: nil, repeats: false)
            }
+    }
+    
+    @objc func goNextView() {
+        // 시작뷰에 따라 가는 곳을 다르게 설정
+        if rootView == nil {
+            // 탭바에서 왔다면?
+            self.presentingViewController?.dismiss(animated: true)
+        } else {
+            // 카드에서 왔다면?
+            let missionStoryboard = UIStoryboard.init(name: "Mission", bundle: nil)
+            guard let uploadVC = missionStoryboard.instantiateViewController(identifier: "PictureUploadVC") as? PictureUploadVC
+            else {
+                return
+            }
+            uploadVC.uploadedImageData = frameView.snapShot()
+            uploadVC.timeToServer = timeToServer
+            self.navigationController?.pushViewController(uploadVC, animated: true)
+        }
+        
     }
 }
