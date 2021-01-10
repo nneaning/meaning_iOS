@@ -79,6 +79,8 @@ class FeedDetailCell: UITableViewCell {
         if wakeupTime.count == 11 {
             // 정각일때
             wakeupViewWidth.constant = 120
+        } else {
+            wakeupViewWidth.constant = 150
         }
         if index == 0 {
             profileView.backgroundColor = .meaningNavy
