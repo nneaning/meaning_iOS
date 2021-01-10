@@ -113,6 +113,19 @@ extension GroupFeedVC: UICollectionViewDataSource {
         
         return CGSize(width: collectionView.frame.width, height: 50)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 이미지 클릭 시 디테일 뷰로 이동
+        
+        let detailStoryboard = UIStoryboard.init(name: "GroupFeed", bundle: nil)
+        guard let feedDetailTap = detailStoryboard.instantiateViewController(identifier: "FeedDetailVC") as? FeedDetailVC else {
+            return
+        }
+        
+        feedDetailTap.indexScroll = indexPath
+        feedDetailTap.groupName = groupName
+        self.navigationController?.pushViewController(feedDetailTap, animated: true)
+    }
 
 }
 

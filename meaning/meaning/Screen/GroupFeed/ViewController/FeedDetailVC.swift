@@ -13,7 +13,7 @@ class FeedDetailVC: UIViewController {
     
     var feedDetailList: [FeedDetail] = []
     var sloganMent: String = "오늘은 365일 중에 30번째 의미있는 아침입니다."
-    var groupName: String = "마이피드"
+    var groupName: String?
     var indexScroll: IndexPath?
     
     // MARK: IBOutlet

@@ -166,6 +166,7 @@ extension MyPageFeedVC: UICollectionViewDataSource {
             return
         }
         
+        feedDetailTap.groupName = "마이 피드"
         feedDetailTap.indexScroll = indexPath
         self.navigationController?.pushViewController(feedDetailTap, animated: true)
         
