@@ -54,6 +54,9 @@
                                     <constraint firstAttribute="height" constant="34" id="Vuj-h5-S7u"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="dateButtonDidTap:" destination="4VA-VY-tWE" eventType="touchUpInside" id="5Gi-k7-pPA"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcf-fI-rZf">
                                 <rect key="frame" x="20" y="184" width="42" height="21"/>
@@ -219,6 +222,9 @@
                                             <constraint firstAttribute="width" secondItem="ldq-cf-hWG" secondAttribute="height" multiplier="1:1" id="9MZ-Nm-mEc"/>
                                         </constraints>
                                         <state key="normal" image="mypageBtn"/>
+                                        <connections>
+                                            <action selector="mypageButtonDidTap:" destination="tyR-9M-HJB" eventType="touchUpInside" id="mf1-tu-L3b"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -237,6 +243,9 @@
                                     <constraint firstAttribute="width" constant="144" id="wRZ-8z-Mvm"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="dateButtonDidTap:" destination="tyR-9M-HJB" eventType="touchUpInside" id="ixH-g5-yLt"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPR-Av-Q1u">
                                 <rect key="frame" x="20" y="184" width="42" height="21"/>

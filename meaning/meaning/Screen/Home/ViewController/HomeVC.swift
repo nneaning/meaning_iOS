@@ -32,6 +32,18 @@ class HomeVC: UIViewController {
         self.navigationController?.pushViewController(mypageVC, animated: true)
     }
     
+    
+    @IBAction func dateButtonDidTap(_ sender: Any) {
+        guard let calendarVC = self.storyboard?.instantiateViewController(identifier: "CalendarVC") as? CalendarVC else {
+            return
+        }
+        let transition: CATransition = CATransition()
+        transition.duration = 0.3
+        transition.type = CATransitionType.fade
+        self.navigationController?.view.layer.add(transition, forKey: nil)
+        self.navigationController?.pushViewController(calendarVC, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
