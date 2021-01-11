@@ -14,6 +14,8 @@ class PhotoCheckVC: UIViewController {
     var photoImage: UIImage?
     var photoTime: String?
     var photoDate: String?
+    var rootView: String?
+    var timeToServer: String? // 서버에다 줄 사진 찍은 시간
     // TimeStampVC 에서 받아와야 하는 데이터들(사진,시간)
 
     // MARK: IBOutlet
@@ -37,10 +39,10 @@ class PhotoCheckVC: UIViewController {
     
     @IBAction func useButtonDidTap(_ sender: Any) {
         // 사진 사용 버튼 클릭 시
-        UIImageWriteToSavedPhotosAlbum(frameView.snapShot(), self, #selector(finishSaving(_:didFinishSavingWithError:contextInfo:)), nil)
-        // frameView위치에 있는 모든것을 캡쳐해서 갤러리에 저장하기
-    }
         
+        // 갤러리에 사진 저장
+        UIImageWriteToSavedPhotosAlbum(frameView.snapShot(), self, #selector(finishSaving(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
     
     // MARK: Life Cycle Part
     
@@ -86,7 +88,12 @@ extension PhotoCheckVC {
         retakeButton.titleLabel?.font = UIFont.spoqaRegular(size: 17)
         retakeButton.tintColor = .white
         
-        useButton.setTitle("사진 사용", for: .normal)
+        if rootView == nil {
+            useButton.setTitle("사진 저장", for: .normal)
+        } else {
+            useButton.setTitle("사진 사용", for: .normal)
+        }
+        
         useButton.titleLabel?.font = UIFont.spoqaRegular(size: 17)
         useButton.tintColor = .white
     }
@@ -97,9 +104,31 @@ extension PhotoCheckVC {
            if let error = error {
             // 갤러리 저장 에러가 났을 경우(ex.사용자가 엑세스 허용을 안했을 때)
             print(error.localizedDescription)
-           } else {
-            // 저장이 잘 됐을 때
-            // 다음뷰와 연결 코드 예정
+           } else { // 저장이 잘 됐을 때
+            // toast 띄우기
+            showNumberToast(message: "갤러리에 사진이 저장되었습니다", font: UIFont.spoqaRegular(size: 13))
+            
+            // toast 사라지면 다음 뷰로 넘어가기
+            Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(goNextView), userInfo: nil, repeats: false)
            }
+    }
+    
+    @objc func goNextView() {
+        // 시작뷰에 따라 가는 곳을 다르게 설정
+        if rootView == nil {
+            // 탭바에서 왔다면?
+            self.presentingViewController?.dismiss(animated: true)
+        } else {
+            // 카드에서 왔다면?
+            let missionStoryboard = UIStoryboard.init(name: "Mission", bundle: nil)
+            guard let uploadVC = missionStoryboard.instantiateViewController(identifier: "PictureUploadVC") as? PictureUploadVC
+            else {
+                return
+            }
+            uploadVC.uploadedImageData = frameView.snapShot()
+            uploadVC.timeToServer = timeToServer
+            self.navigationController?.pushViewController(uploadVC, animated: true)
+        }
+        
     }
 }

@@ -306,10 +306,10 @@
             </objects>
             <point key="canvasLocation" x="1846.376811594203" y="19.419642857142858"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Camera Navigation Controller-->
         <scene sceneID="5kz-X2-Gai">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="6te-jU-h7V" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CameraNavigationController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="6te-jU-h7V" customClass="CameraNavigationController" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aAH-Z8-V1i">
                         <autoresizingMask key="autoresizingMask"/>

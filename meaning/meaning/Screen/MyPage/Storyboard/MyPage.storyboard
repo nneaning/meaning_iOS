@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kzA-wc-Bcv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kzA-wc-Bcv">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -13,7 +13,7 @@
         <!--My Page FeedVC-->
         <scene sceneID="OVj-r0-Z22">
             <objects>
-                <viewController id="kzA-wc-Bcv" customClass="MyPageFeedVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPageFeedVC" id="kzA-wc-Bcv" customClass="MyPageFeedVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eqW-jR-2Dw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,6 +27,9 @@
                                             <constraint firstAttribute="width" secondItem="mcT-BX-dCd" secondAttribute="height" multiplier="1:1" id="kGo-Kg-acb"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="backBtn"/>
+                                        <connections>
+                                            <action selector="backButtonDidTap:" destination="kzA-wc-Bcv" eventType="touchUpInside" id="MyT-NQ-T4N"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회고 일기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="378-It-uu6">
                                         <rect key="frame" x="175" y="11.5" width="64" height="21"/>

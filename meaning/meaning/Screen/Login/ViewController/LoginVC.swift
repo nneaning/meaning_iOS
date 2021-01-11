@@ -69,7 +69,7 @@ class LoginVC: UIViewController {
             self.pwLabel.alpha = 0
             self.pwTextField.alpha = 0
             self.pwTextField.center.y += 200
-            self.pwTextField.center.y += 200
+            self.idTextField.center.y += 200
             self.idLabel.center.y += 200
             self.pwLabel.center.y += 200
             
@@ -128,6 +128,7 @@ class LoginVC: UIViewController {
                 self.idTextField.center.y -= 200
                 self.pwLabel.center.y -= 200
                 self.pwTextField.center.y -= 200
+                
                 self.pwIsInvalid.center.y -= 200
                 self.idIsInvalid.center.y -= 200
                 

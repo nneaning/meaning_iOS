@@ -35,6 +35,10 @@ class DailyDiaryVC: UIViewController {
         }
     }
     
+    @IBAction func backBtnPressed(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: Life Cycle Part
     
     override func viewDidLoad() {
