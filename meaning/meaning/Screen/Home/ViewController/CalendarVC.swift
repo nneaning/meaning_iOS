@@ -21,6 +21,13 @@ class CalendarVC: UIViewController {
     
     // MARK: IBAction
     
+    @IBAction func dateButtonDidTap(_ sender: Any) {
+        let transition: CATransition = CATransition()
+        transition.duration = 0.3
+        transition.type = CATransitionType.fade
+        self.navigationController?.view.layer.add(transition, forKey: nil)
+        self.navigationController?.popViewController(animated: false)
+    }
     
     // MARK: Life Cycle Part
     
