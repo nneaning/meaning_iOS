@@ -14,6 +14,7 @@ enum APITarget {
     case refreshtoken(refreshtoken: String) // 토큰 재발급
     case onboard(token: String, nickName: String, wakeUpTime: String) // 온보드
     case timestamp(token: String, dateTime: String, timeStampContents: String, image: UIImage) // 타임스탬프 작성
+    case groupList(token: String) // 그룹 리스트
     case groupJoin(token: String, groupId: Int) // 그룹 참가 신청
     case groupFeed(token: String, groupid: Int) // 그룹 내부 피드
     case groupEdit(token: String, groupid: Int) // 그룹 설정
@@ -22,7 +23,7 @@ enum APITarget {
     case mypage(token: String) // 마이페이지
     case daypromise(token: String) // 오늘 하루 다짐
     case dailydiary(token: String, diaryContents: String) // 자기 회고 작성
-    // 짧은 독서 작성, 그룹 리스트 남음
+    // 짧은 독서 작성
 }
 
 // MARK: TargetType Protocol 구현
@@ -44,6 +45,8 @@ extension APITarget: TargetType {
             return "/user/onboard"
         case .timestamp:
             return "/timestamp"
+        case .groupList:
+            return "/group?offset=0"
         case .groupJoin:
             return "/group/join"
         case .groupFeed(_, let groupid):
@@ -70,7 +73,7 @@ extension APITarget: TargetType {
             return .post
         case .onboard, .refreshtoken:
             return .put
-        case .groupFeed, .groupEdit, .mypage, .groupDetail, .daypromise:
+        case .groupFeed, .groupEdit, .mypage, .groupDetail, .daypromise, .groupList:
             return .get
         }
     }
@@ -107,7 +110,7 @@ extension APITarget: TargetType {
         case .groupMake(_, let groupName, let maximumMemberNumber, let introduction):
             return .requestParameters(parameters: ["groupName" : groupName, "maximumMemberNumber" : maximumMemberNumber, "introduction" : introduction], encoding: JSONEncoding.default)
             
-        case .groupFeed, .groupEdit, .mypage, .groupDetail, .daypromise, .refreshtoken:
+        case .groupFeed, .groupEdit, .mypage, .groupDetail, .daypromise, .refreshtoken, .groupList:
             return .requestPlain
             
         }
@@ -128,7 +131,7 @@ extension APITarget: TargetType {
         case .timestamp(let token, _, _, _):
             return ["Content-Type" : "multipart/form-data", "token" : token]
             
-        case .groupJoin(let token, _), .groupFeed(let token, _), .groupEdit(let token, _), .groupDetail(let token, _), .mypage(let token), .daypromise(let token), .dailydiary(let token, _), .groupMake(let token, _, _, _):
+        case .groupJoin(let token, _), .groupFeed(let token, _), .groupEdit(let token, _), .groupDetail(let token, _), .mypage(let token), .daypromise(let token), .dailydiary(let token, _), .groupMake(let token, _, _, _), .groupList(let token):
             return ["Content-Type" : "application/json", "token" : token]
 
         case .refreshtoken(let refreshtoken):
