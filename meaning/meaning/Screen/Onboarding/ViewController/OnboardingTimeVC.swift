@@ -31,6 +31,20 @@ class OnboardingTimeVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func nextButtonDidTap(_ sender: Any) {
+        guard let endVC = self.storyboard?.instantiateViewController(identifier: "OnboardingEndVC") as? OnboardingEndVC else {
+            return
+        }
+        if let userNick = userNick,
+           let wakeupTime = wakeupTime {
+            endVC.userNick = userNick
+            endVC.wakeupTime = wakeupTime
+        }
+        self.navigationController?.pushViewController(endVC, animated: true)
+        
+    }
+    
+    
     // MARK: Life Cycle Part
     
     override func viewDidLoad() {
