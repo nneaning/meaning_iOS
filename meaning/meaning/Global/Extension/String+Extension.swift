@@ -23,21 +23,6 @@ extension String {
         
         return formatter.string(from: tempDate)
     }
-    func recordTime() -> String {
-        // Date 스트링에서 시간만 추출하기
-        var format = "yyyy-MM-dd HH:mm:ss"
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        formatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
-        guard let tempDate = formatter.date(from: self) else {
-            return ""
-        }
-        
-        format = "HH:mm"
-        formatter.dateFormat = format
-        
-        return formatter.string(from: tempDate)
-    }
     
     func stringToDate() -> Date {
         // string타입을 date타입으로 바꾸기

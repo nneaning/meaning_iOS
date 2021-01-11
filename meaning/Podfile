@@ -6,7 +6,6 @@ target 'meaning' do
   use_frameworks!
   pod 'Moya', '~> 14.0'
   pod 'Kingfisher'
-  pod 'lottie-ios'
   # Pods for meaning
 
 end
