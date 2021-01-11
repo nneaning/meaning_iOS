@@ -157,10 +157,10 @@
             </objects>
             <point key="canvasLocation" x="1084.0579710144928" y="-94.419642857142847"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding EndVC-->
         <scene sceneID="bm0-fj-CaZ">
             <objects>
-                <viewController id="RdE-PO-egf" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardingEndVC" id="RdE-PO-egf" customClass="OnboardingEndVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gVb-Xh-YHX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
