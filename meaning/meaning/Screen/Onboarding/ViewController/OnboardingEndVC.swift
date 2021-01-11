@@ -23,6 +23,19 @@ class OnboardingEndVC: UIViewController {
     
     // MARK: IBAction
     
+    
+    @IBAction func startButtonDidTap(_ sender: Any) {
+        
+        // Home으로 이동하기
+        let tapBarStoryboard = UIStoryboard.init(name: "TabBar", bundle: nil)
+        guard let tabBarTap = tapBarStoryboard.instantiateViewController(identifier: "TabBarVC") as? TabBarVC else {
+            return
+        }
+        tabBarTap.modalPresentationStyle = .fullScreen
+        self.present(tabBarTap, animated: true, completion: nil)
+        
+    }
+    
     // MARK: Life Cycle Part
     
     override func viewDidLoad() {
