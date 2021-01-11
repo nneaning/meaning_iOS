@@ -19,19 +19,6 @@ extension Date {
         return dateString
     }
     
-    func weekDay() -> String {
-        // 특정 Date에 대한 요일 구하기
-        let weekDay = ["일","월","화","수","목","금","토"]
-        let cal = Calendar(identifier: .gregorian)
-        let now = self
-        let comps = cal.dateComponents([.weekday], from: now)
-        if let days = comps.weekday {
-            return weekDay[days-1]
-        } else {
-            return "잘못된 날짜"
-        }
-    }
-    
     func timeAgoSince() -> String {
         // 특정 date가 현재로부터 얼마나 지났는지 구하기
             let calendar = Calendar.current

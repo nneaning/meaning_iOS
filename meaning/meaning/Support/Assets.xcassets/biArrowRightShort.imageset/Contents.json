@@ -2,8 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "biArrowRightShort.png"
+      "filename" : "biArrowRightShort.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
@@ -12,8 +12,8 @@
     },
     {
       "filename" : "biArrowRightShort@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "idiom" : "universal"
     }
   ],
   "info" : {
