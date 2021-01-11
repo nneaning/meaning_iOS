@@ -54,7 +54,7 @@
                                                     </constraints>
                                                     <state key="normal" image="addBtn"/>
                                                     <connections>
-                                                        <action selector="goToGroupDetail:" destination="Jgf-yZ-bus" eventType="touchUpInside" id="saw-D3-HlW"/>
+                                                        <action selector="goToGroupCreate:" destination="Jgf-yZ-bus" eventType="touchUpInside" id="saw-D3-HlW"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ii6-LC-A4L">
@@ -216,7 +216,7 @@
                                                                 <rect key="frame" x="171" y="142" width="30" height="30"/>
                                                                 <state key="normal" title="버튼"/>
                                                                 <connections>
-                                                                    <action selector="goToDetailView:" destination="Jgf-yZ-bus" eventType="touchUpInside" id="mzV-QT-Hie"/>
+                                                                    <action selector="goToGroupDetail:" destination="Jgf-yZ-bus" eventType="touchUpInside" id="mzV-QT-Hie"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRx-HB-O7P">

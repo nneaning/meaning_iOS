@@ -66,7 +66,7 @@ class GroupListVC: UIViewController {
         self.navigationController?.pushViewController(groupFeedTap, animated: true)
         
     }
-    @IBAction func goToDetailView(_ sender: Any) {
+    @IBAction func goToGroupDetail(_ sender: Any) {
         //detailView 로 이동
         guard let groupDetailVC = self.storyboard?.instantiateViewController(identifier: "GroupDetailVC")
                 as? GroupDetailVC else {
@@ -77,7 +77,7 @@ class GroupListVC: UIViewController {
         self.present(groupDetailVC, animated: true, completion: nil)
     }
     
-    @IBAction func goToGroupDetail(_ sender: Any) {
+    @IBAction func goToGroupCreate(_ sender: Any) {
         // 다음 뷰로 연결
         guard let groupCreateVC = self.storyboard?.instantiateViewController(identifier: "GroupCreateVC") as? GroupCreateVC else {
             return
@@ -210,6 +210,18 @@ extension GroupListVC: UICollectionViewDataSource {
         cell.layer.cornerRadius = 8.0
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //collection view 셀 클릭 시 groupDetail로 이동
+        guard let groupDetailVC = self.storyboard?.instantiateViewController(identifier: "GroupDetailVC")
+                as? GroupDetailVC else {
+            return
+        }
+        groupDetailVC.modalPresentationStyle = .overCurrentContext
+        groupDetailVC.modalTransitionStyle = .crossDissolve
+        self.present(groupDetailVC, animated: true, completion: nil)
+        
     }
     
     
