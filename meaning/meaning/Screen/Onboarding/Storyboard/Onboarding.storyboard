@@ -188,7 +188,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="9dg-Sy-9go" firstAttribute="leading" secondItem="84Q-rN-Wgy" secondAttribute="leading" id="01K-AR-o65"/>
                                     <constraint firstItem="YhH-VF-G1l" firstAttribute="width" secondItem="hya-u4-P3M" secondAttribute="width" multiplier="333/375" id="JfO-ZA-eSP"/>
@@ -209,6 +208,12 @@
                             <constraint firstItem="hya-u4-P3M" firstAttribute="top" secondItem="gVb-Xh-YHX" secondAttribute="top" id="yiU-cA-dsW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addObjectView" destination="hya-u4-P3M" id="BaI-P4-ZGV"/>
+                        <outlet property="firstMentLabel" destination="84Q-rN-Wgy" id="MLP-PV-qLi"/>
+                        <outlet property="secondMentLabel" destination="9dg-Sy-9go" id="zae-nh-X9o"/>
+                        <outlet property="startButton" destination="YhH-VF-G1l" id="b8J-WA-b4a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEm-Ho-fdN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
