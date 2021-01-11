@@ -27,7 +27,7 @@ struct APIService {
      }
      */
     
-    private func judgeObject<T: Codable>(_ target: APITarget, completion: @escaping (NetworkResult<T>) -> Void) {
+    func judgeObject<T: Codable>(_ target: APITarget, completion: @escaping (NetworkResult<T>) -> Void) {
         provider.request(target) { response in
             switch response {
             case .success(let result):
