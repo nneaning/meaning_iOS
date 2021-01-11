@@ -120,6 +120,9 @@
                                     <constraint firstAttribute="width" secondItem="gJI-wO-Pcc" secondAttribute="height" multiplier="333:60" id="jRG-SZ-JZQ"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="nextButtonDidTap:" destination="X4c-mI-0dk" eventType="touchUpInside" id="CqD-bw-kod"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J8C-ge-6yw">
                                 <rect key="frame" x="0.0" y="280.5" width="414" height="18.5"/>
@@ -217,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEm-Ho-fdN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2220.289855072464" y="-160.04464285714286"/>
+            <point key="canvasLocation" x="1868" y="-87"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bNm-WC-9UG">
