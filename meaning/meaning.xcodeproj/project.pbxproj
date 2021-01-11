@@ -98,6 +98,7 @@
 		9EB8611725A756E3009E4234 /* FeedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB8611525A756E2009E4234 /* FeedCollectionViewCell.xib */; };
 		9EC4B04C25AC58E5005D6B2F /* SplashBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 9EC4B04B25AC58E4005D6B2F /* SplashBackground.json */; };
 		9EC4B05625AC593E005D6B2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC4B05525AC593E005D6B2F /* LaunchScreen.storyboard */; };
+		9EC4B06A25ACC31C005D6B2F /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC4B06925ACC31C005D6B2F /* LoginData.swift */; };
 		9EDE814325A8287B00389559 /* FeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE814225A8287B00389559 /* FeedImage.swift */; };
 		9EE0139125A4383300A2CB9A /* ShortReadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0139025A4383300A2CB9A /* ShortReadingVC.swift */; };
 		9EE0139925A4774700A2CB9A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0139825A4774700A2CB9A /* UIViewController+Extension.swift */; };
@@ -198,6 +199,7 @@
 		9EB8611525A756E2009E4234 /* FeedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCollectionViewCell.xib; sourceTree = "<group>"; };
 		9EC4B04B25AC58E4005D6B2F /* SplashBackground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SplashBackground.json; sourceTree = "<group>"; };
 		9EC4B05525AC593E005D6B2F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9EC4B06925ACC31C005D6B2F /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		9EDE814225A8287B00389559 /* FeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImage.swift; sourceTree = "<group>"; };
 		9EE0139025A4383300A2CB9A /* ShortReadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortReadingVC.swift; sourceTree = "<group>"; };
 		9EE0139825A4774700A2CB9A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				9B2BA1E7259F74F7000EF4AA /* GenericResponse.swift */,
+				9EC4B06925ACC31C005D6B2F /* LoginData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -858,6 +861,7 @@
 				9EE0139925A4774700A2CB9A /* UIViewController+Extension.swift in Sources */,
 				9B40579725A8EE57001D0954 /* GroupFeedReusableView.swift in Sources */,
 				36A9424725A33DCD009C28F2 /* GroupTableViewCell.swift in Sources */,
+				9EC4B06A25ACC31C005D6B2F /* LoginData.swift in Sources */,
 				9EE0139125A4383300A2CB9A /* ShortReadingVC.swift in Sources */,
 				9EB8610E25A6EC3E009E4234 /* MyPageFeedVC.swift in Sources */,
 				9B2BA23E25A1B99F000EF4AA /* PhotoCheckVC.swift in Sources */,

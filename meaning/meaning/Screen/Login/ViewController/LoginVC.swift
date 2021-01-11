@@ -11,7 +11,7 @@ import Lottie
 class LoginVC: UIViewController {
     
     // MARK: Variable Part
-
+    
     var loginBtnFirstPressed: Bool = false
     let underlineAttributes : [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.font : UIFont.spoqaRegular(size: 16),
@@ -21,7 +21,7 @@ class LoginVC: UIViewController {
     ]
     
     // MARK: IBOutlet
-
+    
     @IBOutlet var backgroundLayer: UIView!
     @IBOutlet var backBtn: UIButton!
     @IBOutlet var logoImage: UIImageView!
@@ -41,7 +41,7 @@ class LoginVC: UIViewController {
     @IBOutlet var loginLabelTopConstraint: NSLayoutConstraint!
     
     // MARK: IBAction
-
+    
     @IBAction func backBtnPressed(_ sender: UIButton) {
         loginBtnFirstPressed = false
         
@@ -157,7 +157,7 @@ class LoginVC: UIViewController {
                 self.idIsInvalid.alpha = 1
             }
             // PW 만 틀렸거나 입력되지 않았을 때
-
+            
             else if (self.pwTextField.text == "") {
                 self.pwIsInvalid.alpha = 1
             }
@@ -289,7 +289,7 @@ class LoginVC: UIViewController {
         findPasswordBtn.isHidden = true
         findPasswordBtn.alpha = 0
     }
-
+    
     // MARK: Function
     // id, pw textfield 편집 시작할 때 빨간색 알림 사라지도록 해줌
     
@@ -304,6 +304,20 @@ class LoginVC: UIViewController {
             pwIsInvalid.alpha = 0
         }
     }
+    
+    func login(email: String, password: String) {
+        APIService.shared.login(email, password, completion: <#T##(NetworkResult<LoginData>) -> (Void)#>)
+    }
 }
 
 
+// MARK: Service
+
+extension APIService {
+    func login(_ email: String, _ password: String, completion: @escaping (NetworkResult<LoginData>)->(Void)) {
+        
+        let target: APITarget = .login(email: email, password: password)
+        judgeObject(target, completion: completion)
+        
+    }
+}
