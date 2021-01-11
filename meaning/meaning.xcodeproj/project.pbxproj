@@ -81,6 +81,8 @@
 		9EB8610E25A6EC3E009E4234 /* MyPageFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB8610D25A6EC3E009E4234 /* MyPageFeedVC.swift */; };
 		9EB8611625A756E3009E4234 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB8611425A756E2009E4234 /* FeedCollectionViewCell.swift */; };
 		9EB8611725A756E3009E4234 /* FeedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB8611525A756E2009E4234 /* FeedCollectionViewCell.xib */; };
+		9EC4B04C25AC58E5005D6B2F /* SplashBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 9EC4B04B25AC58E4005D6B2F /* SplashBackground.json */; };
+		9EC4B05625AC593E005D6B2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC4B05525AC593E005D6B2F /* LaunchScreen.storyboard */; };
 		9EDE814325A8287B00389559 /* FeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE814225A8287B00389559 /* FeedImage.swift */; };
 		9EE0139125A4383300A2CB9A /* ShortReadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0139025A4383300A2CB9A /* ShortReadingVC.swift */; };
 		9EE0139925A4774700A2CB9A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0139825A4774700A2CB9A /* UIViewController+Extension.swift */; };
@@ -164,6 +166,8 @@
 		9EB8610D25A6EC3E009E4234 /* MyPageFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPageFeedVC.swift; path = meaning/Screen/MyPage/ViewController/MyPageFeedVC.swift; sourceTree = SOURCE_ROOT; };
 		9EB8611425A756E2009E4234 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		9EB8611525A756E2009E4234 /* FeedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCollectionViewCell.xib; sourceTree = "<group>"; };
+		9EC4B04B25AC58E4005D6B2F /* SplashBackground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SplashBackground.json; sourceTree = "<group>"; };
+		9EC4B05525AC593E005D6B2F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9EDE814225A8287B00389559 /* FeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImage.swift; sourceTree = "<group>"; };
 		9EE0139025A4383300A2CB9A /* ShortReadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortReadingVC.swift; sourceTree = "<group>"; };
 		9EE0139825A4774700A2CB9A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -238,7 +242,6 @@
 				9E64AC4725A8DD3200BD49C1 /* Lottie */,
 				9B2BA1D6259F72D7000EF4AA /* Font */,
 				9B2BA173259F58FF000EF4AA /* ViewController.swift */,
-				9E64AC4425A8D63D00BD49C1 /* LaunchScreenVC.swift */,
 				9B2BA175259F58FF000EF4AA /* Main.storyboard */,
 				9B2BA17A259F5904000EF4AA /* LaunchScreen.storyboard */,
 				9B2BA16F259F58FF000EF4AA /* AppDelegate.swift */,
@@ -252,6 +255,7 @@
 		9B2BA18B259F5B7E000EF4AA /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				9EC4B04E25AC5904005D6B2F /* Splash */,
 				9B2BA19B259F5C32000EF4AA /* TapBar */,
 				9B2BA19A259F5BFA000EF4AA /* Login */,
 				9B2BA199259F5BF2000EF4AA /* Onboarding */,
@@ -561,6 +565,7 @@
 			isa = PBXGroup;
 			children = (
 				9E89E0A025AC1CCA00C5D429 /* LoginBackground.json */,
+				9EC4B04B25AC58E4005D6B2F /* SplashBackground.json */,
 				9E89E09C25AC1C4C00C5D429 /* Launch.json */,
 			);
 			path = Lottie;
@@ -593,6 +598,31 @@
 				9EB8611525A756E2009E4234 /* FeedCollectionViewCell.xib */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		9EC4B04E25AC5904005D6B2F /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				9EC4B05325AC591D005D6B2F /* ViewController */,
+				9EC4B04F25AC5909005D6B2F /* Storyboard */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		9EC4B04F25AC5909005D6B2F /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9EC4B05525AC593E005D6B2F /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9EC4B05325AC591D005D6B2F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9E64AC4425A8D63D00BD49C1 /* LaunchScreenVC.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		F3125DA1C1951212B6AAE898 /* Frameworks */ = {
@@ -671,6 +701,7 @@
 				9B2BA22B25A0D2F5000EF4AA /* NanumSquareOTFBold.otf in Resources */,
 				9B2BA1DF259F7302000EF4AA /* Spoqa Han Sans Neo Medium.otf in Resources */,
 				9B2BA1C3259F5ED2000EF4AA /* MyPage.storyboard in Resources */,
+				9EC4B05625AC593E005D6B2F /* LaunchScreen.storyboard in Resources */,
 				9B2BA1E0259F7302000EF4AA /* NanumBarunpenR.otf in Resources */,
 				9B2BA1BC259F5EBB000EF4AA /* Camera.storyboard in Resources */,
 				9B2BA216259FA8C5000EF4AA /* NotoSansKR-Medium.otf in Resources */,
@@ -682,6 +713,7 @@
 				9B2BA179259F5904000EF4AA /* Assets.xcassets in Resources */,
 				9EB8611725A756E3009E4234 /* FeedCollectionViewCell.xib in Resources */,
 				9B2BA1C7259F5EE3000EF4AA /* GroupList.storyboard in Resources */,
+				9EC4B04C25AC58E5005D6B2F /* SplashBackground.json in Resources */,
 				9B2BA213259FA8C5000EF4AA /* NotoSansKR-Regular.otf in Resources */,
 				9B2BA22A25A0D2F5000EF4AA /* NanumSquareOTFLight.otf in Resources */,
 				9E89E09D25AC1C4D00C5D429 /* Launch.json in Resources */,
