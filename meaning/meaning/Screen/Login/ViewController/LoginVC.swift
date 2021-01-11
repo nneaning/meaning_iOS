@@ -19,6 +19,8 @@ class LoginVC: UIViewController {
         NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue,
         NSAttributedString.Key.kern : -0.48
     ]
+    var loginData: LoginData?
+    
     
     // MARK: IBOutlet
     
@@ -89,6 +91,9 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func loginBtnPressed(_ sender: UIButton) {
+        
+        // Layout
+        
         let animationRange: CGFloat = 75/896*self.view.bounds.height
         
         if(!loginBtnFirstPressed){
@@ -145,6 +150,9 @@ class LoginVC: UIViewController {
             
         } else {
             // 로그인 버튼을 눌러서 다음뷰로 넘어가기
+            
+            // 서버 연결
+            login(email: self.idTextField.text ?? "", password: self.pwTextField.text ?? "")
             
             // ID, PW 모두 틀렸거나 입력되지 않았을 때
             if (self.idTextField.text == "" && self.pwTextField.text == "") {
@@ -306,7 +314,32 @@ class LoginVC: UIViewController {
     }
     
     func login(email: String, password: String) {
-        APIService.shared.login(email, password, completion: <#T##(NetworkResult<LoginData>) -> (Void)#>)
+        APIService.shared.login(email, password) { [self] result in
+            switch result {
+            case .success(let data):
+                guard let loadData = data as? LoginData else {
+                    return
+                }
+                //성공하면 다음 뷰로 이동
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+                guard let endVC = storyBoard.instantiateViewController(identifier: "HomeVC") as? HomeVC else {
+                    return
+                }
+                endVC.modalPresentationStyle = .fullScreen
+                self.present(endVC, animated: true, completion: nil)
+                self.loginData = loadData
+                print(loginData)
+                
+            case .requestErr:
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
 }
 
@@ -314,6 +347,7 @@ class LoginVC: UIViewController {
 // MARK: Service
 
 extension APIService {
+    
     func login(_ email: String, _ password: String, completion: @escaping (NetworkResult<LoginData>)->(Void)) {
         
         let target: APITarget = .login(email: email, password: password)

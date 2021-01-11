@@ -82,6 +82,7 @@
 		9B4057E525AADDDD001D0954 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4057E425AADDDD001D0954 /* APIService.swift */; };
 		9B4057ED25AB72A2001D0954 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4057EC25AB72A2001D0954 /* CalendarVC.swift */; };
 		9B40583125AC8203001D0954 /* OnboardingEndVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40583025AC8203001D0954 /* OnboardingEndVC.swift */; };
+		9B40583825ACB962001D0954 /* SimpleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40583725ACB961001D0954 /* SimpleData.swift */; };
 		9B70C10125A42AD700A5EFDD /* OnboardingTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */; };
 		9BEA213C25A8304500F240E5 /* FeedDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA213B25A8304500F240E5 /* FeedDetailVC.swift */; };
 		9BEA214125A854C800F240E5 /* FeedDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA214025A854C800F240E5 /* FeedDetailCell.swift */; };
@@ -183,6 +184,7 @@
 		9B4057E425AADDDD001D0954 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		9B4057EC25AB72A2001D0954 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		9B40583025AC8203001D0954 /* OnboardingEndVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingEndVC.swift; sourceTree = "<group>"; };
+		9B40583725ACB961001D0954 /* SimpleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleData.swift; sourceTree = "<group>"; };
 		9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTimeVC.swift; sourceTree = "<group>"; };
 		9BEA213B25A8304500F240E5 /* FeedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailVC.swift; sourceTree = "<group>"; };
 		9BEA214025A854C800F240E5 /* FeedDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailCell.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			children = (
 				9B2BA1E7259F74F7000EF4AA /* GenericResponse.swift */,
 				9EC4B06925ACC31C005D6B2F /* LoginData.swift */,
+				9B40583725ACB961001D0954 /* SimpleData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -847,6 +850,7 @@
 				36A9425825A45B62009C28F2 /* TestGroupVC.swift in Sources */,
 				9B2CAA7025A5FC0300099356 /* AnimationFlowLayout.swift in Sources */,
 				9B2BA1F2259F7C65000EF4AA /* UIButton+Extension.swift in Sources */,
+				9B40583825ACB962001D0954 /* SimpleData.swift in Sources */,
 				9B70C10125A42AD700A5EFDD /* OnboardingTimeVC.swift in Sources */,
 				36A9423025A2F126009C28F2 /* Group.swift in Sources */,
 				9B40579125A8E72F001D0954 /* GroupFeedVC.swift in Sources */,
@@ -1044,7 +1048,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DUQE66MABG;
+				DEVELOPMENT_TEAM = S27FNL348L;
 				INFOPLIST_FILE = meaning/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1064,7 +1068,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DUQE66MABG;
+				DEVELOPMENT_TEAM = S27FNL348L;
 				INFOPLIST_FILE = meaning/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
