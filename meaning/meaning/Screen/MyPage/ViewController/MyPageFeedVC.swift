@@ -36,6 +36,12 @@ class MyPageFeedVC: UIViewController {
     
     @IBOutlet var feedCollectionView: UICollectionView!
     
+    // MARK: IBAction
+    
+    @IBAction func backButtonDidTap(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: Life Cycle Part
     
     override func viewDidLoad() {
@@ -138,15 +144,6 @@ class MyPageFeedVC: UIViewController {
 
 // MARK: Extension
 
-// CollectionViewDelegate
-
-extension MyPageFeedVC: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        // 다음 뷰로 넘어가도록 해야함
-    }
-}
-
 // CollectionViewDataSource
 
 extension MyPageFeedVC: UICollectionViewDataSource {
@@ -160,6 +157,21 @@ extension MyPageFeedVC: UICollectionViewDataSource {
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 디테일 뷰로 이동
+        
+        let detailStoryboard = UIStoryboard.init(name: "GroupFeed", bundle: nil)
+        guard let feedDetailTap = detailStoryboard.instantiateViewController(identifier: "FeedDetailVC") as? FeedDetailVC else {
+            return
+        }
+        
+        feedDetailTap.groupName = "마이 피드"
+        feedDetailTap.indexScroll = indexPath
+        self.navigationController?.pushViewController(feedDetailTap, animated: true)
+        
+    }
+
 }
 
 //FlowLayout

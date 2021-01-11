@@ -23,6 +23,12 @@ class DailyMaximVC: UIViewController {
     
     @IBOutlet var ReadComplete: UIButton!
     
+    // MARK: IBAction
+    
+    @IBAction func backBtnPressed(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     // Mark: Life Cycle Part
     
     override func viewDidLoad() {

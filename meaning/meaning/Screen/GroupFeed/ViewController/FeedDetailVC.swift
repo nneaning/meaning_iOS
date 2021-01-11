@@ -13,7 +13,8 @@ class FeedDetailVC: UIViewController {
     
     var feedDetailList: [FeedDetail] = []
     var sloganMent: String = "오늘은 365일 중에 30번째 의미있는 아침입니다."
-    var groupName: String = "마이피드"
+    var groupName: String?
+    var indexScroll: IndexPath?
     
     // MARK: IBOutlet
     
@@ -23,6 +24,11 @@ class FeedDetailVC: UIViewController {
     @IBOutlet weak var sloganView: UIView!
     @IBOutlet weak var sloganLabel: UILabel!
     
+    // MARK: IBAction
+    
+    @IBAction func backButtonDidTap(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +36,13 @@ class FeedDetailVC: UIViewController {
         setFeed()
         setRefresh()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillLayoutSubviews() {
+        if let indexScroll = indexScroll {
+            self.feedDetailTableView.scrollToRow(at: indexScroll, at: .top, animated: false)
+            // 클릭한 인덱스 위치로 이동
+        }
     }
     
 }

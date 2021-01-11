@@ -14,7 +14,7 @@ class GroupListVC: UIViewController {
     var groupInfo: [Group] = []
     var groupTable: [GroupTable] = []
     
-    var groupExist: Bool = false
+    var groupExist: Bool = true
     
     lazy var refreshControl: UIRefreshControl = {
         
@@ -51,6 +51,40 @@ class GroupListVC: UIViewController {
     
     @IBOutlet var groupCollectionView: UICollectionView!
     
+    //MARK: - IBACtion
+    
+
+    @IBAction func goToMyGroupView(_ sender: Any) {
+        // 내 그룹 피드로 이동
+        let feedStoryboard = UIStoryboard.init(name: "GroupFeed", bundle: nil)
+        guard let groupFeedTap = feedStoryboard.instantiateViewController(identifier: "GroupFeedVC") as? GroupFeedVC else {
+            return
+        }
+        groupFeedTap.hidesBottomBarWhenPushed = true
+        groupFeedTap.groupName = myGroupNameLabel.text
+        self.navigationController?.pushViewController(groupFeedTap, animated: true)
+        
+    }
+    @IBAction func goToDetailView(_ sender: Any) {
+        //detailView 로 이동
+        guard let groupDetailVC = self.storyboard?.instantiateViewController(identifier: "GroupDetailVC")
+                as? GroupDetailVC else {
+            return
+        }
+        groupDetailVC.modalPresentationStyle = .overCurrentContext
+        groupDetailVC.modalTransitionStyle = .crossDissolve
+        self.present(groupDetailVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func goToGroupDetail(_ sender: Any) {
+        // 다음 뷰로 연결
+        guard let groupCreateVC = self.storyboard?.instantiateViewController(identifier: "GroupCreateVC") as? GroupCreateVC else {
+            return
+        }
+        groupCreateVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(groupCreateVC, animated: true)
+    }
+    
     
     // MARK: - Life Cycle Part
     
@@ -80,19 +114,6 @@ class GroupListVC: UIViewController {
         }
         
     }
-    
-    
-    @IBAction func goToDetailView(_ sender: Any) {
-        //detailView 로 이동
-        guard let groupDetailVC = self.storyboard?.instantiateViewController(identifier: "GroupDetailVC")
-                as? GroupDetailVC else {
-            return
-        }
-        groupDetailVC.modalPresentationStyle = .overCurrentContext
-        groupDetailVC.modalTransitionStyle = .crossDissolve
-        self.present(groupDetailVC, animated: true, completion: nil)
-    }
-    
 }
 
 // MARK: - Extension
