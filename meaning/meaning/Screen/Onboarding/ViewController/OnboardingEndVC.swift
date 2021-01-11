@@ -13,8 +13,6 @@ class OnboardingEndVC: UIViewController {
     // MARK: Variable Part
     
     var animationView: AnimationView?
-    var userNick: String?
-    var wakeupTime: String?
     
     // MARK: IBOutlet
     
