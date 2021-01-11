@@ -183,6 +183,9 @@
                                             <constraint firstAttribute="width" secondItem="YhH-VF-G1l" secondAttribute="height" multiplier="333:60" id="lgg-8R-axy"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="startButtonDidTap:" destination="RdE-PO-egf" eventType="touchUpInside" id="b71-0q-hvO"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dg-Sy-9go">
                                         <rect key="frame" x="21" y="224" width="42" height="21"/>
