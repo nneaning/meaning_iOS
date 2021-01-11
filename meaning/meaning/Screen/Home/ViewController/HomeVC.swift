@@ -141,7 +141,13 @@ extension HomeVC: UICollectionViewDataSource {
         guard let missionCardCell = collectionView.dequeueReusableCell(withReuseIdentifier: MissionCardCell.identifier, for: indexPath) as? MissionCardCell else {
             return UICollectionViewCell()
         }
-        missionCardCell.setCard(cardList[indexPath.row], safeArea: Int(self.view.safeAreaInsets.bottom))
+        if UserDefaults.standard.bool(forKey: "card\(indexPath.row)") == true {
+            // 미션 완료
+            missionCardCell.setEndCard(cardList[indexPath.row], safeArea: Int(self.view.safeAreaInsets.bottom))
+        } else {
+            // 미션 미완료
+            missionCardCell.setCard(cardList[indexPath.row], safeArea: Int(self.view.safeAreaInsets.bottom))
+        }
         // ment 위치 조정을 위해 safeAreaInsets을 보내줌
         return missionCardCell
     }
