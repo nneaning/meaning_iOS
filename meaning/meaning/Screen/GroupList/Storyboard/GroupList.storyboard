@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="82q-1U-28c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="82q-1U-28c">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -91,25 +91,23 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFG-Of-EjG">
                                                     <rect key="frame" x="0.0" y="67" width="414" height="60"/>
                                                     <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYU-PX-JeN">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="60" id="te8-U3-p8e"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <action selector="goToMyGroupFeed:" destination="Jgf-yZ-bus" eventType="touchUpInside" id="cSM-cF-36S"/>
+                                                            </connections>
+                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaB-dC-XEa">
                                                             <rect key="frame" x="30" y="19.5" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iae-0C-WmB">
-                                                            <rect key="frame" x="369" y="10" width="40" height="40"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="40" id="4k5-Qj-tht"/>
-                                                                <constraint firstAttribute="width" secondItem="Iae-0C-WmB" secondAttribute="height" multiplier="1:1" id="87E-Ar-dnm"/>
-                                                            </constraints>
-                                                            <state key="normal" image="mygroupArrowIc"/>
-                                                            <connections>
-                                                                <action selector="goToMyGroupView:" destination="Jgf-yZ-bus" eventType="touchUpInside" id="CTc-2r-46M"/>
-                                                            </connections>
-                                                        </button>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1XY-MH-xZg">
-                                                            <rect key="frame" x="299" y="15" width="50" height="30"/>
+                                                            <rect key="frame" x="304" y="15" width="50" height="30"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oja-YQ-V68">
                                                                     <rect key="frame" x="4" y="4.5" width="42" height="21"/>
@@ -126,15 +124,26 @@
                                                                 <constraint firstAttribute="height" constant="30" id="gtf-9P-TiX"/>
                                                             </constraints>
                                                         </view>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mygroupArrowIc" translatesAutoresizingMaskIntoConstraints="NO" id="JoE-YC-XBe">
+                                                            <rect key="frame" x="384" y="23" width="13" height="14"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="14" id="Z6b-LF-4e1"/>
+                                                                <constraint firstAttribute="width" secondItem="JoE-YC-XBe" secondAttribute="height" multiplier="13:14" id="mPO-hU-E4l"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.88235294119999996" green="0.92156862750000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="2E2-nt-lMR"/>
+                                                        <constraint firstAttribute="bottom" secondItem="TYU-PX-JeN" secondAttribute="bottom" id="9Ui-9E-g1E"/>
                                                         <constraint firstItem="1XY-MH-xZg" firstAttribute="centerY" secondItem="CFG-Of-EjG" secondAttribute="centerY" id="B50-0Y-bxQ"/>
-                                                        <constraint firstItem="Iae-0C-WmB" firstAttribute="centerY" secondItem="CFG-Of-EjG" secondAttribute="centerY" id="CJz-qJ-RFn"/>
+                                                        <constraint firstItem="TYU-PX-JeN" firstAttribute="leading" secondItem="CFG-Of-EjG" secondAttribute="leading" id="FgC-gk-MGF"/>
+                                                        <constraint firstItem="JoE-YC-XBe" firstAttribute="leading" secondItem="1XY-MH-xZg" secondAttribute="trailing" constant="30" id="N2Z-Xb-u6T"/>
+                                                        <constraint firstAttribute="trailing" secondItem="JoE-YC-XBe" secondAttribute="trailing" constant="17" id="QDD-Wa-mJW"/>
                                                         <constraint firstItem="CaB-dC-XEa" firstAttribute="centerY" secondItem="CFG-Of-EjG" secondAttribute="centerY" id="SJD-1q-yYG"/>
-                                                        <constraint firstItem="Iae-0C-WmB" firstAttribute="leading" secondItem="1XY-MH-xZg" secondAttribute="trailing" constant="20" id="Z4C-YN-K42"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Iae-0C-WmB" secondAttribute="trailing" constant="5" id="gg0-rd-VlX"/>
+                                                        <constraint firstAttribute="trailing" secondItem="TYU-PX-JeN" secondAttribute="trailing" id="gYJ-vk-R5p"/>
+                                                        <constraint firstItem="JoE-YC-XBe" firstAttribute="centerY" secondItem="CFG-Of-EjG" secondAttribute="centerY" id="kbE-oG-15B"/>
+                                                        <constraint firstItem="TYU-PX-JeN" firstAttribute="top" secondItem="CFG-Of-EjG" secondAttribute="top" id="oOQ-Va-aoW"/>
                                                         <constraint firstItem="CaB-dC-XEa" firstAttribute="leading" secondItem="CFG-Of-EjG" secondAttribute="leading" constant="30" id="weX-Ag-KNM"/>
                                                     </constraints>
                                                 </view>
@@ -327,8 +336,9 @@
                         <outlet property="groupCollectionView" destination="NMt-DS-IvW" id="bre-b6-bUz"/>
                         <outlet property="headerView" destination="79R-Db-YC7" id="nf3-nu-Euh"/>
                         <outlet property="logoView" destination="UK8-UK-rIm" id="KBh-8k-LWO"/>
+                        <outlet property="myGroupArrowImg" destination="kbE-oG-15B" id="kwu-Bt-akU"/>
+                        <outlet property="myGroupBoxBtn" destination="TYU-PX-JeN" id="0Sy-Dd-O70"/>
                         <outlet property="myGroupBoxView" destination="CFG-Of-EjG" id="tAH-wR-uGY"/>
-                        <outlet property="myGroupBtn" destination="Iae-0C-WmB" id="204-cS-mbX"/>
                         <outlet property="myGroupCountLabel" destination="Oja-YQ-V68" id="WzI-vL-481"/>
                         <outlet property="myGroupCountView" destination="1XY-MH-xZg" id="kAa-IN-fho"/>
                         <outlet property="myGroupLabel" destination="CuH-rm-wqR" id="fcI-zw-Rw5"/>

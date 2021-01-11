@@ -41,10 +41,11 @@ class GroupListVC: UIViewController {
     @IBOutlet var welcomeLabel: UILabel!
     
     @IBOutlet var myGroupBoxView: UIView!
+    @IBOutlet var myGroupBoxBtn: UIButton!
     @IBOutlet var myGroupNameLabel: UILabel!
     @IBOutlet var myGroupCountView: UIView!
     @IBOutlet var myGroupCountLabel: UILabel!
-    @IBOutlet var myGroupBtn: UIButton!
+    @IBOutlet var myGroupArrowImg: UIImage!
     
     @IBOutlet var otherGroupView: UIView!
     @IBOutlet var otherGroupLabel: UILabel!
@@ -54,7 +55,7 @@ class GroupListVC: UIViewController {
     //MARK: - IBACtion
     
 
-    @IBAction func goToMyGroupView(_ sender: Any) {
+    @IBAction func goToMyGroupFeed(_ sender: Any) {
         // 내 그룹 피드로 이동
         let feedStoryboard = UIStoryboard.init(name: "GroupFeed", bundle: nil)
         guard let groupFeedTap = feedStoryboard.instantiateViewController(identifier: "GroupFeedVC") as? GroupFeedVC else {
