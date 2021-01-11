@@ -60,7 +60,6 @@ class LoginVC: UIViewController {
                 self.loginBtn.center.y += animationRange
                 self.findPasswordBtn.center.y += animationRange
             }
-            
             self.findPasswordBtn.alpha = 0
             
             //TextFields & Label 없어지기
