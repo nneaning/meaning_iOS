@@ -11,6 +11,7 @@ import Moya
 enum APITarget {
     // case 별로 api 나누기
     case login(email: String, password: String) // 로그인
+    case refreshtoken(refreshtoken: String) // 토큰 재발급
     case onboard(token: String, nickName: String, wakeUpTime: String) // 온보드
     case timestamp(token: String, dateTime: String, timeStampContents: String, image: UIImage) // 타임스탬프 작성
     case groupJoin(token: String, groupId: Int) // 그룹 참가 신청
@@ -34,6 +35,8 @@ extension APITarget: TargetType {
         switch self {
         case .login:
             return "/user/signin"
+        case .refreshtoken:
+            return "/user/refreshtoken"
         case .onboard:
             return "/user/onboard"
         case .timestamp:
@@ -58,7 +61,7 @@ extension APITarget: TargetType {
         switch self {
         case .login, .timestamp, .groupJoin:
             return .post
-        case .onboard:
+        case .onboard, .refreshtoken:
             return .put
         case .groupFeed, .groupEdit, .mypage, .groupDetail, .daypromise:
             return .get
@@ -91,7 +94,7 @@ extension APITarget: TargetType {
         case .groupJoin(_, let groupId):
             return .requestParameters(parameters: ["groupId" : groupId], encoding: JSONEncoding.default)
             
-        case .groupFeed, .groupEdit, .mypage, .groupDetail, .daypromise:
+        case .groupFeed, .groupEdit, .mypage, .groupDetail, .daypromise, .refreshtoken:
             return .requestPlain
             
         }
@@ -123,6 +126,8 @@ extension APITarget: TargetType {
             return ["Content-Type" : "application/json", "token" : token]
         case .daypromise(let token):
             return ["Content-Type" : "application/json", "token" : token]
+        case .refreshtoken(let refreshtoken):
+            return ["Content-Type" : "application/json", "refreshtoken" : refreshtoken]
         }
     }
     
