@@ -28,9 +28,11 @@ class LoginVC: UIViewController {
     
     @IBOutlet var idLabel: UILabel!
     @IBOutlet var idTextField: UITextField!
+    @IBOutlet var idIsInvalid: UILabel!
     
     @IBOutlet var pwLabel: UILabel!
     @IBOutlet var pwTextField: UITextField!
+    @IBOutlet var pwIsInvalid: UILabel!
     
     @IBOutlet var loginBtn: UIButton!
     @IBOutlet var signUpBtn: UIButton!
@@ -92,6 +94,7 @@ class LoginVC: UIViewController {
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         let animationRange: CGFloat = 75/896*self.view.bounds.height
         
+        
         if(!loginBtnFirstPressed){
             
             UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.transitionFlipFromTop, animations: {
@@ -125,6 +128,9 @@ class LoginVC: UIViewController {
                 self.idTextField.center.y -= 200
                 self.pwLabel.center.y -= 200
                 self.pwTextField.center.y -= 200
+                self.pwIsInvalid.center.y -= 200
+                self.idIsInvalid.center.y -= 200
+                
                 self.idLabel.alpha = 1
                 self.idTextField.alpha = 1
                 self.pwLabel.alpha = 1
@@ -139,8 +145,25 @@ class LoginVC: UIViewController {
             })
             
             loginBtnFirstPressed = true
+            
         } else {
             // 로그인 버튼을 눌러서 다음뷰로 넘어가기
+            
+            // ID, PW 모두 틀렸거나 입력되지 않았을 때
+            if (self.idTextField.text == "" && self.pwTextField.text == "") {
+                self.idIsInvalid.alpha = 1
+                self.pwIsInvalid.alpha = 1
+                
+            }
+            // ID 만 틀렸거나 입력되지 않았을 때
+            else if (self.idTextField.text == "") {
+                self.idIsInvalid.alpha = 1
+            }
+            // PW 만 틀렸거나 입력되지 않았을 때
+
+            else if (self.pwTextField.text == "") {
+                self.pwIsInvalid.alpha = 1
+            }
         }
     }
     
@@ -154,6 +177,8 @@ class LoginVC: UIViewController {
         // 뷰 클릭 시 키보드 내리기
         view.endEditing(true)
     }
+    
+    // MARK: Layout
     
     func setLottie(){
         
@@ -212,6 +237,12 @@ class LoginVC: UIViewController {
         idTextField.textAlignment = .left
         idTextField.textColor = UIColor.meaningWhite
         idTextField.font = .spoqaRegular(size: 18)
+        idTextField.addTarget(self, action: #selector(LoginVC.idTextFieldDidChange(_:)), for: .editingChanged)
+        //id 틀렸을 때 라벨
+        idIsInvalid.text = "존재하지 않는 아이디입니다."
+        idIsInvalid.textColor = .meaningRed
+        idIsInvalid.font = .notoRegular(size: 14)
+        idIsInvalid.lineSetting(kernValue: -0.42)
         
         //PW Textfield 설정
         pwTextField.borderStyle = .none
@@ -223,15 +254,25 @@ class LoginVC: UIViewController {
         pwTextField.textColor = UIColor.meaningWhite
         pwTextField.font = .spoqaRegular(size: 18)
         pwTextField.isSecureTextEntry = true
+        pwTextField.addTarget(self, action: #selector(pwTextFieldDidChange(_:)), for: .editingChanged)
         
+        //pw 틀렸을 때 라벨
+        pwIsInvalid.text = "비밀번호를 확인해주세요."
+        pwIsInvalid.textColor = .meaningRed
+        pwIsInvalid.font = .notoRegular(size: 14)
+        pwIsInvalid.lineSetting(kernValue: -0.42)
+        
+        //아이디 비밀번호 부분 안보이게 세팅
         idLabel.isHidden = true
         idTextField.isHidden = true
         pwLabel.isHidden = true
         pwTextField.isHidden = true
         idLabel.alpha = 0
         idTextField.alpha = 0
+        idIsInvalid.alpha = 0
         pwLabel.alpha = 0
         pwTextField.alpha = 0
+        pwIsInvalid.alpha = 0
         
         loginBtn.backgroundColor = UIColor.meaningIvory
         loginBtn.setTitleColor(UIColor.meaningNavy, for: .normal)
@@ -250,7 +291,22 @@ class LoginVC: UIViewController {
         findPasswordBtn.setAttributedTitle(underlineAttribute, for: .normal)
         findPasswordBtn.isHidden = true
         findPasswordBtn.alpha = 0
-        
+    }
+
+    // MARK: Function
+    // id, pw textfield 편집 시작할 때 빨간색 알림 사라지도록 해줌
+    
+    @objc func idTextFieldDidChange(_ textField: UITextField){
+        if (textField.text?.isEmpty != nil) {
+            idIsInvalid.alpha = 0
+        }
+    }
+    
+    @objc func pwTextFieldDidChange(_ textField: UITextField){
+        if (textField.text?.isEmpty != nil) {
+            pwIsInvalid.alpha = 0
+        }
     }
 }
+
 
