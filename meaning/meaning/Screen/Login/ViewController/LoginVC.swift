@@ -86,13 +86,10 @@ class LoginVC: UIViewController {
             self.idTextField.text = nil
             self.pwTextField.text = nil
         })
-        
-        
     }
     
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         let animationRange: CGFloat = 75/896*self.view.bounds.height
-        
         
         if(!loginBtnFirstPressed){
             
