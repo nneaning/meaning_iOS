@@ -222,6 +222,9 @@
                                             <constraint firstAttribute="width" secondItem="ldq-cf-hWG" secondAttribute="height" multiplier="1:1" id="9MZ-Nm-mEc"/>
                                         </constraints>
                                         <state key="normal" image="mypageBtn"/>
+                                        <connections>
+                                            <action selector="mypageButtonDidTap:" destination="tyR-9M-HJB" eventType="touchUpInside" id="mf1-tu-L3b"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

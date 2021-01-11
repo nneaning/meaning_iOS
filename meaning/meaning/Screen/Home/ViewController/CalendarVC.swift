@@ -29,6 +29,16 @@ class CalendarVC: UIViewController {
         self.navigationController?.popViewController(animated: false)
     }
     
+    
+    @IBAction func mypageButtonDidTap(_ sender: Any) {
+        let mypageStoryboard = UIStoryboard.init(name: "MyPage", bundle: nil)
+        guard let mypageVC = mypageStoryboard.instantiateViewController(identifier: "MyPageFeedVC") as? MyPageFeedVC else {
+            return
+        }
+        mypageVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(mypageVC, animated: true)
+    }
+    
     // MARK: Life Cycle Part
     
     override func viewDidLoad() {
