@@ -17,6 +17,8 @@ class OnboardingTimeVC: UIViewController {
     var minutes: [String] = []
     var userHours: Int = 5
     var userMinues: String?
+    var simpleData: SimpleData?
+    var serverWakeUpTime: String?
     
     // MARK: IBOutlet
     
@@ -32,15 +34,15 @@ class OnboardingTimeVC: UIViewController {
     }
     
     @IBAction func nextButtonDidTap(_ sender: Any) {
-        guard let endVC = self.storyboard?.instantiateViewController(identifier: "OnboardingEndVC") as? OnboardingEndVC else {
-            return
-        }
+        // 서버 연결 시도
+        serverWakeUpTime = "0\(userHours):\(userMinues ?? "00"):00"
         if let userNick = userNick,
-           let wakeupTime = wakeupTime {
-            endVC.userNick = userNick
-            endVC.wakeupTime = wakeupTime
+           let serverWakeUpTime = serverWakeUpTime {
+            UserDefaults.standard.setValue(userNick, forKey: "userNick") // 닉네임 폰에 저장
+            UserDefaults.standard.setValue(serverWakeUpTime, forKey: "wakeUpTime") // 기상 시간 폰에 저장
+            onboarding(token: "", nickName: userNick, wakeUpTime: serverWakeUpTime)
+            // 나중에 토큰 넣어줘야함(88)
         }
-        self.navigationController?.pushViewController(endVC, animated: true)
         
     }
     
@@ -143,6 +145,35 @@ extension OnboardingTimeVC {
         view.endEditing(true)
     }
 
+
+    func onboarding(token: String, nickName: String, wakeUpTime: String) {
+        // 온보딩 서버 연결 함수
+        APIService.shared.onboarding(token, nickName, wakeUpTime) { [self] result in
+                switch result {
+                case .success(let data):
+                    guard let loadData = data as? SimpleData else {
+                        return
+                    }
+                    self.simpleData = loadData
+                    if self.simpleData?.status == 204 {
+                        // 성공하면 다음 뷰로 이동
+                        guard let endVC = self.storyboard?.instantiateViewController(identifier: "OnboardingEndVC") as? OnboardingEndVC else {
+                            return
+                        }
+                        self.navigationController?.pushViewController(endVC, animated: true)
+                    }
+                case .requestErr:
+                    print("requestErr")
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+            }
+        }
+
 }
 
 extension OnboardingTimeVC: UIPickerViewDataSource {
@@ -186,4 +217,14 @@ extension OnboardingTimeVC: UIPickerViewDelegate {
         }
         setTimeTextField()
     }
+}
+
+extension APIService {
+    
+    func onboarding(_ token: String, _ nickName: String, _ wakeUpTime: String, completion: @escaping (NetworkResult<Any>)->(Void)) {
+        let target: APITarget = .onboard(token: token, nickName: nickName, wakeUpTime: wakeUpTime)
+        judgeSimpleObject(target, completion: completion)
+        
+    }
+    
 }

@@ -13,8 +13,6 @@ class OnboardingEndVC: UIViewController {
     // MARK: Variable Part
     
     var animationView: AnimationView?
-    var userNick: String?
-    var wakeupTime: String?
     
     // MARK: IBOutlet
     
@@ -24,6 +22,19 @@ class OnboardingEndVC: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     
     // MARK: IBAction
+    
+    
+    @IBAction func startButtonDidTap(_ sender: Any) {
+        
+        // Home으로 이동하기
+        let tapBarStoryboard = UIStoryboard.init(name: "TabBar", bundle: nil)
+        guard let tabBarTap = tapBarStoryboard.instantiateViewController(identifier: "TabBarVC") as? TabBarVC else {
+            return
+        }
+        tabBarTap.modalPresentationStyle = .fullScreen
+        self.present(tabBarTap, animated: true, completion: nil)
+        
+    }
     
     // MARK: Life Cycle Part
     
