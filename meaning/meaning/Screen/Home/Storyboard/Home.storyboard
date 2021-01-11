@@ -54,6 +54,9 @@
                                     <constraint firstAttribute="height" constant="34" id="Vuj-h5-S7u"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="dateButtonDidTap:" destination="4VA-VY-tWE" eventType="touchUpInside" id="5Gi-k7-pPA"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcf-fI-rZf">
                                 <rect key="frame" x="20" y="184" width="42" height="21"/>
@@ -88,6 +91,10 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VaK-JY-oUv">
                                                     <rect key="frame" x="0.0" y="0.0" width="364" height="467"/>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zwt-8j-Nkb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="364" height="467"/>
+                                                    <color key="backgroundColor" red="0.090196078431372548" green="0.13725490196078433" blue="0.30196078431372547" alpha="0.60440284577426528" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Owj-Ax-QDT">
                                                     <rect key="frame" x="161" y="208" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -110,13 +117,20 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardCheckIc" translatesAutoresizingMaskIntoConstraints="NO" id="lqX-ew-pfm">
+                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="lqX-ew-pfm" secondAttribute="bottom" id="ExZ-Tc-TMt"/>
                                                         <constraint firstItem="MRq-K3-JVw" firstAttribute="top" secondItem="VCt-uU-fRh" secondAttribute="top" id="HzE-dB-IvE"/>
                                                         <constraint firstAttribute="trailing" secondItem="MRq-K3-JVw" secondAttribute="trailing" id="Pdu-Kc-WES"/>
+                                                        <constraint firstAttribute="trailing" secondItem="lqX-ew-pfm" secondAttribute="trailing" id="Sm6-w1-luH"/>
                                                         <constraint firstAttribute="bottom" secondItem="MRq-K3-JVw" secondAttribute="bottom" id="TfK-2p-Xew"/>
+                                                        <constraint firstItem="lqX-ew-pfm" firstAttribute="top" secondItem="VCt-uU-fRh" secondAttribute="top" id="dq8-gi-HAe"/>
                                                         <constraint firstAttribute="width" secondItem="VCt-uU-fRh" secondAttribute="height" multiplier="1:1" id="jpA-VY-TlM"/>
+                                                        <constraint firstItem="lqX-ew-pfm" firstAttribute="leading" secondItem="VCt-uU-fRh" secondAttribute="leading" id="lWT-We-m5d"/>
                                                         <constraint firstItem="MRq-K3-JVw" firstAttribute="leading" secondItem="VCt-uU-fRh" secondAttribute="leading" id="tAM-fj-lCW"/>
                                                         <constraint firstAttribute="width" constant="44" id="xVm-8T-Bbu"/>
                                                     </constraints>
@@ -124,21 +138,28 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Owj-Ax-QDT" firstAttribute="centerX" secondItem="dGq-3k-fkA" secondAttribute="centerX" id="4NI-6U-WRm"/>
+                                                <constraint firstItem="Zwt-8j-Nkb" firstAttribute="leading" secondItem="dGq-3k-fkA" secondAttribute="leading" id="9GY-RM-gvy"/>
                                                 <constraint firstItem="VaK-JY-oUv" firstAttribute="leading" secondItem="dGq-3k-fkA" secondAttribute="leading" id="AaY-xE-gLw"/>
                                                 <constraint firstItem="Owj-Ax-QDT" firstAttribute="centerY" secondItem="dGq-3k-fkA" secondAttribute="centerY" constant="-15" id="Bge-po-nC0"/>
                                                 <constraint firstItem="VaK-JY-oUv" firstAttribute="top" secondItem="dGq-3k-fkA" secondAttribute="top" id="C3S-Bd-XcV"/>
                                                 <constraint firstAttribute="bottom" secondItem="VaK-JY-oUv" secondAttribute="bottom" id="EhF-MT-qNY"/>
                                                 <constraint firstItem="Owj-Ax-QDT" firstAttribute="top" secondItem="VCt-uU-fRh" secondAttribute="bottom" constant="30" id="F0v-hO-od8"/>
+                                                <constraint firstAttribute="bottom" secondItem="Zwt-8j-Nkb" secondAttribute="bottom" id="H2m-U6-Asu"/>
                                                 <constraint firstAttribute="bottom" secondItem="byr-Z1-gjk" secondAttribute="bottom" constant="31" id="Zdh-7l-Uge"/>
                                                 <constraint firstAttribute="trailing" secondItem="byr-Z1-gjk" secondAttribute="trailing" constant="15" id="e4m-fO-6Ri"/>
                                                 <constraint firstItem="VCt-uU-fRh" firstAttribute="centerX" secondItem="dGq-3k-fkA" secondAttribute="centerX" id="fH0-GP-8JQ"/>
+                                                <constraint firstItem="Zwt-8j-Nkb" firstAttribute="top" secondItem="dGq-3k-fkA" secondAttribute="top" id="h1S-a9-eZT"/>
+                                                <constraint firstAttribute="trailing" secondItem="Zwt-8j-Nkb" secondAttribute="trailing" id="ljM-um-9Aj"/>
                                                 <constraint firstAttribute="trailing" secondItem="VaK-JY-oUv" secondAttribute="trailing" id="szq-L5-nRc"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="364" height="467"/>
                                         <connections>
                                             <outlet property="cardImage" destination="VaK-JY-oUv" id="GmP-da-WNS"/>
+                                            <outlet property="checkImage" destination="lqX-ew-pfm" id="hOg-Ux-4Y3"/>
                                             <outlet property="circleView" destination="VCt-uU-fRh" id="ciH-AB-FR9"/>
+                                            <outlet property="clickImage" destination="byr-Z1-gjk" id="sBa-3g-fgh"/>
+                                            <outlet property="endView" destination="Zwt-8j-Nkb" id="XFk-A8-Apn"/>
                                             <outlet property="indexLabel" destination="MRq-K3-JVw" id="Ucd-DC-oGq"/>
                                             <outlet property="mentCenter" destination="Bge-po-nC0" id="8Me-GX-cLT"/>
                                             <outlet property="mentLabel" destination="Owj-Ax-QDT" id="Q1d-Xa-QdK"/>
@@ -219,6 +240,9 @@
                                             <constraint firstAttribute="width" secondItem="ldq-cf-hWG" secondAttribute="height" multiplier="1:1" id="9MZ-Nm-mEc"/>
                                         </constraints>
                                         <state key="normal" image="mypageBtn"/>
+                                        <connections>
+                                            <action selector="mypageButtonDidTap:" destination="tyR-9M-HJB" eventType="touchUpInside" id="mf1-tu-L3b"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -237,6 +261,9 @@
                                     <constraint firstAttribute="width" constant="144" id="wRZ-8z-Mvm"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="dateButtonDidTap:" destination="tyR-9M-HJB" eventType="touchUpInside" id="ixH-g5-yLt"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPR-Av-Q1u">
                                 <rect key="frame" x="20" y="184" width="42" height="21"/>
@@ -299,6 +326,7 @@
     </scenes>
     <resources>
         <image name="biArrowRightShort" width="40" height="40"/>
+        <image name="cardCheckIc" width="46" height="46"/>
         <image name="logoImg" width="100" height="24"/>
         <image name="mypageBtn" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
