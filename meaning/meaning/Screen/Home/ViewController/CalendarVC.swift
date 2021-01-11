@@ -21,6 +21,23 @@ class CalendarVC: UIViewController {
     
     // MARK: IBAction
     
+    @IBAction func dateButtonDidTap(_ sender: Any) {
+        let transition: CATransition = CATransition()
+        transition.duration = 0.3
+        transition.type = CATransitionType.fade
+        self.navigationController?.view.layer.add(transition, forKey: nil)
+        self.navigationController?.popViewController(animated: false)
+    }
+    
+    
+    @IBAction func mypageButtonDidTap(_ sender: Any) {
+        let mypageStoryboard = UIStoryboard.init(name: "MyPage", bundle: nil)
+        guard let mypageVC = mypageStoryboard.instantiateViewController(identifier: "MyPageFeedVC") as? MyPageFeedVC else {
+            return
+        }
+        mypageVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(mypageVC, animated: true)
+    }
     
     // MARK: Life Cycle Part
     
