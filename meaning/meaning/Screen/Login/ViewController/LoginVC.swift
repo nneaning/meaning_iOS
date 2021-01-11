@@ -10,30 +10,36 @@ import Lottie
 
 class LoginVC: UIViewController {
     
+    // MARK: Variable Part
+
     var loginBtnFirstPressed: Bool = false
-    let yourAttributes : [NSAttributedString.Key: Any] = [
+    let underlineAttributes : [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.font : UIFont.spoqaRegular(size: 16),
         NSAttributedString.Key.foregroundColor : UIColor.meaningWhite,
         NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue,
         NSAttributedString.Key.kern : -0.48
     ]
     
+    // MARK: IBOutlet
+
     @IBOutlet var backgroundLayer: UIView!
     @IBOutlet var backBtn: UIButton!
     @IBOutlet var logoImage: UIImageView!
     
-    @IBOutlet var IDLabel: UILabel!
-    @IBOutlet var IDTextField: UITextField!
+    @IBOutlet var idLabel: UILabel!
+    @IBOutlet var idTextField: UITextField!
     
-    @IBOutlet var PWLabel: UILabel!
-    @IBOutlet var PWTextField: UITextField!
+    @IBOutlet var pwLabel: UILabel!
+    @IBOutlet var pwTextField: UITextField!
     
     @IBOutlet var loginBtn: UIButton!
     @IBOutlet var signUpBtn: UIButton!
     @IBOutlet var findPasswordBtn: UIButton!
     
-
+    @IBOutlet var loginLabelTopConstraint: NSLayoutConstraint!
     
+    // MARK: IBAction
+
     @IBAction func backBtnPressed(_ sender: UIButton) {
         loginBtnFirstPressed = false
         
@@ -46,42 +52,48 @@ class LoginVC: UIViewController {
             self.signUpBtn.center.y -= self.view.bounds.height
             
             //로그인 버튼 아래로 내려가기
-            self.loginBtn.center.y += 98
+            let animationRange: CGFloat = 75/896*self.view.bounds.height
             
-            //비밀번호를 잊어버리셨습니까? 버튼 없어지기
-            self.findPasswordBtn.center.y += 98
+            if(self.view.safeAreaInsets.top > 20){
+                self.loginBtn.center.y += animationRange
+                self.findPasswordBtn.center.y += animationRange
+            }
+            
             self.findPasswordBtn.alpha = 0
             
             //TextFields & Label 없어지기
-            self.IDLabel.alpha = 0
-            self.IDTextField.alpha = 0
-            self.PWLabel.alpha = 0
-            self.PWTextField.alpha = 0
-            self.IDTextField.center.y += 200
-            self.PWTextField.center.y += 200
-            self.IDLabel.center.y += 200
-            self.PWLabel.center.y += 200
+            self.idLabel.alpha = 0
+            self.idTextField.alpha = 0
+            self.pwLabel.alpha = 0
+            self.pwTextField.alpha = 0
+            self.pwTextField.center.y += 200
+            self.pwTextField.center.y += 200
+            self.idLabel.center.y += 200
+            self.pwLabel.center.y += 200
             
+            // 로고 나타나기
             self.logoImage.isHidden = false
             self.logoImage.alpha = 1
-
+            
         }, completion: { finished in
             self.backBtn.isHidden = true
             self.findPasswordBtn.isHidden = true
-            self.IDLabel.isHidden = true
-            self.IDTextField.isHidden = true
-            self.PWLabel.isHidden = true
-            self.PWTextField.isHidden = true
-            self.IDTextField.text = nil
-            self.PWTextField.text = nil
+            self.idLabel.isHidden = true
+            self.idTextField.isHidden = true
+            self.pwLabel.isHidden = true
+            self.pwTextField.isHidden = true
+            self.idTextField.text = nil
+            self.pwTextField.text = nil
         })
         
         
     }
     
     @IBAction func loginBtnPressed(_ sender: UIButton) {
+        let animationRange: CGFloat = 75/896*self.view.bounds.height
+        
         if(!loginBtnFirstPressed){
-
+            
             UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.transitionFlipFromTop, animations: {
                 
                 //뒤로 가기 버튼 나타나기
@@ -91,30 +103,36 @@ class LoginVC: UIViewController {
                 //회원가입 버튼 아래로 내려가기
                 self.signUpBtn.center.y += self.view.bounds.height
                 
-                //로그인 버튼 위로 올라가기
-                self.loginBtn.center.y -= 98
+                if(self.view.safeAreaInsets.top > 20){
+                    
+                    //로그인 버튼 위로 올라가기
+                    self.loginBtn.center.y -= animationRange
+                    
+                    //비밀번호를 잊어버리셨습니까? 버튼 나타나기
+                    self.findPasswordBtn.center.y -= animationRange
+                    
+                }
                 
-                //비밀번호를 잊어버리셨습니까? 버튼 나타나기
-                self.findPasswordBtn.center.y -= 98
                 self.findPasswordBtn.isHidden = false
                 self.findPasswordBtn.alpha = 1
                 
                 //TextFields & Label
-                self.IDLabel.isHidden = false
-                self.IDTextField.isHidden = false
-                self.PWLabel.isHidden = false
-                self.PWTextField.isHidden = false
-                self.IDLabel.center.y -= 200
-                self.IDTextField.center.y -= 200
-                self.PWLabel.center.y -= 200
-                self.PWTextField.center.y -= 200
-                self.IDLabel.alpha = 1
-                self.IDTextField.alpha = 1
-                self.PWLabel.alpha = 1
-                self.PWTextField.alpha = 1
+                self.idLabel.isHidden = false
+                self.idTextField.isHidden = false
+                self.pwLabel.isHidden = false
+                self.pwTextField.isHidden = false
+                self.idLabel.center.y -= 200
+                self.idTextField.center.y -= 200
+                self.pwLabel.center.y -= 200
+                self.pwTextField.center.y -= 200
+                self.idLabel.alpha = 1
+                self.idTextField.alpha = 1
+                self.pwLabel.alpha = 1
+                self.pwTextField.alpha = 1
                 
+                // 로고 없어지기
                 self.logoImage.alpha = 0
-
+                
                 
             }, completion: { finished in
                 self.logoImage.isHidden = true
@@ -122,7 +140,7 @@ class LoginVC: UIViewController {
             
             loginBtnFirstPressed = true
         } else {
-            
+            // 로그인 버튼을 눌러서 다음뷰로 넘어가기
         }
     }
     
@@ -132,53 +150,32 @@ class LoginVC: UIViewController {
         setLayout()
     }
     
-    override func viewDidLayoutSubviews() {
-
-        //ID Textfield 설정
-        IDTextField.borderStyle = .none
-        let IDborder = CALayer()
-        IDborder.frame = CGRect(x: 0, y: IDTextField.frame.size.height-1, width: IDTextField.frame.width, height: 1.4)
-        IDborder.backgroundColor = UIColor.white.cgColor
-        IDTextField.layer.addSublayer((IDborder))
-        IDTextField.textAlignment = .left
-        IDTextField.textColor = UIColor.meaningWhite
-        IDTextField.font = .spoqaRegular(size: 18)
-        
-        //PW Textfield 설정
-        PWTextField.borderStyle = .none
-        let PWborder = CALayer()
-        PWborder.frame = CGRect(x: 0, y: IDTextField.frame.size.height-1, width: IDTextField.frame.width, height: 1.4)
-        PWborder.backgroundColor = UIColor.white.cgColor
-        PWTextField.layer.addSublayer((PWborder))
-        PWTextField.textAlignment = .left
-        PWTextField.textColor = UIColor.meaningWhite
-        PWTextField.font = .spoqaRegular(size: 18)
-        PWTextField.isSecureTextEntry = true
-
-
-        
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // 뷰 클릭 시 키보드 내리기
         view.endEditing(true)
     }
     
     func setLottie(){
-        let animationView = AnimationView(name: "LoginBackground") // AnimationView(name: "lottie json 파일 이름")으로 애니메이션 뷰 생성
-        animationView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height) // 애니메이션뷰의 크기 설정
-        animationView.center = self.view.center // 애니메이션뷰의 위치설정
-        animationView.contentMode = .scaleAspectFill // 애니메이션뷰의 콘텐트모드 설정
         
-        view.addSubview(animationView) // 애니메이션뷰를 메인뷰에 추가
-        
+        // AnimationView(name: "lottie json 파일 이름")으로 애니메이션 뷰 생성
+        let animationView = AnimationView(name: "LoginBackground")
+        // 애니메이션뷰의 크기 설정
+        animationView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        // 애니메이션뷰의 위치설정
+        animationView.center = self.view.center
+        // 애니메이션뷰의 콘텐트모드 설정
+        animationView.contentMode = .scaleAspectFill
+        // 애니메이션뷰를 메인뷰에 추가
+        view.addSubview(animationView)
+        // 계속 로티가 뒤에서 돌아가도록 함
         animationView.play(fromProgress: 0,
                            toProgress: 1,
                            loopMode: LottieLoopMode.loop)
     }
     
     func setLayout(){
-        let underlineAttribute = NSAttributedString(string: "비밀번호를 잊으셨나요?", attributes: yourAttributes)
+        
+        let underlineAttribute = NSAttributedString(string: "비밀번호를 잊으셨나요?", attributes: underlineAttributes)
         
         backgroundLayer.backgroundColor = .darkGreyBlue30
         view.addSubview(backgroundLayer)
@@ -189,25 +186,53 @@ class LoginVC: UIViewController {
         
         logoImage.image = UIImage(named:"splashlogoImg")
         logoImage.isHidden = false
-
-        IDLabel.text = "아이디"
-        IDLabel.font = .spoqaMedium(size: 18)
-        IDLabel.lineSetting(kernValue: -0.54)
         
-        PWLabel.text = "비밀번호"
-        PWLabel.font = .spoqaMedium(size: 18)
-        PWLabel.lineSetting(kernValue: -0.54)
+        //SE 의 경우에 아이디/비밀번호 란을 위로 보내줌
+        if(view.safeAreaInsets.top <= 20){
+            loginLabelTopConstraint.constant -= 50
+        }
         
-        IDLabel.isHidden = true
-        IDTextField.isHidden = true
-        PWLabel.isHidden = true
-        PWTextField.isHidden = true
-        IDLabel.alpha = 0
-        IDTextField.alpha = 0
-        PWLabel.alpha = 0
-        PWTextField.alpha = 0
+        idLabel.text = "아이디"
+        idLabel.font = .spoqaMedium(size: 18)
+        idLabel.textColor = .meaningWhite
+        idLabel.lineSetting(kernValue: -0.54)
         
-
+        pwLabel.text = "비밀번호"
+        pwLabel.font = .spoqaMedium(size: 18)
+        pwLabel.textColor = .meaningWhite
+        pwLabel.lineSetting(kernValue: -0.54)
+        
+        
+        //ID Textfield 설정
+        idTextField.borderStyle = .none
+        let IDborder = CALayer()
+        IDborder.frame = CGRect(x: 0, y: idTextField.frame.size.height-1, width: view.frame.width-46, height: 1.4)
+        IDborder.backgroundColor = UIColor.white.cgColor
+        idTextField.layer.addSublayer((IDborder))
+        idTextField.textAlignment = .left
+        idTextField.textColor = UIColor.meaningWhite
+        idTextField.font = .spoqaRegular(size: 18)
+        
+        //PW Textfield 설정
+        pwTextField.borderStyle = .none
+        let PWborder = CALayer()
+        PWborder.frame = CGRect(x: 0, y: pwTextField.frame.size.height-1, width: view.frame.width-46, height: 1.4)
+        PWborder.backgroundColor = UIColor.white.cgColor
+        pwTextField.layer.addSublayer((PWborder))
+        pwTextField.textAlignment = .left
+        pwTextField.textColor = UIColor.meaningWhite
+        pwTextField.font = .spoqaRegular(size: 18)
+        pwTextField.isSecureTextEntry = true
+        
+        idLabel.isHidden = true
+        idTextField.isHidden = true
+        pwLabel.isHidden = true
+        pwTextField.isHidden = true
+        idLabel.alpha = 0
+        idTextField.alpha = 0
+        pwLabel.alpha = 0
+        pwTextField.alpha = 0
+        
         loginBtn.backgroundColor = UIColor.meaningIvory
         loginBtn.setTitleColor(UIColor.meaningNavy, for: .normal)
         loginBtn.titleLabel?.font=UIFont.spoqaBold(size: 16)

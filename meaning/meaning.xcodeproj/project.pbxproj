@@ -73,8 +73,8 @@
 		9B70C10125A42AD700A5EFDD /* OnboardingTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */; };
 		9E64AC4125A8D44200BD49C1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E64AC4025A8D44200BD49C1 /* LoginVC.swift */; };
 		9E64AC4525A8D63D00BD49C1 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E64AC4425A8D63D00BD49C1 /* LaunchScreenVC.swift */; };
-		9E64AC4925A8DD3D00BD49C1 /* Launch.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E64AC4825A8DD3D00BD49C1 /* Launch.json */; };
-		9E64AC4D25A9818300BD49C1 /* LoginBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E64AC4C25A9818300BD49C1 /* LoginBackground.json */; };
+		9E89E09D25AC1C4D00C5D429 /* Launch.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E89E09C25AC1C4C00C5D429 /* Launch.json */; };
+		9E89E0A125AC1CCA00C5D429 /* LoginBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E89E0A025AC1CCA00C5D429 /* LoginBackground.json */; };
 		9EB5CCFF25A0B6820070CD58 /* DailyMaximVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */; };
 		9EB5CD0725A17DC90070CD58 /* DailyDiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CD0625A17DC90070CD58 /* DailyDiaryVC.swift */; };
 		9EB5CD0A25A194550070CD58 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CD0925A194540070CD58 /* UITextView+Extension.swift */; };
@@ -156,8 +156,8 @@
 		9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTimeVC.swift; sourceTree = "<group>"; };
 		9E64AC4025A8D44200BD49C1 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		9E64AC4425A8D63D00BD49C1 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
-		9E64AC4825A8DD3D00BD49C1 /* Launch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Launch.json; path = ../../../../../../Documents/sopt/Launch.json; sourceTree = "<group>"; };
-		9E64AC4C25A9818300BD49C1 /* LoginBackground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LoginBackground.json; path = ../../../../../../Downloads/LoginBackground.json; sourceTree = "<group>"; };
+		9E89E09C25AC1C4C00C5D429 /* Launch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Launch.json; sourceTree = "<group>"; };
+		9E89E0A025AC1CCA00C5D429 /* LoginBackground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoginBackground.json; sourceTree = "<group>"; };
 		9EB5CCFE25A0B6820070CD58 /* DailyMaximVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DailyMaximVC.swift; path = meaning/Screen/Mission/ViewController/DailyMaximVC.swift; sourceTree = SOURCE_ROOT; };
 		9EB5CD0625A17DC90070CD58 /* DailyDiaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDiaryVC.swift; sourceTree = "<group>"; };
 		9EB5CD0925A194540070CD58 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
@@ -560,8 +560,8 @@
 		9E64AC4725A8DD3200BD49C1 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				9E64AC4C25A9818300BD49C1 /* LoginBackground.json */,
-				9E64AC4825A8DD3D00BD49C1 /* Launch.json */,
+				9E89E0A025AC1CCA00C5D429 /* LoginBackground.json */,
+				9E89E09C25AC1C4C00C5D429 /* Launch.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -681,13 +681,13 @@
 				9B2BA1E2259F7302000EF4AA /* Spoqa Han Sans Neo Thin.otf in Resources */,
 				9B2BA179259F5904000EF4AA /* Assets.xcassets in Resources */,
 				9EB8611725A756E3009E4234 /* FeedCollectionViewCell.xib in Resources */,
-				9E64AC4925A8DD3D00BD49C1 /* Launch.json in Resources */,
 				9B2BA1C7259F5EE3000EF4AA /* GroupList.storyboard in Resources */,
 				9B2BA213259FA8C5000EF4AA /* NotoSansKR-Regular.otf in Resources */,
 				9B2BA22A25A0D2F5000EF4AA /* NanumSquareOTFLight.otf in Resources */,
+				9E89E09D25AC1C4D00C5D429 /* Launch.json in Resources */,
 				9B2BA214259FA8C5000EF4AA /* NotoSansKR-Thin.otf in Resources */,
 				9B2BA1B6259F5EAB000EF4AA /* Onboarding.storyboard in Resources */,
-				9E64AC4D25A9818300BD49C1 /* LoginBackground.json in Resources */,
+				9E89E0A125AC1CCA00C5D429 /* LoginBackground.json in Resources */,
 				9B2BA1B2259F5E9D000EF4AA /* Login.storyboard in Resources */,
 				9B2BA1E1259F7302000EF4AA /* Spoqa Han Sans Neo Regular.otf in Resources */,
 				9B2BA177259F58FF000EF4AA /* Main.storyboard in Resources */,
