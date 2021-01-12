@@ -13,22 +13,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let winScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: winScene)
-        let launchScreenStoryboard: UIStoryboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
-        let launchVC = launchScreenStoryboard.instantiateViewController(withIdentifier: "LaunchScreenVC") as! LaunchScreenVC
-        self.window?.rootViewController = launchVC
-        self.window?.makeKeyAndVisible()
+        // Root Viewcontroller 를 스플래시로 적용하고자 할 때 아래 주석을 풀어주세요.
         
-//        let windowScene = UIWindowScene(session: session, connectionOptions: connectionOptions)
-//        self.window = UIWindow(windowScene: windowScene)
-//        //self.window =  UIWindow(frame: UIScreen.main.bounds)
-//        let launchScreenStoryboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
-//        guard let launchVC = launchScreenStoryboard.instantiateViewController(identifier: "LaunchScreenVC") as? LaunchScreenVC else {
-//            print("ViewController not found")
-//            return
-//        }
+//        window = UIWindow(windowScene: winScene)
+//        let launchScreenStoryboard: UIStoryboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
+//        let launchVC = launchScreenStoryboard.instantiateViewController(withIdentifier: "LaunchScreenVC") as! LaunchScreenVC
 //        self.window?.rootViewController = launchVC
 //        self.window?.makeKeyAndVisible()
+        
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

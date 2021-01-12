@@ -174,6 +174,8 @@ class LoginVC: UIViewController {
         }
     }
     
+    // MARK: Life Cycle Part
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setLottie()

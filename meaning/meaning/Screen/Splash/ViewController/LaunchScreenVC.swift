@@ -12,20 +12,21 @@ class LaunchScreenVC: UIViewController {
     
     // MARK: IBOutlet
     
+    @IBOutlet var backgroundLayer: UIView!
     @IBOutlet var logo: UIImageView!
     
     // MARK: Life Cycle Part
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setLottie()
         setLayout()
-        
+
     }
     
-    // MARK: Layout
+    // MARK: Lottie
     
-    func setLayout(){
+    func setLottie(){
         let animationView = AnimationView(name: "SplashBackground")
         
         animationView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
@@ -34,11 +35,9 @@ class LaunchScreenVC: UIViewController {
         animationView.contentMode = .scaleAspectFill
         
         // 에러 나는 부분 
-        logo.image = UIImage(named:"splashlogoImage")
         
         // 애니메이션뷰를 메인뷰에 추가
         view.addSubview(animationView)
-        animationView.addSubview(logo)
         animationView.play(fromProgress: 0,
                            toProgress: 1,
                            loopMode: LottieLoopMode.playOnce,
@@ -55,6 +54,14 @@ class LaunchScreenVC: UIViewController {
                             }
                            })
         
+    }
+    
+    // MARK: Layout
+
+    func setLayout() {
+        backgroundLayer.backgroundColor = .none
+        view.addSubview(backgroundLayer)
+        logo.image = UIImage(named:"splashlogoImg")
     }
     
 }
