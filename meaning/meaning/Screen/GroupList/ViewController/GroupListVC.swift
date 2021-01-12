@@ -7,17 +7,20 @@
 
 import UIKit
 
+
 class GroupListVC: UIViewController {
     static let identifier = "GroupListVC"
     
     // MARK: - Variable Part
-    var groupInfo: [Group] = []
-    var groupTable: [GroupTable] = []
     
-    var groupExist: Bool = true
+    var groupListData: GroupListData?
+    
+    var myGroupName: String?
+    var peopleCount: Int?
+    var peopleLimit: Int?
     
     lazy var refreshControl: UIRefreshControl = {
-        
+        //새로고침
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
         refreshControl.tintColor = UIColor.meaningNavy
@@ -54,7 +57,7 @@ class GroupListVC: UIViewController {
     
     //MARK: - IBACtion
     
-
+    
     @IBAction func goToMyGroupFeed(_ sender: Any) {
         // 내 그룹 피드로 이동
         let feedStoryboard = UIStoryboard.init(name: "GroupFeed", bundle: nil)
@@ -66,19 +69,10 @@ class GroupListVC: UIViewController {
         self.navigationController?.pushViewController(groupFeedTap, animated: true)
         
     }
-    @IBAction func goToGroupDetail(_ sender: Any) {
-        //detailView 로 이동
-        guard let groupDetailVC = self.storyboard?.instantiateViewController(identifier: "GroupDetailVC")
-                as? GroupDetailVC else {
-            return
-        }
-        groupDetailVC.modalPresentationStyle = .overCurrentContext
-        groupDetailVC.modalTransitionStyle = .crossDissolve
-        self.present(groupDetailVC, animated: true, completion: nil)
-    }
+
     
     @IBAction func goToGroupCreate(_ sender: Any) {
-        // 다음 뷰로 연결
+        //groupCreate 로 이동
         guard let groupCreateVC = self.storyboard?.instantiateViewController(identifier: "GroupCreateVC") as? GroupCreateVC else {
             return
         }
@@ -93,8 +87,6 @@ class GroupListVC: UIViewController {
         super.viewDidLoad()
         
         setHeader()
-        setGroupData()
-        setGroupTableData()
         
         GroupTableView.addSubview(self.refreshControl)
         
@@ -104,16 +96,10 @@ class GroupListVC: UIViewController {
         GroupTableView.dataSource = self
         GroupTableView.delegate = self
         
-        //my group 유무에 따른 분기 처리
-        if groupExist == false {
-            noGroupBoxView.isHidden = false
-            myGroupBoxView.isHidden = true
-            
-        } else {
-            myGroupBoxView.isHidden = false
-            noGroupBoxView.isHidden = true
-        }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        groupList(token: "")
     }
 }
 
@@ -144,14 +130,12 @@ extension GroupListVC {
         welcomeLabel.lineSetting(kernValue: -0.56)
         
         myGroupBoxView.backgroundColor = UIColor.meaningLightblue
-        
-        myGroupNameLabel.text = "아침마다 불넹면"
+    
         myGroupNameLabel.font = UIFont.spoqaRegular(size: 16)
         myGroupNameLabel.textColor = UIColor.meaningNavy
         
         myGroupCountView.layer.cornerRadius = 5.0
-        
-        myGroupCountLabel.text = "8/8"
+    
         myGroupCountLabel.font = UIFont.spoqaMedium(size: 13)
         myGroupCountLabel.textColor = UIColor.meaningNavy
         
@@ -160,51 +144,94 @@ extension GroupListVC {
         otherGroupLabel.textColor = UIColor.gray1
     }
     
-    func setGroupData() {
-        //컬렉션 뷰에 들어가는 임시 데이터
-        groupInfo.append(contentsOf: [
-            Group(headerImage: "group_card4_img", groupName: "넹면", peopleCount: 12),
-            Group(headerImage: "group_card4_img", groupName: "넹면", peopleCount: 12),
-            Group(headerImage: "group_card4_img", groupName: "넹면", peopleCount: 12),
-            Group(headerImage: "group_card4_img", groupName: "넹면", peopleCount: 12)
-        ])
-    }
-    
-    func setGroupTableData() {
-        //그룹 리스트에 들어가는 임시 데이터
-        groupTable.append(contentsOf: [
-            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
-            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
-            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
-            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
-            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
-            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
-            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14)
-        ])
-    }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         //스크롤 내릴 때 refresh
         refreshControl.endRefreshing()
     }
+    
+    func groupList (token: String) {
+        APIService.shared.groupList(token: token) { result in
+            switch result {
+            case .success(let data):
+                
+                guard let loadData = data as? GroupListData else {
+                    return
+                }
+                self.groupListData = loadData
+                
+                //my group 유무에 따른 분기 처리
+                if self.groupListData?.myGroup == nil {
+                    //내 그룹이 없는 경우
+                    self.noGroupBoxView.isHidden = true
+                    self.myGroupBoxView.isHidden = false
+                    
+                } else {
+                    //내 그룹이 있는 경우
+                    self.myGroupBoxView.isHidden = false
+                    self.noGroupBoxView.isHidden = true
+                    
+                    self.myGroupNameLabel.text = self.groupListData?.myGroup.groupName
+                    self.myGroupCountLabel.text = "\(self.groupListData?.myGroup.countMember ?? 0)/\(self.groupListData?.myGroup.maximumMemberNumber ?? 0)"
+                }
+                
+                DispatchQueue.main.async{
+                    self.groupCollectionView.reloadData()
+                    self.GroupTableView.reloadData()
+                }
+                
+            case .requestErr:
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            case .failure(_):
+                print("FailureError")
+            }
+        }
+    }
+    
+    
 }
 
 
 extension GroupListVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //컬렉션 뷰 Item 개수 지정
-        return groupInfo.count
+        return groupListData?.hasImageGroupList.count ?? 0
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //CollectionView의 IndexPath 별 Cell 지정
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GroupCell.identifier, for: indexPath) as? GroupCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GroupCollectionCell.identifier, for: indexPath) as? GroupCollectionCell else {
             return UICollectionViewCell()
         }
-        cell.setCell(group: groupInfo[indexPath.row])
+        //cell.groupImg.image = groupListData?.hasImageGroupList[indexPath.row].imageURL
+        
+        cell.setCell()
+        
+        cell.groupImg.setImage(from: groupListData?.hasImageGroupList[indexPath.row].imageURL ?? "")
+        cell.groupNameLabel.text = groupListData?.hasImageGroupList[indexPath.row].groupName
+        cell.peopleCountLabel.text = "\(groupListData?.hasImageGroupList[indexPath.row].countMember ?? 0)명이 함께하고 있어요."
+        
+        if let text = cell.peopleCountLabel.text {
+            // "\(group.peopleCount)명" 부분에만 폰트를 다르게 설정
+            let attributedStr = NSMutableAttributedString(string: cell.peopleCountLabel.text ?? "")
+            
+            attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String),
+                                       value: UIFont.spoqaBold(size: 13), range: (text as NSString).range(of: "\(groupListData?.hasImageGroupList[indexPath.row].countMember ?? 0)명"))
+            
+            attributedStr.addAttribute(.foregroundColor, value: UIColor.meaningNavy, range: (cell.peopleCountLabel.text! as NSString).range(of: "\(groupListData?.hasImageGroupList[indexPath.row].countMember ?? 0)명"))
+            
+            cell.peopleCountLabel.attributedText = attributedStr
+        }
         
         //cell 테두리 설정
+        
         cell.layer.borderColor = UIColor.gray5.cgColor
         cell.layer.borderWidth = 1.0
         cell.layer.cornerRadius = 8.0
@@ -218,6 +245,9 @@ extension GroupListVC: UICollectionViewDataSource {
                 as? GroupDetailVC else {
             return
         }
+        
+        groupDetailVC.groupID = groupListData?.hasImageGroupList[indexPath.item].groupID ?? -1
+        
         groupDetailVC.modalPresentationStyle = .overCurrentContext
         groupDetailVC.modalTransitionStyle = .crossDissolve
         self.present(groupDetailVC, animated: true, completion: nil)
@@ -255,7 +285,7 @@ extension GroupListVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //테이블 뷰 Item 개수 지정
-        return groupTable.count
+        return groupListData?.noImageGroupList.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -264,9 +294,10 @@ extension GroupListVC: UITableViewDataSource {
                 as? GroupTableViewCell else {
             return UITableViewCell()
         }
-        cell.setCell(group: groupTable[indexPath.row])
-        return cell
+        cell.groupName.text = groupListData?.noImageGroupList[indexPath.row].groupName
+        cell.peopleCountLabel.text = "\(groupListData?.noImageGroupList[indexPath.row].countMember ?? 0)/\(groupListData?.noImageGroupList[indexPath.row].maximumMemberNumber ?? 0)"
         
+        return cell
     }
 }
 
@@ -274,13 +305,34 @@ extension GroupListVC: UITableViewDataSource {
 extension GroupListVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        //테이블 뷰 셀 클릭 시 GroupDetailVC로 이동
         guard let groupDetailVC = self.storyboard?.instantiateViewController(identifier: "GroupDetailVC")
                 as? GroupDetailVC else {
             return
         }
+        
+        groupDetailVC.groupID = groupListData?.hasImageGroupList[indexPath.item].groupID ?? -1
+        
         groupDetailVC.modalPresentationStyle = .overCurrentContext
         groupDetailVC.modalTransitionStyle = .crossDissolve
         self.present(groupDetailVC, animated: true, completion: nil)
     }
 }
+
+
+
+
+// MARK: - APIService Extension
+
+extension APIService {
+    
+    func groupList(token: String, completion: @escaping (NetworkResult<GroupListData>)->(Void)) {
+        
+        let target: APITarget = .groupList(token: token)
+        
+        judgeObject(target, completion: completion)
+    }
+}
+
+
+

@@ -10,7 +10,6 @@ import UIKit
 class GroupTableViewCell: UITableViewCell {
     static let identifier = "GroupTableViewCell"
     
-
     @IBOutlet var groupName: UILabel!
     @IBOutlet var numberView: UIView!
     @IBOutlet var peopleCountLabel: UILabel!
@@ -29,11 +28,6 @@ class GroupTableViewCell: UITableViewCell {
 
 extension GroupTableViewCell {
    
-    func setCell(group: GroupTable) {
-        groupName.text = group.groupName
-        peopleCountLabel.text = "\(group.peopleCount)/\(group.peopleLimit)"
-    }
-    
     func setLabel() {
         groupName.font = UIFont.spoqaRegular(size: 16)
         groupName.textColor = UIColor.gray2
