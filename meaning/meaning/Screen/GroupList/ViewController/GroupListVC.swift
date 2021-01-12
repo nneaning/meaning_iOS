@@ -11,13 +11,27 @@ class GroupListVC: UIViewController {
     static let identifier = "GroupListVC"
     
     // MARK: - Variable Part
-    var groupInfo: [Group] = []
-    var groupTable: [GroupTable] = []
+//    var groupInfo: [Group] = []
+//    var groupTable: [GroupTable] = []
     
-    var groupExist: Bool = true
+    var myGroupName: String?
+    var peopleCount: Int?
+    var peopleLimit: Int?
     
+    var groupImgURL: String?
+    var collectionGroupName: String?
+    var otherGroupMember: Int?
+    
+    var tableGroupName: String?
+    var tablePeopleCount: Int?
+    var tablePeopleLimit: Int?
+    
+    var groupList: GroupListData?
+    
+    //var groupExist: Bool = true
+
     lazy var refreshControl: UIRefreshControl = {
-        
+        //새로고침
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
         refreshControl.tintColor = UIColor.meaningNavy
@@ -78,7 +92,7 @@ class GroupListVC: UIViewController {
     }
     
     @IBAction func goToGroupCreate(_ sender: Any) {
-        // 다음 뷰로 연결
+        //groupCreate 로 이동
         guard let groupCreateVC = self.storyboard?.instantiateViewController(identifier: "GroupCreateVC") as? GroupCreateVC else {
             return
         }
@@ -160,28 +174,28 @@ extension GroupListVC {
         otherGroupLabel.textColor = UIColor.gray1
     }
     
-    func setGroupData() {
-        //컬렉션 뷰에 들어가는 임시 데이터
-        groupInfo.append(contentsOf: [
-            Group(headerImage: "group_card4_img", groupName: "넹면", peopleCount: 12),
-            Group(headerImage: "group_card4_img", groupName: "넹면", peopleCount: 12),
-            Group(headerImage: "group_card4_img", groupName: "넹면", peopleCount: 12),
-            Group(headerImage: "group_card4_img", groupName: "넹면", peopleCount: 12)
-        ])
-    }
-    
-    func setGroupTableData() {
-        //그룹 리스트에 들어가는 임시 데이터
-        groupTable.append(contentsOf: [
-            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
-            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
-            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
-            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
-            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
-            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
-            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14)
-        ])
-    }
+//    func setGroupData() {
+//        //컬렉션 뷰에 들어가는 임시 데이터
+//        groupInfo.append(contentsOf: [
+//            Group(headerImage: "group_card4_img", groupName: "넹면", peopleCount: 12),
+//            Group(headerImage: "group_card4_img", groupName: "넹면", peopleCount: 12),
+//            Group(headerImage: "group_card4_img", groupName: "넹면", peopleCount: 12),
+//            Group(headerImage: "group_card4_img", groupName: "넹면", peopleCount: 12)
+//        ])
+//    }
+//
+//    func setGroupTableData() {
+//        //그룹 리스트에 들어가는 임시 데이터
+//        groupTable.append(contentsOf: [
+//            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
+//            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
+//            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
+//            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
+//            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
+//            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14),
+//            GroupTable(groupName: "비빔냉면", peopleCount: 11, peopleLimit: 14)
+//        ])
+//    }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         //스크롤 내릴 때 refresh
@@ -284,3 +298,18 @@ extension GroupListVC: UITableViewDelegate {
         self.present(groupDetailVC, animated: true, completion: nil)
     }
 }
+
+
+
+
+// MARK: - APIService Extension
+
+extension APIService {
+    func groupList(token: String, completion: @escaping (NetworkResult<GroupListData>)->(Void)) {
+        let target: APITarget = .groupList(token: token)
+        judgeObject(target, completion: completion)
+    }
+}
+
+
+
