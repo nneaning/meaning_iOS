@@ -48,7 +48,8 @@ class MyPageFeedVC: UIViewController {
         super.viewDidLoad()
         setLayout()
         setCollectionView()
-        loadMypage(token: "")
+        setRefresh()
+        loadMypage(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiLquYDrr7ztnawiLCJpYXQiOjE2MTA0NTU5NzgsImV4cCI6MTYxMjI3MDM3OCwiaXNzIjoiU2VydmVyQmFkIn0.ipg72tn-r5BUdiovK8W2DosUOQbAKewDQ_gxz0QB3Mo")
         // 토큰 넣어줘야함(88)
 
     }
@@ -129,6 +130,20 @@ class MyPageFeedVC: UIViewController {
         self.feedHeaderLabel.lineSetting(kernValue: -0.56)
         self.feedHeaderLabel.textAlignment = .center
         
+    }
+    
+    func setRefresh() {
+        // 당겨서 feedCollectionView 새로고침
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(updateData(refresh:)), for: .valueChanged)
+        feedCollectionView.addSubview(refresh)
+    }
+    
+    @objc func updateData(refresh: UIRefreshControl) {
+        refresh.endRefreshing()
+        loadMypage(token: "")
+        // 토큰 값 넣어주기(88)
+        feedCollectionView.reloadData()
     }
     
     // MARK: setData
