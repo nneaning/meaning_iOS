@@ -120,3 +120,13 @@ extension PictureUploadVC: UITextViewDelegate {
         editGuideLabel.isHidden = true
     }
 }
+
+extension APIService {
+    
+    func uploadPicture(_ token: String, _ dateTime: String, _ timeStampContents: String, _ image: UIImage, completion: @escaping (NetworkResult<TimestampData>)->(Void)) {
+        
+        let target: APITarget = .timestamp(token: token, dateTime: dateTime, timeStampContents: timeStampContents, image: image)
+        judgeObject(target, completion: completion)
+    }
+    
+}
