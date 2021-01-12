@@ -83,6 +83,8 @@
 		9B4057ED25AB72A2001D0954 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4057EC25AB72A2001D0954 /* CalendarVC.swift */; };
 		9B40583125AC8203001D0954 /* OnboardingEndVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40583025AC8203001D0954 /* OnboardingEndVC.swift */; };
 		9B40583825ACB962001D0954 /* SimpleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40583725ACB961001D0954 /* SimpleData.swift */; };
+		9B40583F25ACD9D8001D0954 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40583E25ACD9D8001D0954 /* CalendarCell.swift */; };
+		9B40584225ACDACF001D0954 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40584125ACDACF001D0954 /* CalendarData.swift */; };
 		9B70C10125A42AD700A5EFDD /* OnboardingTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */; };
 		9BEA213C25A8304500F240E5 /* FeedDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA213B25A8304500F240E5 /* FeedDetailVC.swift */; };
 		9BEA214125A854C800F240E5 /* FeedDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA214025A854C800F240E5 /* FeedDetailCell.swift */; };
@@ -186,6 +188,8 @@
 		9B4057EC25AB72A2001D0954 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		9B40583025AC8203001D0954 /* OnboardingEndVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingEndVC.swift; sourceTree = "<group>"; };
 		9B40583725ACB961001D0954 /* SimpleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleData.swift; sourceTree = "<group>"; };
+		9B40583E25ACD9D8001D0954 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		9B40584125ACDACF001D0954 /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
 		9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTimeVC.swift; sourceTree = "<group>"; };
 		9BEA213B25A8304500F240E5 /* FeedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailVC.swift; sourceTree = "<group>"; };
 		9BEA214025A854C800F240E5 /* FeedDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailCell.swift; sourceTree = "<group>"; };
@@ -240,6 +244,7 @@
 			children = (
 				9B1B6B4125A5AFB700CCA4CC /* MissionCardCell.swift */,
 				9B2CAA6F25A5FC0300099356 /* AnimationFlowLayout.swift */,
+				9B40583E25ACD9D8001D0954 /* CalendarCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -499,6 +504,7 @@
 				9B1B6B3D25A5AD8B00CCA4CC /* MissionCard.swift */,
 				9B4057D325A9C8CC001D0954 /* HomeNavigationController.swift */,
 				9B4057EC25AB72A2001D0954 /* CalendarVC.swift */,
+				9B40584125ACDACF001D0954 /* CalendarData.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -863,6 +869,7 @@
 				9EB5CD0A25A194550070CD58 /* UITextView+Extension.swift in Sources */,
 				9EE0139C25A47B3A00A2CB9A /* UITextField+Extension.swift in Sources */,
 				9B2BA1EC259F779B000EF4AA /* UIImageView+Extension.swift in Sources */,
+				9B40583F25ACD9D8001D0954 /* CalendarCell.swift in Sources */,
 				36A9425225A45B4A009C28F2 /* TestHomeVC.swift in Sources */,
 				36D6998825A8413A00227FB1 /* GroupCreateVC.swift in Sources */,
 				9EB5CD0725A17DC90070CD58 /* DailyDiaryVC.swift in Sources */,
@@ -870,6 +877,7 @@
 				9B40579725A8EE57001D0954 /* GroupFeedReusableView.swift in Sources */,
 				36A9424725A33DCD009C28F2 /* GroupTableViewCell.swift in Sources */,
 				9EC4B06A25ACC31C005D6B2F /* LoginData.swift in Sources */,
+				9B40584225ACDACF001D0954 /* CalendarData.swift in Sources */,
 				9EE0139125A4383300A2CB9A /* ShortReadingVC.swift in Sources */,
 				9EB8610E25A6EC3E009E4234 /* MyPageFeedVC.swift in Sources */,
 				9B2BA23E25A1B99F000EF4AA /* PhotoCheckVC.swift in Sources */,
