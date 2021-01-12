@@ -151,6 +151,8 @@ class MyPageFeedVC: UIViewController {
                     print("serverErr")
                 case .networkFail:
                     print("networkFail")
+                case .failure(let error):
+                    print("FailureError")
                 }
             }
         }
