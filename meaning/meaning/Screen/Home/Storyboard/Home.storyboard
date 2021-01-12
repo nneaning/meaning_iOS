@@ -293,21 +293,14 @@
                                             <constraint firstAttribute="height" constant="80" id="zoj-Ma-2eY"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moonExample" translatesAutoresizingMaskIntoConstraints="NO" id="6F0-wS-oN2">
-                                        <rect key="frame" x="167" y="18" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="NLa-dA-Uv3"/>
-                                            <constraint firstAttribute="height" constant="40" id="nPF-MW-OSG"/>
-                                        </constraints>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80W-ZM-Lr7">
-                                        <rect key="frame" x="176" y="25" width="42" height="21"/>
+                                        <rect key="frame" x="166" y="24" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WGx-b6-iuW">
-                                        <rect key="frame" x="60" y="91" width="254" height="408"/>
+                                        <rect key="frame" x="46" y="75" width="282" height="424"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XxQ-oG-NSs">
                                             <size key="itemSize" width="128" height="128"/>
@@ -317,21 +310,21 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="CalendarCell" reuseIdentifier="CalendarCell" id="LSn-39-7R3" customClass="CalendarCell" customModule="meaning" customModuleProvider="target">
-                                                <rect key="frame" x="63" y="0.0" width="128" height="128"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0YO-Af-Szl">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hl9-DB-Yny">
-                                                            <rect key="frame" x="59" y="0.0" width="10" height="10"/>
+                                                            <rect key="frame" x="57" y="0.0" width="14" height="14"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="10" id="fra-xg-5UG"/>
-                                                                <constraint firstAttribute="height" constant="10" id="wmB-eQ-Nto"/>
+                                                                <constraint firstAttribute="width" constant="14" id="fra-xg-5UG"/>
+                                                                <constraint firstAttribute="height" constant="14" id="wmB-eQ-Nto"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7n-5p-0AL">
-                                                            <rect key="frame" x="43" y="17" width="42" height="21"/>
+                                                            <rect key="frame" x="43" y="21" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -354,17 +347,14 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
-                                    <constraint firstItem="WGx-b6-iuW" firstAttribute="leading" secondItem="aQo-A0-l5H" secondAttribute="leading" constant="60" id="JTa-nQ-Svv"/>
+                                    <constraint firstItem="WGx-b6-iuW" firstAttribute="leading" secondItem="aQo-A0-l5H" secondAttribute="leading" constant="46" id="JTa-nQ-Svv"/>
                                     <constraint firstItem="bag-Bi-DSY" firstAttribute="top" secondItem="WGx-b6-iuW" secondAttribute="bottom" constant="10" id="LdF-wn-tD9"/>
-                                    <constraint firstItem="80W-ZM-Lr7" firstAttribute="centerX" secondItem="aQo-A0-l5H" secondAttribute="centerX" constant="10" id="NcS-9k-DEA"/>
+                                    <constraint firstItem="80W-ZM-Lr7" firstAttribute="centerX" secondItem="aQo-A0-l5H" secondAttribute="centerX" id="NcS-9k-DEA"/>
                                     <constraint firstItem="WGx-b6-iuW" firstAttribute="centerX" secondItem="aQo-A0-l5H" secondAttribute="centerX" id="U6W-ef-Gyc"/>
-                                    <constraint firstItem="80W-ZM-Lr7" firstAttribute="top" secondItem="aQo-A0-l5H" secondAttribute="top" constant="25" id="a1V-WL-Nbq"/>
-                                    <constraint firstItem="WGx-b6-iuW" firstAttribute="top" secondItem="6F0-wS-oN2" secondAttribute="bottom" constant="33" id="bfr-cZ-rOn"/>
+                                    <constraint firstItem="80W-ZM-Lr7" firstAttribute="top" secondItem="aQo-A0-l5H" secondAttribute="top" constant="24" id="a1V-WL-Nbq"/>
+                                    <constraint firstItem="WGx-b6-iuW" firstAttribute="top" secondItem="80W-ZM-Lr7" secondAttribute="bottom" constant="30" id="dJJ-YM-109"/>
                                     <constraint firstAttribute="bottom" secondItem="bag-Bi-DSY" secondAttribute="bottom" constant="-47" id="dVp-gD-Kr4"/>
-                                    <constraint firstItem="6F0-wS-oN2" firstAttribute="top" secondItem="aQo-A0-l5H" secondAttribute="top" constant="18" id="dWd-eV-SuE"/>
-                                    <constraint firstItem="6F0-wS-oN2" firstAttribute="centerX" secondItem="aQo-A0-l5H" secondAttribute="centerX" id="eje-51-ogz"/>
-                                    <constraint firstAttribute="trailing" secondItem="WGx-b6-iuW" secondAttribute="trailing" constant="60" id="pBc-XS-nQx"/>
-                                    <constraint firstItem="WGx-b6-iuW" firstAttribute="top" secondItem="6F0-wS-oN2" secondAttribute="bottom" constant="33" id="tVQ-fP-Mww"/>
+                                    <constraint firstAttribute="trailing" secondItem="WGx-b6-iuW" secondAttribute="trailing" constant="46" id="pBc-XS-nQx"/>
                                     <constraint firstItem="bag-Bi-DSY" firstAttribute="centerX" secondItem="aQo-A0-l5H" secondAttribute="centerX" id="znQ-3l-Ddh"/>
                                 </constraints>
                             </view>
@@ -409,7 +399,6 @@
         <image name="calendarBackImg" width="335" height="384"/>
         <image name="cardCheckIc" width="46" height="46"/>
         <image name="logoImg" width="100" height="24"/>
-        <image name="moonExample" width="43" height="43"/>
         <image name="mypageBtn" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
