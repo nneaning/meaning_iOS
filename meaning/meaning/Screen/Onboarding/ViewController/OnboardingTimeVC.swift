@@ -170,7 +170,7 @@ extension OnboardingTimeVC {
                     print("serverErr")
                 case .networkFail:
                     print("networkFail")
-                case .failure(_):
+                case .failure(let error):
                     print("FailureError")
                 }
             }
