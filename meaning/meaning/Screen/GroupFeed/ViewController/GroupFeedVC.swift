@@ -100,7 +100,9 @@ extension GroupFeedVC {
     }
     
     @objc func buttonAction() {
+        // 홈으로 가기 버튼 클릭 시
         self.navigationController?.tabBarController?.selectedIndex = 0
+        // 탭바의 0번으로 이동하기
     }
     
     func uploadGroupFeed(_ token: String, _ groupid: Int) {
@@ -115,7 +117,6 @@ extension GroupFeedVC {
                             groupFeedCollectionView.reloadData()
                         }
                     }
-                    
                 case .requestErr:
                     print("requestErr")
                 case .pathErr:
