@@ -69,8 +69,8 @@ class HomeVC: UIViewController {
                 UserDefaults.standard.setValue(false, forKey: "card\(i)")
                 // 카드 초기화
             }
-            missonCardCollectionView.reloadData()
         }
+        missonCardCollectionView.reloadData()
 
     }
 

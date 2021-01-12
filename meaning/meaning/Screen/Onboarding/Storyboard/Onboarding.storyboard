@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ea1-Jj-FOs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ea1-Jj-FOs">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -79,6 +79,7 @@
                         <outlet property="explainLabel" destination="vAE-SC-4ka" id="yPy-zi-Z2b"/>
                         <outlet property="nextButton" destination="9lK-Qi-PCc" id="QgO-iO-XNF"/>
                         <outlet property="nickTextField" destination="cnd-xb-1P0" id="8od-1J-sIH"/>
+                        <outlet property="underlineView" destination="9d0-Fo-fur" id="wIv-tS-2s1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NrS-1K-FBU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -225,10 +226,10 @@
             </objects>
             <point key="canvasLocation" x="1868" y="-87"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Onboarding Navigation Controller-->
         <scene sceneID="bNm-WC-9UG">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ea1-Jj-FOs" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="OnboardingNavigationController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ea1-Jj-FOs" customClass="OnboardingNavigationController" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5zk-OX-0tB">
                         <autoresizingMask key="autoresizingMask"/>

@@ -14,7 +14,7 @@ class MyPageFeedVC: UIViewController {
     let randomProfile = Int.random(in: 0...1)
     var userNick: String = "이기상"
     var wakeUpTimeText: String = ""
-    var feedImageList: [FeedImage] = []
+    var mypageData: MypageData? // 서버 구조체 생성
     
     // MARK: IBOutlet
     
@@ -46,9 +46,11 @@ class MyPageFeedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setFeedImageData()
         setLayout()
         setCollectionView()
+        setRefresh()
+        loadMypage(token: "")
+        // 토큰 넣어줘야함(88)
 
     }
     
@@ -122,24 +124,53 @@ class MyPageFeedVC: UIViewController {
         self.userWakeTimeView.setRounded(radius: 13.5)
         self.userWakeTimeView.backgroundColor = .meaningWhite
         
+        self.feedHeaderLabel.text = "오늘은 365일 중에 0번째 의미있는 아침입니다."
         self.feedHeaderView.backgroundColor = .meaningLightblue
-        self.feedHeaderLabel.text = "오늘은 365일 중에 \(feedImageList.count)번째 의미있는 아침입니다."
         self.feedHeaderLabel.font = .spoqaMedium(size: 14)
         self.feedHeaderLabel.lineSetting(kernValue: -0.56)
         self.feedHeaderLabel.textAlignment = .center
         
     }
     
-    // MARK: setData
-    
-    func setFeedImageData() {
-        // 임의로 40개 피드를 같은 사진으로 만들었음, 서버 연동을 하면서 수정하면 됨
-        for _ in 0...40 {
-            feedImageList.append(contentsOf: [
-                FeedImage(feedImageName: "test_img")
-            ])
-        }
+    func setRefresh() {
+        // 당겨서 feedCollectionView 새로고침
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(updateData(refresh:)), for: .valueChanged)
+        feedCollectionView.addSubview(refresh)
     }
+    
+    @objc func updateData(refresh: UIRefreshControl) {
+        refresh.endRefreshing()
+        loadMypage(token: "")
+        // 토큰 값 넣어주기(88)
+        feedCollectionView.reloadData()
+    }
+    
+    // MARK: setData
+
+    
+    func loadMypage(token: String) {
+            APIService.shared.mypage(token: token) { result in
+                switch result {
+                case .success(let data):
+                    self.mypageData = data
+                    if let mypage = self.mypageData?.getMyPage {
+                        self.feedHeaderLabel.text = "오늘은 365일 중에 \(mypage.count)번째 의미있는 아침입니다."
+                    }
+                    self.feedCollectionView.reloadData()
+                case .requestErr:
+                    print("requestErr")
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                case .failure(let error):
+                    print("FailureError")
+                }
+            }
+        }
 }
 
 // MARK: Extension
@@ -148,12 +179,14 @@ class MyPageFeedVC: UIViewController {
 
 extension MyPageFeedVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return feedImageList.count
+        return mypageData?.getMyPage?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCollectionViewCell.identifier, for: indexPath) as! FeedCollectionViewCell
-        cell.configure(with: feedImageList[indexPath.row])
+        if let mypageData = mypageData {
+            cell.configure(image: mypageData.getMyPage![indexPath.row])
+        }
         
         return cell
     }
@@ -199,4 +232,12 @@ extension MyPageFeedVC: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension APIService {
 
+    func mypage(token: String, completion: @escaping (NetworkResult<MypageData>)->(Void)) {
+        
+        let target: APITarget = .mypage(token: token)
+        judgeObject(target, completion: completion)
+        
+    }
+}
