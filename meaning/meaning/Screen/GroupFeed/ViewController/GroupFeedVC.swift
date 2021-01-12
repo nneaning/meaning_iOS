@@ -13,8 +13,9 @@ class GroupFeedVC: UIViewController {
     
     var feedList: [FeedImage] = []
     var groupName: String?
-    var groupPersonCount: Int = 3 // 앞의 뷰에서 받아오기
+    var groupPersonCount: Int = 0 // 앞의 뷰에서 받아오기
     var groupFeedData: [GroupFeedData]?
+    var groupNumber: Int = 39 // 앞에 뷰에서 받아오기
     
     // MARK: IBOutlet
     
@@ -32,7 +33,8 @@ class GroupFeedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
-        uploadGroupFeed("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6IuuwleyDgeyImCIsImlhdCI6MTYxMDQ2NDEyMSwiZXhwIjoxNjEyMjc4NTIxLCJpc3MiOiJTZXJ2ZXJCYWQifQ.6awmeWcIrODlWpJnHTiRIH93SyX0MxcVuIXpwf1L8lg",39)
+        uploadGroupFeed("토큰",groupNumber)
+        // 토큰넣기(88)
     }
     
 }
@@ -53,6 +55,54 @@ extension GroupFeedVC {
         groupFeedCollectionView.dataSource = self
     }
     
+    func makeBlankViewa() {
+        // 그룹에 올린 글이 하나도 없을 때 뷰 코드로 제작
+        
+        var insets = 0
+        if self.view.safeAreaInsets.bottom == 0.0 {
+            // se기준으로 작은 폰은 조금 위로 올려줌
+            insets = -30
+        }
+        let blankFrame = CGRect(x: 0, y: groupFeedCollectionView.frame.minY+50, width: groupFeedCollectionView.frame.width, height: groupFeedCollectionView.frame.height)
+        let blankView : UIView = UIView(frame: blankFrame)
+        blankView.backgroundColor = .white
+        self.view.addSubview(blankView)
+        
+        let docsFrame = CGRect(x: Int(blankView.frame.width)/2 - 23, y: 181+insets, width: 46, height: 46)
+        let docsImage : UIImageView = UIImageView(frame: docsFrame)
+        docsImage.image = UIImage(named: "groupBlankIc")
+        blankView.addSubview(docsImage)
+        
+        let firstMentFrame = CGRect(x: 0, y: 253+insets, width: Int(groupFeedCollectionView.frame.width), height: 22)
+        let firstMentLabel : UILabel = UILabel(frame: firstMentFrame)
+        firstMentLabel.text = "아직 게시글이 없네요"
+        firstMentLabel.font = UIFont.spoqaMedium(size: 18)
+        firstMentLabel.textColor = .meaningNavy
+        firstMentLabel.textAlignment = .center
+        blankView.addSubview(firstMentLabel)
+        
+        let secondMentFrame = CGRect(x: 0, y: 279+insets, width: Int(groupFeedCollectionView.frame.width), height: 24)
+        let secondMentLabel : UILabel = UILabel(frame: secondMentFrame)
+        secondMentLabel.text = "기상미션을 수행하고 게시글을 남겨봐요"
+        secondMentLabel.font = UIFont.spoqaRegular(size: 15)
+        secondMentLabel.textColor = .gray3
+        secondMentLabel.textAlignment = .center
+        blankView.addSubview(secondMentLabel)
+        
+        let buttonFrame = CGRect(x: 43, y: 375, width: self.view.frame.width - 86, height: 54)
+        let homeButton : UIButton = UIButton(frame: buttonFrame)
+        homeButton.backgroundColor = .meaningNavy
+        homeButton.setRounded(radius: 6)
+        homeButton.setTitle("홈으로 돌아가기", for: .normal)
+        homeButton.setTitleColor(.white, for: .normal)
+        homeButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        blankView.addSubview(homeButton)
+    }
+    
+    @objc func buttonAction() {
+        self.navigationController?.tabBarController?.selectedIndex = 0
+    }
+    
     func uploadGroupFeed(_ token: String, _ groupid: Int) {
         APIService.shared.groupFeed(token: token, groupid: groupid) { [self] result in
                 switch result {
@@ -60,11 +110,10 @@ extension GroupFeedVC {
                     self.groupFeedData = data
                     if let feed = groupFeedData {
                         if feed.count == 0 { // 그룹에 글이 없어요
-                            
+                            makeBlankViewa()
                         } else { // 그룹에 글이 있어요
-                            
+                            groupFeedCollectionView.reloadData()
                         }
-                        groupFeedCollectionView.reloadData()
                     }
                     
                 case .requestErr:
