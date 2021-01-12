@@ -20,7 +20,8 @@ class LoginVC: UIViewController {
         NSAttributedString.Key.kern : -0.48
     ]
     var loginData: LoginData?
-    
+    var userNick: String?
+    var wakeupTime: String?
     
     // MARK: IBOutlet
     
@@ -149,25 +150,28 @@ class LoginVC: UIViewController {
             loginBtnFirstPressed = true
             
         } else {
-            // 로그인 버튼을 눌러서 다음뷰로 넘어가기
             
-            // 서버 연결
-            login(email: self.idTextField.text ?? "", password: self.pwTextField.text ?? "")
+            // 서버 연결 전 텍스트가 모두 채워졌는지 먼저 체크
             
-            // ID, PW 모두 틀렸거나 입력되지 않았을 때
+            // 1. ID, PW 입력되지 않았을 때
             if (self.idTextField.text == "" && self.pwTextField.text == "") {
                 self.idIsInvalid.alpha = 1
                 self.pwIsInvalid.alpha = 1
                 
             }
-            // ID 만 틀렸거나 입력되지 않았을 때
+            // 2. ID 만 입력되지 않았을 때
             else if (self.idTextField.text == "") {
                 self.idIsInvalid.alpha = 1
             }
-            // PW 만 틀렸거나 입력되지 않았을 때
-            
+            // 3. PW 만 입력되지 않았을 때
             else if (self.pwTextField.text == "") {
                 self.pwIsInvalid.alpha = 1
+            }
+            
+            // 4. 모두 입력되었다면 서버 연결
+            else {
+                // 서버 연결
+                login(email: self.idTextField.text ?? "", password: self.pwTextField.text ?? "")
             }
         }
     }
@@ -320,18 +324,40 @@ class LoginVC: UIViewController {
                 guard let loadData = data as? LoginData else {
                     return
                 }
-                //성공하면 다음 뷰로 이동
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
-                guard let endVC = storyBoard.instantiateViewController(identifier: "HomeVC") as? HomeVC else {
+                let homeStoryboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+                guard let homeNaviVC = homeStoryboard.instantiateViewController(identifier: "HomeNavigationController") as? HomeNavigationController else {
                     return
                 }
-                endVC.modalPresentationStyle = .fullScreen
-                self.present(endVC, animated: true, completion: nil)
+                let onBoardingStoryboard: UIStoryboard = .init(name: "Onboarding", bundle: nil)
+                guard let onBoardingNaviVC = onBoardingStoryboard.instantiateViewController(identifier: "OnboardingNavigationController") as? OnboardingNavigationController else {
+                    return
+                }
+                
+                // userNick, wakeupTime 폰에 저장
+                if let userNick = loadData.userNick,
+                   let wakeupTime = loadData.wakeUpTime {
+                    UserDefaults.standard.setValue(userNick, forKey: "userNick")
+                    UserDefaults.standard.setValue(wakeupTime, forKey: "wakeUpTime")
+                    
+                    // 홈으로 이동
+                    homeNaviVC.modalPresentationStyle = .fullScreen
+                    self.present(homeNaviVC, animated: true, completion: nil)
+                }
+                // userNick, wakeupTime이 없으면 온보딩으로 이동
+                else {
+                    // 온보딩으로 이동
+                    onBoardingNaviVC.modalPresentationStyle = .fullScreen
+                    present(onBoardingNaviVC, animated: true, completion: nil)
+
+                }
+                
                 self.loginData = loadData
-                print(loginData)
                 
             case .requestErr:
+                self.idIsInvalid.alpha = 1
+                self.pwIsInvalid.alpha = 1
                 print("requestErr")
+                
             case .pathErr:
                 print("pathErr")
             case .serverErr:
@@ -339,12 +365,13 @@ class LoginVC: UIViewController {
             case .networkFail:
                 print("networkFail")
             }
+            
         }
     }
 }
 
 
-// MARK: Service
+// MARK: APIService
 
 extension APIService {
     

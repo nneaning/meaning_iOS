@@ -11,4 +11,5 @@ import Foundation
 
 struct LoginData: Codable {
     let accessToken, refreshToken: String
+    let userNick, wakeUpTime: String?
 }
