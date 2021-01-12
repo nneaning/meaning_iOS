@@ -170,6 +170,8 @@ extension OnboardingTimeVC {
                     print("serverErr")
                 case .networkFail:
                     print("networkFail")
+                case .failure(let error):
+                    print("FailureError")
                 }
             }
         }
@@ -224,7 +226,6 @@ extension APIService {
     func onboarding(_ token: String, _ nickName: String, _ wakeUpTime: String, completion: @escaping (NetworkResult<Any>)->(Void)) {
         let target: APITarget = .onboard(token: token, nickName: nickName, wakeUpTime: wakeUpTime)
         judgeSimpleObject(target, completion: completion)
-        
     }
     
 }
