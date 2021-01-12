@@ -13,7 +13,7 @@ class GroupFeedVC: UIViewController {
     
     var feedList: [FeedImage] = []
     var groupName: String?
-    var groupPersonCount: Int = 3
+    var groupPersonCount: Int = 3 // 앞의 뷰에서 받아오기
     var groupFeedData: [GroupFeedData]?
     
     // MARK: IBOutlet
@@ -31,7 +31,6 @@ class GroupFeedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setData()
         setView()
         uploadGroupFeed("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6IuuwleyDgeyImCIsImlhdCI6MTYxMDQ2NDEyMSwiZXhwIjoxNjEyMjc4NTIxLCJpc3MiOiJTZXJ2ZXJCYWQifQ.6awmeWcIrODlWpJnHTiRIH93SyX0MxcVuIXpwf1L8lg",39)
     }
@@ -43,32 +42,6 @@ class GroupFeedVC: UIViewController {
 extension GroupFeedVC {
     
     // MARK: Function
-    
-    func setData() {
-        // Data 삽입
-        
-        let data1 = FeedImage(feedImageName: "IMG_0668")
-        let data2 = FeedImage(feedImageName: "IMG_0668")
-        let data3 = FeedImage(feedImageName: "IMG_0668")
-        let data4 = FeedImage(feedImageName: "IMG_0668")
-        let data5 = FeedImage(feedImageName: "IMG_0668")
-        let data6 = FeedImage(feedImageName: "IMG_0668")
-        let data7 = FeedImage(feedImageName: "IMG_0668")
-        let data8 = FeedImage(feedImageName: "IMG_0668")
-        let data9 = FeedImage(feedImageName: "IMG_0668")
-        let data10 = FeedImage(feedImageName: "IMG_0668")
-        let data11 = FeedImage(feedImageName: "IMG_0668")
-        let data12 = FeedImage(feedImageName: "IMG_0668")
-        let data13 = FeedImage(feedImageName: "IMG_0668")
-        let data14 = FeedImage(feedImageName: "IMG_0668")
-        let data15 = FeedImage(feedImageName: "IMG_0668")
-        let data16 = FeedImage(feedImageName: "IMG_0668")
-        let data17 = FeedImage(feedImageName: "IMG_0668")
-        let data18 = FeedImage(feedImageName: "IMG_0668")
-        
-        
-        feedList = [data1,data2,data3,data4,data5,data6,data7,data8,data9,data10,data11,data12,data13,data14,data15,data16,data17,data18]
-    }
     
     func setView() {
         // View Style Setting
@@ -91,6 +64,7 @@ extension GroupFeedVC {
                         } else { // 그룹에 글이 있어요
                             
                         }
+                        groupFeedCollectionView.reloadData()
                     }
                     
                 case .requestErr:
@@ -111,7 +85,7 @@ extension GroupFeedVC {
 extension GroupFeedVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return feedList.count
+        return groupFeedData?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -122,7 +96,10 @@ extension GroupFeedVC: UICollectionViewDataSource {
             
         }
         
-        feedCell.setCell(feedList[indexPath.row])
+        if let data = groupFeedData {
+            feedCell.setCell(data, index: indexPath.row)
+        }
+        
         return feedCell
     }
     

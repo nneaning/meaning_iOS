@@ -17,8 +17,9 @@ class GroupFeedCell: UICollectionViewCell {
     
     @IBOutlet weak var feedImageView: UIImageView!
     
-    func setCell(_ feedImage: FeedImage) {
-        feedImageView.image = feedImage.makeFeedImage()
+    func setCell(_ groupFeedData: [GroupFeedData], index: Int) {
+        // kingfisher 이용해서 캐싱
+        feedImageView.setImage(from: groupFeedData[index].timeStampImageURL)
     }
 
 }
