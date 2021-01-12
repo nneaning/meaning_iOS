@@ -96,8 +96,10 @@ class GroupListVC: UIViewController {
         GroupTableView.dataSource = self
         GroupTableView.delegate = self
         
-        groupList(token: ""//토큰값입력)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        groupList(token: "")
     }
 }
 
@@ -326,7 +328,7 @@ extension APIService {
     
     func groupList(token: String, completion: @escaping (NetworkResult<GroupListData>)->(Void)) {
         
-        let target: APITarget = .groupList(token: token //토큰값 입력)
+        let target: APITarget = .groupList(token: token)
         
         judgeObject(target, completion: completion)
     }
