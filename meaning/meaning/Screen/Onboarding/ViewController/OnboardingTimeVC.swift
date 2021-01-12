@@ -137,7 +137,6 @@ extension OnboardingTimeVC {
         timeTextField.inputView = pickerView
         pickerView.selectRow(1, inComponent: 0, animated: false)
         // pickerView 기본값은 오전 5시 00분
-        pickerView.tintColor = .meaningBlack
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
