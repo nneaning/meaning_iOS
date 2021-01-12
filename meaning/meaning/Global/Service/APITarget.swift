@@ -23,7 +23,7 @@ enum APITarget {
     case mypage(token: String) // 마이페이지
     case daypromise(token: String) // 오늘 하루 다짐
     case dailydiary(token: String, diaryContents: String) // 자기 회고 작성
-    // 짧은 독서 작성
+    case bookreview(token: String, bookTitle: String, bookCommentContents: String) // 짧은 독서 작성
 }
 
 // MARK: TargetType Protocol 구현
@@ -46,11 +46,11 @@ extension APITarget: TargetType {
         case .timestamp:
             return "/timestamp"
         case .groupList:
-            return "/group?offset=0"
+            return "/group"
         case .groupJoin:
             return "/group/join"
         case .groupFeed(_, let groupid):
-            return "/group/\(groupid))/feed?offset=0"
+            return "/group/\(groupid))/feed"
         case .groupEdit(_, let groupid):
             return "/group/\(groupid))/edit"
         case .groupDetail(_, let groupid):
@@ -58,18 +58,20 @@ extension APITarget: TargetType {
         case .groupMake:
             return "/group"
         case .mypage:
-            return "/user/mypage?offset=0"
+            return "/user/mypage"
         case .daypromise:
             return "/user/daypromise"
         case .dailydiary:
             return "/user/dailydiary"
+        case .bookreview:
+            return "/user/bookreview"
         }
     }
     
     var method: Moya.Method {
         // method - 통신 method (get, post, put, delete ...)
         switch self {
-        case .login, .timestamp, .groupJoin, .groupMake, .dailydiary:
+        case .login, .timestamp, .groupJoin, .groupMake, .dailydiary, .bookreview:
             return .post
         case .onboard, .refreshtoken:
             return .put
@@ -110,9 +112,15 @@ extension APITarget: TargetType {
         case .groupMake(_, let groupName, let maximumMemberNumber, let introduction):
             return .requestParameters(parameters: ["groupName" : groupName, "maximumMemberNumber" : maximumMemberNumber, "introduction" : introduction], encoding: JSONEncoding.default)
             
-        case .groupFeed, .groupEdit, .mypage, .groupDetail, .daypromise, .refreshtoken, .groupList:
+        case .bookreview(_, let bookTitle, let bookCommentContents):
+            return .requestParameters(parameters: ["bookTitle" : bookTitle, "bookCommentContents" : bookCommentContents], encoding: JSONEncoding.default)
+            
+        case .groupEdit, .groupDetail, .daypromise, .refreshtoken:
             return .requestPlain
             
+        case .mypage, .groupFeed, .groupList:
+            // query로 추가
+            return .requestParameters(parameters: ["offset" : 0], encoding: URLEncoding.queryString)
         }
     }
     
@@ -131,7 +139,7 @@ extension APITarget: TargetType {
         case .timestamp(let token, _, _, _):
             return ["Content-Type" : "multipart/form-data", "token" : token]
             
-        case .groupJoin(let token, _), .groupFeed(let token, _), .groupEdit(let token, _), .groupDetail(let token, _), .mypage(let token), .daypromise(let token), .dailydiary(let token, _), .groupMake(let token, _, _, _), .groupList(let token):
+        case .groupJoin(let token, _), .groupFeed(let token, _), .groupEdit(let token, _), .groupDetail(let token, _), .mypage(let token), .daypromise(let token), .dailydiary(let token, _), .groupMake(let token, _, _, _), .groupList(let token) , .bookreview(let token, _, _):
             return ["Content-Type" : "application/json", "token" : token]
             
         case .refreshtoken(let refreshtoken):
