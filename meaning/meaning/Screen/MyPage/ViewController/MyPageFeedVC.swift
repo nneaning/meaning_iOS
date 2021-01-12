@@ -49,7 +49,7 @@ class MyPageFeedVC: UIViewController {
         setLayout()
         setCollectionView()
         setRefresh()
-        loadMypage(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiLquYDrr7ztnawiLCJpYXQiOjE2MTA0NTU5NzgsImV4cCI6MTYxMjI3MDM3OCwiaXNzIjoiU2VydmVyQmFkIn0.ipg72tn-r5BUdiovK8W2DosUOQbAKewDQ_gxz0QB3Mo")
+        loadMypage(token: "")
         // 토큰 넣어줘야함(88)
 
     }
