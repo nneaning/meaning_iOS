@@ -69,8 +69,8 @@ class HomeVC: UIViewController {
                 UserDefaults.standard.setValue(false, forKey: "card\(i)")
                 // 카드 초기화
             }
-            missonCardCollectionView.reloadData()
         }
+        missonCardCollectionView.reloadData()
 
     }
 
@@ -128,6 +128,34 @@ extension HomeVC {
         
         cardList = [mission1,mission2,mission3,mission4]
     }
+    
+    func showMissionToast() {
+        // 순서에 맞지않는 미션 클릭시 나오는 toast
+        let guide = view.safeAreaInsets.bottom
+        let height = self.view.frame.size.height-guide
+        
+        let toastLabel = UILabel(
+            frame: CGRect( x: self.view.frame.size.width/2 - 94,
+                           y: height-80,
+                           width: 200,
+                           height: 30
+            )
+        )
+        toastLabel.backgroundColor = UIColor.gray4
+        toastLabel.textColor = UIColor.gray6
+        toastLabel.font = UIFont.spoqaRegular(size: 15)
+        toastLabel.textAlignment = .center
+        toastLabel.text = "순서대로 미션을 완료해주세요"
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 6
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 3.0, delay: 0.7, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    }
 }
 
 extension HomeVC: UICollectionViewDataSource {
@@ -171,31 +199,43 @@ extension HomeVC: UICollectionViewDataSource {
         } else if indexPath.row == 1 { // 하루다짐
             
             if UserDefaults.standard.bool(forKey: "card1") == false {
-                guard let dailyMaxTap = missionStoryboard.instantiateViewController(identifier: "DailyMaximVC") as? DailyMaximVC else {
-                    return
+                if UserDefaults.standard.bool(forKey: "card0") == false {
+                    showMissionToast()
+                } else {
+                    guard let dailyMaxTap = missionStoryboard.instantiateViewController(identifier: "DailyMaximVC") as? DailyMaximVC else {
+                        return
+                    }
+                    dailyMaxTap.hidesBottomBarWhenPushed = true
+                    self.navigationController?.pushViewController(dailyMaxTap, animated: true)
                 }
-                dailyMaxTap.hidesBottomBarWhenPushed = true
-                self.navigationController?.pushViewController(dailyMaxTap, animated: true)
             }
             
         } else if indexPath.row == 2 { // 감사회고
             
             if UserDefaults.standard.bool(forKey: "card2") == false {
-                guard let dailyDiaryTap = missionStoryboard.instantiateViewController(identifier: "DailyDiaryVC") as? DailyDiaryVC else {
-                    return
+                if UserDefaults.standard.bool(forKey: "card0") == false || UserDefaults.standard.bool(forKey: "card1") == false {
+                    showMissionToast()
+                } else {
+                    guard let dailyDiaryTap = missionStoryboard.instantiateViewController(identifier: "DailyDiaryVC") as? DailyDiaryVC else {
+                        return
+                    }
+                    dailyDiaryTap.hidesBottomBarWhenPushed = true
+                    self.navigationController?.pushViewController(dailyDiaryTap, animated: true)
                 }
-                dailyDiaryTap.hidesBottomBarWhenPushed = true
-                self.navigationController?.pushViewController(dailyDiaryTap, animated: true)
             }
             
         } else if indexPath.row == 3 { // 짧은 독서
             
             if UserDefaults.standard.bool(forKey: "card3") == false {
-                guard let shortReadingTap = missionStoryboard.instantiateViewController(identifier: "ShortReadingVC") as? ShortReadingVC else {
-                    return
+                if UserDefaults.standard.bool(forKey: "card0") == false || UserDefaults.standard.bool(forKey: "card1") == false || UserDefaults.standard.bool(forKey: "card2") == false {
+                    showMissionToast()
+                } else {
+                    guard let shortReadingTap = missionStoryboard.instantiateViewController(identifier: "ShortReadingVC") as? ShortReadingVC else {
+                        return
+                    }
+                    shortReadingTap.hidesBottomBarWhenPushed = true
+                    self.navigationController?.pushViewController(shortReadingTap, animated: true)
                 }
-                shortReadingTap.hidesBottomBarWhenPushed = true
-                self.navigationController?.pushViewController(shortReadingTap, animated: true)
             }
             
         }

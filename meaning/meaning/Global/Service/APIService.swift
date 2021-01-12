@@ -41,7 +41,25 @@ struct APIService {
                     completion(.pathErr)
                 }
             case .failure(let error):
-                print(error)
+                completion(.failure(error.response!.statusCode))
+            }
+        }
+    }
+    
+    func judgeSimpleObject(_ target: APITarget, completion: @escaping (NetworkResult<Any>) -> Void) {
+        // data를 받아오지 않을때 사용하기!
+        provider.request(target) { response in
+            switch response {
+            case .success(let result):
+                do {
+                    let decoder = JSONDecoder()
+                    let body = try decoder.decode(SimpleData.self, from: result.data)
+                    completion(.success(body))
+                } catch {
+                    completion(.pathErr)
+                }
+            case .failure(let error):
+                completion(.failure(error.response!.statusCode))
             }
         }
     }

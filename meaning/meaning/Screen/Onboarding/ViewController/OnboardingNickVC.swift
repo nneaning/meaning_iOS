@@ -14,6 +14,7 @@ class OnboardingNickVC: UIViewController {
     @IBOutlet weak var explainLabel: UILabel!
     @IBOutlet weak var nickTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet var underlineView: UIView!
     
     // MARK: IBAction
     
@@ -75,6 +76,7 @@ extension OnboardingNickVC {
         nextButton.isEnabled = false
         // 닉네임이 설정 안되었을 때는 넘어가기 불가
         
+        underlineView.backgroundColor = .meaningWhite
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
