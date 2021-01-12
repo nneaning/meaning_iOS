@@ -97,6 +97,11 @@ class PictureUploadVC: UIViewController {
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // 뷰 클릭 시 키보드 내리기
+        view.endEditing(true)
+    }
+    
 }
 
 // MARK: Extension
