@@ -30,12 +30,12 @@ enum APITarget {
 
 extension APITarget: TargetType {
     var baseURL: URL {
-    // baseURL - 서버의 도메인
+        // baseURL - 서버의 도메인
         return URL(string: "http://13.124.61.0:3000")!
     }
     
     var path: String {
-    // path - 서버의 도메인 뒤에 추가 될 경로
+        // path - 서버의 도메인 뒤에 추가 될 경로
         switch self {
         case .login:
             return "/user/signin"
@@ -67,7 +67,7 @@ extension APITarget: TargetType {
     }
     
     var method: Moya.Method {
-    // method - 통신 method (get, post, put, delete ...)
+        // method - 통신 method (get, post, put, delete ...)
         switch self {
         case .login, .timestamp, .groupJoin, .groupMake, .dailydiary:
             return .post
@@ -79,14 +79,14 @@ extension APITarget: TargetType {
     }
     
     var sampleData: Data {
-    // sampleDAta - 테스트용 Mock Data
+        // sampleDAta - 테스트용 Mock Data
         return Data()
     }
     
     var task: Task {
-    // task - 리퀘스트에 사용되는 파라미터 설정
-    // 파라미터가 없을 때는 - .requestPlain
-    // 파라미터 존재시에는 - .requestParameters(parameters: ["first_name": firstName, "last_name": lastName], encoding: JSONEncoding.default)
+        // task - 리퀘스트에 사용되는 파라미터 설정
+        // 파라미터가 없을 때는 - .requestPlain
+        // 파라미터 존재시에는 - .requestParameters(parameters: ["first_name": firstName, "last_name": lastName], encoding: JSONEncoding.default)
         switch self {
         case .login(let email, let password):
             return .requestParameters(parameters: ["email" : email, "password": password], encoding: JSONEncoding.default)
@@ -103,7 +103,7 @@ extension APITarget: TargetType {
             
         case .groupJoin(_, let groupId):
             return .requestParameters(parameters: ["groupId" : groupId], encoding: JSONEncoding.default)
-        
+            
         case .dailydiary(_, let diaryContents):
             return .requestParameters(parameters: ["diaryContents" : diaryContents], encoding: JSONEncoding.default)
             
@@ -117,12 +117,12 @@ extension APITarget: TargetType {
     }
     
     var validationType: Moya.ValidationType {
-    // validationType - 허용할 response의 타입
+        // validationType - 허용할 response의 타입
         return .successAndRedirectCodes
     }
     
     var headers: [String : String]? {
-    // headers - HTTP header
+        // headers - HTTP header
         switch self {
         case .login:
             return ["Content-Type" : "application/json"]
@@ -133,13 +133,68 @@ extension APITarget: TargetType {
             
         case .groupJoin(let token, _), .groupFeed(let token, _), .groupEdit(let token, _), .groupDetail(let token, _), .mypage(let token), .daypromise(let token), .dailydiary(let token, _), .groupMake(let token, _, _, _), .groupList(let token):
             return ["Content-Type" : "application/json", "token" : token]
-
+            
         case .refreshtoken(let refreshtoken):
             return ["Content-Type" : "application/json", "refreshtoken" : refreshtoken]
         }
     }
     
-    
-    
-    
 }
+
+public protocol PluginType {
+    func onFail(_ request: URLRequest, target: TargetType) -> URLRequest
+    func willSend(_ request: RequestType, target: TargetType)
+    func didReceive(_ result: Result<Moya.Response, MoyaError>, target: TargetType)
+    func onSucceed(_ result: Result<Moya.Response, MoyaError>, target: TargetType) -> Result<Moya.Response, MoyaError>
+}
+//
+//final class APILoggingPlugin: PluginType {
+//
+//    func onFail(_ request: URLRequest, target: TargetType) -> URLRequest{
+//        if let response = error.response {
+//              onSuceed(response, target: target, isFromError: true)
+//              return
+//            }
+//            var log = "<-- \(error.errorCode) \(target)\n"
+//            log.append("\(error.failureReason ?? error.errorDescription ?? "unknown error")\n")
+//            log.append("<-- END HTTP")
+//            print(log)
+//          }
+//    }
+//
+//    func onSucceed(_ result: Result<Response, MoyaError>, target: TargetType) -> Result<Response, MoyaError> {
+//        <#code#>
+//    }
+//
+//
+//    func willSend(_ request: RequestType, target: TargetType) {
+//        guard let httpRequest = request.request else {
+//            print("--> invalid request")
+//            return
+//        }
+//        let url = httpRequest.description
+//        let method = httpRequest.httpMethod ?? "unknown method"
+//        var log = "--> \(method) \(url)\n"
+//        log.append("API: \(target)\n")
+//        if let headers = httpRequest.allHTTPHeaderFields, !headers.isEmpty {
+//            log.append("header: \(headers)\n")
+//        }
+//        if let body = httpRequest.httpBody, let bodyString = String(bytes: body, encoding: String.Encoding.utf8) {
+//            log.append("\(bodyString)\n")
+//        }
+//        log.append("--> END \(method)")
+//        print(log)
+//    }
+//
+//
+//
+//    public func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
+//        switch result {
+//        case let .success(response):
+//            onSuceed(response, target: target, isFromError: false)
+//        case let .failure(error):
+//            onFail(error, target: target)
+//        }
+//
+//    }
+//}

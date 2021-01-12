@@ -12,7 +12,7 @@
         <!--Launch ScreenVC-->
         <scene sceneID="ZAg-X7-GaG">
             <objects>
-                <viewController id="Fid-Zg-6Ak" customClass="LaunchScreenVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LaunchScreenVC" id="Fid-Zg-6Ak" customClass="LaunchScreenVC" customModule="meaning" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zaa-l4-6yK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +33,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="logo" destination="H6b-eB-lW8" id="wV9-F4-jfF"/>
+                        <outlet property="logo" destination="H6b-eB-lW8" id="Poc-bA-YgH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRz-4s-dCa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

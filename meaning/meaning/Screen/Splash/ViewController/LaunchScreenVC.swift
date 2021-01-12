@@ -34,12 +34,11 @@ class LaunchScreenVC: UIViewController {
         animationView.contentMode = .scaleAspectFill
         
         // 에러 나는 부분 
-//         logo.image = UIImage(named:"splashlogoImage")
-//         view.addSubview(logo)
+        logo.image = UIImage(named:"splashlogoImage")
         
         // 애니메이션뷰를 메인뷰에 추가
         view.addSubview(animationView)
-        
+        animationView.addSubview(logo)
         animationView.play(fromProgress: 0,
                            toProgress: 1,
                            loopMode: LottieLoopMode.playOnce,

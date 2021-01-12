@@ -20,8 +20,6 @@ class LoginVC: UIViewController {
         NSAttributedString.Key.kern : -0.48
     ]
     var loginData: LoginData?
-    var userNick: String?
-    var wakeupTime: String?
     
     // MARK: IBOutlet
     
@@ -321,9 +319,10 @@ class LoginVC: UIViewController {
         APIService.shared.login(email, password) { [self] result in
             switch result {
             case .success(let data):
-                guard let loadData = data as? LoginData else {
-                    return
-                }
+                
+                // data 를 만들어놓은 loginData 구조체에 할당
+                loginData = data
+                
                 let homeStoryboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
                 guard let homeNaviVC = homeStoryboard.instantiateViewController(identifier: "HomeNavigationController") as? HomeNavigationController else {
                     return
@@ -333,37 +332,46 @@ class LoginVC: UIViewController {
                     return
                 }
                 
-                // userNick, wakeupTime 폰에 저장
-                if let userNick = loadData.userNick,
-                   let wakeupTime = loadData.wakeUpTime {
-                    UserDefaults.standard.setValue(userNick, forKey: "userNick")
-                    UserDefaults.standard.setValue(wakeupTime, forKey: "wakeUpTime")
+                // 서버연결과 동시에 아이디, 비밀번호 데이터 핸드폰에 저장
+                if let data = loginData {
+                    UserDefaults.standard.setValue(data.accessToken, forKey: "accessToken")
+                    UserDefaults.standard.setValue(data.refreshToken, forKey: "refreshToken")
                     
-                    // 홈으로 이동
-                    homeNaviVC.modalPresentationStyle = .fullScreen
-                    self.present(homeNaviVC, animated: true, completion: nil)
+                    // userNick, wakeupTime 폰에 저장
+                    if let userNick = data.userNick,
+                       let wakeupTime = data.wakeUpTime {
+                        UserDefaults.standard.setValue(userNick, forKey: "userNick")
+                        UserDefaults.standard.setValue(wakeupTime, forKey: "wakeUpTime")
+                        
+                        // 홈으로 이동
+                        homeNaviVC.modalPresentationStyle = .fullScreen
+                        self.present(homeNaviVC, animated: true, completion: nil)
+                    }
+                    // userNick, wakeupTime이 없으면 온보딩으로 이동
+                    else {
+                        // 온보딩으로 이동
+                        onBoardingNaviVC.modalPresentationStyle = .fullScreen
+                        present(onBoardingNaviVC, animated: true, completion: nil)
+                        
+                    }
                 }
-                // userNick, wakeupTime이 없으면 온보딩으로 이동
-                else {
-                    // 온보딩으로 이동
-                    onBoardingNaviVC.modalPresentationStyle = .fullScreen
-                    present(onBoardingNaviVC, animated: true, completion: nil)
-
-                }
-                
-                self.loginData = loadData
                 
             case .requestErr:
-                self.idIsInvalid.alpha = 1
-                self.pwIsInvalid.alpha = 1
                 print("requestErr")
-                
             case .pathErr:
                 print("pathErr")
             case .serverErr:
                 print("serverErr")
             case .networkFail:
                 print("networkFail")
+            case .failure(let error):
+                if (error == 400) {
+                    self.idIsInvalid.alpha = 1
+                    self.pwIsInvalid.alpha = 1
+                } else {
+                    showToast(message: "네트워크 연결을 확인해주세요.", font: .spoqaMedium(size: 14))
+                }
+                
             }
             
         }
@@ -381,4 +389,6 @@ extension APIService {
         judgeObject(target, completion: completion)
         
     }
+    
 }
+

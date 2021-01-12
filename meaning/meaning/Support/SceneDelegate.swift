@@ -13,9 +13,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let winScene = (scene as? UIWindowScene) else { return }
-//        window = UIWindow(windowScene: winScene)
-//        window?.rootViewController = LaunchScreenVC()
-        window?.makeKeyAndVisible()
+        window = UIWindow(windowScene: winScene)
+        let launchScreenStoryboard: UIStoryboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
+        let launchVC = launchScreenStoryboard.instantiateViewController(withIdentifier: "LaunchScreenVC") as! LaunchScreenVC
+        self.window?.rootViewController = launchVC
+        self.window?.makeKeyAndVisible()
+        
+//        let windowScene = UIWindowScene(session: session, connectionOptions: connectionOptions)
+//        self.window = UIWindow(windowScene: windowScene)
+//        //self.window =  UIWindow(frame: UIScreen.main.bounds)
+//        let launchScreenStoryboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
+//        guard let launchVC = launchScreenStoryboard.instantiateViewController(identifier: "LaunchScreenVC") as? LaunchScreenVC else {
+//            print("ViewController not found")
+//            return
+//        }
+//        self.window?.rootViewController = launchVC
+//        self.window?.makeKeyAndVisible()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
