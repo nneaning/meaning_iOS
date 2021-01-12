@@ -11,13 +11,21 @@ class CalendarVC: UIViewController {
 
     // MARK: Variable Part
     
+    var calendarDate: [CalendarData] = []
     var nick: String = "기상"
-    var countTime: Int = 30
+    var countTime: Int = 12
+    var month: Int = 1
     
     // MARK: IBOutlet
     
     @IBOutlet weak var dateButton: UIButton!
     @IBOutlet weak var explainLabel: UILabel!
+    @IBOutlet weak var calendarBackView: UIView!
+    @IBOutlet weak var circleView: UIView!
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var calendarCollectionView: UICollectionView!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    
     
     // MARK: IBAction
     
@@ -44,7 +52,16 @@ class CalendarVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
+        setCalendar()
+        setList()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillLayoutSubviews() {
+        // 홈버튼이 있는 phone은 더 붙게 수정해줌
+        if self.view.safeAreaInsets.bottom == 49 {
+            bottomConstraint.constant = 25
+        }
     }
     
 }
@@ -82,5 +99,71 @@ extension CalendarVC {
         dateButton.titleLabel?.font = UIFont.spoqaRegular(size: 14)
         dateButton.backgroundColor = .meaningNavy
         dateButton.setTitleColor(.white, for: .normal)
+    }
+    
+    func setCalendar() {
+        calendarBackView.setRounded(radius: 6)
+        circleView.setRounded(radius: nil)
+        monthLabel.text = "\(month)월"
+        monthLabel.font = UIFont.spoqaLight(size: 10)
+        monthLabel.textColor = .white
+        calendarCollectionView.dataSource = self
+        calendarCollectionView.delegate = self
+        calendarCollectionView.backgroundColor = .none
+    }
+    
+    func setList() {
+        for i in 1...12 {
+            calendarDate.append(contentsOf: [
+                CalendarData(index: i, imageName: "starWhite")
+        ])
+        }
+        for j in 13...31 {
+            calendarDate.append(contentsOf: [
+                CalendarData(index: j, imageName: "starBlack")
+        ])
+        }
+    }
+}
+
+extension CalendarVC: UICollectionViewDataSource {
+    // CollectionView 데이터 넣기
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return calendarDate.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let calendarCell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCell.identifier, for: indexPath) as? CalendarCell else {
+            return UICollectionViewCell()
+        }
+        calendarCell.setCell(calendarDate[indexPath.row])
+        return calendarCell
+    }
+}
+
+extension CalendarVC: UICollectionViewDelegateFlowLayout {
+    // CollectionView 크기 잡기
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        // 한 줄에 7개씩 나열
+        return CGSize(width: self.calendarCollectionView.frame.width/7, height:self.calendarCollectionView.frame.height/5)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 0
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+        
     }
 }
