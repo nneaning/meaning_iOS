@@ -110,7 +110,7 @@ extension GroupDetailVC {
     }
     
     func groupDetail(token : String, groupid: Int) {
-        APIService.shared.groupDetail(token : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiLrsJXtmqjshqEiLCJpYXQiOjE2MTAzODI1NjcsImV4cCI6MTYxMjE5Njk2NywiaXNzIjoiU2VydmVyQmFkIn0.VQaeRNLqaNMjRDpN0rKel7KCdlpHfKAfFLq1d2XDMpo", groupid: self.groupID) { result in
+        APIService.shared.groupDetail(token : token, groupid: self.groupID) { result in
             switch result {
             case .success(let data):
                 guard let loadData = data as? GroupDetailData else {
