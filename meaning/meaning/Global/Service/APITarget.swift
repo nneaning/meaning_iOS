@@ -50,9 +50,9 @@ extension APITarget: TargetType {
         case .groupJoin:
             return "/group/join"
         case .groupFeed(_, let groupid):
-            return "/group/\(groupid))/feed"
+            return "/group/\(groupid)/feed"
         case .groupEdit(_, let groupid):
-            return "/group/\(groupid))/edit"
+            return "/group/\(groupid)/edit"
         case .groupDetail(_, let groupid):
             return "/group/\(groupid)"
         case .groupMake:
