@@ -15,6 +15,7 @@ class MyPageFeedVC: UIViewController {
     var userNick: String = "이기상"
     var wakeUpTimeText: String = ""
     var feedImageList: [FeedImage] = []
+    var mypageData: MypageData? // 서버 구조체 생성
     
     // MARK: IBOutlet
     
@@ -148,7 +149,7 @@ class MyPageFeedVC: UIViewController {
 
 extension MyPageFeedVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return feedImageList.count
+        return mypageData?.getMyPage?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -199,4 +200,12 @@ extension MyPageFeedVC: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension APIService {
 
+    func loadMypage(token: String, completion: @escaping (NetworkResult<MypageData>)->(Void)) {
+        
+        let target: APITarget = .mypage(token: token)
+        judgeObject(target, completion: completion)
+        
+    }
+}
