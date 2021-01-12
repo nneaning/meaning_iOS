@@ -114,7 +114,7 @@ extension APITarget: TargetType {
             
         case .bookreview(_, let bookTitle, let bookCommentContents):
             return .requestParameters(parameters: ["bookTitle" : bookTitle, "bookCommentContents" : bookCommentContents], encoding: JSONEncoding.default)
-            
+        
         case .groupEdit, .groupDetail, .daypromise, .refreshtoken:
             return .requestPlain
             
