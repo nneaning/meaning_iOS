@@ -9,6 +9,9 @@ import UIKit
 
 class GroupDetailVC: ViewController {
     
+    var groupDetailData: GroupDetailData?
+    var groupID: Int = 0
+    
     // MARK: - IBOutlet
     
     @IBOutlet var popUpBox: UIView!
@@ -30,6 +33,10 @@ class GroupDetailVC: ViewController {
         setBox()
         setLabel()
         setButton()
+        
+        print(">>>", self.groupID)
+        groupDetail(token: "", groupid: self.groupID)
+        
     }
     
     // MARK: - IBAction
@@ -43,7 +50,7 @@ class GroupDetailVC: ViewController {
     @IBAction func goToGroupJoin(_ sender: Any) {
         //현재 View 닫은 후 그룹조인뷰로 이동
         weak var pvc = self.presentingViewController
-
+        
         self.dismiss(animated: true, completion: {
             guard let groupJoinVC = self.storyboard?.instantiateViewController(identifier: "GroupJoinVC")
                     as? GroupJoinVC else {
@@ -74,12 +81,12 @@ extension GroupDetailVC {
     
     func setLabel() {
         //라벨 폰트, 색상 설정
-        groupNameLabel.text = "코테 준비생 아침인증 그룹"
+        //groupNameLabel.text = "코테 준비생 아침인증 그룹"
         groupNameLabel.font = UIFont.notoBold(size: 18)
         groupNameLabel.textColor = UIColor.gray2
         groupNameLabel.lineSetting(kernValue: -0.54)
         
-        groupInfoLabel.text = "취준생끼리 개발 습관 만들어요"
+        //groupInfoLabel.text = "취준생끼리 개발 습관 만들어요"
         groupInfoLabel.font = UIFont.notoRegular(size: 16)
         groupInfoLabel.textColor = UIColor.gray2
         groupNameLabel.lineSetting(kernValue: -0.48)
@@ -89,7 +96,7 @@ extension GroupDetailVC {
         participantLabel.textColor = UIColor.gray3
         groupNameLabel.lineSetting(kernValue: -0.56)
         
-        peopleNumberLabel.text = "2/5"
+        //peopleNumberLabel.text = "2/5"
         peopleNumberLabel.font = UIFont.spoqaMedium(size: 14)
         peopleNumberLabel.textColor = UIColor.meaningNavy
         
@@ -108,6 +115,44 @@ extension GroupDetailVC {
         groupJoinBtn.setTitle("그룹 참가하기", for: .normal)
         groupJoinBtn.titleLabel?.font = UIFont.spoqaMedium(size: 15)
         groupJoinBtn.setTitleColor(UIColor.meaningWhite, for: .normal)
+    }
+    
+    func groupDetail(token : String, groupid: Int) {
+        APIService.shared.groupDetail(token : token, groupid: self.groupID) { result in
+            switch result {
+            case .success(let data):
+                guard let loadData = data as? GroupDetailData else {
+                    return
+                }
+                self.groupDetailData = loadData
+                
+                self.groupNameLabel.text = "\(self.groupDetailData?.groupDetail.groupName ?? "그룹이 존재하지 않습니다.")"
+                self.groupInfoLabel.text = "\(self.groupDetailData?.groupDetail.introduction ?? "내용이 없습니다.")"
+                self.peopleNumberLabel.text = "\(self.groupDetailData?.groupDetail.countMember ?? 0)/\(self.groupDetailData?.groupDetail.maximumMemberNumber ?? 0)"
+                
+            case .requestErr:
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
+}
+
+// MARK: - APIService Extension
+
+extension APIService {
+    
+    func groupDetail(token : String, groupid: Int, completion: @escaping (NetworkResult<GroupDetailData>)->(Void)) {
+        
+        let target: APITarget = .groupDetail(token: token, groupid: groupid)
+        
+        judgeObject(target, completion: completion)
     }
     
 }

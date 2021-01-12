@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - DataClass
-struct DataClass: Codable {
+struct GroupDetailData: Codable {
     let groupDetail: GroupDetail
 }
 

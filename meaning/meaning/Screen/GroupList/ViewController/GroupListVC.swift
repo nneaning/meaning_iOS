@@ -69,16 +69,7 @@ class GroupListVC: UIViewController {
         self.navigationController?.pushViewController(groupFeedTap, animated: true)
         
     }
-    @IBAction func goToGroupDetail(_ sender: Any) {
-        //detailView 로 이동
-        guard let groupDetailVC = self.storyboard?.instantiateViewController(identifier: "GroupDetailVC")
-                as? GroupDetailVC else {
-            return
-        }
-        groupDetailVC.modalPresentationStyle = .overCurrentContext
-        groupDetailVC.modalTransitionStyle = .crossDissolve
-        self.present(groupDetailVC, animated: true, completion: nil)
-    }
+
     
     @IBAction func goToGroupCreate(_ sender: Any) {
         //groupCreate 로 이동
@@ -249,6 +240,9 @@ extension GroupListVC: UICollectionViewDataSource {
                 as? GroupDetailVC else {
             return
         }
+        
+        groupDetailVC.groupID = groupListData?.hasImageGroupList[indexPath.item].groupID ?? -1
+        
         groupDetailVC.modalPresentationStyle = .overCurrentContext
         groupDetailVC.modalTransitionStyle = .crossDissolve
         self.present(groupDetailVC, animated: true, completion: nil)
@@ -306,11 +300,14 @@ extension GroupListVC: UITableViewDataSource {
 extension GroupListVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        //테이블 뷰 셀 클릭 시 GroupDetailVC로 이동
         guard let groupDetailVC = self.storyboard?.instantiateViewController(identifier: "GroupDetailVC")
                 as? GroupDetailVC else {
             return
         }
+        
+        groupDetailVC.groupID = groupListData?.hasImageGroupList[indexPath.item].groupID ?? -1
+        
         groupDetailVC.modalPresentationStyle = .overCurrentContext
         groupDetailVC.modalTransitionStyle = .crossDissolve
         self.present(groupDetailVC, animated: true, completion: nil)
