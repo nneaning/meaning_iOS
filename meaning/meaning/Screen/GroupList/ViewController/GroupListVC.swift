@@ -96,7 +96,7 @@ class GroupListVC: UIViewController {
         GroupTableView.dataSource = self
         GroupTableView.delegate = self
         
-        groupList(token: "")
+        groupList(token: ""//토큰값입력)
         
     }
 }
@@ -186,6 +186,8 @@ extension GroupListVC {
                 print("serverErr")
             case .networkFail:
                 print("networkFail")
+            case .failure(_):
+                print("FailureError")
             }
         }
     }
@@ -210,6 +212,7 @@ extension GroupListVC: UICollectionViewDataSource {
         
         cell.setCell()
         
+        cell.groupImg.setImage(from: groupListData?.hasImageGroupList[indexPath.row].imageURL ?? "")
         cell.groupNameLabel.text = groupListData?.hasImageGroupList[indexPath.row].groupName
         cell.peopleCountLabel.text = "\(groupListData?.hasImageGroupList[indexPath.row].countMember ?? 0)명이 함께하고 있어요."
         
@@ -323,7 +326,7 @@ extension APIService {
     
     func groupList(token: String, completion: @escaping (NetworkResult<GroupListData>)->(Void)) {
         
-        let target: APITarget = .groupList(token: token)
+        let target: APITarget = .groupList(token: token //토큰값 입력)
         
         judgeObject(target, completion: completion)
     }

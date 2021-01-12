@@ -81,12 +81,11 @@ extension GroupDetailVC {
     
     func setLabel() {
         //라벨 폰트, 색상 설정
-        //groupNameLabel.text = "코테 준비생 아침인증 그룹"
+        
         groupNameLabel.font = UIFont.notoBold(size: 18)
         groupNameLabel.textColor = UIColor.gray2
         groupNameLabel.lineSetting(kernValue: -0.54)
         
-        //groupInfoLabel.text = "취준생끼리 개발 습관 만들어요"
         groupInfoLabel.font = UIFont.notoRegular(size: 16)
         groupInfoLabel.textColor = UIColor.gray2
         groupNameLabel.lineSetting(kernValue: -0.48)
@@ -96,16 +95,9 @@ extension GroupDetailVC {
         participantLabel.textColor = UIColor.gray3
         groupNameLabel.lineSetting(kernValue: -0.56)
         
-        //peopleNumberLabel.text = "2/5"
         peopleNumberLabel.font = UIFont.spoqaMedium(size: 14)
         peopleNumberLabel.textColor = UIColor.meaningNavy
-        
-        //앞에 숫자 부분에만 색상 다르게 설정
-        if let text = peopleNumberLabel.text {
-            let attributedStr = NSMutableAttributedString(string: peopleNumberLabel.text ?? "")
-            attributedStr.addAttribute(.foregroundColor, value: UIColor.skyBlue, range: (peopleNumberLabel.text! as NSString).range(of: "2"))
-            peopleNumberLabel.attributedText = attributedStr
-        }
+    
     }
     
     func setButton() {
@@ -118,7 +110,7 @@ extension GroupDetailVC {
     }
     
     func groupDetail(token : String, groupid: Int) {
-        APIService.shared.groupDetail(token : token, groupid: self.groupID) { result in
+        APIService.shared.groupDetail(token : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiLrsJXtmqjshqEiLCJpYXQiOjE2MTAzODI1NjcsImV4cCI6MTYxMjE5Njk2NywiaXNzIjoiU2VydmVyQmFkIn0.VQaeRNLqaNMjRDpN0rKel7KCdlpHfKAfFLq1d2XDMpo", groupid: self.groupID) { result in
             switch result {
             case .success(let data):
                 guard let loadData = data as? GroupDetailData else {
@@ -130,6 +122,15 @@ extension GroupDetailVC {
                 self.groupInfoLabel.text = "\(self.groupDetailData?.groupDetail.introduction ?? "내용이 없습니다.")"
                 self.peopleNumberLabel.text = "\(self.groupDetailData?.groupDetail.countMember ?? 0)/\(self.groupDetailData?.groupDetail.maximumMemberNumber ?? 0)"
                 
+                if let text = self.peopleNumberLabel.text {
+                    //앞에 숫자 부분에만 색상 다르게 설정
+                    let attributedStr = NSMutableAttributedString(string: self.peopleNumberLabel.text ?? "")
+                    
+                    attributedStr.addAttribute(.foregroundColor, value: UIColor.skyBlue, range: (self.peopleNumberLabel.text! as NSString).range(of: "\(self.groupDetailData?.groupDetail.countMember ?? 0)"))
+                    
+                    self.peopleNumberLabel.attributedText = attributedStr
+                }
+                
             case .requestErr:
                 print("requestErr")
             case .pathErr:
@@ -138,6 +139,8 @@ extension GroupDetailVC {
                 print("serverErr")
             case .networkFail:
                 print("networkFail")
+            case .failure(_):
+                print("FailureError")
             }
         }
     }
