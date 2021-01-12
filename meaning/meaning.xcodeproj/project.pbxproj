@@ -87,6 +87,7 @@
 		9B40584225ACDACF001D0954 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40584125ACDACF001D0954 /* CalendarData.swift */; };
 		9B40584625AD54EE001D0954 /* TimestampData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40584525AD54EE001D0954 /* TimestampData.swift */; };
 		9B40584D25AD6844001D0954 /* MypageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40584C25AD6844001D0954 /* MypageData.swift */; };
+		9B40585325AD9CE5001D0954 /* GroupFeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40585225AD9CE5001D0954 /* GroupFeedData.swift */; };
 		9B70C10125A42AD700A5EFDD /* OnboardingTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */; };
 		9BEA213C25A8304500F240E5 /* FeedDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA213B25A8304500F240E5 /* FeedDetailVC.swift */; };
 		9BEA214125A854C800F240E5 /* FeedDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA214025A854C800F240E5 /* FeedDetailCell.swift */; };
@@ -195,6 +196,7 @@
 		9B40584125ACDACF001D0954 /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
 		9B40584525AD54EE001D0954 /* TimestampData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampData.swift; sourceTree = "<group>"; };
 		9B40584C25AD6844001D0954 /* MypageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageData.swift; sourceTree = "<group>"; };
+		9B40585225AD9CE5001D0954 /* GroupFeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedData.swift; sourceTree = "<group>"; };
 		9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTimeVC.swift; sourceTree = "<group>"; };
 		9BEA213B25A8304500F240E5 /* FeedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailVC.swift; sourceTree = "<group>"; };
 		9BEA214025A854C800F240E5 /* FeedDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailCell.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				9B2BA1E7259F74F7000EF4AA /* GenericResponse.swift */,
 				9EC4B06925ACC31C005D6B2F /* LoginData.swift */,
 				9B40583725ACB961001D0954 /* SimpleData.swift */,
+				9B40585225AD9CE5001D0954 /* GroupFeedData.swift */,
 				9B40584C25AD6844001D0954 /* MypageData.swift */,
 				9B40584525AD54EE001D0954 /* TimestampData.swift */,
 				9E6A7A1B25ADF6740036D71B /* RefreshtokenData.swift */,
@@ -884,6 +887,7 @@
 				36A9425225A45B4A009C28F2 /* TestHomeVC.swift in Sources */,
 				36D6998825A8413A00227FB1 /* GroupCreateVC.swift in Sources */,
 				9EB5CD0725A17DC90070CD58 /* DailyDiaryVC.swift in Sources */,
+				9B40585325AD9CE5001D0954 /* GroupFeedData.swift in Sources */,
 				9EE0139925A4774700A2CB9A /* UIViewController+Extension.swift in Sources */,
 				9E6A7A1C25ADF6740036D71B /* RefreshtokenData.swift in Sources */,
 				9B40579725A8EE57001D0954 /* GroupFeedReusableView.swift in Sources */,
@@ -1072,7 +1076,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S27FNL348L;
+				DEVELOPMENT_TEAM = DUQE66MABG;
 				INFOPLIST_FILE = meaning/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
