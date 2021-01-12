@@ -107,6 +107,11 @@ class PictureUploadVC: UIViewController {
             //SE는 '흰 화면을 눌러서 수정하세요' 글자 들어갈 곳이 없어 숨김처리 함
             editGuideLabel.isHidden = true
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(touchTextView), name: UIResponder.keyboardWillShowNotification, object: nil)
+            // 키보드가 화면에 띄어질 때 소환
+        NotificationCenter.default.addObserver(self, selector: #selector(touchDownView), name: UIResponder.keyboardWillHideNotification, object: nil)
+            // 키보드가 화면에서 내려가면 소환
     }
     
     
@@ -133,6 +138,17 @@ class PictureUploadVC: UIViewController {
                     print("networkFail")
                 }
             }
+    }
+    
+    @objc func touchTextView(notification: NSNotification) {
+        UIView.animate(withDuration: 0.3) {
+            self.view.bounds.origin.y = 140
+        }
+    }
+    @objc func touchDownView() {
+        UIView.animate(withDuration: 0.3) {
+            self.view.bounds.origin.y = 0
+        }
     }
     
 }
