@@ -41,10 +41,11 @@ struct APIService {
                     completion(.pathErr)
                 }
             case .failure(let error):
-                print(error)
+                completion(.failure(error.response!.statusCode))
             }
         }
     }
+    
     func judgeSimpleObject(_ target: APITarget, completion: @escaping (NetworkResult<Any>) -> Void) {
         // data를 받아오지 않을때 사용하기!
         provider.request(target) { response in
