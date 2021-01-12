@@ -14,6 +14,7 @@ class GroupFeedVC: UIViewController {
     var feedList: [FeedImage] = []
     var groupName: String?
     var groupPersonCount: Int = 3
+    var groupFeedData: [GroupFeedData]?
     
     // MARK: IBOutlet
     
@@ -32,6 +33,7 @@ class GroupFeedVC: UIViewController {
         super.viewDidLoad()
         setData()
         setView()
+        uploadGroupFeed("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6IuuwleyDgeyImCIsImlhdCI6MTYxMDQ2NDEyMSwiZXhwIjoxNjEyMjc4NTIxLCJpc3MiOiJTZXJ2ZXJCYWQifQ.6awmeWcIrODlWpJnHTiRIH93SyX0MxcVuIXpwf1L8lg",39)
     }
     
 }
@@ -76,6 +78,33 @@ extension GroupFeedVC {
         
         groupFeedCollectionView.delegate = self
         groupFeedCollectionView.dataSource = self
+    }
+    
+    func uploadGroupFeed(_ token: String, _ groupid: Int) {
+        APIService.shared.groupFeed(token: token, groupid: groupid) { [self] result in
+                switch result {
+                case .success(let data):
+                    self.groupFeedData = data
+                    if let feed = groupFeedData {
+                        if feed.count == 0 { // 그룹에 글이 없어요
+                            
+                        } else { // 그룹에 글이 있어요
+                            
+                        }
+                    }
+                    
+                case .requestErr:
+                    print("requestErr")
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                case .failure(let error):
+                    print(error)
+                }
+            }
     }
 }
 
