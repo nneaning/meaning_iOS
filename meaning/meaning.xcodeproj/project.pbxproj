@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		36A0C1BC25A1FF20005E3F8E /* GroupListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0C1BB25A1FF20005E3F8E /* GroupListVC.swift */; };
-		36A9422D25A29A6E009C28F2 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9422C25A29A6E009C28F2 /* GroupCell.swift */; };
-		36A9423025A2F126009C28F2 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9422F25A2F126009C28F2 /* Group.swift */; };
+		36A9422D25A29A6E009C28F2 /* GroupCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9422C25A29A6E009C28F2 /* GroupCollectionCell.swift */; };
 		36A9424725A33DCD009C28F2 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9424625A33DCD009C28F2 /* GroupTableViewCell.swift */; };
-		36A9424A25A340DB009C28F2 /* GroupTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9424925A340DB009C28F2 /* GroupTable.swift */; };
 		36A9424F25A45B29009C28F2 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9424E25A45B29009C28F2 /* TabBarVC.swift */; };
 		36A9425225A45B4A009C28F2 /* TestHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9425125A45B4A009C28F2 /* TestHomeVC.swift */; };
 		36A9425525A45B53009C28F2 /* TestCameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9425425A45B53009C28F2 /* TestCameraVC.swift */; };
@@ -111,10 +109,8 @@
 
 /* Begin PBXFileReference section */
 		36A0C1BB25A1FF20005E3F8E /* GroupListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupListVC.swift; path = meaning/Screen/GroupList/ViewController/GroupListVC.swift; sourceTree = SOURCE_ROOT; };
-		36A9422C25A29A6E009C28F2 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupCell.swift; path = meaning/Screen/GroupList/ViewController/GroupCell.swift; sourceTree = SOURCE_ROOT; };
-		36A9422F25A2F126009C28F2 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Group.swift; path = meaning/Screen/GroupList/ViewController/Group.swift; sourceTree = SOURCE_ROOT; };
+		36A9422C25A29A6E009C28F2 /* GroupCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupCollectionCell.swift; path = meaning/Screen/GroupList/ViewController/GroupCollectionCell.swift; sourceTree = SOURCE_ROOT; };
 		36A9424625A33DCD009C28F2 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
-		36A9424925A340DB009C28F2 /* GroupTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTable.swift; sourceTree = "<group>"; };
 		36A9424E25A45B29009C28F2 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		36A9425125A45B4A009C28F2 /* TestHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHomeVC.swift; sourceTree = "<group>"; };
 		36A9425425A45B53009C28F2 /* TestCameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCameraVC.swift; sourceTree = "<group>"; };
@@ -552,10 +548,8 @@
 			isa = PBXGroup;
 			children = (
 				36A0C1BB25A1FF20005E3F8E /* GroupListVC.swift */,
-				36A9422F25A2F126009C28F2 /* Group.swift */,
-				36A9422C25A29A6E009C28F2 /* GroupCell.swift */,
+				36A9422C25A29A6E009C28F2 /* GroupCollectionCell.swift */,
 				36A9424625A33DCD009C28F2 /* GroupTableViewCell.swift */,
-				36A9424925A340DB009C28F2 /* GroupTable.swift */,
 				36A9425E25A48E83009C28F2 /* GroupDetailVC.swift */,
 				36A9426225A48E9E009C28F2 /* GroupJoinVC.swift */,
 				36D6998725A8413A00227FB1 /* GroupCreateVC.swift */,
@@ -859,7 +853,6 @@
 				9B2BA1F2259F7C65000EF4AA /* UIButton+Extension.swift in Sources */,
 				9B40583825ACB962001D0954 /* SimpleData.swift in Sources */,
 				9B70C10125A42AD700A5EFDD /* OnboardingTimeVC.swift in Sources */,
-				36A9423025A2F126009C28F2 /* Group.swift in Sources */,
 				9B40579125A8E72F001D0954 /* GroupFeedVC.swift in Sources */,
 				9BEA214125A854C800F240E5 /* FeedDetailCell.swift in Sources */,
 				36A9424F25A45B29009C28F2 /* TabBarVC.swift in Sources */,
@@ -881,7 +874,7 @@
 				9B4057D425A9C8CC001D0954 /* HomeNavigationController.swift in Sources */,
 				9EB8611625A756E3009E4234 /* FeedCollectionViewCell.swift in Sources */,
 				9EB5CCFF25A0B6820070CD58 /* DailyMaximVC.swift in Sources */,
-				36A9422D25A29A6E009C28F2 /* GroupCell.swift in Sources */,
+				36A9422D25A29A6E009C28F2 /* GroupCollectionCell.swift in Sources */,
 				9B2BA23A25A0E547000EF4AA /* UILabel+Extension.swift in Sources */,
 				36A9425F25A48E83009C28F2 /* GroupDetailVC.swift in Sources */,
 				9B4057E225AADC1B001D0954 /* APITarget.swift in Sources */,
@@ -892,7 +885,6 @@
 				9E64AC4525A8D63D00BD49C1 /* LaunchScreenVC.swift in Sources */,
 				9E64AC4125A8D44200BD49C1 /* LoginVC.swift in Sources */,
 				9B4057E525AADDDD001D0954 /* APIService.swift in Sources */,
-				36A9424A25A340DB009C28F2 /* GroupTable.swift in Sources */,
 				9BEA213C25A8304500F240E5 /* FeedDetailVC.swift in Sources */,
 				9B2BA170259F58FF000EF4AA /* AppDelegate.swift in Sources */,
 				36D6998B25A8756300227FB1 /* GroupCompleteVC.swift in Sources */,

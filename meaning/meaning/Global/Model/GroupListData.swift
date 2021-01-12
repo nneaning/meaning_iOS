@@ -8,13 +8,13 @@
 import Foundation
 
 // MARK: - DataClass
-struct DataClass: Codable {
-    let myGroup: MyGroup
-    let hasImageGroupList, noImageGroupList: [MyGroup]
+struct GroupListData: Codable {
+    let myGroup: GroupInfoData
+    let hasImageGroupList, noImageGroupList: [GroupInfoData]
 }
 
 // MARK: - MyGroup
-struct MyGroup: Codable {
+struct GroupInfoData: Codable {
     let groupID: Int
     let groupName: String
     let imageURL: String?

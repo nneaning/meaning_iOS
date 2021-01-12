@@ -136,14 +136,14 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="2E2-nt-lMR"/>
                                                         <constraint firstAttribute="bottom" secondItem="TYU-PX-JeN" secondAttribute="bottom" id="9Ui-9E-g1E"/>
-                                                        <constraint firstItem="1XY-MH-xZg" firstAttribute="centerY" secondItem="CFG-Of-EjG" secondAttribute="centerY" id="B50-0Y-bxQ"/>
                                                         <constraint firstItem="TYU-PX-JeN" firstAttribute="leading" secondItem="CFG-Of-EjG" secondAttribute="leading" id="FgC-gk-MGF"/>
                                                         <constraint firstItem="JoE-YC-XBe" firstAttribute="leading" secondItem="1XY-MH-xZg" secondAttribute="trailing" constant="30" id="N2Z-Xb-u6T"/>
+                                                        <constraint firstItem="JoE-YC-XBe" firstAttribute="centerY" secondItem="CFG-Of-EjG" secondAttribute="centerY" id="OOC-No-MzK"/>
                                                         <constraint firstAttribute="trailing" secondItem="JoE-YC-XBe" secondAttribute="trailing" constant="17" id="QDD-Wa-mJW"/>
-                                                        <constraint firstItem="CaB-dC-XEa" firstAttribute="centerY" secondItem="CFG-Of-EjG" secondAttribute="centerY" id="SJD-1q-yYG"/>
                                                         <constraint firstAttribute="trailing" secondItem="TYU-PX-JeN" secondAttribute="trailing" id="gYJ-vk-R5p"/>
-                                                        <constraint firstItem="JoE-YC-XBe" firstAttribute="centerY" secondItem="CFG-Of-EjG" secondAttribute="centerY" id="kbE-oG-15B"/>
                                                         <constraint firstItem="TYU-PX-JeN" firstAttribute="top" secondItem="CFG-Of-EjG" secondAttribute="top" id="oOQ-Va-aoW"/>
+                                                        <constraint firstItem="CaB-dC-XEa" firstAttribute="centerY" secondItem="CFG-Of-EjG" secondAttribute="centerY" id="rIm-gW-69e"/>
+                                                        <constraint firstItem="1XY-MH-xZg" firstAttribute="centerY" secondItem="CFG-Of-EjG" secondAttribute="centerY" id="rj2-8p-Bm8"/>
                                                         <constraint firstItem="CaB-dC-XEa" firstAttribute="leading" secondItem="CFG-Of-EjG" secondAttribute="leading" constant="30" id="weX-Ag-KNM"/>
                                                     </constraints>
                                                 </view>
@@ -193,7 +193,7 @@
                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             </collectionViewFlowLayout>
                                             <cells>
-                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GroupCell" id="0Ol-Ba-ayo" customClass="GroupCell" customModule="meaning" customModuleProvider="target">
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GroupCell" id="0Ol-Ba-ayo" customClass="GroupCollectionCell" customModule="meaning" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="5.5" width="217" height="182"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -336,7 +336,7 @@
                         <outlet property="groupCollectionView" destination="NMt-DS-IvW" id="bre-b6-bUz"/>
                         <outlet property="headerView" destination="79R-Db-YC7" id="nf3-nu-Euh"/>
                         <outlet property="logoView" destination="UK8-UK-rIm" id="KBh-8k-LWO"/>
-                        <outlet property="myGroupArrowImg" destination="kbE-oG-15B" id="kwu-Bt-akU"/>
+                        <outlet property="myGroupArrowImg" destination="OOC-No-MzK" id="B23-3N-I1z"/>
                         <outlet property="myGroupBoxBtn" destination="TYU-PX-JeN" id="0Sy-Dd-O70"/>
                         <outlet property="myGroupBoxView" destination="CFG-Of-EjG" id="tAH-wR-uGY"/>
                         <outlet property="myGroupCountLabel" destination="Oja-YQ-V68" id="WzI-vL-481"/>
