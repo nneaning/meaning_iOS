@@ -336,9 +336,9 @@ class LoginVC: UIViewController {
                 
                 // 서버연결과 동시에 아이디, 비밀번호 데이터 핸드폰에 저장
                 if let data = loginData {
-                    UserDefaults.standard.setValue(data.accessToken, forKey: "accessToken")
-                    UserDefaults.standard.setValue(data.refreshToken, forKey: "refreshToken")
-                    
+                    UserDefaults.standard.setValue(data.accessToken, forKey: "accesstoken")
+                    UserDefaults.standard.setValue(data.refreshToken, forKey: "refreshtoken")
+
                     // userNick, wakeupTime 폰에 저장
                     if let userNick = data.userNick,
                        let wakeupTime = data.wakeUpTime {
