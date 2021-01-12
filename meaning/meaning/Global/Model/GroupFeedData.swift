@@ -8,21 +8,22 @@
 import Foundation
 
 struct GroupFeedData: Codable {
-    let myGroup: GroupListDetail?
-    let hasImageGroupList, noImageGroupList: [GroupListDetail]
-}
-
-struct GroupListDetail: Codable {
-    let groupID: Int
-    let groupName: String
-    let imageURL: String?
-    let countMember: Int
-    let maximumMemberNumber: Int?
+    let id: Int
+    let timeStampImageURL: String
+    let status: Int
+    let timeStampContents, createdAt: String
+    let user: User
 
     enum CodingKeys: String, CodingKey {
-        case groupID = "groupId"
-        case groupName
-        case imageURL = "imageUrl"
-        case countMember, maximumMemberNumber
+        case id
+        case timeStampImageURL = "timeStampImageUrl"
+        case status, timeStampContents, createdAt
+        case user = "User"
     }
+}
+
+// MARK: - User
+struct User: Codable {
+    let id: Int
+    let userName, nickName, wakeUpTime: String
 }
