@@ -11,7 +11,7 @@ import Lottie
 class LoginVC: UIViewController {
     
     // MARK: Variable Part
-
+    
     var loginBtnFirstPressed: Bool = false
     let underlineAttributes : [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.font : UIFont.spoqaRegular(size: 16),
@@ -19,9 +19,10 @@ class LoginVC: UIViewController {
         NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue,
         NSAttributedString.Key.kern : -0.48
     ]
+    var loginData: LoginData?
     
     // MARK: IBOutlet
-
+    
     @IBOutlet var backgroundLayer: UIView!
     @IBOutlet var backBtn: UIButton!
     @IBOutlet var logoImage: UIImageView!
@@ -41,7 +42,7 @@ class LoginVC: UIViewController {
     @IBOutlet var loginLabelTopConstraint: NSLayoutConstraint!
     
     // MARK: IBAction
-
+    
     @IBAction func backBtnPressed(_ sender: UIButton) {
         loginBtnFirstPressed = false
         
@@ -89,6 +90,9 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func loginBtnPressed(_ sender: UIButton) {
+        
+        // Layout
+        
         let animationRange: CGFloat = 75/896*self.view.bounds.height
         
         if(!loginBtnFirstPressed){
@@ -144,26 +148,34 @@ class LoginVC: UIViewController {
             loginBtnFirstPressed = true
             
         } else {
-            // 로그인 버튼을 눌러서 다음뷰로 넘어가기
             
-            // ID, PW 모두 틀렸거나 입력되지 않았을 때
+            // 서버 연결 전 텍스트가 모두 채워졌는지 먼저 체크
+            
+            // 1. ID, PW 입력되지 않았을 때
             if (self.idTextField.text == "" && self.pwTextField.text == "") {
                 self.idIsInvalid.alpha = 1
                 self.pwIsInvalid.alpha = 1
                 
             }
-            // ID 만 틀렸거나 입력되지 않았을 때
+            // 2. ID 만 입력되지 않았을 때
             else if (self.idTextField.text == "") {
                 self.idIsInvalid.alpha = 1
             }
-            // PW 만 틀렸거나 입력되지 않았을 때
-
+            // 3. PW 만 입력되지 않았을 때
             else if (self.pwTextField.text == "") {
                 self.pwIsInvalid.alpha = 1
+            }
+            
+            // 4. 모두 입력되었다면 서버 연결
+            else {
+                // 서버 연결
+                login(email: self.idTextField.text ?? "", password: self.pwTextField.text ?? "")
             }
         }
     }
     
+    // MARK: Life Cycle Part
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setLottie()
@@ -289,7 +301,7 @@ class LoginVC: UIViewController {
         findPasswordBtn.isHidden = true
         findPasswordBtn.alpha = 0
     }
-
+    
     // MARK: Function
     // id, pw textfield 편집 시작할 때 빨간색 알림 사라지도록 해줌
     
@@ -304,6 +316,81 @@ class LoginVC: UIViewController {
             pwIsInvalid.alpha = 0
         }
     }
+    
+    func login(email: String, password: String) {
+        APIService.shared.login(email, password) { [self] result in
+            switch result {
+            case .success(let data):
+                
+                // data 를 만들어놓은 loginData 구조체에 할당
+                loginData = data
+                
+                let homeStoryboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+                guard let homeNaviVC = homeStoryboard.instantiateViewController(identifier: "HomeNavigationController") as? HomeNavigationController else {
+                    return
+                }
+                let onBoardingStoryboard: UIStoryboard = .init(name: "Onboarding", bundle: nil)
+                guard let onBoardingNaviVC = onBoardingStoryboard.instantiateViewController(identifier: "OnboardingNavigationController") as? OnboardingNavigationController else {
+                    return
+                }
+                
+                // 서버연결과 동시에 아이디, 비밀번호 데이터 핸드폰에 저장
+                if let data = loginData {
+                    UserDefaults.standard.setValue(data.accessToken, forKey: "accessToken")
+                    UserDefaults.standard.setValue(data.refreshToken, forKey: "refreshToken")
+                    
+                    // userNick, wakeupTime 폰에 저장
+                    if let userNick = data.userNick,
+                       let wakeupTime = data.wakeUpTime {
+                        UserDefaults.standard.setValue(userNick, forKey: "userNick")
+                        UserDefaults.standard.setValue(wakeupTime, forKey: "wakeUpTime")
+                        
+                        // 홈으로 이동
+                        homeNaviVC.modalPresentationStyle = .fullScreen
+                        self.present(homeNaviVC, animated: true, completion: nil)
+                    }
+                    // userNick, wakeupTime이 없으면 온보딩으로 이동
+                    else {
+                        // 온보딩으로 이동
+                        onBoardingNaviVC.modalPresentationStyle = .fullScreen
+                        present(onBoardingNaviVC, animated: true, completion: nil)
+                        
+                    }
+                }
+                
+            case .requestErr:
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            case .failure(let error):
+                if (error == 400) {
+                    self.idIsInvalid.alpha = 1
+                    self.pwIsInvalid.alpha = 1
+                } else {
+                    showToast(message: "네트워크 연결을 확인해주세요.", font: .spoqaMedium(size: 14))
+                }
+                
+            }
+            
+        }
+    }
 }
 
+
+// MARK: APIService
+
+extension APIService {
+    
+    func login(_ email: String, _ password: String, completion: @escaping (NetworkResult<LoginData>)->(Void)) {
+        
+        let target: APITarget = .login(email: email, password: password)
+        judgeObject(target, completion: completion)
+        
+    }
+    
+}
 
