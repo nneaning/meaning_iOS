@@ -137,6 +137,8 @@ class PictureUploadVC: UIViewController {
                     print("serverErr")
                 case .networkFail:
                     print("networkFail")
+                case .failure(let error):
+                    print(error)
                 }
             }
     }
