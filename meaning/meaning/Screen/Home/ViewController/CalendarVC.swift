@@ -105,7 +105,7 @@ extension CalendarVC {
         calendarBackView.setRounded(radius: 6)
         circleView.setRounded(radius: nil)
         monthLabel.text = "\(month)월"
-        monthLabel.font = UIFont.spoqaLight(size: 10)
+        monthLabel.font = UIFont.spoqaRegular(size: 14)
         monthLabel.textColor = .white
         calendarCollectionView.dataSource = self
         calendarCollectionView.delegate = self
