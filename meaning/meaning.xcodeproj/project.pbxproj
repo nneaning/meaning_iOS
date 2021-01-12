@@ -101,6 +101,8 @@
 		9EB8611725A756E3009E4234 /* FeedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB8611525A756E2009E4234 /* FeedCollectionViewCell.xib */; };
 		9EC4B04C25AC58E5005D6B2F /* SplashBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 9EC4B04B25AC58E4005D6B2F /* SplashBackground.json */; };
 		9EC4B05625AC593E005D6B2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC4B05525AC593E005D6B2F /* LaunchScreen.storyboard */; };
+		9EC4B06A25ACC31C005D6B2F /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC4B06925ACC31C005D6B2F /* LoginData.swift */; };
+		9EC4B07925AD4EFC005D6B2F /* OnboardingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC4B07825AD4EFC005D6B2F /* OnboardingNavigationController.swift */; };
 		9EDE814325A8287B00389559 /* FeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE814225A8287B00389559 /* FeedImage.swift */; };
 		9EE0139125A4383300A2CB9A /* ShortReadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0139025A4383300A2CB9A /* ShortReadingVC.swift */; };
 		9EE0139925A4774700A2CB9A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0139825A4774700A2CB9A /* UIViewController+Extension.swift */; };
@@ -204,6 +206,8 @@
 		9EB8611525A756E2009E4234 /* FeedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCollectionViewCell.xib; sourceTree = "<group>"; };
 		9EC4B04B25AC58E4005D6B2F /* SplashBackground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SplashBackground.json; sourceTree = "<group>"; };
 		9EC4B05525AC593E005D6B2F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9EC4B06925ACC31C005D6B2F /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		9EC4B07825AD4EFC005D6B2F /* OnboardingNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNavigationController.swift; sourceTree = "<group>"; };
 		9EDE814225A8287B00389559 /* FeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImage.swift; sourceTree = "<group>"; };
 		9EE0139025A4383300A2CB9A /* ShortReadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortReadingVC.swift; sourceTree = "<group>"; };
 		9EE0139825A4774700A2CB9A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -330,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				9B2BA1E7259F74F7000EF4AA /* GenericResponse.swift */,
+				9EC4B06925ACC31C005D6B2F /* LoginData.swift */,
 				9B40583725ACB961001D0954 /* SimpleData.swift */,
 			);
 			path = Model;
@@ -477,6 +482,7 @@
 			isa = PBXGroup;
 			children = (
 				9B245A5325A302C700C45B76 /* OnboardingNickVC.swift */,
+				9EC4B07825AD4EFC005D6B2F /* OnboardingNavigationController.swift */,
 				9B70C10025A42AD700A5EFDD /* OnboardingTimeVC.swift */,
 				9B40583025AC8203001D0954 /* OnboardingEndVC.swift */,
 			);
@@ -848,6 +854,7 @@
 				9B2BA1CD259F5FF0000EF4AA /* String+Extension.swift in Sources */,
 				9B4057DC25AA342A001D0954 /* CameraNavigationController.swift in Sources */,
 				9B1B6B3B25A5AB9300CCA4CC /* HomeVC.swift in Sources */,
+				9EC4B07925AD4EFC005D6B2F /* OnboardingNavigationController.swift in Sources */,
 				9B2BA174259F58FF000EF4AA /* ViewController.swift in Sources */,
 				36A0C1BC25A1FF20005E3F8E /* GroupListVC.swift in Sources */,
 				36A9425825A45B62009C28F2 /* TestGroupVC.swift in Sources */,
@@ -869,6 +876,7 @@
 				9EE0139925A4774700A2CB9A /* UIViewController+Extension.swift in Sources */,
 				9B40579725A8EE57001D0954 /* GroupFeedReusableView.swift in Sources */,
 				36A9424725A33DCD009C28F2 /* GroupTableViewCell.swift in Sources */,
+				9EC4B06A25ACC31C005D6B2F /* LoginData.swift in Sources */,
 				9B40584225ACDACF001D0954 /* CalendarData.swift in Sources */,
 				9EE0139125A4383300A2CB9A /* ShortReadingVC.swift in Sources */,
 				9EB8610E25A6EC3E009E4234 /* MyPageFeedVC.swift in Sources */,
@@ -1052,7 +1060,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DUQE66MABG;
+				DEVELOPMENT_TEAM = S27FNL348L;
 				INFOPLIST_FILE = meaning/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1072,7 +1080,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DUQE66MABG;
+				DEVELOPMENT_TEAM = S27FNL348L;
 				INFOPLIST_FILE = meaning/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

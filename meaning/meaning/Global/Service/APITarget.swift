@@ -30,12 +30,12 @@ enum APITarget {
 
 extension APITarget: TargetType {
     var baseURL: URL {
-    // baseURL - 서버의 도메인
+        // baseURL - 서버의 도메인
         return URL(string: "http://13.124.61.0:3000")!
     }
     
     var path: String {
-    // path - 서버의 도메인 뒤에 추가 될 경로
+        // path - 서버의 도메인 뒤에 추가 될 경로
         switch self {
         case .login:
             return "/user/signin"
@@ -69,7 +69,7 @@ extension APITarget: TargetType {
     }
     
     var method: Moya.Method {
-    // method - 통신 method (get, post, put, delete ...)
+        // method - 통신 method (get, post, put, delete ...)
         switch self {
         case .login, .timestamp, .groupJoin, .groupMake, .dailydiary, .bookreview:
             return .post
@@ -81,14 +81,14 @@ extension APITarget: TargetType {
     }
     
     var sampleData: Data {
-    // sampleDAta - 테스트용 Mock Data
+        // sampleDAta - 테스트용 Mock Data
         return Data()
     }
     
     var task: Task {
-    // task - 리퀘스트에 사용되는 파라미터 설정
-    // 파라미터가 없을 때는 - .requestPlain
-    // 파라미터 존재시에는 - .requestParameters(parameters: ["first_name": firstName, "last_name": lastName], encoding: JSONEncoding.default)
+        // task - 리퀘스트에 사용되는 파라미터 설정
+        // 파라미터가 없을 때는 - .requestPlain
+        // 파라미터 존재시에는 - .requestParameters(parameters: ["first_name": firstName, "last_name": lastName], encoding: JSONEncoding.default)
         switch self {
         case .login(let email, let password):
             return .requestParameters(parameters: ["email" : email, "password": password], encoding: JSONEncoding.default)
@@ -105,7 +105,7 @@ extension APITarget: TargetType {
             
         case .groupJoin(_, let groupId):
             return .requestParameters(parameters: ["groupId" : groupId], encoding: JSONEncoding.default)
-        
+            
         case .dailydiary(_, let diaryContents):
             return .requestParameters(parameters: ["diaryContents" : diaryContents], encoding: JSONEncoding.default)
             
@@ -125,12 +125,12 @@ extension APITarget: TargetType {
     }
     
     var validationType: Moya.ValidationType {
-    // validationType - 허용할 response의 타입
+        // validationType - 허용할 response의 타입
         return .successAndRedirectCodes
     }
     
     var headers: [String : String]? {
-    // headers - HTTP header
+        // headers - HTTP header
         switch self {
         case .login:
             return ["Content-Type" : "application/json"]
@@ -141,13 +141,10 @@ extension APITarget: TargetType {
             
         case .groupJoin(let token, _), .groupFeed(let token, _), .groupEdit(let token, _), .groupDetail(let token, _), .mypage(let token), .daypromise(let token), .dailydiary(let token, _), .groupMake(let token, _, _, _), .groupList(let token) , .bookreview(let token, _, _):
             return ["Content-Type" : "application/json", "token" : token]
-
+            
         case .refreshtoken(let refreshtoken):
             return ["Content-Type" : "application/json", "refreshtoken" : refreshtoken]
         }
     }
-    
-    
-    
     
 }
