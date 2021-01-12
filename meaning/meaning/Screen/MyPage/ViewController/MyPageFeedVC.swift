@@ -50,6 +50,7 @@ class MyPageFeedVC: UIViewController {
         setFeedImageData()
         setLayout()
         setCollectionView()
+        loadMypage(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiLquYDrr7ztnawiLCJpYXQiOjE2MTA0MjkyMTYsImV4cCI6MTYxMjI0MzYxNiwiaXNzIjoiU2VydmVyQmFkIn0.5yV2Fe1uUdpW8t46-7RAfwrL3KeDn7p5oEyZqnxh3dA")
 
     }
     
@@ -141,6 +142,27 @@ class MyPageFeedVC: UIViewController {
             ])
         }
     }
+    
+    func loadMypage(token: String) {
+            APIService.shared.mypage(token: token) { result in
+                switch result {
+                case .success(let data):
+                    guard let loadData = data as? MypageData else {
+                        return
+                    }
+                    self.mypageData = loadData
+                    print(self.mypageData)
+                case .requestErr:
+                    print("requestErr")
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+            }
+        }
 }
 
 // MARK: Extension
@@ -149,7 +171,7 @@ class MyPageFeedVC: UIViewController {
 
 extension MyPageFeedVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return mypageData?.getMyPage?.count ?? 0
+        return feedImageList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -202,7 +224,7 @@ extension MyPageFeedVC: UICollectionViewDelegateFlowLayout {
 
 extension APIService {
 
-    func loadMypage(token: String, completion: @escaping (NetworkResult<MypageData>)->(Void)) {
+    func mypage(token: String, completion: @escaping (NetworkResult<MypageData>)->(Void)) {
         
         let target: APITarget = .mypage(token: token)
         judgeObject(target, completion: completion)
