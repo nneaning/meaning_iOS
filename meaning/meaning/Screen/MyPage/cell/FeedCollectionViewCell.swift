@@ -26,8 +26,9 @@ class FeedCollectionViewCell: UICollectionViewCell {
     
     // MARK: function
 
-    public func configure(with image:FeedImage) {
-        feedImage.image = image.makeFeedImage()
+    public func configure(image:GetMyPage) {
+        
+        feedImage.setImage(from: image.timeStampImageURL)
     }
     
     //cell register 해주는 function
