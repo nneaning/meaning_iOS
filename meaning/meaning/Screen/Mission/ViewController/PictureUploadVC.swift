@@ -41,6 +41,19 @@ class PictureUploadVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func uploadBtnPressed(_ sender: Any) {
+        // 사진 업로드 버튼 클릭 시
+        
+        if let timeToServer = timeToServer,
+           let uploadedImageData = uploadedImageData {
+            // 서버 통신
+            uploadPictrue("", timeToServer, bodyTextView.text, uploadedImageData)
+            // 토큰 삽입 필수!(88)
+        }
+        
+    }
+    
+    
     // Mark: Life Cycle Part
     
     override func viewDidLoad() {
@@ -95,6 +108,50 @@ class PictureUploadVC: UIViewController {
             //SE는 '흰 화면을 눌러서 수정하세요' 글자 들어갈 곳이 없어 숨김처리 함
             editGuideLabel.isHidden = true
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(touchTextView), name: UIResponder.keyboardWillShowNotification, object: nil)
+            // 키보드가 화면에 띄어질 때 소환
+        NotificationCenter.default.addObserver(self, selector: #selector(touchDownView), name: UIResponder.keyboardWillHideNotification, object: nil)
+            // 키보드가 화면에서 내려가면 소환
+    }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // 뷰 클릭 시 키보드 내리기
+        view.endEditing(true)
+    }
+    
+    func uploadPictrue(_ token: String, _ dateTime: String, _ timeStampContents: String, _ image: UIImage) {
+        APIService.shared.timestamp(token, dateTime, timeStampContents, image) { [self] result in
+                switch result {
+                case .success( _):
+                    // 성공시 Home으로 돌아가기
+                    self.navigationController?.popToRootViewController(animated: true)
+                    // 타임카메라 미션 완료!
+                    UserDefaults.standard.setValue(true, forKey: "card0")
+                case .requestErr:
+                    print("requestErr")
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
+    @objc func touchTextView(notification: NSNotification) {
+        UIView.animate(withDuration: 0.3) {
+            self.view.bounds.origin.y = 140
+        }
+    }
+    @objc func touchDownView() {
+        UIView.animate(withDuration: 0.3) {
+            self.view.bounds.origin.y = 0
+        }
     }
     
 }
@@ -109,4 +166,14 @@ extension PictureUploadVC: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         editGuideLabel.isHidden = true
     }
+}
+
+extension APIService {
+    
+    func timestamp(_ token: String, _ dateTime: String, _ timeStampContents: String, _ image: UIImage, completion: @escaping (NetworkResult<TimestampData>)->(Void)) {
+        
+        let target: APITarget = .timestamp(token: token, dateTime: dateTime, timeStampContents: timeStampContents, image: image)
+        judgeObject(target, completion: completion)
+    }
+    
 }

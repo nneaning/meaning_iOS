@@ -14,6 +14,7 @@ class LaunchScreenVC: UIViewController {
     
     @IBOutlet var backgroundLayer: UIView!
     @IBOutlet var logo: UIImageView!
+    var refreshtokenData: RefreshtokenData?
     
     // MARK: Life Cycle Part
     
@@ -21,7 +22,6 @@ class LaunchScreenVC: UIViewController {
         super.viewDidLoad()
         setLottie()
         setLayout()
-
     }
     
     // MARK: Lottie
@@ -43,11 +43,8 @@ class LaunchScreenVC: UIViewController {
                            loopMode: LottieLoopMode.playOnce,
                            completion: { (finished) in
                             if finished {
-                                let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
-                                let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-                                loginViewController.modalTransitionStyle = .crossDissolve
-                                loginViewController.modalPresentationStyle = .fullScreen
-                                self.present(loginViewController, animated: true, completion: nil)
+                                
+                                self.checkToken()
                                 
                             } else {
                                 print("Animation cancelled")
@@ -57,11 +54,80 @@ class LaunchScreenVC: UIViewController {
     }
     
     // MARK: Layout
-
+    
     func setLayout() {
         backgroundLayer.backgroundColor = .none
         view.addSubview(backgroundLayer)
         logo.image = UIImage(named:"splashlogoImg")
+    }
+    
+    // MARK: Server Function
+
+    func checkToken() {
+        // refreshtoken을 핸드폰에 가지고 있다면 서버 통신 시도
+        splash(refreshtoken: UserDefaults.standard.string(forKey: "refreshtoken") ?? "")
+        
+        // 테스트용으로는 직접 pass 되는 토큰 입력
+        // splash(refreshtoken: "[토큰]")
+    }
+    
+    
+    // MARK: APIService Function
+    
+    func splash(refreshtoken: String) {
+        APIService.shared.splash(refreshtoken) {
+            result in
+            switch result {
+            
+            case .success(let data):
+                self.refreshtokenData = data as? RefreshtokenData
+                // 200 : 새롭게 발급되는 accessToken, refreshToken 폰에 저장
+                if let data = self.refreshtokenData {
+                    UserDefaults.standard.setValue(data.accessToken, forKey: "accessToken")
+                    UserDefaults.standard.setValue(data.refreshToken, forKey: "refreshToken")
+                }
+                
+                // 저장 후 홈으로 이동
+                let homeStoryboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+                guard let homeNaviVC = homeStoryboard.instantiateViewController(identifier: "HomeNavigationController") as? HomeNavigationController else {
+                    return
+                }
+                homeNaviVC.modalTransitionStyle = .crossDissolve
+                homeNaviVC.modalPresentationStyle = .fullScreen
+                self.present(homeNaviVC, animated: true, completion: nil)
+
+            case .requestErr:
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            case .failure(let error):
+                // 400, 401: login 뷰로 이동
+                if ((400...401).contains(error)){
+                    
+                    // 로그인 뷰로 이동
+                    let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+                    let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                    loginViewController.modalTransitionStyle = .crossDissolve
+                    loginViewController.modalPresentationStyle = .fullScreen
+                    self.present(loginViewController, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+}
+
+// MARK: APIService
+
+extension APIService {
+    
+    func splash(_ refreshtoken: String, completion: @escaping (NetworkResult<RefreshtokenData>)->(Void)) {
+        let target: APITarget = .refreshtoken(refreshtoken: refreshtoken)
+        judgeObject(target, completion: completion)
     }
     
 }
