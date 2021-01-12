@@ -83,18 +83,18 @@ class LaunchScreenVC: UIViewController {
                 self.refreshtokenData = data as? RefreshtokenData
                 // 200 : 새롭게 발급되는 accessToken, refreshToken 폰에 저장
                 if let data = self.refreshtokenData {
-                    UserDefaults.standard.setValue(data.accessToken, forKey: "accessToken")
-                    UserDefaults.standard.setValue(data.refreshToken, forKey: "refreshToken")
+                    UserDefaults.standard.setValue(data.accessToken, forKey: "accesstoken")
+                    UserDefaults.standard.setValue(data.refreshToken, forKey: "refreshtoken")
                 }
                 
                 // 저장 후 홈으로 이동
-                let homeStoryboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
-                guard let homeNaviVC = homeStoryboard.instantiateViewController(identifier: "HomeNavigationController") as? HomeNavigationController else {
+                let tabBarStoryboard: UIStoryboard = UIStoryboard(name: "TabBar", bundle: nil)
+                guard let tabBarVC = tabBarStoryboard.instantiateViewController(identifier: "TabBarVC") as? TabBarVC else {
                     return
                 }
-                homeNaviVC.modalTransitionStyle = .crossDissolve
-                homeNaviVC.modalPresentationStyle = .fullScreen
-                self.present(homeNaviVC, animated: true, completion: nil)
+                tabBarVC.modalTransitionStyle = .crossDissolve
+                tabBarVC.modalPresentationStyle = .fullScreen
+                self.present(tabBarVC, animated: true, completion: nil)
 
             case .requestErr:
                 print("requestErr")

@@ -325,10 +325,6 @@ class LoginVC: UIViewController {
                 // data 를 만들어놓은 loginData 구조체에 할당
                 loginData = data
                 
-                let homeStoryboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
-                guard let homeNaviVC = homeStoryboard.instantiateViewController(identifier: "HomeNavigationController") as? HomeNavigationController else {
-                    return
-                }
                 let onBoardingStoryboard: UIStoryboard = .init(name: "Onboarding", bundle: nil)
                 guard let onBoardingNaviVC = onBoardingStoryboard.instantiateViewController(identifier: "OnboardingNavigationController") as? OnboardingNavigationController else {
                     return
@@ -345,9 +341,13 @@ class LoginVC: UIViewController {
                         UserDefaults.standard.setValue(userNick, forKey: "userNick")
                         UserDefaults.standard.setValue(wakeupTime, forKey: "wakeUpTime")
                         
-                        // 홈으로 이동
-                        homeNaviVC.modalPresentationStyle = .fullScreen
-                        self.present(homeNaviVC, animated: true, completion: nil)
+                        // 탭바로 이동
+                        let tabBarStoryboard: UIStoryboard = UIStoryboard(name: "TabBar", bundle: nil)
+                        guard let tabBarVC = tabBarStoryboard.instantiateViewController(identifier: "TabBarVC") as? TabBarVC else {
+                            return
+                        }
+                        tabBarVC.modalPresentationStyle = .fullScreen
+                        self.present(tabBarVC, animated: true, completion: nil)
                     }
                     // userNick, wakeupTime이 없으면 온보딩으로 이동
                     else {

@@ -115,10 +115,7 @@ extension APITarget: TargetType {
         case .bookreview(_, let bookTitle, let bookCommentContents):
             return .requestParameters(parameters: ["bookTitle" : bookTitle, "bookCommentContents" : bookCommentContents], encoding: JSONEncoding.default)
         
-        case .refreshtoken(let refreshtoken):
-            return .requestParameters(parameters: ["refreshtoken" : refreshtoken], encoding: JSONEncoding.default)
-            
-        case .groupEdit, .groupDetail, .daypromise:
+        case .groupEdit, .groupDetail, .daypromise, .refreshtoken:
             return .requestPlain
             
         case .mypage, .groupFeed, .groupList:
