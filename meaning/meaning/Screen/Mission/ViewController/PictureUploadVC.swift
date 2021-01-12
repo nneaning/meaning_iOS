@@ -41,6 +41,11 @@ class PictureUploadVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func uploadBtnPressed(_ sender: Any) {
+        // 사진 업로드 버튼 클릭 시 
+    }
+    
+    
     // Mark: Life Cycle Part
     
     override func viewDidLoad() {
