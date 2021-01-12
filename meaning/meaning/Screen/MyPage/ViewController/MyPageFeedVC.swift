@@ -47,7 +47,6 @@ class MyPageFeedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setFeedImageData()
         setLayout()
         setCollectionView()
         loadMypage(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiLquYDrr7ztnawiLCJpYXQiOjE2MTA0MjkyMTYsImV4cCI6MTYxMjI0MzYxNiwiaXNzIjoiU2VydmVyQmFkIn0.5yV2Fe1uUdpW8t46-7RAfwrL3KeDn7p5oEyZqnxh3dA")
@@ -133,15 +132,7 @@ class MyPageFeedVC: UIViewController {
     }
     
     // MARK: setData
-    
-    func setFeedImageData() {
-        // 임의로 40개 피드를 같은 사진으로 만들었음, 서버 연동을 하면서 수정하면 됨
-        for _ in 0...40 {
-            feedImageList.append(contentsOf: [
-                FeedImage(feedImageName: "test_img")
-            ])
-        }
-    }
+
     
     func loadMypage(token: String) {
             APIService.shared.mypage(token: token) { result in
@@ -151,7 +142,7 @@ class MyPageFeedVC: UIViewController {
                         return
                     }
                     self.mypageData = loadData
-                    print(self.mypageData)
+                    self.feedCollectionView.reloadData()
                 case .requestErr:
                     print("requestErr")
                 case .pathErr:
@@ -171,12 +162,14 @@ class MyPageFeedVC: UIViewController {
 
 extension MyPageFeedVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return feedImageList.count
+        return mypageData?.getMyPage?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCollectionViewCell.identifier, for: indexPath) as! FeedCollectionViewCell
-        cell.configure(with: feedImageList[indexPath.row])
+        if let mypageData = mypageData {
+            cell.configure(image: mypageData.getMyPage![indexPath.row])
+        }
         
         return cell
     }
