@@ -40,8 +40,7 @@ class OnboardingTimeVC: UIViewController {
            let serverWakeUpTime = serverWakeUpTime {
             UserDefaults.standard.setValue(userNick, forKey: "userNick") // 닉네임 폰에 저장
             UserDefaults.standard.setValue(serverWakeUpTime, forKey: "wakeUpTime") // 기상 시간 폰에 저장
-            onboarding(token: "", nickName: userNick, wakeUpTime: serverWakeUpTime)
-            // 나중에 토큰 넣어줘야함(88)
+            onboarding(token: (UserDefaults.standard.string(forKey: "accesstoken") ?? ""), nickName: userNick, wakeUpTime: serverWakeUpTime)
         }
         
     }
