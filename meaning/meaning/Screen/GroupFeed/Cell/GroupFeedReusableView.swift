@@ -25,7 +25,11 @@ class GroupFeedReusableView: UICollectionReusableView {
     }
     
     func setMent(count: Int) {
-        sloganLabel.text = "\(count)명의 사람들이 함께 아침을 맞이하고 있어요!"
+        if count == 0 {
+            sloganLabel.text = "아직은 미라클 모닝을 함께하는 멤버가 없어요"
+        } else {
+            sloganLabel.text = "\(count)명의 사람들이 함께 아침을 맞이하고 있어요!"
+        }
     }
         
 }

@@ -38,7 +38,6 @@ class OnboardingNickVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
-
     }
 
 }

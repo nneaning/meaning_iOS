@@ -14,7 +14,7 @@ class GroupCollectionCell: UICollectionViewCell {
     @IBOutlet var groupImg: UIImageView!
     @IBOutlet var groupNameLabel: UILabel!
     @IBOutlet var peopleCountLabel: UILabel!
-    @IBOutlet var enterBtn: UIButton!
+    @IBOutlet var enterLabel: UILabel!
     
     
     func setCell() {
@@ -26,8 +26,8 @@ class GroupCollectionCell: UICollectionViewCell {
         peopleCountLabel.textColor = UIColor.gray3
         
         
-        enterBtn.setTitle("지금 참여하기 >", for: .normal)
-        enterBtn.setTitleColor(UIColor.gray2, for: .normal)
-        enterBtn.titleLabel!.font = UIFont.spoqaRegular(size: 12)
+        enterLabel.text = "지금 참여하기 >"
+        enterLabel.textColor = UIColor.gray2
+        enterLabel.font = UIFont.spoqaRegular(size: 12)
     }
 }
