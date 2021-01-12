@@ -48,7 +48,8 @@ class MyPageFeedVC: UIViewController {
         super.viewDidLoad()
         setLayout()
         setCollectionView()
-        loadMypage(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiLquYDrr7ztnawiLCJpYXQiOjE2MTA0MjkyMTYsImV4cCI6MTYxMjI0MzYxNiwiaXNzIjoiU2VydmVyQmFkIn0.5yV2Fe1uUdpW8t46-7RAfwrL3KeDn7p5oEyZqnxh3dA")
+        loadMypage(token: "")
+        // 토큰 넣어줘야함(88)
 
     }
     
@@ -137,10 +138,7 @@ class MyPageFeedVC: UIViewController {
             APIService.shared.mypage(token: token) { result in
                 switch result {
                 case .success(let data):
-                    guard let loadData = data as? MypageData else {
-                        return
-                    }
-                    self.mypageData = loadData
+                    self.mypageData = data
                     if let mypage = self.mypageData?.getMyPage {
                         self.feedHeaderLabel.text = "오늘은 365일 중에 \(mypage.count)번째 의미있는 아침입니다."
                     }
