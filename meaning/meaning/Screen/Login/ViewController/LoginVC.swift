@@ -325,10 +325,6 @@ class LoginVC: UIViewController {
                 // data 를 만들어놓은 loginData 구조체에 할당
                 loginData = data
                 
-                let homeStoryboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
-                guard let homeNaviVC = homeStoryboard.instantiateViewController(identifier: "HomeNavigationController") as? HomeNavigationController else {
-                    return
-                }
                 let onBoardingStoryboard: UIStoryboard = .init(name: "Onboarding", bundle: nil)
                 guard let onBoardingNaviVC = onBoardingStoryboard.instantiateViewController(identifier: "OnboardingNavigationController") as? OnboardingNavigationController else {
                     return
@@ -336,18 +332,22 @@ class LoginVC: UIViewController {
                 
                 // 서버연결과 동시에 아이디, 비밀번호 데이터 핸드폰에 저장
                 if let data = loginData {
-                    UserDefaults.standard.setValue(data.accessToken, forKey: "accessToken")
-                    UserDefaults.standard.setValue(data.refreshToken, forKey: "refreshToken")
-                    
+                    UserDefaults.standard.setValue(data.accessToken, forKey: "accesstoken")
+                    UserDefaults.standard.setValue(data.refreshToken, forKey: "refreshtoken")
+
                     // userNick, wakeupTime 폰에 저장
                     if let userNick = data.userNick,
                        let wakeupTime = data.wakeUpTime {
                         UserDefaults.standard.setValue(userNick, forKey: "userNick")
                         UserDefaults.standard.setValue(wakeupTime, forKey: "wakeUpTime")
                         
-                        // 홈으로 이동
-                        homeNaviVC.modalPresentationStyle = .fullScreen
-                        self.present(homeNaviVC, animated: true, completion: nil)
+                        // 탭바로 이동
+                        let tabBarStoryboard: UIStoryboard = UIStoryboard(name: "TabBar", bundle: nil)
+                        guard let tabBarVC = tabBarStoryboard.instantiateViewController(identifier: "TabBarVC") as? TabBarVC else {
+                            return
+                        }
+                        tabBarVC.modalPresentationStyle = .fullScreen
+                        self.present(tabBarVC, animated: true, completion: nil)
                     }
                     // userNick, wakeupTime이 없으면 온보딩으로 이동
                     else {
