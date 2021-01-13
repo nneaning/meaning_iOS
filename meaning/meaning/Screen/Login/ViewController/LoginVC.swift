@@ -169,6 +169,7 @@ class LoginVC: UIViewController {
             // 4. 모두 입력되었다면 서버 연결
             else {
                 // 서버 연결
+                
                 login(email: self.idTextField.text ?? "", password: self.pwTextField.text ?? "")
             }
         }
@@ -359,6 +360,7 @@ class LoginVC: UIViewController {
                 }
                 
             case .failure(let error):
+                print(error)
                 if (error == 400) {
                     self.idIsInvalid.alpha = 1
                     self.pwIsInvalid.alpha = 1
