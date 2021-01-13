@@ -82,12 +82,12 @@ extension MemberTableViewCell {
         howLongLabel.text = "\(groupInfoData.dayPassed)일째 진행 중"
         wakeUpTimeLabel.text = "매일 \(groupInfoData.wakeUpTime) 기상"
         
-        if wakeUpTimeLabel.text?.count == 11 {
-            // 정각일때
-            wakeupViewWidth.constant = 90
-        } else {
-            wakeupViewWidth.constant = 150
-        }
+//        if wakeUpTimeLabel.text?.count == 11 {
+//            // 정각일때
+//            wakeupViewWidth.constant = 90
+//        } else {
+//            wakeupViewWidth.constant = 150
+//        }
         
     }
 }

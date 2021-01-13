@@ -43,6 +43,9 @@
                                             <constraint firstAttribute="width" secondItem="hMu-Vz-lDW" secondAttribute="height" multiplier="1:1" id="2he-pJ-pvJ"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="groupSettingIc"/>
+                                        <connections>
+                                            <action selector="settingButtonDidTap:" destination="Mcw-KC-poi" eventType="touchUpInside" id="OrR-x4-ue5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -140,6 +143,7 @@
                             <constraint firstItem="w2r-VM-Dlw" firstAttribute="top" secondItem="cOh-a7-0Cw" secondAttribute="bottom" id="xi8-RC-D6P"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="45L-hu-3Xi"/>
                     <connections>
                         <outlet property="groupFeedCollectionView" destination="w2r-VM-Dlw" id="Mde-l2-udq"/>
                         <outlet property="groupNameLabel" destination="4gL-UD-ubL" id="Bla-M6-UjX"/>
@@ -147,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Msp-BJ-IZ2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3555" y="25"/>
+            <point key="canvasLocation" x="5052.1739130434789" y="34.821428571428569"/>
         </scene>
         <!--GroupInfoVC-->
         <scene sceneID="4Wr-YM-qID">
@@ -343,7 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sx6-Eh-trB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2191" y="729"/>
+            <point key="canvasLocation" x="5871.0144927536239" y="34.821428571428569"/>
         </scene>
         <!--Feed DetailVC-->
         <scene sceneID="4zS-fR-QXL">
@@ -567,7 +571,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPR-ki-2NU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2380" y="35"/>
+            <point key="canvasLocation" x="2977" y="35"/>
         </scene>
     </scenes>
     <resources>
