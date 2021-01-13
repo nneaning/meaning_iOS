@@ -12,7 +12,7 @@ class CalendarVC: UIViewController {
     // MARK: Variable Part
     
     var calendarDate: CalendarData?
-    var nick: String = "기상"
+    var nick: String = UserDefaults.standard.string(forKey: "userNick")!
     var countTime: Int = 0
     var month: Int = 1
     
@@ -53,7 +53,7 @@ class CalendarVC: UIViewController {
         super.viewDidLoad()
         setView()
         setCalendar()
-        updateCalendar(token: "")
+        updateCalendar(token: UserDefaults.standard.string(forKey: "accesstoken")!)
         // 토큰 넣기(88)
     }
     
