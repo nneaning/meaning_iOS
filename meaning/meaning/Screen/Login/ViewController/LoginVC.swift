@@ -336,7 +336,7 @@ class LoginVC: UIViewController {
                     UserDefaults.standard.setValue(data.refreshToken, forKey: "refreshtoken")
 
                     // userNick, wakeupTime 폰에 저장
-                    if let userNick = data.userNick,
+                    if let userNick = data.nickName,
                        let wakeupTime = data.wakeUpTime {
                         UserDefaults.standard.setValue(userNick, forKey: "userNick")
                         UserDefaults.standard.setValue(wakeupTime, forKey: "wakeUpTime")
@@ -358,20 +358,12 @@ class LoginVC: UIViewController {
                     }
                 }
                 
-            case .requestErr:
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
             case .failure(let error):
                 if (error == 400) {
                     self.idIsInvalid.alpha = 1
                     self.pwIsInvalid.alpha = 1
                 } else {
-                    showToast(message: "네트워크 연결을 확인해주세요.", font: .spoqaMedium(size: 14))
+                    showToast(message: "네트워크 연결을 확인해주세요.", font: .spoqaMedium(size: 16))
                 }
                 
             }

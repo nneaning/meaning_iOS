@@ -11,8 +11,8 @@ class PictureUploadVC: UIViewController {
     
     // MARK: Variable Part
     
-    var userNick: String = "이름"
-    var nthMorning: Int = 22
+    var userNick: String = UserDefaults.standard.string(forKey: "userNick")!
+    var nthMorning: Int = 5
     var uploadedImageData: UIImage? // 서버에다 줄 사진
     var timeToServer: String? // 서버에다 줄 사진 찍을 시간
     
@@ -74,6 +74,7 @@ class PictureUploadVC: UIViewController {
         bodyUpperLabel.font = UIFont.notoRegular(size: 18.0)
         bodyUpperLabel.textColor = UIColor.gray2
         bodyUpperLabel.text = "\(userNick)님의 미라클 모닝을\n꾸준히 기록해 보아요"
+        bodyUpperLabel.numberOfLines = 0
         bodyUpperLabel.lineSetting(kernValue: -0.72, lineSpacing: 5)
         
         uploadedImage.setRounded(radius: 6)
@@ -129,14 +130,7 @@ class PictureUploadVC: UIViewController {
                     self.navigationController?.popToRootViewController(animated: true)
                     // 타임카메라 미션 완료!
                     UserDefaults.standard.setValue(true, forKey: "card0")
-                case .requestErr:
-                    print("requestErr")
-                case .pathErr:
-                    print("pathErr")
-                case .serverErr:
-                    print("serverErr")
-                case .networkFail:
-                    print("networkFail")
+
                 case .failure(let error):
                     print(error)
                 }

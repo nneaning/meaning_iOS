@@ -11,9 +11,9 @@ class CalendarVC: UIViewController {
 
     // MARK: Variable Part
     
-    var calendarDate: [CalendarData] = []
-    var nick: String = "기상"
-    var countTime: Int = 12
+    var calendarDate: CalendarData?
+    var nick: String = UserDefaults.standard.string(forKey: "userNick")!
+    var countTime: Int = 0
     var month: Int = 1
     
     // MARK: IBOutlet
@@ -53,8 +53,8 @@ class CalendarVC: UIViewController {
         super.viewDidLoad()
         setView()
         setCalendar()
-        setList()
-        // Do any additional setup after loading the view.
+        updateCalendar(token: UserDefaults.standard.string(forKey: "accesstoken")!)
+        // 토큰 넣기(88)
     }
     
     override func viewWillLayoutSubviews() {
@@ -76,6 +76,28 @@ extension CalendarVC {
         
         self.view.backgroundColor = .meaningIvory
         
+        setMent()
+        
+        dateButton.makeRounded(cornerRadius: 15)
+        dateButton.setTitle("\(Date().datePickerToString().recordDate()) >", for: .normal)
+        dateButton.titleLabel?.font = UIFont.spoqaRegular(size: 14)
+        dateButton.backgroundColor = .meaningNavy
+        dateButton.setTitleColor(.white, for: .normal)
+    }
+    
+    func setCalendar() {
+        calendarBackView.setRounded(radius: 6)
+        circleView.setRounded(radius: nil)
+        monthLabel.text = "\(month)월"
+        monthLabel.font = UIFont.spoqaRegular(size: 14)
+        monthLabel.textColor = .white
+        calendarCollectionView.dataSource = self
+        calendarCollectionView.delegate = self
+        calendarCollectionView.backgroundColor = .none
+    }
+    
+    func setMent() {
+        // 멘트 설정
         explainLabel.text = "오늘은\n\(nick)님의 \(countTime)번째\n의미있는 아침입니다."
         explainLabel.textColor = .meaningNavy
         explainLabel.font = UIFont.spoqaLight(size: 22)
@@ -93,50 +115,40 @@ extension CalendarVC {
         }
         explainLabel.lineSetting(kernValue: -0.88, lineSpacing: 10)
         explainLabel.textAlignment = .left
-        
-        dateButton.makeRounded(cornerRadius: 15)
-        dateButton.setTitle("<  \(Date().datePickerToString().recordDate())", for: .normal)
-        dateButton.titleLabel?.font = UIFont.spoqaRegular(size: 14)
-        dateButton.backgroundColor = .meaningNavy
-        dateButton.setTitleColor(.white, for: .normal)
     }
     
-    func setCalendar() {
-        calendarBackView.setRounded(radius: 6)
-        circleView.setRounded(radius: nil)
-        monthLabel.text = "\(month)월"
-        monthLabel.font = UIFont.spoqaRegular(size: 14)
-        monthLabel.textColor = .white
-        calendarCollectionView.dataSource = self
-        calendarCollectionView.delegate = self
-        calendarCollectionView.backgroundColor = .none
+    func updateCalendar(token: String) {
+        // 캘린더 데이터 서버에서 연동
+        APIService.shared.calendarDay(token: token) { [self] result in
+                switch result {
+                case .success(let data):
+                    self.calendarDate = data
+                    if let calendarDate = calendarDate {
+                        countTime = calendarDate.successDays
+                        setMent()
+                    }
+                    calendarCollectionView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            }
     }
-    
-    func setList() {
-        for i in 1...12 {
-            calendarDate.append(contentsOf: [
-                CalendarData(index: i, imageName: "starWhite")
-        ])
-        }
-        for j in 13...31 {
-            calendarDate.append(contentsOf: [
-                CalendarData(index: j, imageName: "starBlack")
-        ])
-        }
-    }
+
 }
 
 extension CalendarVC: UICollectionViewDataSource {
     // CollectionView 데이터 넣기
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return calendarDate.count
+        return 31
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let calendarCell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCell.identifier, for: indexPath) as? CalendarCell else {
             return UICollectionViewCell()
         }
-        calendarCell.setCell(calendarDate[indexPath.row])
+        if let calendarDate = calendarDate {
+            calendarCell.setCell(calendarDate.calendar[indexPath.row], indexs: indexPath.row)
+        }
         return calendarCell
     }
 }
@@ -166,4 +178,13 @@ extension CalendarVC: UICollectionViewDelegateFlowLayout {
         return 0
         
     }
+}
+
+extension APIService {
+    
+    func calendarDay(token: String, completion: @escaping (NetworkResult<CalendarData>)->(Void)) {
+        let target: APITarget = .calendarDay(token: token)
+        judgeObject(target, completion: completion)
+    }
+    
 }

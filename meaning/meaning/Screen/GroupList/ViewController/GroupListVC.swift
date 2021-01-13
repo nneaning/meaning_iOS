@@ -31,7 +31,7 @@ class GroupListVC: UIViewController {
     // MARK: - IBOutlet
     
     @IBOutlet var logoView: UIView!
-    @IBOutlet var GroupTableView: UITableView!
+    @IBOutlet var groupTableView: UITableView!
     
     @IBOutlet var headerView: UIView!
     @IBOutlet var myGroupView: UIView!
@@ -66,6 +66,10 @@ class GroupListVC: UIViewController {
         }
         groupFeedTap.hidesBottomBarWhenPushed = true
         groupFeedTap.groupName = myGroupNameLabel.text
+        if let mygroup = groupListData?.myGroup {
+            groupFeedTap.groupNumber = mygroup.groupID // 그룹 아이디 전달
+            groupFeedTap.groupPersonCount = mygroup.countMember // 그룹 멤버 수 전달
+        }
         self.navigationController?.pushViewController(groupFeedTap, animated: true)
         
     }
@@ -88,18 +92,19 @@ class GroupListVC: UIViewController {
         
         setHeader()
         
-        GroupTableView.addSubview(self.refreshControl)
+        groupTableView.addSubview(self.refreshControl)
+        groupTableView.separatorStyle = .none
         
         groupCollectionView.delegate = self
         groupCollectionView.dataSource = self
         
-        GroupTableView.dataSource = self
-        GroupTableView.delegate = self
+        groupTableView.dataSource = self
+        groupTableView.delegate = self
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        groupList(token: "")
+        groupList(token: UserDefaults.standard.string(forKey: "accesstoken")!)
     }
 }
 
@@ -136,10 +141,10 @@ extension GroupListVC {
         
         myGroupCountView.layer.cornerRadius = 5.0
     
+        myGroupCountLabel.text = "3/5"
         myGroupCountLabel.font = UIFont.spoqaMedium(size: 13)
         myGroupCountLabel.textColor = UIColor.meaningNavy
         
-        otherGroupLabel.text = "다른 그룹 구경하기"
         otherGroupLabel.font = UIFont.spoqaMedium(size: 18)
         otherGroupLabel.textColor = UIColor.gray1
     }
@@ -147,47 +152,37 @@ extension GroupListVC {
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         //스크롤 내릴 때 refresh
+        groupList(token: UserDefaults.standard.string(forKey: "accesstoken")!)
+        // 값이 바꼈다면 받아오기 위해 다시 서버 연결
         refreshControl.endRefreshing()
     }
     
-    func groupList (token: String) {
+    func groupList(token: String) {
         APIService.shared.groupList(token: token) { result in
             switch result {
             case .success(let data):
-                
-                guard let loadData = data as? GroupListData else {
-                    return
-                }
-                self.groupListData = loadData
+                self.groupListData = data
                 
                 //my group 유무에 따른 분기 처리
                 if self.groupListData?.myGroup == nil {
                     //내 그룹이 없는 경우
-                    self.noGroupBoxView.isHidden = true
-                    self.myGroupBoxView.isHidden = false
+                    self.noGroupBoxView.isHidden = false
+                    self.myGroupBoxView.isHidden = true
                     
                 } else {
                     //내 그룹이 있는 경우
                     self.myGroupBoxView.isHidden = false
                     self.noGroupBoxView.isHidden = true
                     
-                    self.myGroupNameLabel.text = self.groupListData?.myGroup.groupName
-                    self.myGroupCountLabel.text = "\(self.groupListData?.myGroup.countMember ?? 0)/\(self.groupListData?.myGroup.maximumMemberNumber ?? 0)"
+                    self.myGroupNameLabel.text = self.groupListData?.myGroup?.groupName
+                    self.myGroupCountLabel.text = "\(self.groupListData?.myGroup?.countMember ?? 0)/\(self.groupListData?.myGroup?.maximumMemberNumber ?? 0)"
                 }
                 
                 DispatchQueue.main.async{
                     self.groupCollectionView.reloadData()
-                    self.GroupTableView.reloadData()
+                    self.groupTableView.reloadData()
                 }
                 
-            case .requestErr:
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
             case .failure(_):
                 print("FailureError")
             }
@@ -210,8 +205,7 @@ extension GroupListVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GroupCollectionCell.identifier, for: indexPath) as? GroupCollectionCell else {
             return UICollectionViewCell()
         }
-        //cell.groupImg.image = groupListData?.hasImageGroupList[indexPath.row].imageURL
-        
+    
         cell.setCell()
         
         cell.groupImg.setImage(from: groupListData?.hasImageGroupList[indexPath.row].imageURL ?? "")
@@ -296,6 +290,8 @@ extension GroupListVC: UITableViewDataSource {
         }
         cell.groupName.text = groupListData?.noImageGroupList[indexPath.row].groupName
         cell.peopleCountLabel.text = "\(groupListData?.noImageGroupList[indexPath.row].countMember ?? 0)/\(groupListData?.noImageGroupList[indexPath.row].maximumMemberNumber ?? 0)"
+        
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         return cell
     }

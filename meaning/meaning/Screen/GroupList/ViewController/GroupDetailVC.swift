@@ -33,9 +33,8 @@ class GroupDetailVC: ViewController {
         setBox()
         setLabel()
         setButton()
-        
-        print(">>>", self.groupID)
-        groupDetail(token: "", groupid: self.groupID)
+        groupDetail(token: UserDefaults.standard.string(forKey: "accesstoken")!, groupid: self.groupID)
+
         
     }
     
@@ -51,11 +50,14 @@ class GroupDetailVC: ViewController {
         //현재 View 닫은 후 그룹조인뷰로 이동
         weak var pvc = self.presentingViewController
         
-        self.dismiss(animated: true, completion: {
+        self.dismiss(animated: true, completion: { [self] in
             guard let groupJoinVC = self.storyboard?.instantiateViewController(identifier: "GroupJoinVC")
                     as? GroupJoinVC else {
                 return
             }
+            
+            groupJoinVC.groupID = self.groupDetailData?.groupDetail.groupID ?? ""
+            
             groupJoinVC.modalPresentationStyle = .overCurrentContext
             groupJoinVC.modalTransitionStyle = .coverVertical
             
@@ -110,35 +112,25 @@ extension GroupDetailVC {
     }
     
     func groupDetail(token : String, groupid: Int) {
-        APIService.shared.groupDetail(token : token, groupid: self.groupID) { result in
+        APIService.shared.groupDetail(token: token, groupid: groupid) { result in
             switch result {
             case .success(let data):
-                guard let loadData = data as? GroupDetailData else {
-                    return
-                }
-                self.groupDetailData = loadData
+                
+                self.groupDetailData = data
                 
                 self.groupNameLabel.text = "\(self.groupDetailData?.groupDetail.groupName ?? "그룹이 존재하지 않습니다.")"
                 self.groupInfoLabel.text = "\(self.groupDetailData?.groupDetail.introduction ?? "내용이 없습니다.")"
                 self.peopleNumberLabel.text = "\(self.groupDetailData?.groupDetail.countMember ?? 0)/\(self.groupDetailData?.groupDetail.maximumMemberNumber ?? 0)"
                 
-                if let text = self.peopleNumberLabel.text {
+                if let texts = self.peopleNumberLabel.text {
                     //앞에 숫자 부분에만 색상 다르게 설정
-                    let attributedStr = NSMutableAttributedString(string: self.peopleNumberLabel.text ?? "")
+                    let attributedStr = NSMutableAttributedString(string: texts)
                     
                     attributedStr.addAttribute(.foregroundColor, value: UIColor.skyBlue, range: (self.peopleNumberLabel.text! as NSString).range(of: "\(self.groupDetailData?.groupDetail.countMember ?? 0)"))
                     
                     self.peopleNumberLabel.attributedText = attributedStr
                 }
                 
-            case .requestErr:
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
             case .failure(_):
                 print("FailureError")
             }

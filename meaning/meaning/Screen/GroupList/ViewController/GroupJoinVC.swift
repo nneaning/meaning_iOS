@@ -9,6 +9,9 @@ import UIKit
 
 class GroupJoinVC: ViewController {
     
+    var groupID: String = ""
+    var simpleData: SimpleData?
+    
     // MARK: - IBOutlet
     
     @IBOutlet var popUpBoxView: UIView!
@@ -23,6 +26,10 @@ class GroupJoinVC: ViewController {
         setButton()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        groupJoin(token: UserDefaults.standard.string(forKey: "accesstoken")!, groupId: Int(self.groupID) ?? -1)
+    }
+    
     // MARK: - IBAction
     
     @IBAction func backBtnDidTap(_ sender: Any) {
@@ -32,7 +39,7 @@ class GroupJoinVC: ViewController {
     
 }
 
-    // MARK: - Extension
+// MARK: - Extension
 
 extension GroupJoinVC {
     
@@ -44,26 +51,7 @@ extension GroupJoinVC {
         groupStatusLabel.font = UIFont.spoqaMedium(size: 18)
         groupStatusLabel.textColor = UIColor.gray2
         groupStatusLabel.lineSetting(kernValue: -0.72)
-        
-        //그룹 상태에 따른 groupStatusLabel
-        NotificationCenter.default.addObserver(self, selector: #selector(enterGroup), name: NSNotification.Name(rawValue: "enterGroupredRoom"), object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(alreadyGroup), name: NSNotification.Name(rawValue: "alreadyGroup"), object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(packedGroup), name: NSNotification.Name(rawValue: "packedGroup"), object: nil)
     }
-    
-    @objc func enterGroup() {
-        groupStatusLabel.text = "그룹 참가가 완료되었습니다."
-    }
-    @objc func alreadyGroup() {
-        groupStatusLabel.text = "이미 함께 하고 있는 그룹이 있어요!"
-    }
-    
-    @objc func packedGroup() {
-        groupStatusLabel.text = "그룹 참가 가능 인원을 초과했어요."
-    }
-    
     
     func setButton() {
         //버튼 폰트, 색상 설정
@@ -73,4 +61,45 @@ extension GroupJoinVC {
         okBtn.titleLabel?.font = UIFont.spoqaMedium(size: 15)
         okBtn.setTitleColor(UIColor.meaningWhite, for: .normal)
     }
+    
+    func groupJoin(token : String, groupId: Int) {
+        APIService.shared.groupJoin(token: token, groupId: groupId) { [self] result in
+            switch result {
+            case .success(let data):
+                guard let loadData = data as? SimpleData else {
+                    return
+                }
+                self.simpleData = loadData
+                self.groupStatusLabel.text = "그룹 참가가 완료되었습니다."
+                
+            case .failure(let error):
+                print("FailureError")
+                
+                if (error == 406) {
+                    self.groupStatusLabel.text = "그룹 참가 가능 인원을 초과했어요."
+                } else {
+                    self.groupStatusLabel.text = "이미 함께 하고 있는 그룹이 있어요!"
+                }
+                
+            }
+        }
+    }
+    
+    
 }
+
+
+// MARK: - APIService Extension
+
+extension APIService {
+    
+    func groupJoin(token: String, groupId: Int, completion: @escaping (NetworkResult<Any>)->(Void)) {
+        
+        let target: APITarget = .groupJoin(token: token, groupId: groupId)
+        
+        judgeSimpleObject(target, completion: completion)
+    }
+}
+
+
+

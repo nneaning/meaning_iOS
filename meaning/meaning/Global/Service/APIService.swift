@@ -38,7 +38,7 @@ struct APIService {
                         completion(.success(data))
                     }
                 } catch {
-                    completion(.pathErr)
+//                    completion(.pathErr)
                 }
             case .failure(let error):
                 completion(.failure(error.response!.statusCode))
@@ -56,7 +56,7 @@ struct APIService {
                     let body = try decoder.decode(SimpleData.self, from: result.data)
                     completion(.success(body))
                 } catch {
-                    completion(.pathErr)
+//                    completion(.pathErr)
                 }
             case .failure(let error):
                 completion(.failure(error.response!.statusCode))

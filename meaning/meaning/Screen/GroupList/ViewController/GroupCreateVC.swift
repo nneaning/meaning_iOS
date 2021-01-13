@@ -9,6 +9,8 @@ import UIKit
 
 class GroupCreateVC: UIViewController {
     
+    var groupCreateData: GroupCreateData?
+    
     //MARK: - IBOutlet
     
     @IBOutlet var backBtn: UIButton!
@@ -73,14 +75,14 @@ class GroupCreateVC: UIViewController {
                 if infoTextView.text.isEmpty || infoTextView.text == "그룹을 자유롭게 소개해주세요!" {
                     self.showToast(message: "내용을 입력해주세요!", font: UIFont.spoqaRegular(size: 15))
                 } else {
-                    //다음 뷰로 이동
-                    guard let groupCompleteVC = self.storyboard?.instantiateViewController(identifier: "GroupCompleteVC") as? GroupCompleteVC else {
-                        return
-                    }
-                    self.navigationController?.pushViewController(groupCompleteVC, animated: true)
+                    
                 }
+                
             }
+            
+            groupCreate(token: UserDefaults.standard.string(forKey: "accesstoken")!, groupName: nameTextField.text ?? "", maximumMemberNumber: Int(countTextField.text ?? "") ?? 0, introduction: infoTextView.text ?? "")
         }
+        
         
     }
     
@@ -147,7 +149,7 @@ extension GroupCreateVC {
         createBtn.setTitleColor(UIColor.meaningWhite, for: .normal)
         
     }
-    
+
 }
 
 extension GroupCreateVC: UITextFieldDelegate {
@@ -199,8 +201,8 @@ extension GroupCreateVC: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        // TextView Place Holder
-        if (infoTextView.text == "") {
+        
+        if infoTextView.text == "" {
             infoTextView.text = "그룹을 자유롭게 소개해주세요!"
             infoTextView.textColor = UIColor.gray4
         }
@@ -216,6 +218,41 @@ extension GroupCreateVC: UITextViewDelegate {
         }
         return true
     }
+    
+    func groupCreate(token: String,groupName: String, maximumMemberNumber: Int, introduction: String) {
+        APIService.shared.groupCreate(token: token, groupName: groupName, maximumMemberNumber: maximumMemberNumber,
+                                      introduction: introduction) { result in
+            switch result {
+            case .success(let data):
+                self.groupCreateData = data
+                
+                
+                guard let groupCompleteVC = self.storyboard?.instantiateViewController(identifier: "GroupCompleteVC") as? GroupCompleteVC else {
+                    return
+                }
+                self.navigationController?.pushViewController(groupCompleteVC, animated: true)
+                
+                
+            case .failure(_):
+                print("FailureError")
+                
+            }
+            
+        }
+    }
 }
 
 
+
+// MARK: - APIService Extension
+
+extension APIService {
+    
+    func groupCreate(token: String, groupName: String, maximumMemberNumber: Int, introduction: String, completion: @escaping (NetworkResult<GroupCreateData>)->(Void)) {
+        
+        let target: APITarget = .groupMake(token: token, groupName: groupName, maximumMemberNumber: maximumMemberNumber, introduction: introduction)
+        
+        judgeObject(target, completion: completion)
+    }
+    
+}

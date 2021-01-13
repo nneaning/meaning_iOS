@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="82q-1U-28c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="82q-1U-28c">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,7 +31,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2aS-RI-aGI">
-                                <rect key="frame" x="0.0" y="99" width="414" height="763"/>
+                                <rect key="frame" x="0.0" y="99" width="414" height="753"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="79R-Db-YC7">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
@@ -40,8 +40,8 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ChA-DV-8QK">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="168"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuH-rm-wqR">
-                                                    <rect key="frame" x="16" y="22" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 그룹" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuH-rm-wqR">
+                                                    <rect key="frame" x="16" y="22" width="49" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -57,8 +57,8 @@
                                                         <action selector="goToGroupCreate:" destination="Jgf-yZ-bus" eventType="touchUpInside" id="saw-D3-HlW"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ii6-LC-A4L">
-                                                    <rect key="frame" x="322" y="24" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="그룹 생성" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ii6-LC-A4L">
+                                                    <rect key="frame" x="300" y="24" width="64" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -100,8 +100,8 @@
                                                                 <action selector="goToMyGroupFeed:" destination="Jgf-yZ-bus" eventType="touchUpInside" id="cSM-cF-36S"/>
                                                             </connections>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaB-dC-XEa">
-                                                            <rect key="frame" x="30" y="19.5" width="42" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="넹면을 사랑하는 모임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaB-dC-XEa">
+                                                            <rect key="frame" x="30" y="19.5" width="142" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -109,8 +109,8 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1XY-MH-xZg">
                                                             <rect key="frame" x="304" y="15" width="50" height="30"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oja-YQ-V68">
-                                                                    <rect key="frame" x="4" y="4.5" width="42" height="21"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3/5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oja-YQ-V68">
+                                                                    <rect key="frame" x="12" y="4.5" width="26" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -167,8 +167,8 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rda-iK-jBn">
                                             <rect key="frame" x="0.0" y="168" width="414" height="22"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNk-2n-6cQ">
-                                                    <rect key="frame" x="16" y="0.0" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다른 그룹 구경하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNk-2n-6cQ">
+                                                    <rect key="frame" x="16" y="0.0" width="127" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -200,26 +200,26 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="217" height="182"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_card1_img" translatesAutoresizingMaskIntoConstraints="NO" id="e7v-vl-mJ1">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_card1_img" translatesAutoresizingMaskIntoConstraints="NO" id="e7v-vl-mJ1">
                                                                 <rect key="frame" x="0.0" y="0.0" width="217" height="106"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="106" id="AYP-a0-bjN"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fh7-yR-7jg">
-                                                                <rect key="frame" x="87.5" y="123" width="42" height="21"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7명이 함께 하고 있어요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fh7-yR-7jg">
+                                                                <rect key="frame" x="28.5" y="123" width="160" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRx-HB-O7P">
-                                                                <rect key="frame" x="87.5" y="48" width="42" height="21"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서울 대학생 넹면 모임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRx-HB-O7P">
+                                                                <rect key="frame" x="35.5" y="48" width="146" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EB1-ZH-hAD">
-                                                                <rect key="frame" x="157" y="151" width="42" height="21"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금 참여하기 &gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EB1-ZH-hAD">
+                                                                <rect key="frame" x="91" y="151" width="108" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -271,8 +271,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jg-O7-BF1">
-                                                    <rect key="frame" x="30" y="22" width="42" height="32"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미닝 iOS 최고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jg-O7-BF1">
+                                                    <rect key="frame" x="30" y="22" width="95" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -280,8 +280,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snN-hi-vOQ">
                                                     <rect key="frame" x="333" y="18" width="58" height="35"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1p2-kI-y2T">
-                                                            <rect key="frame" x="8" y="7" width="42" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3/3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1p2-kI-y2T">
+                                                            <rect key="frame" x="16" y="7" width="26" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -294,13 +294,20 @@
                                                         <constraint firstItem="1p2-kI-y2T" firstAttribute="centerY" secondItem="snN-hi-vOQ" secondAttribute="centerY" id="luN-X2-OIr"/>
                                                     </constraints>
                                                 </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNA-lW-SFW">
+                                                    <rect key="frame" x="0.0" y="72" width="414" height="1"/>
+                                                    <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="8jg-O7-BF1" secondAttribute="bottom" constant="19" id="B5R-ui-MVd"/>
+                                                <constraint firstAttribute="bottom" secondItem="BNA-lW-SFW" secondAttribute="bottom" id="35Y-UF-2po"/>
                                                 <constraint firstItem="8jg-O7-BF1" firstAttribute="leading" secondItem="nE3-TQ-9p3" secondAttribute="leading" constant="30" id="BwC-bj-8Zt"/>
+                                                <constraint firstAttribute="trailing" secondItem="BNA-lW-SFW" secondAttribute="trailing" id="NWR-oV-SUm"/>
                                                 <constraint firstAttribute="trailing" secondItem="snN-hi-vOQ" secondAttribute="trailing" constant="23" id="Sfh-Ao-FGc"/>
                                                 <constraint firstItem="snN-hi-vOQ" firstAttribute="top" secondItem="nE3-TQ-9p3" secondAttribute="top" constant="18" id="Wrk-er-otg"/>
                                                 <constraint firstItem="8jg-O7-BF1" firstAttribute="top" secondItem="nE3-TQ-9p3" secondAttribute="top" constant="22" id="lFu-Ff-Xnz"/>
+                                                <constraint firstItem="BNA-lW-SFW" firstAttribute="leading" secondItem="nE3-TQ-9p3" secondAttribute="leading" id="sZY-q5-4QJ"/>
+                                                <constraint firstItem="BNA-lW-SFW" firstAttribute="top" secondItem="8jg-O7-BF1" secondAttribute="bottom" constant="29.5" id="swz-3f-1SF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
@@ -308,6 +315,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="groupName" destination="8jg-O7-BF1" id="qAx-QR-z31"/>
+                                            <outlet property="lineView" destination="BNA-lW-SFW" id="uVt-Ew-KyV"/>
                                             <outlet property="numberView" destination="snN-hi-vOQ" id="zl4-bH-HBE"/>
                                             <outlet property="peopleCountLabel" destination="1p2-kI-y2T" id="2rz-2D-ava"/>
                                         </connections>
@@ -323,16 +331,16 @@
                             <constraint firstItem="2aS-RI-aGI" firstAttribute="top" secondItem="UK8-UK-rIm" secondAttribute="bottom" id="Yqf-j8-D1J"/>
                             <constraint firstItem="2aS-RI-aGI" firstAttribute="leading" secondItem="YQq-D8-iJo" secondAttribute="leading" id="ai4-yq-shu"/>
                             <constraint firstItem="UK8-UK-rIm" firstAttribute="leading" secondItem="YQq-D8-iJo" secondAttribute="leading" id="ljr-Aw-s4B"/>
-                            <constraint firstItem="YQq-D8-iJo" firstAttribute="bottom" secondItem="2aS-RI-aGI" secondAttribute="bottom" id="xvT-oV-9UO"/>
+                            <constraint firstItem="YQq-D8-iJo" firstAttribute="bottom" secondItem="2aS-RI-aGI" secondAttribute="bottom" constant="10" id="xvT-oV-9UO"/>
                             <constraint firstItem="UK8-UK-rIm" firstAttribute="trailing" secondItem="YQq-D8-iJo" secondAttribute="trailing" id="yY2-4l-m40"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lrZ-Qg-tpF"/>
                     <connections>
-                        <outlet property="GroupTableView" destination="2aS-RI-aGI" id="Rnh-VL-tkW"/>
                         <outlet property="groupAddBtn" destination="DBP-LH-asB" id="flH-Ap-X7R"/>
                         <outlet property="groupAddLabel" destination="ii6-LC-A4L" id="x8N-xP-Gkf"/>
                         <outlet property="groupCollectionView" destination="NMt-DS-IvW" id="bre-b6-bUz"/>
+                        <outlet property="groupTableView" destination="2aS-RI-aGI" id="Rnh-VL-tkW"/>
                         <outlet property="headerView" destination="79R-Db-YC7" id="nf3-nu-Euh"/>
                         <outlet property="logoView" destination="UK8-UK-rIm" id="KBh-8k-LWO"/>
                         <outlet property="myGroupArrowImg" destination="OOC-No-MzK" id="B23-3N-I1z"/>
@@ -746,6 +754,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

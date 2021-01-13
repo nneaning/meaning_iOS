@@ -33,7 +33,7 @@ class GroupFeedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
-        uploadGroupFeed("토큰",groupNumber)
+        uploadGroupFeed(UserDefaults.standard.string(forKey: "accesstoken")!,groupNumber)
         // 토큰넣기(88)
     }
     
@@ -117,14 +117,7 @@ extension GroupFeedVC {
                             groupFeedCollectionView.reloadData()
                         }
                     }
-                case .requestErr:
-                    print("requestErr")
-                case .pathErr:
-                    print("pathErr")
-                case .serverErr:
-                    print("serverErr")
-                case .networkFail:
-                    print("networkFail")
+
                 case .failure(let error):
                     print(error)
                 }
