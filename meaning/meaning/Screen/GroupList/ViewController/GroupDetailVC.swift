@@ -33,8 +33,8 @@ class GroupDetailVC: ViewController {
         setBox()
         setLabel()
         setButton()
-        
         groupDetail(token: UserDefaults.standard.string(forKey: "accesstoken")!, groupid: self.groupID)
+
         
     }
     

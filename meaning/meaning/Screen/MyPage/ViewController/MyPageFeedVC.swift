@@ -159,7 +159,7 @@ class MyPageFeedVC: UIViewController {
                     }
                     self.feedCollectionView.reloadData()
 
-                case .failure(let error):
+                case .failure(_):
                     print("FailureError")
                 }
             }

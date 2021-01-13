@@ -90,7 +90,7 @@ class LaunchScreenVC: UIViewController {
             switch result {
             
             case .success(let data):
-                self.refreshtokenData = data as? RefreshtokenData
+                self.refreshtokenData = data
                 // 200 : 새롭게 발급되는 accessToken, refreshToken 폰에 저장
                 if let data = self.refreshtokenData {
                     UserDefaults.standard.setValue(data.accessToken, forKey: "accesstoken")
