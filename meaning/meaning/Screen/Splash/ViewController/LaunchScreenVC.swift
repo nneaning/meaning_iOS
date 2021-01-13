@@ -96,14 +96,6 @@ class LaunchScreenVC: UIViewController {
                 tabBarVC.modalPresentationStyle = .fullScreen
                 self.present(tabBarVC, animated: true, completion: nil)
 
-            case .requestErr:
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
             case .failure(let error):
                 // 400, 401: login 뷰로 이동
                 if ((400...401).contains(error)){
