@@ -151,14 +151,15 @@ extension GroupListVC {
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         //스크롤 내릴 때 refresh
+        groupList(token: UserDefaults.standard.string(forKey: "accesstoken")!)
+        // 값이 바꼈다면 받아오기 위해 다시 서버 연결
         refreshControl.endRefreshing()
     }
     
-    func groupList (token: String) {
+    func groupList(token: String) {
         APIService.shared.groupList(token: token) { result in
             switch result {
             case .success(let data):
-                
                 self.groupListData = data
                 
                 //my group 유무에 따른 분기 처리
