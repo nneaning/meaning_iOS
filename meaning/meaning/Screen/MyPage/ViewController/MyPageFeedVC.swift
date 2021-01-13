@@ -155,7 +155,7 @@ class MyPageFeedVC: UIViewController {
                 case .success(let data):
                     self.mypageData = data
                     if let mypage = self.mypageData?.getMyPage {
-                        self.feedHeaderLabel.text = "오늘은 365일 중에 \(mypage.count)번째 의미있는 아침입니다."
+                        self.feedHeaderLabel.text = "오늘은 365일 중에 \(mypage.count + 1)번째 의미있는 아침입니다."
                     }
                     self.feedCollectionView.reloadData()
 
