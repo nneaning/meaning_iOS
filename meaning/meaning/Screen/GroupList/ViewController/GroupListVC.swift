@@ -31,7 +31,7 @@ class GroupListVC: UIViewController {
     // MARK: - IBOutlet
     
     @IBOutlet var logoView: UIView!
-    @IBOutlet var GroupTableView: UITableView!
+    @IBOutlet var groupTableView: UITableView!
     
     @IBOutlet var headerView: UIView!
     @IBOutlet var myGroupView: UIView!
@@ -92,18 +92,19 @@ class GroupListVC: UIViewController {
         
         setHeader()
         
-        GroupTableView.addSubview(self.refreshControl)
+        groupTableView.addSubview(self.refreshControl)
+        groupTableView.separatorStyle = .none
         
         groupCollectionView.delegate = self
         groupCollectionView.dataSource = self
         
-        GroupTableView.dataSource = self
-        GroupTableView.delegate = self
+        groupTableView.dataSource = self
+        groupTableView.delegate = self
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        groupList(token: "")
+        groupList(token: UserDefaults.standard.string(forKey: "accesstoken")!)
     }
 }
 
@@ -151,18 +152,16 @@ extension GroupListVC {
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         //스크롤 내릴 때 refresh
+        groupList(token: UserDefaults.standard.string(forKey: "accesstoken")!)
+        // 값이 바꼈다면 받아오기 위해 다시 서버 연결
         refreshControl.endRefreshing()
     }
     
-    func groupList (token: String) {
+    func groupList(token: String) {
         APIService.shared.groupList(token: token) { result in
             switch result {
             case .success(let data):
-                
-                guard let loadData = data as? GroupListData else {
-                    return
-                }
-                self.groupListData = loadData
+                self.groupListData = data
                 
                 //my group 유무에 따른 분기 처리
                 if self.groupListData?.myGroup == nil {
@@ -181,7 +180,7 @@ extension GroupListVC {
                 
                 DispatchQueue.main.async{
                     self.groupCollectionView.reloadData()
-                    self.GroupTableView.reloadData()
+                    self.groupTableView.reloadData()
                 }
                 
             case .failure(_):
@@ -291,6 +290,8 @@ extension GroupListVC: UITableViewDataSource {
         }
         cell.groupName.text = groupListData?.noImageGroupList[indexPath.row].groupName
         cell.peopleCountLabel.text = "\(groupListData?.noImageGroupList[indexPath.row].countMember ?? 0)/\(groupListData?.noImageGroupList[indexPath.row].maximumMemberNumber ?? 0)"
+        
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         return cell
     }

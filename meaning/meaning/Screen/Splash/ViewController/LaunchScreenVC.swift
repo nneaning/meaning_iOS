@@ -43,8 +43,18 @@ class LaunchScreenVC: UIViewController {
                            loopMode: LottieLoopMode.playOnce,
                            completion: { (finished) in
                             if finished {
-                                
-                                self.checkToken()
+                                if (UserDefaults.standard.string(forKey: "userNick") != nil) {
+                                    // 온보딩 설정이 존재하면?
+                                    self.checkToken()
+                                } else {
+                                    // 로그인 뷰로 이동
+                                    let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+                                    let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                                    loginViewController.modalTransitionStyle = .crossDissolve
+                                    loginViewController.modalPresentationStyle = .fullScreen
+                                    self.present(loginViewController, animated: true, completion: nil)
+                                    
+                                }
                                 
                             } else {
                                 print("Animation cancelled")
@@ -80,7 +90,7 @@ class LaunchScreenVC: UIViewController {
             switch result {
             
             case .success(let data):
-                self.refreshtokenData = data as? RefreshtokenData
+                self.refreshtokenData = data
                 // 200 : 새롭게 발급되는 accessToken, refreshToken 폰에 저장
                 if let data = self.refreshtokenData {
                     UserDefaults.standard.setValue(data.accessToken, forKey: "accesstoken")
