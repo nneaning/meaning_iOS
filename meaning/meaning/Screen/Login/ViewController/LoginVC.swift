@@ -358,14 +358,6 @@ class LoginVC: UIViewController {
                     }
                 }
                 
-            case .requestErr:
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
             case .failure(let error):
                 if (error == 400) {
                     self.idIsInvalid.alpha = 1
