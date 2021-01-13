@@ -103,7 +103,7 @@ class GroupListVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        groupList(token: "")
+        groupList(token: UserDefaults.standard.string(forKey: "accesstoken")!)
     }
 }
 
@@ -159,10 +159,7 @@ extension GroupListVC {
             switch result {
             case .success(let data):
                 
-                guard let loadData = data as? GroupListData else {
-                    return
-                }
-                self.groupListData = loadData
+                self.groupListData = data
                 
                 //my group 유무에 따른 분기 처리
                 if self.groupListData?.myGroup == nil {
