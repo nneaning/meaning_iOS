@@ -86,7 +86,6 @@ class DailyDiaryVC: UIViewController {
     }
     
     func dailydiary(token: String, diaryContents: String){
-        print("dialydiary function 접근")
         APIService.shared.dailydiary(token, diaryContents) {
             result in
             switch result {
@@ -166,11 +165,8 @@ extension DailyDiaryVC: UITextViewDelegate {
 extension APIService {
     
     func dailydiary(_ token: String, _ diaryContents: String, completion: @escaping (NetworkResult<DailydiaryData>)->(Void)) {
-        print("apiservice extension")
-        
         let target: APITarget = .dailydiary(token: token, diaryContents: diaryContents)
         judgeObject(target, completion: completion)
-        print(target)
     }
 }
 
