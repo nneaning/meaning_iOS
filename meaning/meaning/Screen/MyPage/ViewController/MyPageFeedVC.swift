@@ -12,7 +12,7 @@ class MyPageFeedVC: UIViewController {
     // MARK: Variable Part
     
     let randomProfile = Int.random(in: 0...1)
-    var userNick: String = "이기상"
+    var userNick: String = UserDefaults.standard.string(forKey: "userNick")!
     var wakeUpTimeText: String = ""
     var mypageData: MypageData? // 서버 구조체 생성
     
@@ -49,7 +49,7 @@ class MyPageFeedVC: UIViewController {
         setLayout()
         setCollectionView()
         setRefresh()
-        loadMypage(token: "")
+        loadMypage(token: UserDefaults.standard.string(forKey: "accesstoken")!)
         // 토큰 넣어줘야함(88)
 
     }
@@ -107,7 +107,7 @@ class MyPageFeedVC: UIViewController {
         self.userNameLabel.textColor = .gray1
         self.userNameLabel.lineSetting(kernValue: -0.64)
 
-        wakeUpTimeText = dateConverter(dateData: "09:50:00")
+        wakeUpTimeText = dateConverter(dateData: UserDefaults.standard.string(forKey: "wakeUpTime")!)
         self.userWakeTimeLabel.text = wakeUpTimeText
 
         if (wakeUpTimeText == "시간 설정을 해주세요.") {
