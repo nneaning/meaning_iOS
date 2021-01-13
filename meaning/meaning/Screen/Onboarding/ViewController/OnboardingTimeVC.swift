@@ -161,14 +161,7 @@ extension OnboardingTimeVC {
                         }
                         self.navigationController?.pushViewController(endVC, animated: true)
                     }
-                case .requestErr:
-                    print("requestErr")
-                case .pathErr:
-                    print("pathErr")
-                case .serverErr:
-                    print("serverErr")
-                case .networkFail:
-                    print("networkFail")
+
                 case .failure(let error):
                     print("FailureError")
                 }
