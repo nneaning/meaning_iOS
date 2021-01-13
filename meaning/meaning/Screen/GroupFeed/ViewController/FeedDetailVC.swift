@@ -12,6 +12,8 @@ class FeedDetailVC: UIViewController {
     // MARK: Variable Part
     
     var feedDetailList: [FeedDetail] = []
+    var feedDetailMyPage: [GetMyPage]? // 마이페이지에서 넘겨 받을 배열
+    var feedDetailGroup: [GroupFeedData]? // 그룹에서 넘겨받을 배열
     var sloganMent: String?
     var groupName: String?
     var indexScroll: IndexPath?
@@ -40,7 +42,7 @@ class FeedDetailVC: UIViewController {
     
     override func viewWillLayoutSubviews() {
         if let indexScroll = indexScroll {
-            self.feedDetailTableView.scrollToRow(at: indexScroll, at: .top, animated: false)
+            self.feedDetailTableView.scrollToRow(at: indexScroll, at: .middle, animated: false)
             // 클릭한 인덱스 위치로 이동
         }
     }
@@ -93,7 +95,13 @@ extension FeedDetailVC {
 
 extension FeedDetailVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return feedDetailList.count
+        if let feedDetailMyPage = feedDetailMyPage { // 마이피드에서 왔다면?
+            return feedDetailMyPage.count
+        }
+        if let feedDetailGroup = feedDetailGroup { // 그룹에서 왔다면?
+            return feedDetailGroup.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,7 +112,14 @@ extension FeedDetailVC: UITableViewDataSource {
             return UITableViewCell()
             
         }
-        feedDetailCell.setData(nick: feedDetailList[indexPath.row].nick, writeTime: feedDetailList[indexPath.row].writeTime, wakeupTime: dateConverter(dateData: feedDetailList[indexPath.row].wakeupTime), context: feedDetailList[indexPath.row].context, uploadImageName: feedDetailList[indexPath.row].timeStamp, index: indexPath.row % 2)
+        if let feedDetailMyPage = feedDetailMyPage {
+            // 마이피드를 처리해주기
+            feedDetailCell.setData(nick: UserDefaults.standard.string(forKey: "userNick")!, writeTime: feedDetailMyPage[indexPath.row].createdAt, wakeupTime: dateConverter(dateData: UserDefaults.standard.string(forKey: "wakeUpTime")!), context: feedDetailMyPage[indexPath.row].timeStampContents, uploadImageName: feedDetailMyPage[indexPath.row].timeStampImageURL, index: indexPath.row)
+        }
+        if let feedDetailGroup = feedDetailGroup {
+            // 그룹을 처리해주기
+            feedDetailCell.setData(nick: feedDetailGroup[indexPath.row].user.nickName, writeTime: feedDetailGroup[indexPath.row].createdAt, wakeupTime: dateConverter(dateData: feedDetailGroup[indexPath.row].user.wakeUpTime), context: feedDetailGroup[indexPath.row].timeStampContents, uploadImageName: feedDetailGroup[indexPath.row].timeStampImageURL, index: indexPath.row)
+        }
         return feedDetailCell
     }
     
