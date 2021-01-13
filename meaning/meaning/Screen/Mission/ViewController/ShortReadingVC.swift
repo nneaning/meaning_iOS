@@ -36,10 +36,14 @@ class ShortReadingVC: UIViewController {
     @IBAction func registerBtnPressed(_ sender: UIButton) {
         if (bookReviewTextView.text.isEmpty || bookReviewTextView.text == reviewPlaceholder) {
             self.showToast(message: "한줄평을 입력해주세요", font: UIFont.spoqaRegular(size: 16))
-        } else if((bookTitleTextField.text?.isEmpty) != nil){
+        } else if((bookTitleTextField.text?.isEmpty) == nil){
             self.showToast(message: "책 제목을 입력해주세요", font: UIFont.spoqaRegular(size: 16))
         } else {
+            // 모두 값이 잘 들어가져 있다면 서버통신 시작
             bookreview(token: (UserDefaults.standard.string(forKey: "accesstoken") ?? ""), bookTitle: bookTitleTextField.text ?? "", bookCommentContents: bookReviewTextView.text ?? "")
+            
+            // Test 용 토큰 입력
+//            bookreview(token: "[토큰]", bookTitle: bookTitleTextField.text ?? "", bookCommentContents: bookReviewTextView.text ?? "")
         }
     }
     
