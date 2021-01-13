@@ -136,10 +136,10 @@ extension GroupListVC {
         
         myGroupCountView.layer.cornerRadius = 5.0
     
+        myGroupCountLabel.text = "3/5"
         myGroupCountLabel.font = UIFont.spoqaMedium(size: 13)
         myGroupCountLabel.textColor = UIColor.meaningNavy
         
-        otherGroupLabel.text = "다른 그룹 구경하기"
         otherGroupLabel.font = UIFont.spoqaMedium(size: 18)
         otherGroupLabel.textColor = UIColor.gray1
     }
@@ -151,7 +151,7 @@ extension GroupListVC {
     }
     
     func groupList (token: String) {
-        APIService.shared.groupList(token: token) { result in
+        APIService.shared.groupList(token: "") { result in
             switch result {
             case .success(let data):
                 
@@ -163,16 +163,16 @@ extension GroupListVC {
                 //my group 유무에 따른 분기 처리
                 if self.groupListData?.myGroup == nil {
                     //내 그룹이 없는 경우
-                    self.noGroupBoxView.isHidden = true
-                    self.myGroupBoxView.isHidden = false
+                    self.noGroupBoxView.isHidden = false
+                    self.myGroupBoxView.isHidden = true
                     
                 } else {
                     //내 그룹이 있는 경우
                     self.myGroupBoxView.isHidden = false
                     self.noGroupBoxView.isHidden = true
                     
-                    self.myGroupNameLabel.text = self.groupListData?.myGroup.groupName
-                    self.myGroupCountLabel.text = "\(self.groupListData?.myGroup.countMember ?? 0)/\(self.groupListData?.myGroup.maximumMemberNumber ?? 0)"
+                    self.myGroupNameLabel.text = self.groupListData?.myGroup?.groupName
+                    self.myGroupCountLabel.text = "\(self.groupListData?.myGroup?.countMember ?? 0)/\(self.groupListData?.myGroup?.maximumMemberNumber ?? 0)"
                 }
                 
                 DispatchQueue.main.async{
@@ -210,8 +210,7 @@ extension GroupListVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GroupCollectionCell.identifier, for: indexPath) as? GroupCollectionCell else {
             return UICollectionViewCell()
         }
-        //cell.groupImg.image = groupListData?.hasImageGroupList[indexPath.row].imageURL
-        
+    
         cell.setCell()
         
         cell.groupImg.setImage(from: groupListData?.hasImageGroupList[indexPath.row].imageURL ?? "")
