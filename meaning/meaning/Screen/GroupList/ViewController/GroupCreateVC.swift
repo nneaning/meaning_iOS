@@ -80,7 +80,7 @@ class GroupCreateVC: UIViewController {
                 
             }
             
-            groupCreate(token: "", groupName: nameTextField.text ?? "", maximumMemberNumber: Int(countTextField.text ?? "") ?? 0, introduction: infoTextView.text ?? "")
+            groupCreate(token: UserDefaults.standard.string(forKey: "accesstoken")!, groupName: nameTextField.text ?? "", maximumMemberNumber: Int(countTextField.text ?? "") ?? 0, introduction: infoTextView.text ?? "")
         }
         
         
