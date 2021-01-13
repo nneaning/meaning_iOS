@@ -184,14 +184,6 @@ extension GroupListVC {
                     self.GroupTableView.reloadData()
                 }
                 
-            case .requestErr:
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
             case .failure(_):
                 print("FailureError")
             }

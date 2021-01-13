@@ -158,14 +158,7 @@ class MyPageFeedVC: UIViewController {
                         self.feedHeaderLabel.text = "오늘은 365일 중에 \(mypage.count)번째 의미있는 아침입니다."
                     }
                     self.feedCollectionView.reloadData()
-                case .requestErr:
-                    print("requestErr")
-                case .pathErr:
-                    print("pathErr")
-                case .serverErr:
-                    print("serverErr")
-                case .networkFail:
-                    print("networkFail")
+
                 case .failure(let error):
                     print("FailureError")
                 }
