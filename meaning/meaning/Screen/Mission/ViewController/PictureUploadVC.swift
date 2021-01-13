@@ -10,7 +10,7 @@ import UIKit
 class PictureUploadVC: UIViewController {
     
     // MARK: Variable Part
-    
+    var myGroupData: MyGroupData?
     var userNick: String = "이름"
     var nthMorning: Int = 22
     var uploadedImageData: UIImage? // 서버에다 줄 사진
@@ -48,6 +48,7 @@ class PictureUploadVC: UIViewController {
            let uploadedImageData = uploadedImageData {
             // 서버 통신
             uploadPictrue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiLquYDrr7ztnawiLCJpYXQiOjE2MTA1MzQ2MjAsImV4cCI6MTYxMjM0OTAyMCwiaXNzIjoiU2VydmVyQmFkIn0.jq9q6kBfRU48c5Iw6SdsTdyo03T4zRQzRRiAwskQBg8", timeToServer, bodyTextView.text, uploadedImageData)
+            
             // 토큰 삽입 필수!(88)
         }
         
@@ -59,6 +60,8 @@ class PictureUploadVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayout()
+        updateGroup("")
+        // 토큰 넣기(88)
         
     }
     
@@ -97,7 +100,7 @@ class PictureUploadVC: UIViewController {
         uploadBtn.setTitleColor(.meaningWhite, for: .normal)
         uploadBtn.titleLabel?.font = UIFont.spoqaMedium(size: 16)
         uploadBtn.titleLabel?.lineSetting(kernValue: -0.64)
-        uploadBtn.setTitle("그룹에 사진올리기", for: .normal)
+        uploadBtn.setTitle("마이피드에 사진올리기", for: .normal)
         uploadBtn.setRounded(radius: 6)
         
         //SE의 경우에는 constraint 조정
@@ -130,6 +133,17 @@ class PictureUploadVC: UIViewController {
                     // 타임카메라 미션 완료!
                     UserDefaults.standard.setValue(true, forKey: "card0")
 
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
+    func updateGroup(_ token: String) {
+        APIService.shared.myGroup(token) { [self] result in
+                switch result {
+                case .success(_):
+                    uploadBtn.setTitle("그룹에 사진 올리기", for: .normal)
                 case .failure(let error):
                     print(error)
                 }
