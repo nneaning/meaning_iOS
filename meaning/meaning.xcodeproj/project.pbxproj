@@ -94,6 +94,7 @@
 		9BEA213C25A8304500F240E5 /* FeedDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA213B25A8304500F240E5 /* FeedDetailVC.swift */; };
 		9BEA214125A854C800F240E5 /* FeedDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA214025A854C800F240E5 /* FeedDetailCell.swift */; };
 		9BEA214525A86BA300F240E5 /* FeedDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA214425A86BA300F240E5 /* FeedDetail.swift */; };
+		9E08233825AF5FF60004F6AE /* DailydiaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E08233725AF5FF60004F6AE /* DailydiaryData.swift */; };
 		9E1F7FAE25AEF6900001FE0B /* DaypromiseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F7FAD25AEF6900001FE0B /* DaypromiseData.swift */; };
 		9E64AC4125A8D44200BD49C1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E64AC4025A8D44200BD49C1 /* LoginVC.swift */; };
 		9E64AC4525A8D63D00BD49C1 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E64AC4425A8D63D00BD49C1 /* LaunchScreenVC.swift */; };
@@ -206,6 +207,7 @@
 		9BEA213B25A8304500F240E5 /* FeedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailVC.swift; sourceTree = "<group>"; };
 		9BEA214025A854C800F240E5 /* FeedDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailCell.swift; sourceTree = "<group>"; };
 		9BEA214425A86BA300F240E5 /* FeedDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetail.swift; sourceTree = "<group>"; };
+		9E08233725AF5FF60004F6AE /* DailydiaryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailydiaryData.swift; sourceTree = "<group>"; };
 		9E1F7FAD25AEF6900001FE0B /* DaypromiseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaypromiseData.swift; sourceTree = "<group>"; };
 		9E64AC4025A8D44200BD49C1 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		9E64AC4425A8D63D00BD49C1 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				9B43D24525AEB8C700852469 /* CalendarData.swift */,
 				36ECC7E025AE560300685DC2 /* GroupCreateData.swift */,
 				9B08CFF925AF08E70013E8AA /* MyGroupData.swift */,
+				9E08233725AF5FF60004F6AE /* DailydiaryData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -934,6 +937,7 @@
 				9B2BA220259FAA4A000EF4AA /* UIColor+Extension.swift in Sources */,
 				9B1B6B4225A5AFB700CCA4CC /* MissionCardCell.swift in Sources */,
 				36D0708C25A6F69100024EC3 /* MemberTableViewCell.swift in Sources */,
+				9E08233825AF5FF60004F6AE /* DailydiaryData.swift in Sources */,
 				9B2BA22325A0B9EA000EF4AA /* TimeStampVC.swift in Sources */,
 				9B2BA1D3259F71DD000EF4AA /* UIImage+Extension.swift in Sources */,
 				9B40579425A8E8C4001D0954 /* GroupFeedCell.swift in Sources */,
@@ -1088,7 +1092,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DUQE66MABG;
+				DEVELOPMENT_TEAM = S27FNL348L;
 				INFOPLIST_FILE = meaning/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1108,7 +1112,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DUQE66MABG;
+				DEVELOPMENT_TEAM = S27FNL348L;
 				INFOPLIST_FILE = meaning/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
