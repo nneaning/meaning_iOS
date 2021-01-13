@@ -13,10 +13,11 @@ class GroupTableViewCell: UITableViewCell {
     @IBOutlet var groupName: UILabel!
     @IBOutlet var numberView: UIView!
     @IBOutlet var peopleCountLabel: UILabel!
-
+    @IBOutlet var lineView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        setLabel()
+        setLayout()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -28,7 +29,7 @@ class GroupTableViewCell: UITableViewCell {
 
 extension GroupTableViewCell {
    
-    func setLabel() {
+    func setLayout() {
         groupName.font = UIFont.spoqaRegular(size: 16)
         groupName.textColor = UIColor.gray2
         
@@ -37,5 +38,7 @@ extension GroupTableViewCell {
         
         peopleCountLabel.font = UIFont.spoqaMedium(size: 13)
         peopleCountLabel.textColor = UIColor.meaningNavy
+        
+        lineView.backgroundColor = .gray4
     }
 }

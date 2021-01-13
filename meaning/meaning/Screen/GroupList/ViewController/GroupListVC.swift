@@ -31,7 +31,7 @@ class GroupListVC: UIViewController {
     // MARK: - IBOutlet
     
     @IBOutlet var logoView: UIView!
-    @IBOutlet var GroupTableView: UITableView!
+    @IBOutlet var groupTableView: UITableView!
     
     @IBOutlet var headerView: UIView!
     @IBOutlet var myGroupView: UIView!
@@ -92,13 +92,14 @@ class GroupListVC: UIViewController {
         
         setHeader()
         
-        GroupTableView.addSubview(self.refreshControl)
+        groupTableView.addSubview(self.refreshControl)
+        groupTableView.separatorStyle = .none
         
         groupCollectionView.delegate = self
         groupCollectionView.dataSource = self
         
-        GroupTableView.dataSource = self
-        GroupTableView.delegate = self
+        groupTableView.dataSource = self
+        groupTableView.delegate = self
         
     }
     
@@ -181,7 +182,7 @@ extension GroupListVC {
                 
                 DispatchQueue.main.async{
                     self.groupCollectionView.reloadData()
-                    self.GroupTableView.reloadData()
+                    self.groupTableView.reloadData()
                 }
                 
             case .failure(_):
