@@ -9,7 +9,6 @@ import Foundation
 
 // MARK: - DataClass
 struct GroupListData: Codable {
-    let myGroup: GroupInfoData?
     let hasImageGroupList, noImageGroupList: [GroupInfoData]
 }
 
