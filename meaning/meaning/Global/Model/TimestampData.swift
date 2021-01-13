@@ -9,11 +9,11 @@ import Foundation
 
 struct TimestampData: Codable {
     let timeStampID: Int
-    let missionStatusMessage: String
+    let missionStatus: Int
     let postedOnGroup: Bool
 
     enum CodingKeys: String, CodingKey {
         case timeStampID = "timeStampId"
-        case missionStatusMessage, postedOnGroup
+        case missionStatus, postedOnGroup
     }
 }
