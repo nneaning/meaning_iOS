@@ -80,7 +80,7 @@ class GroupCreateVC: UIViewController {
                 
             }
             
-            groupCreate(token: "", groupName: nameTextField.text ?? "", maximumMemberNumber: Int(countTextField.text ?? "") ?? 0, introduction: infoTextView.text ?? "")
+            groupCreate(token: UserDefaults.standard.string(forKey: "accesstoken")!, groupName: nameTextField.text ?? "", maximumMemberNumber: Int(countTextField.text ?? "") ?? 0, introduction: infoTextView.text ?? "")
         }
         
         
@@ -224,10 +224,7 @@ extension GroupCreateVC: UITextViewDelegate {
                                       introduction: introduction) { result in
             switch result {
             case .success(let data):
-                guard let loadData = data as? GroupCreateData else {
-                    return
-                }
-                self.groupCreateData = loadData
+                self.groupCreateData = data
                 
                 
                 guard let groupCompleteVC = self.storyboard?.instantiateViewController(identifier: "GroupCompleteVC") as? GroupCompleteVC else {
@@ -236,7 +233,7 @@ extension GroupCreateVC: UITextViewDelegate {
                 self.navigationController?.pushViewController(groupCompleteVC, animated: true)
                 
                 
-            case .failure(let error):
+            case .failure(_):
                 print("FailureError")
                 
             }

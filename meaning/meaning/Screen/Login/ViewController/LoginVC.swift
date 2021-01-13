@@ -336,7 +336,7 @@ class LoginVC: UIViewController {
                     UserDefaults.standard.setValue(data.refreshToken, forKey: "refreshtoken")
 
                     // userNick, wakeupTime 폰에 저장
-                    if let userNick = data.userNick,
+                    if let userNick = data.nickName,
                        let wakeupTime = data.wakeUpTime {
                         UserDefaults.standard.setValue(userNick, forKey: "userNick")
                         UserDefaults.standard.setValue(wakeupTime, forKey: "wakeUpTime")

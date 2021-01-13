@@ -162,7 +162,7 @@ extension OnboardingTimeVC {
                         self.navigationController?.pushViewController(endVC, animated: true)
                     }
 
-                case .failure(let error):
+                case .failure(_):
                     print("FailureError")
                 }
             }

@@ -27,7 +27,7 @@ class GroupJoinVC: ViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        groupJoin(token: "", groupId: Int(self.groupID) ?? -1)
+        groupJoin(token: UserDefaults.standard.string(forKey: "accesstoken")!, groupId: Int(self.groupID) ?? -1)
     }
     
     // MARK: - IBAction
@@ -63,7 +63,7 @@ extension GroupJoinVC {
     }
     
     func groupJoin(token : String, groupId: Int) {
-        APIService.shared.groupJoin(token: "", groupId: Int(self.groupID) ?? -1) { [self] result in
+        APIService.shared.groupJoin(token: token, groupId: groupId) { [self] result in
             switch result {
             case .success(let data):
                 guard let loadData = data as? SimpleData else {
