@@ -155,7 +155,7 @@ extension GroupListVC {
     }
     
     func groupList (token: String) {
-        APIService.shared.groupList(token: "") { result in
+        APIService.shared.groupList(token: token) { result in
             switch result {
             case .success(let data):
                 
