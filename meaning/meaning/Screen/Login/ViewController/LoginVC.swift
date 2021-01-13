@@ -363,7 +363,7 @@ class LoginVC: UIViewController {
                     self.idIsInvalid.alpha = 1
                     self.pwIsInvalid.alpha = 1
                 } else {
-                    showToast(message: "네트워크 연결을 확인해주세요.", font: .spoqaMedium(size: 14))
+                    showToast(message: "네트워크 연결을 확인해주세요.", font: .spoqaMedium(size: 16))
                 }
                 
             }

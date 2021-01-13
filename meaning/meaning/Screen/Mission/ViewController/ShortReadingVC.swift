@@ -13,7 +13,8 @@ class ShortReadingVC: UIViewController {
     
     var reviewPlaceholder = "한줄평을 작성해주세요."
     var titlePlaceholder = "책 제목을 입력하세요."
-    
+    var simpleData: SimpleData?
+
     // MARK: IBOutlet
     
     @IBOutlet var headerView: UIView!
@@ -35,10 +36,14 @@ class ShortReadingVC: UIViewController {
     @IBAction func registerBtnPressed(_ sender: UIButton) {
         if (bookReviewTextView.text.isEmpty || bookReviewTextView.text == reviewPlaceholder) {
             self.showToast(message: "한줄평을 입력해주세요", font: UIFont.spoqaRegular(size: 16))
-        } else if((bookTitleTextField.text?.isEmpty) != nil){
+        } else if((bookTitleTextField.text?.isEmpty) == nil){
             self.showToast(message: "책 제목을 입력해주세요", font: UIFont.spoqaRegular(size: 16))
         } else {
-            // 다음 뷰로 넘어가기
+            // 모두 값이 잘 들어가져 있다면 서버통신 시작
+            bookreview(token: (UserDefaults.standard.string(forKey: "accesstoken") ?? ""), bookTitle: bookTitleTextField.text ?? "", bookCommentContents: bookReviewTextView.text ?? "")
+            
+            // Test 용 토큰 입력
+//            bookreview(token: "[토큰]", bookTitle: bookTitleTextField.text ?? "", bookCommentContents: bookReviewTextView.text ?? "")
         }
     }
     
@@ -95,6 +100,52 @@ class ShortReadingVC: UIViewController {
             view.endEditing(true)
     }
     
+    // MARK: Server Function
+    
+    func bookreview(token: String, bookTitle: String, bookCommentContents: String){
+        APIService.shared.bookreview(token, bookTitle, bookCommentContents) {
+            result in
+            switch result {
+            
+            case .success(let data):
+                guard let loadData = data as? SimpleData else {
+                    return
+                }
+                self.simpleData = loadData
+                if self.simpleData?.status == 201 {
+                    // 성공하면 탭바로 이동
+                    print("success!!")
+                    let tabBarStoryboard: UIStoryboard = UIStoryboard(name: "TabBar", bundle: nil)
+                    guard let tabBarVC = tabBarStoryboard.instantiateViewController(identifier: "TabBarVC") as? TabBarVC else {
+                        return
+                    }
+                    tabBarVC.modalPresentationStyle = .fullScreen
+                    self.present(tabBarVC, animated: true, completion: nil)
+                }
+            case .failure(let error):
+                if (error == 400) {
+                    // 입력 값이 없습니다
+                    self.showToast(message: "내용을 입력해주세요.", font: UIFont.spoqaRegular(size: 16))
+                } else if (error == 401) {
+                    // 토큰 만료, 다시 로그인 필요
+                    self.showToast(message: "다시 로그인을 해주세요!", font: UIFont.spoqaRegular(size: 16))
+                    
+                    // 로그인 뷰로 이동
+                    let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+                    let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                    loginViewController.modalTransitionStyle = .crossDissolve
+                    loginViewController.modalPresentationStyle = .fullScreen
+                    self.present(loginViewController, animated: true, completion: nil)
+                    
+                    print("토큰 만료, 다시 로그인 필요")
+
+                } else { // 500 : 서버 내부 오류
+                    self.showToast(message: "네트워크 연결을 확인해주세요.", font: UIFont.spoqaRegular(size: 16))
+                }
+            }
+        }
+    }
+    
 }
 
 // MARK: Extension - 한줄평 부분
@@ -141,6 +192,7 @@ extension ShortReadingVC: UITextViewDelegate {
         }
         return true
     }
+    
 }
 
 // MARK: Extension - 책 제목 부분
@@ -175,3 +227,16 @@ extension ShortReadingVC: UITextFieldDelegate {
     }
     
 }
+
+// MARK: APIService
+
+extension APIService {
+    
+    func bookreview(_ token: String, _ bookTitle: String, _ bookCommentContents: String, completion: @escaping (NetworkResult<Any>)->(Void)) {
+        let target: APITarget = .bookreview(token: token, bookTitle: bookTitle, bookCommentContents: bookCommentContents)
+        judgeSimpleObject(target, completion: completion)
+    }
+}
+
+
+
