@@ -169,4 +169,11 @@ extension APIService {
         judgeObject(target, completion: completion)
     }
     
+    func myGroup(_ token: String, completion: @escaping (NetworkResult<MyGroupData>)->(Void)) {
+        
+        let target: APITarget = .myGroup(token: token)
+        judgeObject(target, completion: completion)
+        
+    }
+    
 }
