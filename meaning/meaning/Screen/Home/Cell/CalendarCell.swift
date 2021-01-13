@@ -19,9 +19,13 @@ class CalendarCell: UICollectionViewCell {
         dateLabel.textColor = .meaningIvory
     }
     
-    func setCell(_ caledarData: CalendarData) {
-        dateLabel.text = "\(caledarData.dateIndex)"
-        starImage.image = caledarData.starImage
+    func setCell(_ caledarData: CalendarDay, indexs: Int) {
+        dateLabel.text = "\(indexs+1)"
+        if caledarData.status == 0 {
+            starImage.image = UIImage(named: "starBlack")
+        } else {
+            starImage.image = UIImage(named: "starWhite")
+        }
     }
     
 }
