@@ -7,16 +7,8 @@
 
 import Foundation
 
-// MARK: - GroupCreateData
-struct GroupCreateData: Codable {
-    let status: Int
-    let success: Bool
-    let message: String
-    let data: DataClass
-}
-
 // MARK: - DataClass
-struct DataClass: Codable {
+struct GroupCreateData: Codable {
     let groupID: Int
 
     enum CodingKeys: String, CodingKey {

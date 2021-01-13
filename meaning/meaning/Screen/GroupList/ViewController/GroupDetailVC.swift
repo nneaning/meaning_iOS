@@ -33,8 +33,7 @@ class GroupDetailVC: ViewController {
         setBox()
         setLabel()
         setButton()
-        
-        print(">>>", self.groupID)
+
         groupDetail(token: "", groupid: self.groupID)
         
     }
@@ -113,7 +112,7 @@ extension GroupDetailVC {
     }
     
     func groupDetail(token : String, groupid: Int) {
-        APIService.shared.groupDetail(token: "", groupid: self.groupID) { result in
+        APIService.shared.groupDetail(token: token, groupid: self.groupID) { result in
             switch result {
             case .success(let data):
                 guard let loadData = data as? GroupDetailData else {

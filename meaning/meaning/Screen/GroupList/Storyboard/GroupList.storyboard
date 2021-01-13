@@ -31,7 +31,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2aS-RI-aGI">
-                                <rect key="frame" x="0.0" y="99" width="414" height="763"/>
+                                <rect key="frame" x="0.0" y="99" width="414" height="753"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="79R-Db-YC7">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
@@ -331,7 +331,7 @@
                             <constraint firstItem="2aS-RI-aGI" firstAttribute="top" secondItem="UK8-UK-rIm" secondAttribute="bottom" id="Yqf-j8-D1J"/>
                             <constraint firstItem="2aS-RI-aGI" firstAttribute="leading" secondItem="YQq-D8-iJo" secondAttribute="leading" id="ai4-yq-shu"/>
                             <constraint firstItem="UK8-UK-rIm" firstAttribute="leading" secondItem="YQq-D8-iJo" secondAttribute="leading" id="ljr-Aw-s4B"/>
-                            <constraint firstItem="YQq-D8-iJo" firstAttribute="bottom" secondItem="2aS-RI-aGI" secondAttribute="bottom" id="xvT-oV-9UO"/>
+                            <constraint firstItem="YQq-D8-iJo" firstAttribute="bottom" secondItem="2aS-RI-aGI" secondAttribute="bottom" constant="10" id="xvT-oV-9UO"/>
                             <constraint firstItem="UK8-UK-rIm" firstAttribute="trailing" secondItem="YQq-D8-iJo" secondAttribute="trailing" id="yY2-4l-m40"/>
                         </constraints>
                     </view>

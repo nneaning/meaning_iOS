@@ -63,7 +63,6 @@ extension GroupJoinVC {
     }
     
     func groupJoin(token : String, groupId: Int) {
-        print(">>>> 들어온다")
         APIService.shared.groupJoin(token: "", groupId: Int(self.groupID) ?? -1) { [self] result in
             switch result {
             case .success(let data):
