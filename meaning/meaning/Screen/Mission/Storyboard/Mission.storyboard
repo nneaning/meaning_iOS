@@ -59,6 +59,9 @@
                                     <constraint firstAttribute="width" secondItem="DcL-Lj-7ds" secondAttribute="height" multiplier="343:60" id="kzI-au-eC9"/>
                                 </constraints>
                                 <state key="normal" title="다 읽었어요"/>
+                                <connections>
+                                    <action selector="readCompleteBtnPressed:" destination="KNH-nc-P9h" eventType="touchUpInside" id="EA8-zV-wr4"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGU-wu-2rA">
                                 <rect key="frame" x="170" y="147" width="74" height="20.5"/>

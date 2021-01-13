@@ -33,14 +33,16 @@ class DailyMaximVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func readCompleteBtnPressed(_ sender: UIButton) {
+        UserDefaults.standard.setValue(true, forKey: "card1")
+        self.navigationController?.popViewController(animated: true)
+    }
     // Mark: Life Cycle Part
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayout()
-//        daypromise(token: UserDefaults.standard.string(forKey: "accesstoken"))
-        //test 용 토큰 넣은 서버 통신 line
-        daypromise(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsIm5hbWUiOiJtaW5zZXVuZyIsImlhdCI6MTYxMDUyODQ0MywiZXhwIjoxNjEyMzQyODQzLCJpc3MiOiJTZXJ2ZXJCYWQifQ.Hm9BJcZl_ukgc-ce3Fdz2EsK8ABHozGgGieZhFbi4NM")
+        daypromise(token: UserDefaults.standard.string(forKey: "accesstoken") ?? "")
     }
     
     // MARK: Layout
@@ -59,7 +61,7 @@ class DailyMaximVC: UIViewController {
         self.bodyView.setRounded(radius: 8)
         self.bodyViewLabel.text = "평범한 사람들은 가능한 것만 믿는다.\n특별한 사람들은 불가능한 것을 그려본다.\n그리고 그것을 가능한 것으로 보기 시작한다."
         self.bodyViewLabel.font = UIFont.nbRegular(size: 18)
-        self.bodyViewLabel.lineSetting(kernValue: -0.5, lineSpacing: 10)
+        self.bodyViewLabel.textAlignment = .center
         
         self.bodyBottomLabel.font = UIFont.notoRegular(size: 15.0)
         self.bodyBottomLabel.textColor = UIColor.gray3
@@ -83,19 +85,22 @@ class DailyMaximVC: UIViewController {
                 self.daypromiseData = data
                 if let daypromiseData = self.daypromiseData {
                     self.bodyViewLabel.text = daypromiseData.contents
+                    self.bodyViewLabel.lineSetting(kernValue: -0.5, lineSpacing: 10)
                 }
                 
             case .failure(let error):
                 if (error == 401) {
-                    self.showToast(message: "다시 로그인을 해주세요!", font: UIFont.spoqaRegular(size: 16))
+                    self.showToast(message: "재접속 해주세요!", font: UIFont.spoqaRegular(size: 16))
+                    self.navigationController?.popToRootViewController(animated: true)
+                    
                 } else {
-                    self.showToast(message: "네트워크 연결을 확인해주세요.", font: UIFont.spoqaRegular(size: 16))
+                    self.showToast(message: "네트워크 끊김", font: UIFont.spoqaRegular(size: 16))
+                    self.navigationController?.popToRootViewController(animated: true)
                 }
             }
         }
     }
 }
-
 
 // MARK: APIService
 
