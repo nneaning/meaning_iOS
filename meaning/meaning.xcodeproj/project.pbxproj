@@ -26,6 +26,7 @@
 		36ECC7D125ADDC4300685DC2 /* GroupDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ECC7D025ADDC4300685DC2 /* GroupDetailData.swift */; };
 		36ECC7E125AE560300685DC2 /* GroupCreateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ECC7E025AE560300685DC2 /* GroupCreateData.swift */; };
 		6DC70DC41C332E65FC653BE0 /* Pods_meaning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E87AC0016D83A60227B184E6 /* Pods_meaning.framework */; };
+		9B08CFFA25AF08E70013E8AA /* MyGroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B08CFF925AF08E70013E8AA /* MyGroupData.swift */; };
 		9B1B6B3B25A5AB9300CCA4CC /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1B6B3A25A5AB9300CCA4CC /* HomeVC.swift */; };
 		9B1B6B3E25A5AD8B00CCA4CC /* MissionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1B6B3D25A5AD8B00CCA4CC /* MissionCard.swift */; };
 		9B1B6B4225A5AFB700CCA4CC /* MissionCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1B6B4125A5AFB700CCA4CC /* MissionCardCell.swift */; };
@@ -136,6 +137,7 @@
 		36D6998A25A8756200227FB1 /* GroupCompleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCompleteVC.swift; sourceTree = "<group>"; };
 		36ECC7D025ADDC4300685DC2 /* GroupDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailData.swift; sourceTree = "<group>"; };
 		36ECC7E025AE560300685DC2 /* GroupCreateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreateData.swift; sourceTree = "<group>"; };
+		9B08CFF925AF08E70013E8AA /* MyGroupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupData.swift; sourceTree = "<group>"; };
 		9B1B6B3A25A5AB9300CCA4CC /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		9B1B6B3D25A5AD8B00CCA4CC /* MissionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCard.swift; sourceTree = "<group>"; };
 		9B1B6B4125A5AFB700CCA4CC /* MissionCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCardCell.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				36ECC7D025ADDC4300685DC2 /* GroupDetailData.swift */,
 				9B43D24525AEB8C700852469 /* CalendarData.swift */,
 				36ECC7E025AE560300685DC2 /* GroupCreateData.swift */,
+				9B08CFF925AF08E70013E8AA /* MyGroupData.swift */,
 				3697D78B25AF32AB004D9C11 /* GroupInfoData.swift */,
 			);
 			path = Model;
@@ -868,6 +871,7 @@
 				9EDE814325A8287B00389559 /* FeedImage.swift in Sources */,
 				9B2BA219259FA97E000EF4AA /* UIView+Extension.swift in Sources */,
 				9B245A5425A302C700C45B76 /* OnboardingNickVC.swift in Sources */,
+				9B08CFFA25AF08E70013E8AA /* MyGroupData.swift in Sources */,
 				36C7E2BE25ACC18E00EF0AFB /* GroupListData.swift in Sources */,
 				9B1B6B3E25A5AD8B00CCA4CC /* MissionCard.swift in Sources */,
 				36D6998225A76B1100227FB1 /* MemberInfo.swift in Sources */,

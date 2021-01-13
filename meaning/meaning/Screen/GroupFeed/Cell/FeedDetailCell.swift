@@ -74,7 +74,7 @@ class FeedDetailCell: UITableViewCell {
         self.writeTimeLabel.text = writeTime.stringToDate().timeAgoSince()
         self.wakeupLabel.text = wakeupTime
         self.contextLabel.text = context
-        self.uploadImage.image = UIImage(named: uploadImageName)
+        self.uploadImage.setImage(from: uploadImageName)
         profileLabel.text = "\(nick[nick.startIndex])"
         if wakeupTime.count == 11 {
             // 정각일때
@@ -82,7 +82,7 @@ class FeedDetailCell: UITableViewCell {
         } else {
             wakeupViewWidth.constant = 150
         }
-        if index == 0 {
+        if (index%2) == 0 {
             profileView.backgroundColor = .meaningNavy
             profileLabel.textColor = .white
         } else {
