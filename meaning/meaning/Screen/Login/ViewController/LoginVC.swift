@@ -363,7 +363,8 @@ class LoginVC: UIViewController {
                 }
                 
             case .failure(let error):
-                if (error == 400) {
+                print(error)
+                if (error == 400 || error == 401) {
                     self.idIsInvalid.alpha = 1
                     self.pwIsInvalid.alpha = 1
                 } else {

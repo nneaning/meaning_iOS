@@ -12,6 +12,7 @@ class DailyDiaryVC: UIViewController {
     // MARK: Variable Part
     
     var placeholderPhrase = "나만 볼 수 있는 자기 회고 및 감사 일기를 써보세요!\n기분 좋은 아침을 시작하게 될 거예요."
+    var dailydiaryData: DailydiaryData?
     
     // MARK: IBOutlet
     
@@ -31,7 +32,9 @@ class DailyDiaryVC: UIViewController {
         if (bodyTextView.text.isEmpty || bodyTextView.text == placeholderPhrase) {
             self.showToast(message: "내용을 입력해주세요", font: UIFont.spoqaRegular(size: 16))
         } else {
-        // nothing happens
+            if let bodyText = bodyTextView.text {
+                dailydiary(token: (UserDefaults.standard.string(forKey: "accesstoken")!), diaryContents: bodyText)
+            }
         }
     }
     
@@ -61,7 +64,7 @@ class DailyDiaryVC: UIViewController {
         self.bodyUpperLabel.textColor = UIColor.gray2
         self.bodyUpperLabel.text = "오늘 아침을 글로 남겨봐요"
         self.bodyUpperLabel.lineSetting(kernValue: -0.72)
-
+        
         self.bodyView.setRounded(radius: 6)
         self.bodyView.backgroundColor = UIColor.meaningIvory
         self.bodyTextView.backgroundColor = UIColor.white.withAlphaComponent(0)
@@ -78,8 +81,39 @@ class DailyDiaryVC: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            // 뷰 클릭 시 키보드 내리기
-            view.endEditing(true)
+        // 뷰 클릭 시 키보드 내리기
+        view.endEditing(true)
+    }
+    
+    func dailydiary(token: String, diaryContents: String){
+        print("dialydiary function 접근")
+        APIService.shared.dailydiary(token, diaryContents) {
+            result in
+            switch result {
+            case .success(_):
+                // 나중에 dailyDiaryId 가 필요할 시에 사용하기 위해 적어두었습니다!
+                //self.dailydiaryData = data
+                
+                // 성공시 tabbar로 돌아가기
+                self.navigationController?.popToRootViewController(animated: true)
+                // 미션 완료 처리
+                UserDefaults.standard.setValue(true, forKey: "card2")
+                
+            case .failure(let error):
+                if (error == 400) {
+                    // 입력 값이 없습니다
+                    self.showToast(message: "내용을 입력해주세요.", font: UIFont.spoqaRegular(size: 16))
+                } else if (error == 401) {
+                    // 토큰 만료, 다시 로그인 필요
+                    self.showToast(message: "재접속 해주세요!", font: UIFont.spoqaRegular(size: 16))
+                    self.navigationController?.popToRootViewController(animated: true)
+                    
+                } else { // 500 : 서버 내부 오류
+                    self.showToast(message: "네트워크 끊김", font: UIFont.spoqaRegular(size: 16))
+                }
+                
+            }
+        }
     }
 }
 
@@ -127,4 +161,16 @@ extension DailyDiaryVC: UITextViewDelegate {
     }
 }
 
+// MARK: APIService
+
+extension APIService {
+    
+    func dailydiary(_ token: String, _ diaryContents: String, completion: @escaping (NetworkResult<DailydiaryData>)->(Void)) {
+        print("apiservice extension")
+        
+        let target: APITarget = .dailydiary(token: token, diaryContents: diaryContents)
+        judgeObject(target, completion: completion)
+        print(target)
+    }
+}
 
