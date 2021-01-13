@@ -9,6 +9,8 @@ import UIKit
 
 class GroupCreateVC: UIViewController {
     
+    var groupCreateData: GroupCreateData?
+    
     //MARK: - IBOutlet
     
     @IBOutlet var backBtn: UIButton!
@@ -147,7 +149,7 @@ extension GroupCreateVC {
         createBtn.setTitleColor(UIColor.meaningWhite, for: .normal)
         
     }
-    
+
 }
 
 extension GroupCreateVC: UITextFieldDelegate {
@@ -199,8 +201,8 @@ extension GroupCreateVC: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        // TextView Place Holder
-        if (infoTextView.text == "") {
+        
+        if infoTextView.text == "" {
             infoTextView.text = "그룹을 자유롭게 소개해주세요!"
             infoTextView.textColor = UIColor.gray4
         }
@@ -217,5 +219,3 @@ extension GroupCreateVC: UITextViewDelegate {
         return true
     }
 }
-
-
