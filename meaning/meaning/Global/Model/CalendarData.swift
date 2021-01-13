@@ -13,7 +13,7 @@ struct CalendarData: Codable {
 }
 
 // MARK: - CalendarDay
-struct CalendarDAy: Codable {
+struct CalendarDay: Codable {
     let dateTime: String
     let status: Int
 }
