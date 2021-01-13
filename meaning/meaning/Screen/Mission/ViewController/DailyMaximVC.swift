@@ -59,9 +59,12 @@ class DailyMaximVC: UIViewController {
         self.bodyUpperLabel.text = "하루의 시작부터 글귀를 읽으며\n성장과 발전의 의지를 다져요"
         
         self.bodyView.setRounded(radius: 8)
+        self.bodyView.backgroundColor = .meaningIvory
+        
         self.bodyViewLabel.text = "평범한 사람들은 가능한 것만 믿는다.\n특별한 사람들은 불가능한 것을 그려본다.\n그리고 그것을 가능한 것으로 보기 시작한다."
         self.bodyViewLabel.font = UIFont.nbRegular(size: 18)
         self.bodyViewLabel.textAlignment = .center
+        self.bodyViewLabel.textColor = .meaningBlack
         
         self.bodyBottomLabel.font = UIFont.notoRegular(size: 15.0)
         self.bodyBottomLabel.textColor = UIColor.gray3
