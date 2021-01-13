@@ -99,7 +99,7 @@ class MyPageFeedVC: UIViewController {
         self.headerLabel.textColor = UIColor.gray1
         
         self.userNameInitial.text = initial
-        self.userNameInitial.font = .spoqaMedium(size: 30)
+        self.userNameInitial.font = .spoqaMedium(size: 20)
         self.userNameInitial.textAlignment = .center
         
         self.userNameLabel.text = userNick

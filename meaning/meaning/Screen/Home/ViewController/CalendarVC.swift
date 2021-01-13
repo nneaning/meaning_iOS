@@ -124,7 +124,7 @@ extension CalendarVC {
                 case .success(let data):
                     self.calendarDate = data
                     if let calendarDate = calendarDate {
-                        countTime = calendarDate.successDays
+                        countTime = calendarDate.successDays+1
                         setMent()
                     }
                     calendarCollectionView.reloadData()
