@@ -79,7 +79,7 @@ extension CalendarVC {
         setMent()
         
         dateButton.makeRounded(cornerRadius: 15)
-        dateButton.setTitle("<  \(Date().datePickerToString().recordDate())", for: .normal)
+        dateButton.setTitle("\(Date().datePickerToString().recordDate()) >", for: .normal)
         dateButton.titleLabel?.font = UIFont.spoqaRegular(size: 14)
         dateButton.backgroundColor = .meaningNavy
         dateButton.setTitleColor(.white, for: .normal)

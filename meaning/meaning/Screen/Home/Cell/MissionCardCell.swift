@@ -53,7 +53,7 @@ class MissionCardCell: UICollectionViewCell {
         indexLabel.text = "\(missionCard.missionIndex)"
         mentLabel.text = missionCard.missonMent
         mentLabel.font = UIFont.spoqaRegular(size: 20)
-        mentLabel.lineSetting(kernValue: -0.10, lineSpacing: 10)
+        mentLabel.lineSetting(kernValue: -1.0, lineSpacing: 10)
         
 
         if safeArea == 49 {
