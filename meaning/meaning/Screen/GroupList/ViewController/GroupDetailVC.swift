@@ -51,11 +51,14 @@ class GroupDetailVC: ViewController {
         //현재 View 닫은 후 그룹조인뷰로 이동
         weak var pvc = self.presentingViewController
         
-        self.dismiss(animated: true, completion: {
+        self.dismiss(animated: true, completion: { [self] in
             guard let groupJoinVC = self.storyboard?.instantiateViewController(identifier: "GroupJoinVC")
                     as? GroupJoinVC else {
                 return
             }
+            
+            groupJoinVC.groupID = self.groupDetailData?.groupDetail.groupID ?? ""
+            
             groupJoinVC.modalPresentationStyle = .overCurrentContext
             groupJoinVC.modalTransitionStyle = .coverVertical
             
@@ -110,7 +113,7 @@ extension GroupDetailVC {
     }
     
     func groupDetail(token : String, groupid: Int) {
-        APIService.shared.groupDetail(token : token, groupid: self.groupID) { result in
+        APIService.shared.groupDetail(token: "", groupid: self.groupID) { result in
             switch result {
             case .success(let data):
                 guard let loadData = data as? GroupDetailData else {
