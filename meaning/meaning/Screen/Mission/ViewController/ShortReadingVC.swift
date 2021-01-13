@@ -40,17 +40,16 @@ class ShortReadingVC: UIViewController {
             self.showToast(message: "책 제목을 입력해주세요", font: UIFont.spoqaRegular(size: 16))
         } else {
             // 모두 값이 잘 들어가져 있다면 서버통신 시작
-            bookreview(token: (UserDefaults.standard.string(forKey: "accesstoken") ?? ""), bookTitle: bookTitleTextField.text ?? "", bookCommentContents: bookReviewTextView.text ?? "")
-            
-            // Test 용 토큰 입력
-//            bookreview(token: "[토큰]", bookTitle: bookTitleTextField.text ?? "", bookCommentContents: bookReviewTextView.text ?? "")
+            if let bookTitle = bookTitleTextField.text,
+               let bookCommentContents = bookReviewTextView.text {
+            bookreview(token: (UserDefaults.standard.string(forKey: "accesstoken") ?? ""), bookTitle: bookTitle, bookCommentContents: bookCommentContents)
+            }
         }
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
     
     // MARK: Life Cycle Part
     
@@ -113,14 +112,9 @@ class ShortReadingVC: UIViewController {
                 }
                 self.simpleData = loadData
                 if self.simpleData?.status == 201 {
-                    // 성공하면 탭바로 이동
-                    print("success!!")
-                    let tabBarStoryboard: UIStoryboard = UIStoryboard(name: "TabBar", bundle: nil)
-                    guard let tabBarVC = tabBarStoryboard.instantiateViewController(identifier: "TabBarVC") as? TabBarVC else {
-                        return
-                    }
-                    tabBarVC.modalPresentationStyle = .fullScreen
-                    self.present(tabBarVC, animated: true, completion: nil)
+                    // 성공하면 이전 VC (홈)으로 이동
+                    UserDefaults.standard.setValue(true, forKey: "card3")
+                    self.navigationController?.popViewController(animated: true)
                 }
             case .failure(let error):
                 if (error == 400) {
@@ -128,19 +122,11 @@ class ShortReadingVC: UIViewController {
                     self.showToast(message: "내용을 입력해주세요.", font: UIFont.spoqaRegular(size: 16))
                 } else if (error == 401) {
                     // 토큰 만료, 다시 로그인 필요
-                    self.showToast(message: "다시 로그인을 해주세요!", font: UIFont.spoqaRegular(size: 16))
+                    self.showToast(message: "재접속 해주세요!", font: UIFont.spoqaRegular(size: 16))
+                    self.navigationController?.popToRootViewController(animated: true)
                     
-                    // 로그인 뷰로 이동
-                    let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
-                    let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-                    loginViewController.modalTransitionStyle = .crossDissolve
-                    loginViewController.modalPresentationStyle = .fullScreen
-                    self.present(loginViewController, animated: true, completion: nil)
-                    
-                    print("토큰 만료, 다시 로그인 필요")
-
                 } else { // 500 : 서버 내부 오류
-                    self.showToast(message: "네트워크 연결을 확인해주세요.", font: UIFont.spoqaRegular(size: 16))
+                    self.showToast(message: "네트워크 끊김", font: UIFont.spoqaRegular(size: 16))
                 }
             }
         }
