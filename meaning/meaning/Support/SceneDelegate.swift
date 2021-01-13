@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let winScene = (scene as? UIWindowScene) else { return }
-        // Root Viewcontroller 를 스플래시로 적용하고자 할 때 아래 주석을 풀어주세요.
+//         Root Viewcontroller 를 스플래시로 적용하고자 할 때 아래 주석을 풀어주세요.
         
         window = UIWindow(windowScene: winScene)
         let launchScreenStoryboard: UIStoryboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
