@@ -30,9 +30,11 @@ class GroupFeedVC: UIViewController {
     
     
     @IBAction func settingButtonDidTap(_ sender: Any) {
+        
         guard let groupInfoVC = self.storyboard?.instantiateViewController(identifier: "GroupInfoVC") as? GroupInfoVC else {
             return
         }
+        groupInfoVC.groupID = groupNumber
         self.navigationController?.pushViewController(groupInfoVC, animated: true)
     }
     

@@ -167,6 +167,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6F1-u2-xpd">
                                         <rect key="frame" x="0.0" y="2" width="40" height="40"/>
                                         <state key="normal" image="backBtn"/>
+                                        <connections>
+                                            <action selector="BackBtnDidTap:" destination="2eI-Oo-nHq" eventType="touchUpInside" id="PFC-4H-yks"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObW-ct-YVO">
                                         <rect key="frame" x="186" y="10" width="42" height="21"/>
