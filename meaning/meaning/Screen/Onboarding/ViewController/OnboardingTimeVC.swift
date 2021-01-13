@@ -219,5 +219,4 @@ extension APIService {
         let target: APITarget = .onboard(token: token, nickName: nickName, wakeUpTime: wakeUpTime)
         judgeSimpleObject(target, completion: completion)
     }
-    
 }
