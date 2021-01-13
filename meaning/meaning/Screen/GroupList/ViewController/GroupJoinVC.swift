@@ -73,15 +73,6 @@ extension GroupJoinVC {
                 self.simpleData = loadData
                 self.groupStatusLabel.text = "그룹 참가가 완료되었습니다."
                 
-                
-            case .requestErr:
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
             case .failure(let error):
                 print("FailureError")
                 

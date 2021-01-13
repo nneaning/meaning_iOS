@@ -219,5 +219,3 @@ extension GroupCreateVC: UITextViewDelegate {
         return true
     }
 }
-
-
