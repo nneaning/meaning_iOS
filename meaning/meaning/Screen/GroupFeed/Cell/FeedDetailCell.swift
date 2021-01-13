@@ -82,7 +82,7 @@ class FeedDetailCell: UITableViewCell {
         } else {
             wakeupViewWidth.constant = 150
         }
-        if index == 0 {
+        if (index%2) == 0 {
             profileView.backgroundColor = .meaningNavy
             profileLabel.textColor = .white
         } else {

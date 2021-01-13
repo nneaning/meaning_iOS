@@ -173,6 +173,7 @@ extension GroupFeedVC: UICollectionViewDataSource {
         
         feedDetailTap.indexScroll = indexPath
         feedDetailTap.groupName = groupName
+        feedDetailTap.feedDetailGroup = groupFeedData
         feedDetailTap.sloganMent = "\(groupPersonCount)명의 사람들이 함께 아침을 맞이하고 있어요!"
         self.navigationController?.pushViewController(feedDetailTap, animated: true)
     }
