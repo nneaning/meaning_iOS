@@ -47,7 +47,7 @@ class PictureUploadVC: UIViewController {
         if let timeToServer = timeToServer,
            let uploadedImageData = uploadedImageData {
             // 서버 통신
-            uploadPictrue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiLquYDrr7ztnawiLCJpYXQiOjE2MTA1MzQ2MjAsImV4cCI6MTYxMjM0OTAyMCwiaXNzIjoiU2VydmVyQmFkIn0.jq9q6kBfRU48c5Iw6SdsTdyo03T4zRQzRRiAwskQBg8", timeToServer, bodyTextView.text, uploadedImageData)
+            uploadPictrue("", timeToServer, bodyTextView.text, uploadedImageData)
             
             // 토큰 삽입 필수!(88)
         }
