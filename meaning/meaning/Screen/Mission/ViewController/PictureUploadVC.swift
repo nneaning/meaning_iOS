@@ -47,7 +47,8 @@ class PictureUploadVC: UIViewController {
         if let timeToServer = timeToServer,
            let uploadedImageData = uploadedImageData {
             // 서버 통신
-            uploadPictrue("", timeToServer, bodyTextView.text, uploadedImageData)
+            uploadPictrue(UserDefaults.standard.string(forKey: "accesstoken")!, timeToServer, bodyTextView.text, uploadedImageData)
+            
             // 토큰 삽입 필수!(88)
         }
         
@@ -59,6 +60,8 @@ class PictureUploadVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayout()
+        updateGroup(UserDefaults.standard.string(forKey: "accesstoken")!)
+        // 토큰 넣기(88)
         
     }
     
@@ -98,7 +101,7 @@ class PictureUploadVC: UIViewController {
         uploadBtn.setTitleColor(.meaningWhite, for: .normal)
         uploadBtn.titleLabel?.font = UIFont.spoqaMedium(size: 16)
         uploadBtn.titleLabel?.lineSetting(kernValue: -0.64)
-        uploadBtn.setTitle("그룹에 사진올리기", for: .normal)
+        uploadBtn.setTitle("마이피드에 사진올리기", for: .normal)
         uploadBtn.setRounded(radius: 6)
         
         //SE의 경우에는 constraint 조정
@@ -137,6 +140,17 @@ class PictureUploadVC: UIViewController {
             }
     }
     
+    func updateGroup(_ token: String) {
+        APIService.shared.myGroup(token) { [self] result in
+                switch result {
+                case .success(_):
+                    uploadBtn.setTitle("그룹에 사진 올리기", for: .normal)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
     @objc func touchTextView(notification: NSNotification) {
         UIView.animate(withDuration: 0.3) {
             self.view.bounds.origin.y = 140
@@ -168,6 +182,13 @@ extension APIService {
         
         let target: APITarget = .timestamp(token: token, dateTime: dateTime, timeStampContents: timeStampContents, image: image)
         judgeObject(target, completion: completion)
+    }
+    
+    func myGroup(_ token: String, completion: @escaping (NetworkResult<MyGroupData>)->(Void)) {
+        
+        let target: APITarget = .myGroup(token: token)
+        judgeObject(target, completion: completion)
+        
     }
     
 }
