@@ -293,6 +293,8 @@ extension GroupListVC: UITableViewDataSource {
         cell.groupName.text = groupListData?.noImageGroupList[indexPath.row].groupName
         cell.peopleCountLabel.text = "\(groupListData?.noImageGroupList[indexPath.row].countMember ?? 0)/\(groupListData?.noImageGroupList[indexPath.row].maximumMemberNumber ?? 0)"
         
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        
         return cell
     }
 }
