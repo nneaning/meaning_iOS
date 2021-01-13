@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3697D78C25AF32AB004D9C11 /* GroupInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3697D78B25AF32AB004D9C11 /* GroupInfoData.swift */; };
 		36A0C1BC25A1FF20005E3F8E /* GroupListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0C1BB25A1FF20005E3F8E /* GroupListVC.swift */; };
 		36A9422D25A29A6E009C28F2 /* GroupCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9422C25A29A6E009C28F2 /* GroupCollectionCell.swift */; };
 		36A9424725A33DCD009C28F2 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9424625A33DCD009C28F2 /* GroupTableViewCell.swift */; };
@@ -117,6 +118,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3697D78B25AF32AB004D9C11 /* GroupInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfoData.swift; sourceTree = "<group>"; };
 		36A0C1BB25A1FF20005E3F8E /* GroupListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupListVC.swift; path = meaning/Screen/GroupList/ViewController/GroupListVC.swift; sourceTree = SOURCE_ROOT; };
 		36A9422C25A29A6E009C28F2 /* GroupCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupCollectionCell.swift; path = meaning/Screen/GroupList/ViewController/GroupCollectionCell.swift; sourceTree = SOURCE_ROOT; };
 		36A9424625A33DCD009C28F2 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				36ECC7D025ADDC4300685DC2 /* GroupDetailData.swift */,
 				9B43D24525AEB8C700852469 /* CalendarData.swift */,
 				36ECC7E025AE560300685DC2 /* GroupCreateData.swift */,
+				3697D78B25AF32AB004D9C11 /* GroupInfoData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -881,6 +884,7 @@
 				9B40584D25AD6844001D0954 /* MypageData.swift in Sources */,
 				9B2BA1F2259F7C65000EF4AA /* UIButton+Extension.swift in Sources */,
 				9E1F7FAE25AEF6900001FE0B /* DaypromiseData.swift in Sources */,
+				3697D78C25AF32AB004D9C11 /* GroupInfoData.swift in Sources */,
 				9B40583825ACB962001D0954 /* SimpleData.swift in Sources */,
 				9B70C10125A42AD700A5EFDD /* OnboardingTimeVC.swift in Sources */,
 				9B40579125A8E72F001D0954 /* GroupFeedVC.swift in Sources */,
