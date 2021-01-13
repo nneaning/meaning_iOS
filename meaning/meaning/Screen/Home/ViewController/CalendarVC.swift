@@ -11,9 +11,9 @@ class CalendarVC: UIViewController {
 
     // MARK: Variable Part
     
-    var calendarDate: [CalendarData] = []
+    var calendarDate: CalendarData?
     var nick: String = "기상"
-    var countTime: Int = 12
+    var countTime: Int = 0
     var month: Int = 1
     
     // MARK: IBOutlet
@@ -53,8 +53,8 @@ class CalendarVC: UIViewController {
         super.viewDidLoad()
         setView()
         setCalendar()
-        setList()
-        // Do any additional setup after loading the view.
+        updateCalendar(token: "")
+        // 토큰 넣기(88)
     }
     
     override func viewWillLayoutSubviews() {
@@ -76,23 +76,7 @@ extension CalendarVC {
         
         self.view.backgroundColor = .meaningIvory
         
-        explainLabel.text = "오늘은\n\(nick)님의 \(countTime)번째\n의미있는 아침입니다."
-        explainLabel.textColor = .meaningNavy
-        explainLabel.font = UIFont.spoqaLight(size: 22)
-        explainLabel.numberOfLines = 0
-        
-        if let text = explainLabel.text {
-            
-            let attributedStr = NSMutableAttributedString(string: explainLabel.text ?? "")
-            // 닉네임 부분에 폰트를 다르게 설정
-            attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: UIFont.spoqaMedium(size: 22), range: (text as NSString).range(of: nick))
-            // ~번째 부분에 폰트를 다르게 설정
-            attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: UIFont.spoqaMedium(size: 22), range: (text as NSString).range(of: "\(countTime)번째"))
-
-            explainLabel.attributedText = attributedStr
-        }
-        explainLabel.lineSetting(kernValue: -0.88, lineSpacing: 10)
-        explainLabel.textAlignment = .left
+        setMent()
         
         dateButton.makeRounded(cornerRadius: 15)
         dateButton.setTitle("<  \(Date().datePickerToString().recordDate())", for: .normal)
@@ -112,31 +96,59 @@ extension CalendarVC {
         calendarCollectionView.backgroundColor = .none
     }
     
-    func setList() {
-        for i in 1...12 {
-            calendarDate.append(contentsOf: [
-                CalendarData(index: i, imageName: "starWhite")
-        ])
+    func setMent() {
+        // 멘트 설정
+        explainLabel.text = "오늘은\n\(nick)님의 \(countTime)번째\n의미있는 아침입니다."
+        explainLabel.textColor = .meaningNavy
+        explainLabel.font = UIFont.spoqaLight(size: 22)
+        explainLabel.numberOfLines = 0
+        
+        if let text = explainLabel.text {
+            
+            let attributedStr = NSMutableAttributedString(string: explainLabel.text ?? "")
+            // 닉네임 부분에 폰트를 다르게 설정
+            attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: UIFont.spoqaMedium(size: 22), range: (text as NSString).range(of: nick))
+            // ~번째 부분에 폰트를 다르게 설정
+            attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: UIFont.spoqaMedium(size: 22), range: (text as NSString).range(of: "\(countTime)번째"))
+
+            explainLabel.attributedText = attributedStr
         }
-        for j in 13...31 {
-            calendarDate.append(contentsOf: [
-                CalendarData(index: j, imageName: "starBlack")
-        ])
-        }
+        explainLabel.lineSetting(kernValue: -0.88, lineSpacing: 10)
+        explainLabel.textAlignment = .left
     }
+    
+    func updateCalendar(token: String) {
+        // 캘린더 데이터 서버에서 연동
+        APIService.shared.calendarDay(token: token) { [self] result in
+                switch result {
+                case .success(let data):
+                    self.calendarDate = data
+                    if let calendarDate = calendarDate {
+                        countTime = calendarDate.successDays
+                        setMent()
+                    }
+                    calendarCollectionView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+
 }
 
 extension CalendarVC: UICollectionViewDataSource {
     // CollectionView 데이터 넣기
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return calendarDate.count
+        return 31
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let calendarCell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCell.identifier, for: indexPath) as? CalendarCell else {
             return UICollectionViewCell()
         }
-        calendarCell.setCell(calendarDate[indexPath.row])
+        if let calendarDate = calendarDate {
+            calendarCell.setCell(calendarDate.calendar[indexPath.row], indexs: indexPath.row)
+        }
         return calendarCell
     }
 }
@@ -166,4 +178,13 @@ extension CalendarVC: UICollectionViewDelegateFlowLayout {
         return 0
         
     }
+}
+
+extension APIService {
+    
+    func calendarDay(token: String, completion: @escaping (NetworkResult<CalendarData>)->(Void)) {
+        let target: APITarget = .calendarDay(token: token)
+        judgeObject(target, completion: completion)
+    }
+    
 }
