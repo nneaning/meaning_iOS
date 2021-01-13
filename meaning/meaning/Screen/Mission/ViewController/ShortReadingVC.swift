@@ -42,7 +42,7 @@ class ShortReadingVC: UIViewController {
             // 모두 값이 잘 들어가져 있다면 서버통신 시작
             if let bookTitle = bookTitleTextField.text,
                let bookCommentContents = bookReviewTextView.text {
-            bookreview(token: (UserDefaults.standard.string(forKey: "accesstoken") ?? ""), bookTitle: bookTitle, bookCommentContents: bookCommentContents)
+            bookreview(token: (UserDefaults.standard.string(forKey: "accesstoken")!), bookTitle: bookTitle, bookCommentContents: bookCommentContents)
             }
         }
     }

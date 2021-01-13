@@ -33,7 +33,7 @@ class GroupFeedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
-        uploadGroupFeed("토큰",groupNumber)
+        uploadGroupFeed(UserDefaults.standard.string(forKey: "accesstoken")!,groupNumber)
         // 토큰넣기(88)
     }
     

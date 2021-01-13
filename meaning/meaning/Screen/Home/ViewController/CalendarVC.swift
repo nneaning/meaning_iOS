@@ -12,7 +12,7 @@ class CalendarVC: UIViewController {
     // MARK: Variable Part
     
     var calendarDate: CalendarData?
-    var nick: String = "기상"
+    var nick: String = UserDefaults.standard.string(forKey: "userNick")!
     var countTime: Int = 0
     var month: Int = 1
     
@@ -53,7 +53,7 @@ class CalendarVC: UIViewController {
         super.viewDidLoad()
         setView()
         setCalendar()
-        updateCalendar(token: "")
+        updateCalendar(token: UserDefaults.standard.string(forKey: "accesstoken")!)
         // 토큰 넣기(88)
     }
     
@@ -79,7 +79,7 @@ extension CalendarVC {
         setMent()
         
         dateButton.makeRounded(cornerRadius: 15)
-        dateButton.setTitle("<  \(Date().datePickerToString().recordDate())", for: .normal)
+        dateButton.setTitle("\(Date().datePickerToString().recordDate()) >", for: .normal)
         dateButton.titleLabel?.font = UIFont.spoqaRegular(size: 14)
         dateButton.backgroundColor = .meaningNavy
         dateButton.setTitleColor(.white, for: .normal)

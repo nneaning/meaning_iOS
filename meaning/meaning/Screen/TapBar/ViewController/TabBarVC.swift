@@ -71,7 +71,7 @@ extension TabBarVC {
         setViewControllers([homeVC, groupVC], animated: true)
         
         let width: CGFloat = 70/375 * self.view.frame.width
-        let height: CGFloat = 70
+        let height: CGFloat = 70/375 * self.view.frame.width
         
         let posX: CGFloat = self.view.frame.width/2 - width/2
         let posY: CGFloat = -32
