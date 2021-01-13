@@ -31,7 +31,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2aS-RI-aGI">
-                                <rect key="frame" x="0.0" y="99" width="414" height="763"/>
+                                <rect key="frame" x="0.0" y="99" width="414" height="753"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="79R-Db-YC7">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
@@ -272,7 +272,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미닝 iOS 최고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jg-O7-BF1">
-                                                    <rect key="frame" x="30" y="22" width="95" height="32"/>
+                                                    <rect key="frame" x="30" y="22" width="95" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -294,13 +294,20 @@
                                                         <constraint firstItem="1p2-kI-y2T" firstAttribute="centerY" secondItem="snN-hi-vOQ" secondAttribute="centerY" id="luN-X2-OIr"/>
                                                     </constraints>
                                                 </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNA-lW-SFW">
+                                                    <rect key="frame" x="0.0" y="72" width="414" height="1"/>
+                                                    <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="8jg-O7-BF1" secondAttribute="bottom" constant="19" id="B5R-ui-MVd"/>
+                                                <constraint firstAttribute="bottom" secondItem="BNA-lW-SFW" secondAttribute="bottom" id="35Y-UF-2po"/>
                                                 <constraint firstItem="8jg-O7-BF1" firstAttribute="leading" secondItem="nE3-TQ-9p3" secondAttribute="leading" constant="30" id="BwC-bj-8Zt"/>
+                                                <constraint firstAttribute="trailing" secondItem="BNA-lW-SFW" secondAttribute="trailing" id="NWR-oV-SUm"/>
                                                 <constraint firstAttribute="trailing" secondItem="snN-hi-vOQ" secondAttribute="trailing" constant="23" id="Sfh-Ao-FGc"/>
                                                 <constraint firstItem="snN-hi-vOQ" firstAttribute="top" secondItem="nE3-TQ-9p3" secondAttribute="top" constant="18" id="Wrk-er-otg"/>
                                                 <constraint firstItem="8jg-O7-BF1" firstAttribute="top" secondItem="nE3-TQ-9p3" secondAttribute="top" constant="22" id="lFu-Ff-Xnz"/>
+                                                <constraint firstItem="BNA-lW-SFW" firstAttribute="leading" secondItem="nE3-TQ-9p3" secondAttribute="leading" id="sZY-q5-4QJ"/>
+                                                <constraint firstItem="BNA-lW-SFW" firstAttribute="top" secondItem="8jg-O7-BF1" secondAttribute="bottom" constant="29.5" id="swz-3f-1SF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
@@ -308,6 +315,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="groupName" destination="8jg-O7-BF1" id="qAx-QR-z31"/>
+                                            <outlet property="lineView" destination="BNA-lW-SFW" id="uVt-Ew-KyV"/>
                                             <outlet property="numberView" destination="snN-hi-vOQ" id="zl4-bH-HBE"/>
                                             <outlet property="peopleCountLabel" destination="1p2-kI-y2T" id="2rz-2D-ava"/>
                                         </connections>
@@ -323,16 +331,16 @@
                             <constraint firstItem="2aS-RI-aGI" firstAttribute="top" secondItem="UK8-UK-rIm" secondAttribute="bottom" id="Yqf-j8-D1J"/>
                             <constraint firstItem="2aS-RI-aGI" firstAttribute="leading" secondItem="YQq-D8-iJo" secondAttribute="leading" id="ai4-yq-shu"/>
                             <constraint firstItem="UK8-UK-rIm" firstAttribute="leading" secondItem="YQq-D8-iJo" secondAttribute="leading" id="ljr-Aw-s4B"/>
-                            <constraint firstItem="YQq-D8-iJo" firstAttribute="bottom" secondItem="2aS-RI-aGI" secondAttribute="bottom" id="xvT-oV-9UO"/>
+                            <constraint firstItem="YQq-D8-iJo" firstAttribute="bottom" secondItem="2aS-RI-aGI" secondAttribute="bottom" constant="10" id="xvT-oV-9UO"/>
                             <constraint firstItem="UK8-UK-rIm" firstAttribute="trailing" secondItem="YQq-D8-iJo" secondAttribute="trailing" id="yY2-4l-m40"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lrZ-Qg-tpF"/>
                     <connections>
-                        <outlet property="GroupTableView" destination="2aS-RI-aGI" id="Rnh-VL-tkW"/>
                         <outlet property="groupAddBtn" destination="DBP-LH-asB" id="flH-Ap-X7R"/>
                         <outlet property="groupAddLabel" destination="ii6-LC-A4L" id="x8N-xP-Gkf"/>
                         <outlet property="groupCollectionView" destination="NMt-DS-IvW" id="bre-b6-bUz"/>
+                        <outlet property="groupTableView" destination="2aS-RI-aGI" id="Rnh-VL-tkW"/>
                         <outlet property="headerView" destination="79R-Db-YC7" id="nf3-nu-Euh"/>
                         <outlet property="logoView" destination="UK8-UK-rIm" id="KBh-8k-LWO"/>
                         <outlet property="myGroupArrowImg" destination="OOC-No-MzK" id="B23-3N-I1z"/>
@@ -746,6 +754,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
