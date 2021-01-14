@@ -53,13 +53,12 @@ class GroupCreateVC: UIViewController {
         
         //그룹 이름이 비었을 경우
         if nameTextField.text?.isEmpty == true {
-            self.showToast(message: "내용을 입력해주세요!", font: UIFont.spoqaRegular(size: 15))
+            self.showToast(message: "내용을 입력해주세요!", font: UIFont.spoqaRegular(size: 15), width: 166, bottomY: 181)
             
         } else {
             //textField 비었거나 값 충족 못하는 경우
             if countTextField.text?.isEmpty == true || Int(countTextField.text!)! < 2 || Int(countTextField.text!)! > 100 {
-                
-                self.showNumberToast(message: "정확한 숫자를 입력해주세요", font: UIFont.spoqaRegular(size: 15))
+                self.showToast(message: "정확한 숫자를 입력해주세요", font: UIFont.spoqaRegular(size: 15), width: 188, bottomY: 181)
                 numberInfoLabel.text = "최소 2명부터 최대 100명까지 참여할 수 있어요!"
                 numberInfoLabel.font = UIFont.spoqaRegular(size: 12)
                 numberInfoLabel.textColor = .red
@@ -73,7 +72,7 @@ class GroupCreateVC: UIViewController {
                 
                 //그룹 정보 값이 없는 경우
                 if infoTextView.text.isEmpty || infoTextView.text == "그룹을 자유롭게 소개해주세요!" {
-                    self.showToast(message: "내용을 입력해주세요!", font: UIFont.spoqaRegular(size: 15))
+                    self.showToast(message: "내용을 입력해주세요!", font: UIFont.spoqaRegular(size: 15), width: 166, bottomY: 200)
                 } else {
                     
                 }
@@ -148,34 +147,6 @@ extension GroupCreateVC {
         createBtn.titleLabel?.font = UIFont.notoMedium(size: 16)
         createBtn.setTitleColor(UIColor.meaningWhite, for: .normal)
         
-    }
-    
-    func showAlertToast(message : String) {
-        // 이미 그룹이 있거나 그룹명이 있을 때 toast
-        let guide = view.safeAreaInsets.bottom
-        let height = self.view.frame.size.height-guide
-        
-        let toastLabel = UILabel(
-            frame: CGRect( x: self.view.frame.size.width/2 - 94,
-                           y: height-181,
-                           width: 188,
-                           height: 30 )
-        )
-        
-        toastLabel.backgroundColor = UIColor.gray4
-        toastLabel.textColor = UIColor.gray6
-        toastLabel.font = UIFont.spoqaRegular(size: 15)
-        toastLabel.textAlignment = .center
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 6
-        toastLabel.clipsToBounds  =  true
-        self.view.addSubview(toastLabel)
-        UIView.animate(withDuration: 3.0, delay: 0.7, options: .curveEaseOut, animations: {
-            toastLabel.alpha = 0.0
-        }, completion: {(isCompleted) in
-            toastLabel.removeFromSuperview()
-        })
     }
     
 }
@@ -261,11 +232,10 @@ extension GroupCreateVC: UITextViewDelegate {
                 self.navigationController?.pushViewController(groupCompleteVC, animated: true)
                 
             case .failure(let error):
-                print("FailureError")
                 if (error == 406) {
-                    self.showAlertToast(message: "이미 있는 그룹명입니다.")
+                    self.showToast(message : "이미 있는 그룹명입니다.", font: UIFont.spoqaRegular(size: 15), width: 188, bottomY: 181)
                 } else if (error == 403) {
-                    self.showAlertToast(message: "이미 그룹에 속해있습니다.")
+                    self.showToast(message : "이미 그룹에 속해있습니다.", font: UIFont.spoqaRegular(size: 15), width: 188, bottomY: 181)
                 }
                 
             }
