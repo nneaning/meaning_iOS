@@ -51,34 +51,19 @@ class GroupCreateVC: UIViewController {
     @IBAction func createBtnPressed(_ sender: UIButton) {
         //그룹 만들기 눌렀을 때 textField 값이 없으면 토스트 팝업
         
-        //그룹 이름이 비었을 경우
         if nameTextField.text?.isEmpty == true {
+            //1. 이름이 비어있을 경우
             self.showToast(message: "내용을 입력해주세요!", font: UIFont.spoqaRegular(size: 15), width: 166, bottomY: 181)
-            
+            numberInfoLabel.textColor = .gray3
+        } else if countTextField.text?.isEmpty == true || Int(countTextField.text!)! < 2 || Int(countTextField.text!)! > 100 {
+            // 2. 인원이 비어있을 경우 혹은 인원이 맞지않을경우
+            self.showToast(message: "정확한 숫자를 입력해주세요", font: UIFont.spoqaRegular(size: 15), width: 188, bottomY: 181)
+            numberInfoLabel.textColor = .red
+        } else if infoTextView.text.isEmpty || infoTextView.text == "그룹을 자유롭게 소개해주세요!" {
+            // 3. 설명이 비어있을 경우
+            numberInfoLabel.textColor = .gray3
+            self.showToast(message: "내용을 입력해주세요!", font: UIFont.spoqaRegular(size: 15), width: 166, bottomY: 200)
         } else {
-            //textField 비었거나 값 충족 못하는 경우
-            if countTextField.text?.isEmpty == true || Int(countTextField.text!)! < 2 || Int(countTextField.text!)! > 100 {
-                self.showToast(message: "정확한 숫자를 입력해주세요", font: UIFont.spoqaRegular(size: 15), width: 188, bottomY: 181)
-                numberInfoLabel.text = "최소 2명부터 최대 100명까지 참여할 수 있어요!"
-                numberInfoLabel.font = UIFont.spoqaRegular(size: 12)
-                numberInfoLabel.textColor = .red
-                numberInfoLabel.lineSetting(kernValue: -0.48)
-                
-            } else {
-                numberInfoLabel.text = "최소 2명부터 최대 100명까지 참여할 수 있어요!"
-                numberInfoLabel.font = UIFont.spoqaRegular(size: 12)
-                numberInfoLabel.textColor = .gray3
-                numberInfoLabel.lineSetting(kernValue: -0.48)
-                
-                //그룹 정보 값이 없는 경우
-                if infoTextView.text.isEmpty || infoTextView.text == "그룹을 자유롭게 소개해주세요!" {
-                    self.showToast(message: "내용을 입력해주세요!", font: UIFont.spoqaRegular(size: 15), width: 166, bottomY: 200)
-                } else {
-                    
-                }
-                
-            }
-            
             groupCreate(token: UserDefaults.standard.string(forKey: "accesstoken")!, groupName: nameTextField.text ?? "", maximumMemberNumber: Int(countTextField.text ?? "") ?? 0, introduction: infoTextView.text ?? "")
         }
         
