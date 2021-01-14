@@ -10,8 +10,9 @@ import UIKit
 class FeedDetailVC: UIViewController {
 
     // MARK: Variable Part
-    
-    var feedDetailList: [FeedDetail] = []
+
+    var feedDetailMyPage: [GetMyPage]? // 마이페이지에서 넘겨 받을 배열
+    var feedDetailGroup: [GroupFeedData]? // 그룹에서 넘겨받을 배열
     var sloganMent: String?
     var groupName: String?
     var indexScroll: IndexPath?
@@ -33,14 +34,13 @@ class FeedDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
-        setFeed()
         setRefresh()
         // Do any additional setup after loading the view.
     }
     
     override func viewWillLayoutSubviews() {
         if let indexScroll = indexScroll {
-            self.feedDetailTableView.scrollToRow(at: indexScroll, at: .top, animated: false)
+            self.feedDetailTableView.scrollToRow(at: indexScroll, at: .middle, animated: false)
             // 클릭한 인덱스 위치로 이동
         }
     }
@@ -72,14 +72,6 @@ extension FeedDetailVC {
         
     }
     
-    func setFeed() {
-        let date1 = FeedDetail(nick: "김민희", writeTime: "2021/01/08 05:00:00", wakeupTime: "05:00:00", context: "저는 오늘 일어나자마자 책을 읽었습니다.\n여러분들은 오늘 아침 뭐하셨나요?", imageName: "IMG_0668")
-        let date2 = FeedDetail(nick: "밍찌", writeTime: "2021/01/01 17:00:00", wakeupTime: "05:30:00", context: "여러분 잘 일어나셨죠?", imageName: "IMG_0668")
-        let date3 = FeedDetail(nick: "밍찌리", writeTime: "2020/12/25 21:30:00", wakeupTime: "08:45:00", context: "냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠", imageName: "IMG_0668")
-        
-        feedDetailList = [date1, date2, date3]
-    }
-    
     func setRefresh() {
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(updateData(refresh:)), for: .valueChanged)
@@ -93,7 +85,13 @@ extension FeedDetailVC {
 
 extension FeedDetailVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return feedDetailList.count
+        if let feedDetailMyPage = feedDetailMyPage { // 마이피드에서 왔다면?
+            return feedDetailMyPage.count
+        }
+        if let feedDetailGroup = feedDetailGroup { // 그룹에서 왔다면?
+            return feedDetailGroup.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,7 +102,14 @@ extension FeedDetailVC: UITableViewDataSource {
             return UITableViewCell()
             
         }
-        feedDetailCell.setData(nick: feedDetailList[indexPath.row].nick, writeTime: feedDetailList[indexPath.row].writeTime, wakeupTime: dateConverter(dateData: feedDetailList[indexPath.row].wakeupTime), context: feedDetailList[indexPath.row].context, uploadImageName: feedDetailList[indexPath.row].timeStamp, index: indexPath.row % 2)
+        if let feedDetailMyPage = feedDetailMyPage {
+            // 마이피드를 처리해주기
+            feedDetailCell.setData(nick: UserDefaults.standard.string(forKey: "userNick")!, writeTime: feedDetailMyPage[indexPath.row].createdAt, wakeupTime: dateConverter(dateData: UserDefaults.standard.string(forKey: "wakeUpTime")!), context: feedDetailMyPage[indexPath.row].timeStampContents, uploadImageName: feedDetailMyPage[indexPath.row].timeStampImageURL, index: indexPath.row)
+        }
+        if let feedDetailGroup = feedDetailGroup {
+            // 그룹을 처리해주기
+            feedDetailCell.setData(nick: feedDetailGroup[indexPath.row].user.nickName, writeTime: feedDetailGroup[indexPath.row].createdAt, wakeupTime: dateConverter(dateData: feedDetailGroup[indexPath.row].user.wakeUpTime), context: feedDetailGroup[indexPath.row].timeStampContents, uploadImageName: feedDetailGroup[indexPath.row].timeStampImageURL, index: indexPath.row)
+        }
         return feedDetailCell
     }
     

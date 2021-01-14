@@ -11,6 +11,7 @@ class ShortReadingVC: UIViewController {
     
     // MARK: Variable Part
     
+    var missionDelegate: MissionEndDelegate?
     var reviewPlaceholder = "한줄평을 작성해주세요."
     var titlePlaceholder = "책 제목을 입력하세요."
     var simpleData: SimpleData?
@@ -35,9 +36,9 @@ class ShortReadingVC: UIViewController {
     
     @IBAction func registerBtnPressed(_ sender: UIButton) {
         if (bookReviewTextView.text.isEmpty || bookReviewTextView.text == reviewPlaceholder) {
-            self.showToast(message: "한줄평을 입력해주세요", font: UIFont.spoqaRegular(size: 16))
+            self.showToast(message: "한줄평을 입력해주세요", font: UIFont.spoqaRegular(size: 16), width: 166, bottomY: 181)
         } else if((bookTitleTextField.text?.isEmpty) == nil){
-            self.showToast(message: "책 제목을 입력해주세요", font: UIFont.spoqaRegular(size: 16))
+            self.showToast(message: "책 제목을 입력해주세요", font: UIFont.spoqaRegular(size: 16), width: 166, bottomY: 181)
         } else {
             // 모두 값이 잘 들어가져 있다면 서버통신 시작
             if let bookTitle = bookTitleTextField.text,
@@ -114,19 +115,20 @@ class ShortReadingVC: UIViewController {
                 if self.simpleData?.status == 201 {
                     // 성공하면 이전 VC (홈)으로 이동
                     UserDefaults.standard.setValue(true, forKey: "card3")
+                    self.missionDelegate?.MissionMent(didEndMission: "미션을 완료했어요")
                     self.navigationController?.popViewController(animated: true)
                 }
             case .failure(let error):
                 if (error == 400) {
                     // 입력 값이 없습니다
-                    self.showToast(message: "내용을 입력해주세요.", font: UIFont.spoqaRegular(size: 16))
+                    self.showToast(message: "내용을 입력해주세요.", font: UIFont.spoqaRegular(size: 16), width: 166, bottomY: 181)
                 } else if (error == 401) {
                     // 토큰 만료, 다시 로그인 필요
-                    self.showToast(message: "재접속 해주세요!", font: UIFont.spoqaRegular(size: 16))
+                    self.showToast(message: "재접속 해주세요!", font: UIFont.spoqaRegular(size: 16), width: 166, bottomY: 181)
                     self.navigationController?.popToRootViewController(animated: true)
                     
                 } else { // 500 : 서버 내부 오류
-                    self.showToast(message: "네트워크 끊김", font: UIFont.spoqaRegular(size: 16))
+                    self.showToast(message: "네트워크 끊김", font: UIFont.spoqaRegular(size: 16), width: 166, bottomY: 181)
                 }
             }
         }
@@ -213,16 +215,5 @@ extension ShortReadingVC: UITextFieldDelegate {
     }
     
 }
-
-// MARK: APIService
-
-extension APIService {
-    
-    func bookreview(_ token: String, _ bookTitle: String, _ bookCommentContents: String, completion: @escaping (NetworkResult<Any>)->(Void)) {
-        let target: APITarget = .bookreview(token: token, bookTitle: bookTitle, bookCommentContents: bookCommentContents)
-        judgeSimpleObject(target, completion: completion)
-    }
-}
-
 
 

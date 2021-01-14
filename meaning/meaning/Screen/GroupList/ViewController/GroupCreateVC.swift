@@ -53,13 +53,12 @@ class GroupCreateVC: UIViewController {
         
         //그룹 이름이 비었을 경우
         if nameTextField.text?.isEmpty == true {
-            self.showToast(message: "내용을 입력해주세요!", font: UIFont.spoqaRegular(size: 15))
+            self.showToast(message: "내용을 입력해주세요!", font: UIFont.spoqaRegular(size: 15), width: 166, bottomY: 181)
             
         } else {
             //textField 비었거나 값 충족 못하는 경우
             if countTextField.text?.isEmpty == true || Int(countTextField.text!)! < 2 || Int(countTextField.text!)! > 100 {
-                
-                self.showNumberToast(message: "정확한 숫자를 입력해주세요", font: UIFont.spoqaRegular(size: 15))
+                self.showToast(message: "정확한 숫자를 입력해주세요", font: UIFont.spoqaRegular(size: 15), width: 188, bottomY: 181)
                 numberInfoLabel.text = "최소 2명부터 최대 100명까지 참여할 수 있어요!"
                 numberInfoLabel.font = UIFont.spoqaRegular(size: 12)
                 numberInfoLabel.textColor = .red
@@ -73,7 +72,7 @@ class GroupCreateVC: UIViewController {
                 
                 //그룹 정보 값이 없는 경우
                 if infoTextView.text.isEmpty || infoTextView.text == "그룹을 자유롭게 소개해주세요!" {
-                    self.showToast(message: "내용을 입력해주세요!", font: UIFont.spoqaRegular(size: 15))
+                    self.showToast(message: "내용을 입력해주세요!", font: UIFont.spoqaRegular(size: 15), width: 166, bottomY: 200)
                 } else {
                     
                 }
@@ -149,18 +148,18 @@ extension GroupCreateVC {
         createBtn.setTitleColor(UIColor.meaningWhite, for: .normal)
         
     }
-
+    
 }
 
 extension GroupCreateVC: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
-        //글자 수 20자 글자수 제한
+        //글자 수 12자 글자수 제한
         let currentText = textField.text ?? ""
         guard let stringRange = Range(range, in: currentText) else { return false }
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-        return updatedText.count <= 20
+        return updatedText.count <= 12
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -232,27 +231,15 @@ extension GroupCreateVC: UITextViewDelegate {
                 }
                 self.navigationController?.pushViewController(groupCompleteVC, animated: true)
                 
-                
-            case .failure(_):
-                print("FailureError")
+            case .failure(let error):
+                if (error == 406) {
+                    self.showToast(message : "이미 있는 그룹명입니다.", font: UIFont.spoqaRegular(size: 15), width: 188, bottomY: 181)
+                } else if (error == 403) {
+                    self.showToast(message : "이미 그룹에 속해있습니다.", font: UIFont.spoqaRegular(size: 15), width: 188, bottomY: 181)
+                }
                 
             }
             
         }
     }
-}
-
-
-
-// MARK: - APIService Extension
-
-extension APIService {
-    
-    func groupCreate(token: String, groupName: String, maximumMemberNumber: Int, introduction: String, completion: @escaping (NetworkResult<GroupCreateData>)->(Void)) {
-        
-        let target: APITarget = .groupMake(token: token, groupName: groupName, maximumMemberNumber: maximumMemberNumber, introduction: introduction)
-        
-        judgeObject(target, completion: completion)
-    }
-    
 }

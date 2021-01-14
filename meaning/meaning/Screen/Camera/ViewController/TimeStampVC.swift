@@ -78,6 +78,8 @@ extension TimeStampVC {
     // MARK: Function
     
     func setCameraView() {
+        
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         // 카메라 뷰 Style Setting
         stampBorderView.setBorder(borderColor: .white, borderWidth: 1)
         stampBorderView.backgroundColor = .none

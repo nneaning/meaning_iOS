@@ -25,6 +25,7 @@ enum APITarget {
     case dailydiary(token: String, diaryContents: String) // 자기 회고 작성
     case bookreview(token: String, bookTitle: String, bookCommentContents: String) // 짧은 독서 작성
     case calendarDay(token: String) // 캘린더 조회
+    case myGroup(token: String) // 가입 그룹 조회
 }
 
 // MARK: TargetType Protocol 구현
@@ -32,7 +33,7 @@ enum APITarget {
 extension APITarget: TargetType {
     var baseURL: URL {
         // baseURL - 서버의 도메인
-        return URL(string: "http://13.124.61.0:3000")!
+        return URL(string: "https://meaning.ga")!
     }
     
     var path: String {
@@ -68,6 +69,8 @@ extension APITarget: TargetType {
             return "/user/bookreview"
         case .calendarDay:
             return "/timestamp/calendar"
+        case .myGroup:
+            return "/group/my"
         }
     }
     
@@ -78,7 +81,7 @@ extension APITarget: TargetType {
             return .post
         case .onboard, .refreshtoken:
             return .put
-        case .groupFeed, .groupEdit, .mypage, .groupDetail, .daypromise, .groupList, .calendarDay:
+        case .groupFeed, .groupEdit, .mypage, .groupDetail, .daypromise, .groupList, .calendarDay, .myGroup:
             return .get
         }
     }
@@ -102,7 +105,7 @@ extension APITarget: TargetType {
         case .timestamp(_, let dateTime, let timeStampContents, let image):
             let dateTimeData = MultipartFormData(provider: .data(dateTime.data(using: .utf8)!), name: "dateTime")
             let timeStampContentsData = MultipartFormData(provider: .data(timeStampContents.data(using: .utf8)!), name: "timeStampContents")
-            let imageData = MultipartFormData(provider: .data(image.jpegData(compressionQuality: 1.0)!), name: "image", fileName: "timestamp", mimeType: "image/jpeg")
+            let imageData = MultipartFormData(provider: .data(image.jpegData(compressionQuality: 1.0)!), name: "image", fileName: "jpeg", mimeType: "image/jpeg")
             let multipartData = [dateTimeData, timeStampContentsData, imageData]
             return .uploadMultipart(multipartData)
             
@@ -118,7 +121,7 @@ extension APITarget: TargetType {
         case .bookreview(_, let bookTitle, let bookCommentContents):
             return .requestParameters(parameters: ["bookTitle" : bookTitle, "bookCommentContents" : bookCommentContents], encoding: JSONEncoding.default)
         
-        case .groupEdit, .groupDetail, .daypromise, .refreshtoken, .calendarDay:
+        case .groupEdit, .groupDetail, .daypromise, .refreshtoken, .calendarDay, .myGroup:
             return .requestPlain
             
         case .mypage, .groupFeed, .groupList:
@@ -142,7 +145,7 @@ extension APITarget: TargetType {
         case .timestamp(let token, _, _, _):
             return ["Content-Type" : "multipart/form-data", "token" : token]
             
-        case .groupJoin(let token, _), .groupFeed(let token, _), .groupEdit(let token, _), .groupDetail(let token, _), .mypage(let token), .daypromise(let token), .dailydiary(let token, _), .groupMake(let token, _, _, _), .groupList(let token) , .bookreview(let token, _, _), .calendarDay(let token):
+        case .groupJoin(let token, _), .groupFeed(let token, _), .groupEdit(let token, _), .groupDetail(let token, _), .mypage(let token), .daypromise(let token), .dailydiary(let token, _), .groupMake(let token, _, _, _), .groupList(let token) , .bookreview(let token, _, _), .calendarDay(let token), .myGroup(let token):
             return ["Content-Type" : "application/json", "token" : token]
             
         case .refreshtoken(let refreshtoken):

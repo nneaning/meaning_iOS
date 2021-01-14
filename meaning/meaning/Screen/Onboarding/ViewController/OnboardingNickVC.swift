@@ -36,6 +36,7 @@ class OnboardingNickVC: UIViewController {
     // MARK: Life Cycle Part
     
     override func viewDidLoad() {
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         super.viewDidLoad()
         setView()
     }

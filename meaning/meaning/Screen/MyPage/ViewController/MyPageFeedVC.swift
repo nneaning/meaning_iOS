@@ -99,7 +99,7 @@ class MyPageFeedVC: UIViewController {
         self.headerLabel.textColor = UIColor.gray1
         
         self.userNameInitial.text = initial
-        self.userNameInitial.font = .spoqaMedium(size: 30)
+        self.userNameInitial.font = .spoqaMedium(size: 20)
         self.userNameInitial.textAlignment = .center
         
         self.userNameLabel.text = userNick
@@ -124,7 +124,7 @@ class MyPageFeedVC: UIViewController {
         self.userWakeTimeView.setRounded(radius: 13.5)
         self.userWakeTimeView.backgroundColor = .meaningWhite
         
-        self.feedHeaderLabel.text = "오늘은 365일 중에 0번째 의미있는 아침입니다."
+        self.feedHeaderLabel.text = "\(userNick)님의 0번째 의미있는 아침입니다."
         self.feedHeaderView.backgroundColor = .meaningLightblue
         self.feedHeaderLabel.font = .spoqaMedium(size: 14)
         self.feedHeaderLabel.lineSetting(kernValue: -0.56)
@@ -155,7 +155,7 @@ class MyPageFeedVC: UIViewController {
                 case .success(let data):
                     self.mypageData = data
                     if let mypage = self.mypageData?.getMyPage {
-                        self.feedHeaderLabel.text = "오늘은 365일 중에 \(mypage.count)번째 의미있는 아침입니다."
+                        self.feedHeaderLabel.text = "\(self.userNick)님의 \(mypage.count + 1)번째 의미있는 아침입니다."
                     }
                     self.feedCollectionView.reloadData()
 
@@ -193,6 +193,8 @@ extension MyPageFeedVC: UICollectionViewDataSource {
         }
         
         feedDetailTap.groupName = "마이 피드"
+        feedDetailTap.sloganMent = feedHeaderLabel.text
+        feedDetailTap.feedDetailMyPage = mypageData?.getMyPage
         feedDetailTap.indexScroll = indexPath
         self.navigationController?.pushViewController(feedDetailTap, animated: true)
         
@@ -222,15 +224,5 @@ extension MyPageFeedVC: UICollectionViewDelegateFlowLayout {
     // 한 줄씩 사이의 거리
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 1
-    }
-}
-
-extension APIService {
-
-    func mypage(token: String, completion: @escaping (NetworkResult<MypageData>)->(Void)) {
-        
-        let target: APITarget = .mypage(token: token)
-        judgeObject(target, completion: completion)
-        
     }
 }

@@ -47,7 +47,8 @@ class PictureUploadVC: UIViewController {
         if let timeToServer = timeToServer,
            let uploadedImageData = uploadedImageData {
             // 서버 통신
-            uploadPictrue("", timeToServer, bodyTextView.text, uploadedImageData)
+            uploadPictrue(UserDefaults.standard.string(forKey: "accesstoken")!, timeToServer, bodyTextView.text, uploadedImageData)
+            
             // 토큰 삽입 필수!(88)
         }
         
@@ -59,6 +60,8 @@ class PictureUploadVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayout()
+        updateGroup(UserDefaults.standard.string(forKey: "accesstoken")!)
+        // 토큰 넣기(88)
         
     }
     
@@ -98,7 +101,7 @@ class PictureUploadVC: UIViewController {
         uploadBtn.setTitleColor(.meaningWhite, for: .normal)
         uploadBtn.titleLabel?.font = UIFont.spoqaMedium(size: 16)
         uploadBtn.titleLabel?.lineSetting(kernValue: -0.64)
-        uploadBtn.setTitle("그룹에 사진올리기", for: .normal)
+        uploadBtn.setTitle("마이피드에 사진올리기", for: .normal)
         uploadBtn.setRounded(radius: 6)
         
         //SE의 경우에는 constraint 조정
@@ -130,7 +133,20 @@ class PictureUploadVC: UIViewController {
                     self.navigationController?.popToRootViewController(animated: true)
                     // 타임카메라 미션 완료!
                     UserDefaults.standard.setValue(true, forKey: "card0")
+                    NotificationCenter.default.post(name: .clearMissionOne, object: nil)
+                    // clearMissionOne에 해당 되는 것들은 처리 하라고 보냄
 
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
+    func updateGroup(_ token: String) {
+        APIService.shared.myGroup(token) { [self] result in
+                switch result {
+                case .success(_):
+                    uploadBtn.setTitle("그룹에 사진 올리기", for: .normal)
                 case .failure(let error):
                     print(error)
                 }
@@ -160,14 +176,4 @@ extension PictureUploadVC: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         editGuideLabel.isHidden = true
     }
-}
-
-extension APIService {
-    
-    func timestamp(_ token: String, _ dateTime: String, _ timeStampContents: String, _ image: UIImage, completion: @escaping (NetworkResult<TimestampData>)->(Void)) {
-        
-        let target: APITarget = .timestamp(token: token, dateTime: dateTime, timeStampContents: timeStampContents, image: image)
-        judgeObject(target, completion: completion)
-    }
-    
 }

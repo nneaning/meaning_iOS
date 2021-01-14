@@ -124,7 +124,7 @@ extension CalendarVC {
                 case .success(let data):
                     self.calendarDate = data
                     if let calendarDate = calendarDate {
-                        countTime = calendarDate.successDays
+                        countTime = calendarDate.successDays+1
                         setMent()
                     }
                     calendarCollectionView.reloadData()
@@ -178,13 +178,4 @@ extension CalendarVC: UICollectionViewDelegateFlowLayout {
         return 0
         
     }
-}
-
-extension APIService {
-    
-    func calendarDay(token: String, completion: @escaping (NetworkResult<CalendarData>)->(Void)) {
-        let target: APITarget = .calendarDay(token: token)
-        judgeObject(target, completion: completion)
-    }
-    
 }

@@ -11,7 +11,6 @@ class GroupFeedVC: UIViewController {
 
     // MARK: Variable Part
     
-    var feedList: [FeedImage] = []
     var groupName: String?
     var groupPersonCount: Int = 0 // 앞의 뷰에서 받아오기
     var groupFeedData: [GroupFeedData]?
@@ -27,6 +26,17 @@ class GroupFeedVC: UIViewController {
     @IBAction func backButtonDidTap(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    
+    @IBAction func settingButtonDidTap(_ sender: Any) {
+        
+        guard let groupInfoVC = self.storyboard?.instantiateViewController(identifier: "GroupInfoVC") as? GroupInfoVC else {
+            return
+        }
+        groupInfoVC.groupID = groupNumber
+        self.navigationController?.pushViewController(groupInfoVC, animated: true)
+    }
+    
     
     // MARK: Life Cycle Part
     
@@ -173,6 +183,7 @@ extension GroupFeedVC: UICollectionViewDataSource {
         
         feedDetailTap.indexScroll = indexPath
         feedDetailTap.groupName = groupName
+        feedDetailTap.feedDetailGroup = groupFeedData
         feedDetailTap.sloganMent = "\(groupPersonCount)명의 사람들이 함께 아침을 맞이하고 있어요!"
         self.navigationController?.pushViewController(feedDetailTap, animated: true)
     }
@@ -200,13 +211,4 @@ extension GroupFeedVC: UICollectionViewDelegateFlowLayout {
         
         return 0.5
     }
-}
-
-extension APIService {
-    
-    func groupFeed(token: String, groupid: Int, completion: @escaping (NetworkResult<[GroupFeedData]>)->(Void)) {
-        let target: APITarget = .groupFeed(token: token, groupid: groupid)
-        judgeObject(target, completion: completion)
-    }
-    
 }

@@ -48,6 +48,12 @@ class LoginVC: UIViewController {
         
         UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.transitionFlipFromTop, animations: {
             
+            //알람들 없애기
+            self.idIsInvalid.alpha = 0
+            self.pwIsInvalid.alpha = 0
+            self.idIsInvalid.center.y += 200
+            self.pwIsInvalid.center.y += 200
+
             //뒤로 가기 버튼 없애기
             self.backBtn.alpha = 0
             
@@ -128,7 +134,6 @@ class LoginVC: UIViewController {
                 self.idTextField.center.y -= 200
                 self.pwLabel.center.y -= 200
                 self.pwTextField.center.y -= 200
-                
                 self.pwIsInvalid.center.y -= 200
                 self.idIsInvalid.center.y -= 200
                 
@@ -354,16 +359,16 @@ class LoginVC: UIViewController {
                         // 온보딩으로 이동
                         onBoardingNaviVC.modalPresentationStyle = .fullScreen
                         present(onBoardingNaviVC, animated: true, completion: nil)
-                        
                     }
                 }
                 
             case .failure(let error):
-                if (error == 400) {
+                print(error)
+                if (error == 400 || error == 401) {
                     self.idIsInvalid.alpha = 1
                     self.pwIsInvalid.alpha = 1
                 } else {
-                    showToast(message: "네트워크 연결을 확인해주세요.", font: .spoqaMedium(size: 16))
+                    showToast(message: "네트워크 끊김", font: .spoqaMedium(size: 16), width: 166, bottomY: 181)
                 }
                 
             }
@@ -371,18 +376,3 @@ class LoginVC: UIViewController {
         }
     }
 }
-
-
-// MARK: APIService
-
-extension APIService {
-    
-    func login(_ email: String, _ password: String, completion: @escaping (NetworkResult<LoginData>)->(Void)) {
-        
-        let target: APITarget = .login(email: email, password: password)
-        judgeObject(target, completion: completion)
-        
-    }
-    
-}
-
