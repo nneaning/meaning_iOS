@@ -129,7 +129,7 @@ extension HomeVC {
         cardList = [mission1,mission2,mission3,mission4]
     }
     
-    func showMissionToast() {
+    func showMissionToast(ment: String) {
         // 순서에 맞지않는 미션 클릭시 나오는 toast
         let guide = view.safeAreaInsets.bottom
         let height = self.view.frame.size.height-guide
@@ -145,7 +145,7 @@ extension HomeVC {
         toastLabel.textColor = UIColor.gray6
         toastLabel.font = UIFont.spoqaRegular(size: 15)
         toastLabel.textAlignment = .center
-        toastLabel.text = "순서대로 미션을 완료해주세요"
+        toastLabel.text = ment
         toastLabel.alpha = 1.0
         toastLabel.layer.cornerRadius = 6
         toastLabel.clipsToBounds  =  true
@@ -200,11 +200,12 @@ extension HomeVC: UICollectionViewDataSource {
             
             if UserDefaults.standard.bool(forKey: "card1") == false {
                 if UserDefaults.standard.bool(forKey: "card0") == false {
-                    showMissionToast()
+                    showMissionToast(ment: "순서대로 미션을 완료해주세요")
                 } else {
                     guard let dailyMaxTap = missionStoryboard.instantiateViewController(identifier: "DailyMaximVC") as? DailyMaximVC else {
                         return
                     }
+                    dailyMaxTap.missionDelegate = self
                     dailyMaxTap.hidesBottomBarWhenPushed = true
                     self.navigationController?.pushViewController(dailyMaxTap, animated: true)
                 }
@@ -214,11 +215,12 @@ extension HomeVC: UICollectionViewDataSource {
             
             if UserDefaults.standard.bool(forKey: "card2") == false {
                 if UserDefaults.standard.bool(forKey: "card0") == false || UserDefaults.standard.bool(forKey: "card1") == false {
-                    showMissionToast()
+                    showMissionToast(ment: "순서대로 미션을 완료해주세요")
                 } else {
                     guard let dailyDiaryTap = missionStoryboard.instantiateViewController(identifier: "DailyDiaryVC") as? DailyDiaryVC else {
                         return
                     }
+                    dailyDiaryTap.missionDelegate = self
                     dailyDiaryTap.hidesBottomBarWhenPushed = true
                     self.navigationController?.pushViewController(dailyDiaryTap, animated: true)
                 }
@@ -228,11 +230,12 @@ extension HomeVC: UICollectionViewDataSource {
             
             if UserDefaults.standard.bool(forKey: "card3") == false {
                 if UserDefaults.standard.bool(forKey: "card0") == false || UserDefaults.standard.bool(forKey: "card1") == false || UserDefaults.standard.bool(forKey: "card2") == false {
-                    showMissionToast()
+                    showMissionToast(ment: "순서대로 미션을 완료해주세요")
                 } else {
                     guard let shortReadingTap = missionStoryboard.instantiateViewController(identifier: "ShortReadingVC") as? ShortReadingVC else {
                         return
                     }
+                    shortReadingTap.missionDelegate = self
                     shortReadingTap.hidesBottomBarWhenPushed = true
                     self.navigationController?.pushViewController(shortReadingTap, animated: true)
                 }
@@ -267,4 +270,11 @@ extension HomeVC: UICollectionViewDelegateFlowLayout {
         return 0
         
     }
+}
+extension HomeVC: MissionEndDelegate {
+    // 메소드 구현
+    func MissionMent(didEndMission ment: String) {
+        showMissionToast(ment: ment)
+    }
+        
 }

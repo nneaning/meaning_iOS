@@ -11,6 +11,7 @@ class ShortReadingVC: UIViewController {
     
     // MARK: Variable Part
     
+    var missionDelegate: MissionEndDelegate?
     var reviewPlaceholder = "한줄평을 작성해주세요."
     var titlePlaceholder = "책 제목을 입력하세요."
     var simpleData: SimpleData?
@@ -114,6 +115,7 @@ class ShortReadingVC: UIViewController {
                 if self.simpleData?.status == 201 {
                     // 성공하면 이전 VC (홈)으로 이동
                     UserDefaults.standard.setValue(true, forKey: "card3")
+                    self.missionDelegate?.MissionMent(didEndMission: "미션을 완료했어요")
                     self.navigationController?.popViewController(animated: true)
                 }
             case .failure(let error):

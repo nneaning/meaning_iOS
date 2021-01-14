@@ -133,6 +133,7 @@ class PictureUploadVC: UIViewController {
                     self.navigationController?.popToRootViewController(animated: true)
                     // 타임카메라 미션 완료!
                     UserDefaults.standard.setValue(true, forKey: "card0")
+                    
 
                 case .failure(let error):
                     print(error)
