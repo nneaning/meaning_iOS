@@ -11,7 +11,6 @@ class GroupFeedVC: UIViewController {
 
     // MARK: Variable Part
     
-    var feedList: [FeedImage] = []
     var groupName: String?
     var groupPersonCount: Int = 0 // 앞의 뷰에서 받아오기
     var groupFeedData: [GroupFeedData]?
@@ -212,13 +211,4 @@ extension GroupFeedVC: UICollectionViewDelegateFlowLayout {
         
         return 0.5
     }
-}
-
-extension APIService {
-    
-    func groupFeed(token: String, groupid: Int, completion: @escaping (NetworkResult<[GroupFeedData]>)->(Void)) {
-        let target: APITarget = .groupFeed(token: token, groupid: groupid)
-        judgeObject(target, completion: completion)
-    }
-    
 }

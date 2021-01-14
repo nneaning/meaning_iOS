@@ -226,13 +226,3 @@ extension MyPageFeedVC: UICollectionViewDelegateFlowLayout {
         return 1
     }
 }
-
-extension APIService {
-
-    func mypage(token: String, completion: @escaping (NetworkResult<MypageData>)->(Void)) {
-        
-        let target: APITarget = .mypage(token: token)
-        judgeObject(target, completion: completion)
-        
-    }
-}

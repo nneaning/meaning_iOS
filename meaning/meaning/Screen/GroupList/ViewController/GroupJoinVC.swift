@@ -89,17 +89,4 @@ extension GroupJoinVC {
 }
 
 
-// MARK: - APIService Extension
-
-extension APIService {
-    
-    func groupJoin(token: String, groupId: Int, completion: @escaping (NetworkResult<Any>)->(Void)) {
-        
-        let target: APITarget = .groupJoin(token: token, groupId: groupId)
-        
-        judgeSimpleObject(target, completion: completion)
-    }
-}
-
-
 

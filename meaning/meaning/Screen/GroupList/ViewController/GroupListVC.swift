@@ -89,6 +89,7 @@ class GroupListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         
         setHeader()
         
@@ -325,21 +326,5 @@ extension GroupListVC: UITableViewDelegate {
         self.present(groupDetailVC, animated: true, completion: nil)
     }
 }
-
-
-
-
-// MARK: - APIService Extension
-
-extension APIService {
-    
-    func groupList(token: String, completion: @escaping (NetworkResult<GroupListData>)->(Void)) {
-        
-        let target: APITarget = .groupList(token: token)
-        
-        judgeObject(target, completion: completion)
-    }
-}
-
 
 

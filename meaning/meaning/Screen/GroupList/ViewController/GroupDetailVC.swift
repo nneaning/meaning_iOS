@@ -137,16 +137,3 @@ extension GroupDetailVC {
     }
     
 }
-
-// MARK: - APIService Extension
-
-extension APIService {
-    
-    func groupDetail(token : String, groupid: Int, completion: @escaping (NetworkResult<GroupDetailData>)->(Void)) {
-        
-        let target: APITarget = .groupDetail(token: token, groupid: groupid)
-        
-        judgeObject(target, completion: completion)
-    }
-    
-}

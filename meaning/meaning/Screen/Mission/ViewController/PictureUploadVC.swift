@@ -177,20 +177,3 @@ extension PictureUploadVC: UITextViewDelegate {
         editGuideLabel.isHidden = true
     }
 }
-
-extension APIService {
-    
-    func timestamp(_ token: String, _ dateTime: String, _ timeStampContents: String, _ image: UIImage, completion: @escaping (NetworkResult<TimestampData>)->(Void)) {
-        
-        let target: APITarget = .timestamp(token: token, dateTime: dateTime, timeStampContents: timeStampContents, image: image)
-        judgeObject(target, completion: completion)
-    }
-    
-    func myGroup(_ token: String, completion: @escaping (NetworkResult<MyGroupData>)->(Void)) {
-        
-        let target: APITarget = .myGroup(token: token)
-        judgeObject(target, completion: completion)
-        
-    }
-    
-}

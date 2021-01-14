@@ -216,15 +216,4 @@ extension ShortReadingVC: UITextFieldDelegate {
     
 }
 
-// MARK: APIService
-
-extension APIService {
-    
-    func bookreview(_ token: String, _ bookTitle: String, _ bookCommentContents: String, completion: @escaping (NetworkResult<Any>)->(Void)) {
-        let target: APITarget = .bookreview(token: token, bookTitle: bookTitle, bookCommentContents: bookCommentContents)
-        judgeSimpleObject(target, completion: completion)
-    }
-}
-
-
 
