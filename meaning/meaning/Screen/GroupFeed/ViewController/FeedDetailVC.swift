@@ -10,8 +10,7 @@ import UIKit
 class FeedDetailVC: UIViewController {
 
     // MARK: Variable Part
-    
-    var feedDetailList: [FeedDetail] = []
+
     var feedDetailMyPage: [GetMyPage]? // 마이페이지에서 넘겨 받을 배열
     var feedDetailGroup: [GroupFeedData]? // 그룹에서 넘겨받을 배열
     var sloganMent: String?
@@ -35,7 +34,6 @@ class FeedDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
-        setFeed()
         setRefresh()
         // Do any additional setup after loading the view.
     }
@@ -72,14 +70,6 @@ extension FeedDetailVC {
         feedDetailTableView.allowsSelection = false
         // cell 선택 금지
         
-    }
-    
-    func setFeed() {
-        let date1 = FeedDetail(nick: "김민희", writeTime: "2021/01/08 05:00:00", wakeupTime: "05:00:00", context: "저는 오늘 일어나자마자 책을 읽었습니다.\n여러분들은 오늘 아침 뭐하셨나요?", imageName: "IMG_0668")
-        let date2 = FeedDetail(nick: "밍찌", writeTime: "2021/01/01 17:00:00", wakeupTime: "05:30:00", context: "여러분 잘 일어나셨죠?", imageName: "IMG_0668")
-        let date3 = FeedDetail(nick: "밍찌리", writeTime: "2020/12/25 21:30:00", wakeupTime: "08:45:00", context: "냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠냠", imageName: "IMG_0668")
-        
-        feedDetailList = [date1, date2, date3]
     }
     
     func setRefresh() {

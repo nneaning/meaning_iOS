@@ -11,7 +11,6 @@ class GroupFeedVC: UIViewController {
 
     // MARK: Variable Part
     
-    var feedList: [FeedImage] = []
     var groupName: String?
     var groupPersonCount: Int = 0 // 앞의 뷰에서 받아오기
     var groupFeedData: [GroupFeedData]?
