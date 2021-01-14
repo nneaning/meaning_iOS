@@ -212,12 +212,3 @@ extension GroupFeedVC: UICollectionViewDelegateFlowLayout {
         return 0.5
     }
 }
-
-extension APIService {
-    
-    func groupFeed(token: String, groupid: Int, completion: @escaping (NetworkResult<[GroupFeedData]>)->(Void)) {
-        let target: APITarget = .groupFeed(token: token, groupid: groupid)
-        judgeObject(target, completion: completion)
-    }
-    
-}

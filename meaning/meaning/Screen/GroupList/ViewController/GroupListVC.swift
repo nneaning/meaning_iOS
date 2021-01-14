@@ -328,19 +328,3 @@ extension GroupListVC: UITableViewDelegate {
 }
 
 
-
-
-// MARK: - APIService Extension
-
-extension APIService {
-    
-    func groupList(token: String, completion: @escaping (NetworkResult<GroupListData>)->(Void)) {
-        
-        let target: APITarget = .groupList(token: token)
-        
-        judgeObject(target, completion: completion)
-    }
-}
-
-
-

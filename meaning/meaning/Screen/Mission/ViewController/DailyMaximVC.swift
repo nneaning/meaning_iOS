@@ -106,18 +106,6 @@ class DailyMaximVC: UIViewController {
     }
 }
 
-// MARK: APIService
-
-extension APIService {
-    
-    func daypromise(_ token: String, completion: @escaping (NetworkResult<DaypromiseData>)->(Void)) {
-        
-        let target: APITarget = .daypromise(token: token)
-        judgeObject(target, completion: completion)
-        
-    }
-    
-}
 
 protocol MissionEndDelegate {
     //protocol 만들고 메소드 정의
