@@ -70,8 +70,8 @@ class GroupListVC: UIViewController {
             groupFeedTap.groupNumber = mygroup.groupID // 그룹 아이디 전달
             groupFeedTap.groupPersonCount = mygroup.countMember // 그룹 멤버 수 전달
         }
+            
         self.navigationController?.pushViewController(groupFeedTap, animated: true)
-        
     }
 
     

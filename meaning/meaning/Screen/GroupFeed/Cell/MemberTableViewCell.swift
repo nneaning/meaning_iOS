@@ -17,6 +17,7 @@ class MemberTableViewCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var wakeUpTimeView: UIView!
     @IBOutlet var wakeUpTimeLabel: UILabel!
+    @IBOutlet weak var wakeupViewWidth: NSLayoutConstraint!
     
     @IBOutlet var howLongLabel: UILabel!
     
@@ -37,10 +38,12 @@ extension MemberTableViewCell {
     func setLayout() {
         //cell layout 설정
         circleView.setRounded(radius: nil)
-
-        wakeUpTimeView.setRounded(radius: 10)
-        wakeUpTimeView.setBorder(borderColor: UIColor.skyBlue, borderWidth: 1.0)
         
+        wakeUpTimeView.setRounded(radius: 10)
+        wakeUpTimeView.backgroundColor = .none
+        wakeUpTimeView.setBorder(borderColor: .skyBlue, borderWidth: 1)
+        
+        wakeUpTimeLabel.text = "매일 오전 5시 기상"
         wakeUpTimeLabel.font = UIFont.notoMedium(size: 10)
         wakeUpTimeLabel.textColor = UIColor.skyBlue
         wakeUpTimeLabel.lineSetting(kernValue: -0.4)
@@ -55,11 +58,10 @@ extension MemberTableViewCell {
         
     }
     
-    func setCell(memberInfo: MemberInfo, index: Int) {
+    func setCell(groupInfoData: Users, index: Int, dateData: String) {
         
         //홀수 번째, 짝수 번째 원 다른 색상
-        for i in 0...index {
-            if (i % 2 == 0) {
+            if (index % 2 == 0) {
                 circleView.layer.backgroundColor = UIColor.meaningLightblue.cgColor
                 lastNameLabel.font = UIFont.spoqaRegular(size: 18)
                 lastNameLabel.textColor = UIColor.meaningNavy
@@ -70,16 +72,25 @@ extension MemberTableViewCell {
                 lastNameLabel.textColor = UIColor.meaningWhite
                 lastNameLabel.lineSetting(kernValue: -0.72)
             }
-        }
         
         //이름의 첫번째 글자만 따오기
-        let name = memberInfo.memberName
+        let name = groupInfoData.userName
         let first = name[name.startIndex]
         lastNameLabel.text = "\(first)"
         
-        nameLabel.text = memberInfo.memberName
-        wakeUpTimeLabel.text = "매일 \(memberInfo.wakeUpTime) 기상"
-        howLongLabel.text = "\(memberInfo.howLong)일째 진행 중"
+        nameLabel.text = groupInfoData.userName
+        howLongLabel.text = "\(groupInfoData.dayPassed)일째 진행 중"
+        wakeUpTimeLabel.text = "\(dateData)"
+        
+        
+        
+        if wakeUpTimeLabel.text?.count == 11 {
+            // 정각일때
+            wakeupViewWidth.constant = 90
+        } else {
+            wakeupViewWidth.constant = 113
+        }
         
     }
 }
+

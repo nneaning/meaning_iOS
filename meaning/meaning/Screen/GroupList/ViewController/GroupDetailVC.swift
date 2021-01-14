@@ -35,7 +35,6 @@ class GroupDetailVC: ViewController {
         setButton()
         groupDetail(token: UserDefaults.standard.string(forKey: "accesstoken")!, groupid: self.groupID)
 
-        
     }
     
     // MARK: - IBAction

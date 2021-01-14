@@ -28,6 +28,17 @@ class GroupFeedVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    
+    @IBAction func settingButtonDidTap(_ sender: Any) {
+        
+        guard let groupInfoVC = self.storyboard?.instantiateViewController(identifier: "GroupInfoVC") as? GroupInfoVC else {
+            return
+        }
+        groupInfoVC.groupID = groupNumber
+        self.navigationController?.pushViewController(groupInfoVC, animated: true)
+    }
+    
+    
     // MARK: Life Cycle Part
     
     override func viewDidLoad() {
