@@ -376,18 +376,3 @@ class LoginVC: UIViewController {
         }
     }
 }
-
-
-// MARK: APIService
-
-extension APIService {
-    
-    func login(_ email: String, _ password: String, completion: @escaping (NetworkResult<LoginData>)->(Void)) {
-        
-        let target: APITarget = .login(email: email, password: password)
-        judgeObject(target, completion: completion)
-
-    }
-    
-}
-

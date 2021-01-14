@@ -161,14 +161,3 @@ extension DailyDiaryVC: UITextViewDelegate {
         return true
     }
 }
-
-// MARK: APIService
-
-extension APIService {
-    
-    func dailydiary(_ token: String, _ diaryContents: String, completion: @escaping (NetworkResult<DailydiaryData>)->(Void)) {
-        let target: APITarget = .dailydiary(token: token, diaryContents: diaryContents)
-        judgeObject(target, completion: completion)
-    }
-}
-

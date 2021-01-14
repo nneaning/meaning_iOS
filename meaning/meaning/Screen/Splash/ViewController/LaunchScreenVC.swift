@@ -122,14 +122,3 @@ class LaunchScreenVC: UIViewController {
     }
     
 }
-
-// MARK: APIService
-
-extension APIService {
-    
-    func splash(_ refreshtoken: String, completion: @escaping (NetworkResult<RefreshtokenData>)->(Void)) {
-        let target: APITarget = .refreshtoken(refreshtoken: refreshtoken)
-        judgeObject(target, completion: completion)
-    }
-    
-}
