@@ -13,7 +13,7 @@ extension UIViewController {
     
     // Extension 설명: textField에 입력된 값이 존재하거나 올바르지 않은 경우, 미션 수행 순서가 올바르지 못 할 경우, 사용자에게 토스트 팝업으로 알림을 줍니다.
 
-    // 사용법: showToast( "원하는 메시지 내용", UIFont.~ )
+    // 사용법: showToast(message : "원하는 메세지 내용", font: UIFont.spoqaRegular(size: 15), width: 188, bottomY: 181)
     
     func showToast(message : String, font: UIFont, width: Int, bottomY: Int) {
         let guide = view.safeAreaInsets.bottom
