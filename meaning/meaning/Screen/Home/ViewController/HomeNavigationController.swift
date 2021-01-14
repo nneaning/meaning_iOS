@@ -12,7 +12,6 @@ class HomeNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupFullWidthBackGesture()
-
         // Do any additional setup after loading the view.
     }
     private lazy var fullWidthBackGestureRecognizer = UIPanGestureRecognizer()

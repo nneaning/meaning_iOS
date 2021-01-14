@@ -15,6 +15,8 @@ class PictureUploadVC: UIViewController {
     var nthMorning: Int = 5
     var uploadedImageData: UIImage? // 서버에다 줄 사진
     var timeToServer: String? // 서버에다 줄 사진 찍을 시간
+    var placeholder = "게시물을 등록하고 나의 일상을 기록해보세요."
+    
     
     // Mark: IBOutlet
     
@@ -27,13 +29,13 @@ class PictureUploadVC: UIViewController {
     @IBOutlet var bodyBottomView: UIView!
     @IBOutlet var bodyTextView: UITextView!
     
-    @IBOutlet var editGuideLabel: UILabel!
     @IBOutlet var uploadBtn: UIButton!
     
     @IBOutlet var upperLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet var upperLabelBottomConstraint: NSLayoutConstraint!
     @IBOutlet var uploadBtnBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet var characterLimit: UILabel!
     
     // MARK: IBAction
     
@@ -48,8 +50,6 @@ class PictureUploadVC: UIViewController {
            let uploadedImageData = uploadedImageData {
             // 서버 통신
             uploadPictrue(UserDefaults.standard.string(forKey: "accesstoken")!, timeToServer, bodyTextView.text, uploadedImageData)
-            
-            // 토큰 삽입 필수!(88)
         }
         
     }
@@ -61,7 +61,7 @@ class PictureUploadVC: UIViewController {
         super.viewDidLoad()
         setLayout()
         updateGroup(UserDefaults.standard.string(forKey: "accesstoken")!)
-        // 토큰 넣기(88)
+        placeholderSetting()
         
     }
     
@@ -84,7 +84,6 @@ class PictureUploadVC: UIViewController {
         uploadedImage.image = uploadedImageData
         bodyTextView.font = UIFont.notoRegular(size: 15.0)
         bodyTextView.textColor = UIColor.gray2
-        bodyTextView.text = "\(userNick)님의 \(nthMorning)번째 의미있는 아침"
         bodyTextView.lineSetting(kernValue: -0.6)
         bodyTextView.delegate = self
         
@@ -92,10 +91,9 @@ class PictureUploadVC: UIViewController {
         bodyBottomView.backgroundColor = UIColor.meaningIvory
         bodyTextView.backgroundColor = UIColor.white.withAlphaComponent(0)
         
-        editGuideLabel.text = "흰 화면을 눌러서 수정하세요"
-        editGuideLabel.font = .spoqaRegular(size: 14)
-        editGuideLabel.textColor = .gray3
-        editGuideLabel.lineSetting(kernValue: -0.56)
+        self.characterLimit.font = UIFont.notoMedium(size: 15)
+        self.characterLimit.textColor = UIColor.gray7
+        self.characterLimit.text = "0/100"
         
         uploadBtn.backgroundColor = UIColor.meaningNavy
         uploadBtn.setTitleColor(.meaningWhite, for: .normal)
@@ -104,19 +102,21 @@ class PictureUploadVC: UIViewController {
         uploadBtn.setTitle("마이피드에 사진올리기", for: .normal)
         uploadBtn.setRounded(radius: 6)
         
+        print(view.frame.height)
         //SE의 경우에는 constraint 조정
         if (view.frame.height <= 667) {
             uploadBtnBottomConstraint.constant = 20
-            upperLabelTopConstraint.constant = 30
-            upperLabelBottomConstraint.constant = 30
-            //SE는 '흰 화면을 눌러서 수정하세요' 글자 들어갈 곳이 없어 숨김처리 함
-            editGuideLabel.isHidden = true
+            upperLabelTopConstraint.constant = 13
+            upperLabelBottomConstraint.constant = 13
+        } else if (view.frame.height <= 812) {
+            upperLabelTopConstraint.constant = 25
+            upperLabelBottomConstraint.constant = 25
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(touchTextView), name: UIResponder.keyboardWillShowNotification, object: nil)
-            // 키보드가 화면에 띄어질 때 소환
+        // 키보드가 화면에 띄어질 때 소환
         NotificationCenter.default.addObserver(self, selector: #selector(touchDownView), name: UIResponder.keyboardWillHideNotification, object: nil)
-            // 키보드가 화면에서 내려가면 소환
+        // 키보드가 화면에서 내려가면 소환
     }
     
     
@@ -127,30 +127,30 @@ class PictureUploadVC: UIViewController {
     
     func uploadPictrue(_ token: String, _ dateTime: String, _ timeStampContents: String, _ image: UIImage) {
         APIService.shared.timestamp(token, dateTime, timeStampContents, image) { [self] result in
-                switch result {
-                case .success( _):
-                    // 성공시 Home으로 돌아가기
-                    self.navigationController?.popToRootViewController(animated: true)
-                    // 타임카메라 미션 완료!
-                    UserDefaults.standard.setValue(true, forKey: "card0")
-                    NotificationCenter.default.post(name: .clearMissionOne, object: nil)
-                    // clearMissionOne에 해당 되는 것들은 처리 하라고 보냄
-
-                case .failure(let error):
-                    print(error)
-                }
+            switch result {
+            case .success( _):
+                // 성공시 Home으로 돌아가기
+                self.navigationController?.popToRootViewController(animated: true)
+                // 타임카메라 미션 완료!
+                UserDefaults.standard.setValue(true, forKey: "card0")
+                NotificationCenter.default.post(name: .clearMissionOne, object: nil)
+            // clearMissionOne에 해당 되는 것들은 처리 하라고 보냄
+            
+            case .failure(let error):
+                print(error)
             }
+        }
     }
     
     func updateGroup(_ token: String) {
         APIService.shared.myGroup(token) { [self] result in
-                switch result {
-                case .success(_):
-                    uploadBtn.setTitle("그룹에 사진 올리기", for: .normal)
-                case .failure(let error):
-                    print(error)
-                }
+            switch result {
+            case .success(_):
+                uploadBtn.setTitle("그룹에 사진 올리기", for: .normal)
+            case .failure(let error):
+                print(error)
             }
+        }
     }
     
     @objc func touchTextView(notification: NSNotification) {
@@ -172,8 +172,38 @@ extension PictureUploadVC: UITextViewDelegate {
     
     // MARK: Function
     
-    //편집 시작하면 가이드 글자가 사라지도록 해주었음
+    //디폴트 placeholder 지정
+    func placeholderSetting(){
+        bodyTextView.delegate = self
+        bodyTextView.text = placeholder
+        bodyTextView.lineSetting(kernValue: -0.9, lineSpacing: 10)
+        bodyTextView.textColor = UIColor.gray3
+        bodyTextView.font = UIFont.spoqaRegular(size: 16)
+    }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
-        editGuideLabel.isHidden = true
+        if textView.text == placeholder {
+            textView.text = nil
+            textView.textColor = UIColor.gray1
+        }
+    }
+    
+    // TextView Place Holder
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if (textView.text == "") {
+            textView.text = placeholder
+            textView.textColor = UIColor.lightGray
+        }
+    }
+    // 글자수 체크 기능, 100자 까지만 제한
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText string: String) -> Bool{
+        if(textView == bodyTextView){
+            let strLength = textView.text?.count ?? 0
+            let lengthToAdd = string.count
+            let lengthCount = strLength + lengthToAdd
+            self.characterLimit.text = "\(lengthCount)/100"
+            return lengthCount < 100
+        }
+        return true
     }
 }
