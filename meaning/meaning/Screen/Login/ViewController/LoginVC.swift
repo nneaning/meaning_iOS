@@ -368,7 +368,7 @@ class LoginVC: UIViewController {
                     self.idIsInvalid.alpha = 1
                     self.pwIsInvalid.alpha = 1
                 } else {
-                    showToast(message: "네트워크 끊김", font: .spoqaMedium(size: 16))
+                    showToast(message: "네트워크 끊김", font: .spoqaMedium(size: 16), width: 166, bottomY: 181)
                 }
                 
             }
@@ -376,18 +376,3 @@ class LoginVC: UIViewController {
         }
     }
 }
-
-
-// MARK: APIService
-
-extension APIService {
-    
-    func login(_ email: String, _ password: String, completion: @escaping (NetworkResult<LoginData>)->(Void)) {
-        
-        let target: APITarget = .login(email: email, password: password)
-        judgeObject(target, completion: completion)
-
-    }
-    
-}
-

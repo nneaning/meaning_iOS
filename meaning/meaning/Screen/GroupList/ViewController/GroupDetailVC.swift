@@ -58,7 +58,7 @@ class GroupDetailVC: ViewController {
             groupJoinVC.groupID = self.groupDetailData?.groupDetail.groupID ?? ""
             
             groupJoinVC.modalPresentationStyle = .overCurrentContext
-            groupJoinVC.modalTransitionStyle = .coverVertical
+            groupJoinVC.modalTransitionStyle = .crossDissolve
             
             pvc?.present(groupJoinVC, animated: true, completion: nil)
         })
@@ -134,19 +134,6 @@ extension GroupDetailVC {
                 print("FailureError")
             }
         }
-    }
-    
-}
-
-// MARK: - APIService Extension
-
-extension APIService {
-    
-    func groupDetail(token : String, groupid: Int, completion: @escaping (NetworkResult<GroupDetailData>)->(Void)) {
-        
-        let target: APITarget = .groupDetail(token: token, groupid: groupid)
-        
-        judgeObject(target, completion: completion)
     }
     
 }

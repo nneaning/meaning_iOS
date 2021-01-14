@@ -166,14 +166,3 @@ extension GroupInfoVC: UITableViewDataSource {
         
     }
 }
-
-
-//MARK: - APIService extension
-
-extension APIService {
-    
-    func groupInfo(token: String, groupid: Int, completion: @escaping (NetworkResult<GroupInfoData>)->(Void)) {
-        let target: APITarget = .groupEdit(token: token, groupid: groupid)
-        judgeObject(target, completion: completion)
-    }
-}

@@ -100,11 +100,11 @@ class DailyMaximVC: UIViewController {
                 
             case .failure(let error):
                 if (error == 401) {
-                    self.showToast(message: "재접속 해주세요!", font: UIFont.spoqaRegular(size: 16))
+                    self.showToast(message: "재접속 해주세요!", font: UIFont.spoqaRegular(size: 16), width: 166, bottomY: 181)
                     self.navigationController?.popToRootViewController(animated: true)
                     
                 } else {
-                    self.showToast(message: "네트워크 끊김", font: UIFont.spoqaRegular(size: 16))
+                    self.showToast(message: "네트워크 끊김", font: UIFont.spoqaRegular(size: 16), width: 166, bottomY: 181)
                     self.navigationController?.popToRootViewController(animated: true)
                 }
             }
@@ -112,18 +112,6 @@ class DailyMaximVC: UIViewController {
     }
 }
 
-// MARK: APIService
-
-extension APIService {
-    
-    func daypromise(_ token: String, completion: @escaping (NetworkResult<DaypromiseData>)->(Void)) {
-        
-        let target: APITarget = .daypromise(token: token)
-        judgeObject(target, completion: completion)
-        
-    }
-    
-}
 
 protocol MissionEndDelegate {
     //protocol 만들고 메소드 정의

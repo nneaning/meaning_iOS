@@ -33,7 +33,7 @@ extension Date {
     }
     
     func timeAgoSince() -> String {
-        // 특정 date가 현재로부터 얼마나 지났는지 구하기
+        // 특정 date가 현재로부터 얼마 전인지 구하기
             let calendar = Calendar.current
             let now = Date().datePickerToString().stringToDate()
             let unitFlags: NSCalendar.Unit = [.second, .minute, .hour, .day, .weekOfYear, .month, .year]
@@ -54,16 +54,8 @@ extension Date {
                 return "\(day)일 전"
             }
             
-            if let day = components.day, day >= 1 {
-                return "1일 전"
-            }
-            
             if let hour = components.hour, hour >= 1 {
                 return "\(hour)시간 전"
-            }
-            
-            if let hour = components.hour, hour >= 1 {
-                return "1시간 전"
             }
             
             if let minute = components.minute, minute >= 1 {

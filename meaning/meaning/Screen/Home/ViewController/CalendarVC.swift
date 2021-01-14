@@ -184,12 +184,3 @@ extension CalendarVC: UICollectionViewDelegateFlowLayout {
         
     }
 }
-
-extension APIService {
-    
-    func calendarDay(token: String, completion: @escaping (NetworkResult<CalendarData>)->(Void)) {
-        let target: APITarget = .calendarDay(token: token)
-        judgeObject(target, completion: completion)
-    }
-    
-}
