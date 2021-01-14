@@ -184,11 +184,11 @@ extension GroupCreateVC: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
-        //글자 수 20자 글자수 제한
+        //글자 수 12자 글자수 제한
         let currentText = textField.text ?? ""
         guard let stringRange = Range(range, in: currentText) else { return false }
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-        return updatedText.count <= 20
+        return updatedText.count <= 12
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
