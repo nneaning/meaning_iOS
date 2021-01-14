@@ -149,7 +149,35 @@ extension GroupCreateVC {
         createBtn.setTitleColor(UIColor.meaningWhite, for: .normal)
         
     }
-
+    
+    func showAlertToast(message : String) {
+        // 이미 그룹이 있거나 그룹명이 있을 때 toast
+        let guide = view.safeAreaInsets.bottom
+        let height = self.view.frame.size.height-guide
+        
+        let toastLabel = UILabel(
+            frame: CGRect( x: self.view.frame.size.width/2 - 94,
+                           y: height-181,
+                           width: 188,
+                           height: 30 )
+        )
+        
+        toastLabel.backgroundColor = UIColor.gray4
+        toastLabel.textColor = UIColor.gray6
+        toastLabel.font = UIFont.spoqaRegular(size: 15)
+        toastLabel.textAlignment = .center
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 6
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 3.0, delay: 0.7, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    }
+    
 }
 
 extension GroupCreateVC: UITextFieldDelegate {
@@ -232,9 +260,13 @@ extension GroupCreateVC: UITextViewDelegate {
                 }
                 self.navigationController?.pushViewController(groupCompleteVC, animated: true)
                 
-                
-            case .failure(_):
+            case .failure(let error):
                 print("FailureError")
+                if (error == 406) {
+                    self.showAlertToast(message: "이미 있는 그룹명입니다.")
+                } else if (error == 403) {
+                    self.showAlertToast(message: "이미 그룹에 속해있습니다.")
+                }
                 
             }
             

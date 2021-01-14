@@ -39,7 +39,7 @@ extension MemberTableViewCell {
         //cell layout 설정
         circleView.setRounded(radius: nil)
         
-        wakeUpTimeView.setRounded(radius: 13.5)
+        wakeUpTimeView.setRounded(radius: 10)
         wakeUpTimeView.backgroundColor = .none
         wakeUpTimeView.setBorder(borderColor: .skyBlue, borderWidth: 1)
         
@@ -58,7 +58,7 @@ extension MemberTableViewCell {
         
     }
     
-    func setCell(groupInfoData: Users, index: Int) {
+    func setCell(groupInfoData: Users, index: Int, dateData: String) {
         
         //홀수 번째, 짝수 번째 원 다른 색상
             if (index % 2 == 0) {
@@ -80,13 +80,15 @@ extension MemberTableViewCell {
         
         nameLabel.text = groupInfoData.userName
         howLongLabel.text = "\(groupInfoData.dayPassed)일째 진행 중"
-        wakeUpTimeLabel.text = "매일 \(groupInfoData.wakeUpTime) 기상"
+        wakeUpTimeLabel.text = "\(dateData)"
+        
+        
         
         if wakeUpTimeLabel.text?.count == 11 {
             // 정각일때
             wakeupViewWidth.constant = 90
         } else {
-            wakeupViewWidth.constant = 150
+            wakeupViewWidth.constant = 113
         }
         
     }

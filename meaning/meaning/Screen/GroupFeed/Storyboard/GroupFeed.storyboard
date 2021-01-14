@@ -275,8 +275,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6eQ-ow-da1">
                                                     <rect key="frame" x="86" y="37" width="90" height="20"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="def-hH-7bI">
-                                                            <rect key="frame" x="24" y="-0.5" width="42" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="def-hH-7bI">
+                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -285,9 +285,11 @@
                                                     <color key="backgroundColor" systemColor="systemTealColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="30Z-8M-SdC"/>
+                                                        <constraint firstItem="def-hH-7bI" firstAttribute="top" secondItem="6eQ-ow-da1" secondAttribute="top" id="RVg-vh-Mya"/>
                                                         <constraint firstAttribute="width" constant="90" id="Z6g-7M-9Gh"/>
-                                                        <constraint firstItem="def-hH-7bI" firstAttribute="centerX" secondItem="6eQ-ow-da1" secondAttribute="centerX" id="btr-Gv-41M"/>
-                                                        <constraint firstItem="def-hH-7bI" firstAttribute="centerY" secondItem="6eQ-ow-da1" secondAttribute="centerY" id="g0H-IK-X1g"/>
+                                                        <constraint firstItem="def-hH-7bI" firstAttribute="leading" secondItem="6eQ-ow-da1" secondAttribute="leading" id="hbv-3L-s0L"/>
+                                                        <constraint firstAttribute="trailing" secondItem="def-hH-7bI" secondAttribute="trailing" id="oCb-UG-Msl"/>
+                                                        <constraint firstAttribute="bottom" secondItem="def-hH-7bI" secondAttribute="bottom" id="rwM-Wv-cCa"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TYa-eS-nJV">
@@ -320,6 +322,7 @@
                                             <outlet property="nameLabel" destination="sAT-fD-9Hb" id="sNO-WQ-cBJ"/>
                                             <outlet property="wakeUpTimeLabel" destination="def-hH-7bI" id="avh-YT-zoK"/>
                                             <outlet property="wakeUpTimeView" destination="6eQ-ow-da1" id="Gyu-9y-1is"/>
+                                            <outlet property="wakeupViewWidth" destination="Z6g-7M-9Gh" id="viB-dD-5Zp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

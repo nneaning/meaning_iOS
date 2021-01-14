@@ -36,8 +36,6 @@ class GroupInfoVC: ViewController {
         
         setHeader()
         groupInfo(token: UserDefaults.standard.string(forKey: "accesstoken")!, groupid: groupID)
-        print(groupID)
-        print("<<<<<<<<", groupInfoData?.users)
         
     }
     
@@ -102,38 +100,39 @@ extension GroupInfoVC {
     
     
     func groupInfo(token : String, groupid: Int) {
-        print(">>>>>>>>", groupInfoData)
         APIService.shared.groupInfo(token: token, groupid: groupid) { [self] result in
             switch result {
             case .success(let data):
-                print(">>>>>>>>성공이니 ...?")
-                print("<<<<<<<<", groupInfoData?.users)
+            
                 self.groupInfoData = data
+                self.memberTableView.reloadData()
                 
-                self.groupNameLabel.text = "\(groupInfoData?.group.groupName ?? "")"
-                self.groupBirthLabel.text = "그룹 생성일: \(String(describing: self.groupInfoData?.group.createdAt.recordDate()))"
-                
-                if let birthLabel = self.groupBirthLabel.text {
-                    // 날짜 부분에만 폰트를 다르게 설정
-                    let attributedStr = NSMutableAttributedString(string: groupBirthLabel.text ?? "")
-                    attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: UIFont.spoqaRegular(size: 15), range: (birthLabel as NSString).range(of: " \(String(describing: self.groupInfoData?.group.createdAt.recordDate()))"))
+                if let groupInfoData = groupInfoData{
+                    self.groupNameLabel.text = "\(groupInfoData.group.groupName)"
+                    self.groupBirthLabel.text = "그룹 생성일: \(String(describing: groupInfoData.group.createdAt.recordDate()))"
                     
-                    groupBirthLabel.attributedText = attributedStr
-                }
-                
-                self.memberCountLabel.text = "그룹 멤버 수 : \(self.groupInfoData?.users.count ?? 0)명"
-                
-                if let text = memberCountLabel.text {
-                    // "\(group.peopleCount)명" 부분에만 폰트를 다르게 설정
-                    let attributedStr = NSMutableAttributedString(string: memberCountLabel.text ?? "")
-                    attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String),
-                                               value: UIFont.spoqaRegular(size: 13), range: (text as NSString).range(of: "\(self.groupInfoData?.users.count ?? 0)명"))
+                    if let birthLabel = self.groupBirthLabel.text {
+                        // 날짜 부분에만 폰트를 다르게 설정
+                        let attributedStr = NSMutableAttributedString(string: birthLabel)
+                        attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: UIFont.spoqaRegular(size: 15), range: (birthLabel as NSString).range(of: " \( groupInfoData.group.createdAt.recordDate())"))
+                        
+                        groupBirthLabel.attributedText = attributedStr
+                    }
                     
-                    memberCountLabel.attributedText = attributedStr
+                    self.memberCountLabel.text = "그룹 멤버 수 : \(groupInfoData.users.count)명"
+                    
+                    if let memberCount = memberCountLabel.text {
+                        // "\(group.peopleCount)명" 부분에만 폰트를 다르게 설정
+                        let attributedStr = NSMutableAttributedString(string: memberCount)
+                        attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String),
+                                                   value: UIFont.spoqaRegular(size: 15), range: (memberCount as NSString).range(of: "\(groupInfoData.users.count)명"))
+                        
+                        memberCountLabel.attributedText = attributedStr
+                    }
+                    
                 }
-                
-            case .failure(let error) :
-                print("<<<<",error)
+      
+            case .failure(_) :
                 print("FailureError")
             }
             
@@ -156,7 +155,13 @@ extension GroupInfoVC: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.selectionStyle = .none
-        //cell.setCell(groupInfoData: groupInfoData?.users[indexPath.row], index: indexPath.row)
+        
+        if let data = groupInfoData {
+            cell.setCell(groupInfoData: (data.users[indexPath.row]), index: indexPath.row, dateData: dateConverter(dateData: data.users[indexPath.row].wakeUpTime))
+            
+        }
+        
+        print(indexPath.row)
         return cell
         
     }

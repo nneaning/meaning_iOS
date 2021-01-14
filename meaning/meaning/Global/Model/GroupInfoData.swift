@@ -26,10 +26,9 @@ struct Group: Codable {
     }
 }
 
-// MARK: - User
+// MARK: - Users
 struct Users: Codable {
     let id: Int
-    let userName: String
-    let nickName, wakeUpTime: String?
+    let userName, nickName, wakeUpTime: String
     let dayPassed: Int
 }
