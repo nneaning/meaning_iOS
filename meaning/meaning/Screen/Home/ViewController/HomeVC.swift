@@ -59,6 +59,7 @@ class HomeVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
 
         let today: String = Date().datePickerToString().recordDate()
         if UserDefaults.standard.string(forKey: "lastEnterHome") != today {
