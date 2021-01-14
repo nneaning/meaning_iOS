@@ -273,18 +273,3 @@ extension GroupCreateVC: UITextViewDelegate {
         }
     }
 }
-
-
-
-// MARK: - APIService Extension
-
-extension APIService {
-    
-    func groupCreate(token: String, groupName: String, maximumMemberNumber: Int, introduction: String, completion: @escaping (NetworkResult<GroupCreateData>)->(Void)) {
-        
-        let target: APITarget = .groupMake(token: token, groupName: groupName, maximumMemberNumber: maximumMemberNumber, introduction: introduction)
-        
-        judgeObject(target, completion: completion)
-    }
-    
-}
