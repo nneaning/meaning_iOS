@@ -54,16 +54,8 @@ extension Date {
                 return "\(day)일 전"
             }
             
-            if let day = components.day, day >= 1 {
-                return "1일 전"
-            }
-            
             if let hour = components.hour, hour >= 1 {
                 return "\(hour)시간 전"
-            }
-            
-            if let hour = components.hour, hour >= 1 {
-                return "1시간 전"
             }
             
             if let minute = components.minute, minute >= 1 {

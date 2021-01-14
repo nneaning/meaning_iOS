@@ -58,7 +58,7 @@ class GroupDetailVC: ViewController {
             groupJoinVC.groupID = self.groupDetailData?.groupDetail.groupID ?? ""
             
             groupJoinVC.modalPresentationStyle = .overCurrentContext
-            groupJoinVC.modalTransitionStyle = .coverVertical
+            groupJoinVC.modalTransitionStyle = .crossDissolve
             
             pvc?.present(groupJoinVC, animated: true, completion: nil)
         })
