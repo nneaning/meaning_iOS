@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let launchScreenStoryboard: UIStoryboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
         let launchVC = launchScreenStoryboard.instantiateViewController(withIdentifier: "LaunchScreenVC") as! LaunchScreenVC
         self.window?.rootViewController = launchVC
+        self.window?.overrideUserInterfaceStyle = .light
         self.window?.makeKeyAndVisible()
         
     }
