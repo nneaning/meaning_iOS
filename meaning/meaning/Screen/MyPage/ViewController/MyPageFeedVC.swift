@@ -124,7 +124,7 @@ class MyPageFeedVC: UIViewController {
         self.userWakeTimeView.setRounded(radius: 13.5)
         self.userWakeTimeView.backgroundColor = .meaningWhite
         
-        self.feedHeaderLabel.text = "오늘은 365일 중에 0번째 의미있는 아침입니다."
+        self.feedHeaderLabel.text = "\(userNick)님의 0번째 의미있는 아침입니다."
         self.feedHeaderView.backgroundColor = .meaningLightblue
         self.feedHeaderLabel.font = .spoqaMedium(size: 14)
         self.feedHeaderLabel.lineSetting(kernValue: -0.56)
@@ -155,7 +155,7 @@ class MyPageFeedVC: UIViewController {
                 case .success(let data):
                     self.mypageData = data
                     if let mypage = self.mypageData?.getMyPage {
-                        self.feedHeaderLabel.text = "오늘은 365일 중에 \(mypage.count + 1)번째 의미있는 아침입니다."
+                        self.feedHeaderLabel.text = "\(self.userNick)님의 \(mypage.count + 1)번째 의미있는 아침입니다."
                     }
                     self.feedCollectionView.reloadData()
 
