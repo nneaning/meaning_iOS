@@ -105,7 +105,7 @@ extension APITarget: TargetType {
         case .timestamp(_, let dateTime, let timeStampContents, let image):
             let dateTimeData = MultipartFormData(provider: .data(dateTime.data(using: .utf8)!), name: "dateTime")
             let timeStampContentsData = MultipartFormData(provider: .data(timeStampContents.data(using: .utf8)!), name: "timeStampContents")
-            let imageData = MultipartFormData(provider: .data(image.jpegData(compressionQuality: 1.0)!), name: "image", fileName: "timestamp", mimeType: "image/jpeg")
+            let imageData = MultipartFormData(provider: .data(image.jpegData(compressionQuality: 1.0)!), name: "image", fileName: "jpeg", mimeType: "image/jpeg")
             let multipartData = [dateTimeData, timeStampContentsData, imageData]
             return .uploadMultipart(multipartData)
             

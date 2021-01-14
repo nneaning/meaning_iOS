@@ -11,6 +11,7 @@ class DailyDiaryVC: UIViewController {
     
     // MARK: Variable Part
     
+    var missionDelegate: MissionEndDelegate?
     var placeholderPhrase = "나만 볼 수 있는 자기 회고 및 감사 일기를 써보세요!\n기분 좋은 아침을 시작하게 될 거예요."
     var dailydiaryData: DailydiaryData?
     
@@ -92,11 +93,12 @@ class DailyDiaryVC: UIViewController {
             case .success(_):
                 // 나중에 dailyDiaryId 가 필요할 시에 사용하기 위해 적어두었습니다!
                 //self.dailydiaryData = data
-                
-                // 성공시 tabbar로 돌아가기
-                self.navigationController?.popToRootViewController(animated: true)
+                self.missionDelegate?.MissionMent(didEndMission: "미션을 완료했어요")
                 // 미션 완료 처리
                 UserDefaults.standard.setValue(true, forKey: "card2")
+                // 성공시 tabbar로 돌아가기
+                self.navigationController?.popToRootViewController(animated: true)
+                
                 
             case .failure(let error):
                 if (error == 400) {
