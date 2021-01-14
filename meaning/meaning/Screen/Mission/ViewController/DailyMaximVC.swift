@@ -94,11 +94,11 @@ class DailyMaximVC: UIViewController {
                 
             case .failure(let error):
                 if (error == 401) {
-                    self.showToast(message: "재접속 해주세요!", font: UIFont.spoqaRegular(size: 16))
+                    self.showToast(message: "재접속 해주세요!", font: UIFont.spoqaRegular(size: 16), width: 166, bottomY: 181)
                     self.navigationController?.popToRootViewController(animated: true)
                     
                 } else {
-                    self.showToast(message: "네트워크 끊김", font: UIFont.spoqaRegular(size: 16))
+                    self.showToast(message: "네트워크 끊김", font: UIFont.spoqaRegular(size: 16), width: 166, bottomY: 181)
                     self.navigationController?.popToRootViewController(animated: true)
                 }
             }
