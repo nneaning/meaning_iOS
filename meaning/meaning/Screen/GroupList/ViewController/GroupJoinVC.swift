@@ -76,9 +76,9 @@ extension GroupJoinVC {
                 print("FailureError")
                 
                 if (error == 406) {
-                    self.groupStatusLabel.text = "그룹 참가 가능 인원을 초과했어요."
-                } else {
                     self.groupStatusLabel.text = "이미 함께 하고 있는 그룹이 있어요!"
+                } else {
+                    self.groupStatusLabel.text = "그룹 참가 가능 인원을 초과했어요."
                 }
                 
             }
