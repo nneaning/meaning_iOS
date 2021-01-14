@@ -62,6 +62,7 @@ class PictureUploadVC: UIViewController {
         setLayout()
         updateGroup(UserDefaults.standard.string(forKey: "accesstoken")!)
         // 토큰 넣기(88)
+        uploadedImage.image = UIImage(named: "test_img")
         
     }
     

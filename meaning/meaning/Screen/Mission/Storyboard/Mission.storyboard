@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XgK-Ic-xjb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="emp-wu-AN6">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -48,7 +48,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3번 반복해서 읽어주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jz6-aN-0XV">
-                                <rect key="frame" x="121.5" y="404" width="171" height="21"/>
+                                <rect key="frame" x="121.5" y="358.5" width="171" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -73,13 +73,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggi-RU-kqN">
-                                <rect key="frame" x="21" y="215.5" width="373" height="156.5"/>
+                                <rect key="frame" x="21" y="215.5" width="373" height="111"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평범한 사람들은 가능한 것만 믿는다.특별한 사람들은 불가능한 것을 그려본다.그리고 그것을 가능한 것으로 보기 시작한다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWf-Sw-GLy">
-                                        <rect key="frame" x="34" y="25" width="305" height="103"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="sWf-Sw-GLy" secondAttribute="height" multiplier="133:45" id="LVb-DO-z6e"/>
-                                        </constraints>
+                                        <rect key="frame" x="34" y="25" width="305" height="61"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -87,10 +84,10 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ggi-RU-kqN" secondAttribute="height" multiplier="167:70" id="EbG-0E-Hul"/>
                                     <constraint firstItem="sWf-Sw-GLy" firstAttribute="top" secondItem="ggi-RU-kqN" secondAttribute="top" constant="25" id="W9u-tt-obD"/>
                                     <constraint firstAttribute="trailing" secondItem="sWf-Sw-GLy" secondAttribute="trailing" constant="34" id="hmp-Kl-1fj"/>
                                     <constraint firstItem="sWf-Sw-GLy" firstAttribute="leading" secondItem="ggi-RU-kqN" secondAttribute="leading" constant="34" id="oDA-gk-VqD"/>
+                                    <constraint firstAttribute="bottom" secondItem="sWf-Sw-GLy" secondAttribute="bottom" constant="25" id="yLr-cu-uao"/>
                                 </constraints>
                             </view>
                         </subviews>

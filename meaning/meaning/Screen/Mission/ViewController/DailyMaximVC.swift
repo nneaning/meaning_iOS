@@ -76,6 +76,9 @@ class DailyMaximVC: UIViewController {
         self.ReadComplete.titleLabel?.font=UIFont.spoqaMedium(size: 16)
         self.ReadComplete.setTitle("다 읽었어요", for: .normal)
         self.ReadComplete.setRounded(radius: 6)
+        
+        bodyViewLabel.numberOfLines = 0
+
     }
     
     // MARK: Server function
@@ -90,6 +93,9 @@ class DailyMaximVC: UIViewController {
                 if let daypromiseData = self.daypromiseData {
                     self.bodyViewLabel.text = daypromiseData.contents
                     self.bodyViewLabel.lineSetting(kernValue: -0.5, lineSpacing: 10)
+                    self.bodyViewLabel.textColor = .meaningBlack
+                    
+                    print(daypromiseData.contents)
                 }
                 
             case .failure(let error):

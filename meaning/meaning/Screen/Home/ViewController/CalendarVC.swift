@@ -51,6 +51,11 @@ class CalendarVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.setValue(false, forKey: "card0")
+        UserDefaults.standard.setValue(false, forKey: "card1")
+
+        UserDefaults.standard.setValue(false, forKey: "card2")
+        UserDefaults.standard.setValue(false, forKey: "card3")
         setView()
         setCalendar()
         updateCalendar(token: UserDefaults.standard.string(forKey: "accesstoken")!)
