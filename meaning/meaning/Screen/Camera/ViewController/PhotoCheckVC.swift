@@ -106,7 +106,7 @@ extension PhotoCheckVC {
             print(error.localizedDescription)
            } else { // 저장이 잘 됐을 때
             // toast 띄우기
-            showNumberToast(message: "갤러리에 사진이 저장되었습니다", font: UIFont.spoqaRegular(size: 13))
+            self.showToast(message: "갤러리에 사진이 저장되었습니다", font: UIFont.spoqaRegular(size: 13), width: 188, bottomY: 181)
             
             // toast 사라지면 다음 뷰로 넘어가기
             Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(goNextView), userInfo: nil, repeats: false)

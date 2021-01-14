@@ -31,7 +31,7 @@ class DailyDiaryVC: UIViewController {
     
     @IBAction func registerBtnPressed(_ sender: UIButton) {
         if (bodyTextView.text.isEmpty || bodyTextView.text == placeholderPhrase) {
-            self.showToast(message: "내용을 입력해주세요", font: UIFont.spoqaRegular(size: 16))
+            self.showToast(message: "내용을 입력해주세요", font: UIFont.spoqaRegular(size: 16), width: 166, bottomY: 181)
         } else {
             if let bodyText = bodyTextView.text {
                 dailydiary(token: (UserDefaults.standard.string(forKey: "accesstoken")!), diaryContents: bodyText)
@@ -103,14 +103,14 @@ class DailyDiaryVC: UIViewController {
             case .failure(let error):
                 if (error == 400) {
                     // 입력 값이 없습니다
-                    self.showToast(message: "내용을 입력해주세요.", font: UIFont.spoqaRegular(size: 16))
+                    self.showToast(message: "내용을 입력해주세요", font: UIFont.spoqaRegular(size: 16), width: 166, bottomY: 181)
                 } else if (error == 401) {
                     // 토큰 만료, 다시 로그인 필요
-                    self.showToast(message: "재접속 해주세요!", font: UIFont.spoqaRegular(size: 16))
+                    self.showToast(message: "재접속 해주세요!", font: UIFont.spoqaRegular(size: 16), width: 166, bottomY: 181)
                     self.navigationController?.popToRootViewController(animated: true)
                     
                 } else { // 500 : 서버 내부 오류
-                    self.showToast(message: "네트워크 끊김", font: UIFont.spoqaRegular(size: 16))
+                    self.showToast(message: "네트워크 끊김", font: UIFont.spoqaRegular(size: 16), width: 166, bottomY: 181)
                 }
                 
             }
