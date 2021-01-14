@@ -66,6 +66,8 @@ class HomeVC: UIViewController {
             UserDefaults.standard.setValue(today, forKey: "lastEnterHome")
             // 날짜 오늘로 바꿔주기
             for i in 0...3 {
+                NotificationCenter.default.addObserver(self, selector: #selector(missionClear(_:)), name: .clearMissionOne, object: nil)
+                // 미션1이 초기화 됐을 때 Observer를 살림
                 UserDefaults.standard.setValue(false, forKey: "card\(i)")
                 // 카드 초기화
             }
@@ -156,6 +158,9 @@ extension HomeVC {
             toastLabel.removeFromSuperview()
         })
     }
+    @objc func missionClear(_ notification: Notification) {
+        showMissionToast(ment: "사진 등록이 완료되었어요")
+        }
 }
 
 extension HomeVC: UICollectionViewDataSource {
@@ -202,6 +207,9 @@ extension HomeVC: UICollectionViewDataSource {
                 if UserDefaults.standard.bool(forKey: "card0") == false {
                     showMissionToast(ment: "순서대로 미션을 완료해주세요")
                 } else {
+                    NotificationCenter.default.removeObserver(self, name: .clearMissionOne, object: nil)
+                    // 미션1번의 Observer를 제거해줌
+                    
                     guard let dailyMaxTap = missionStoryboard.instantiateViewController(identifier: "DailyMaximVC") as? DailyMaximVC else {
                         return
                     }
@@ -277,4 +285,8 @@ extension HomeVC: MissionEndDelegate {
         showMissionToast(ment: ment)
     }
         
+}
+extension Notification.Name {
+    // Observer 이름 등록
+    static let clearMissionOne = Notification.Name("clearMissionOne")
 }
