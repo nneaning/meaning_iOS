@@ -10,7 +10,7 @@ import UIKit
 class DailyMaximVC: UIViewController {
     
     // Mark: Variables
-    
+    var missionDelegate: MissionEndDelegate?
     var daypromiseData: DaypromiseData?
     
     // Mark: IBOutlet
@@ -34,6 +34,7 @@ class DailyMaximVC: UIViewController {
     }
     
     @IBAction func readCompleteBtnPressed(_ sender: UIButton) {
+        missionDelegate?.MissionMent(didEndMission: "미션을 완료했어요")
         UserDefaults.standard.setValue(true, forKey: "card1")
         self.navigationController?.popViewController(animated: true)
     }
@@ -118,3 +119,7 @@ extension APIService {
     
 }
 
+protocol MissionEndDelegate {
+    //protocol 만들고 메소드 정의
+    func MissionMent(didEndMission ment: String)
+}

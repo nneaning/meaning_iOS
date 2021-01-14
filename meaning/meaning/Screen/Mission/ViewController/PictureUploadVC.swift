@@ -133,6 +133,8 @@ class PictureUploadVC: UIViewController {
                     self.navigationController?.popToRootViewController(animated: true)
                     // 타임카메라 미션 완료!
                     UserDefaults.standard.setValue(true, forKey: "card0")
+                    NotificationCenter.default.post(name: .clearMissionOne, object: nil)
+                    // clearMissionOne에 해당 되는 것들은 처리 하라고 보냄
 
                 case .failure(let error):
                     print(error)
