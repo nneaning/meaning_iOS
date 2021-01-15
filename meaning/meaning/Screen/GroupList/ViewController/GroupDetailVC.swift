@@ -90,6 +90,7 @@ extension GroupDetailVC {
         groupInfoLabel.font = UIFont.notoRegular(size: 16)
         groupInfoLabel.textColor = UIColor.gray2
         groupNameLabel.lineSetting(kernValue: -0.48)
+        groupInfoLabel.numberOfLines = 0
         
         participantLabel.text = "참가 인원"
         participantLabel.font = UIFont.spoqaMedium(size: 14)
