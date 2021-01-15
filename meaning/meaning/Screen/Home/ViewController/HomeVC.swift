@@ -15,7 +15,6 @@ class HomeVC: UIViewController {
     
     // MARK: IBOutlet
     
-
     @IBOutlet weak var bottomToCollectionView: NSLayoutConstraint!
     @IBOutlet weak var dateButton: UIButton!
     @IBOutlet weak var explainLabel: UILabel!
@@ -24,16 +23,22 @@ class HomeVC: UIViewController {
     // MARK: IBAction
     
     @IBAction func mypageButtonDidTap(_ sender: Any) {
+        // 마이페이지 버튼 클릭 시 Action
+        
         let mypageStoryboard = UIStoryboard.init(name: "MyPage", bundle: nil)
         guard let mypageVC = mypageStoryboard.instantiateViewController(identifier: "MyPageFeedVC") as? MyPageFeedVC else {
             return
         }
         mypageVC.hidesBottomBarWhenPushed = true
+        // 탭바 숨기기
         self.navigationController?.pushViewController(mypageVC, animated: true)
+        // navigation을 통해 마이페이지로 이동
     }
     
     
     @IBAction func dateButtonDidTap(_ sender: Any) {
+        // 날짜 버튼 클릭 시 Action
+        
         guard let calendarVC = self.storyboard?.instantiateViewController(identifier: "CalendarVC") as? CalendarVC else {
             return
         }
@@ -42,6 +47,7 @@ class HomeVC: UIViewController {
         transition.type = CATransitionType.fade
         self.navigationController?.view.layer.add(transition, forKey: nil)
         self.navigationController?.pushViewController(calendarVC, animated: false)
+        // Fade 애니메이션을 통해 Calendar가 보여지는 화면으로 이동
     }
     
     override func viewDidLoad() {
@@ -51,6 +57,7 @@ class HomeVC: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
+        
         if self.view.safeAreaInsets.bottom > 50 {
             // 홈버튼 없는 폰일때는 카드를 더 띄어주기 위한 조건문
             self.bottomToCollectionView.constant = 74
@@ -65,12 +72,12 @@ class HomeVC: UIViewController {
         if UserDefaults.standard.string(forKey: "lastEnterHome") != today {
             // 오늘 처음 들어온것이라면?
             UserDefaults.standard.setValue(today, forKey: "lastEnterHome")
-            // 날짜 오늘로 바꿔주기
+            // 오늘 날짜를 저장해준다. 이 날짜는 미션을 재로드 하는데 사용된다.
             for i in 0...3 {
                 NotificationCenter.default.addObserver(self, selector: #selector(missionClear(_:)), name: .clearMissionOne, object: nil)
                 // 미션1이 초기화 됐을 때 Observer를 살림
                 UserDefaults.standard.setValue(false, forKey: "card\(i)")
-                // 카드 초기화
+                // 새로운 날이 시작됐다면 미션 카드를 초기화 시켜준다.
             }
         }
         missonCardCollectionView.reloadData()
@@ -86,6 +93,7 @@ extension HomeVC {
     // MARK: Function
     
     func setView() {
+        // View Style Function
         
         self.view.backgroundColor = .meaningIvory
         
@@ -96,11 +104,13 @@ extension HomeVC {
         
         if let text = explainLabel.text {
             // "좋은 아침입니다!" 부분에만 폰트를 다르게 설정
-            let attributedStr = NSMutableAttributedString(string: explainLabel.text ?? "")
+            
+            let attributedStr = NSMutableAttributedString(string: text)
             attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: UIFont.spoqaMedium(size: 22), range: (text as NSString).range(of: "좋은 아침입니다!"))
 
             explainLabel.attributedText = attributedStr
         }
+        
         explainLabel.lineSetting(kernValue: -0.88, lineSpacing: 10)
         explainLabel.textAlignment = .left
         
@@ -123,6 +133,7 @@ extension HomeVC {
     }
     
     func setList() {
+        // mission card setting function
         
         let mission1 = MissionCard(index: 1, ment: "타임카메라로\n미라클 모닝 인증하기", imageName: "homeCard1")
         let mission2 = MissionCard(index: 2, ment: "오늘 하루\n다짐하기", imageName: "homeCard2")
@@ -133,6 +144,8 @@ extension HomeVC {
     }
     
     @objc func missionClear(_ notification: Notification) {
+        // 미션 1번(타임스탬프)이 완료되었을 때 notification이 실행할 함수
+        
         showToast(message : "사진 등록이 완료되었어요", font: UIFont.spoqaRegular(size: 14), width: 180, bottomY: 80)
         }
 }
@@ -166,7 +179,8 @@ extension HomeVC: UICollectionViewDataSource {
         
         if indexPath.row == 0 { // 타임카메라
             
-            if UserDefaults.standard.bool(forKey: "card0") == false { // 이미 했던 카드가 아니여야지 다음 뷰로 이동
+            if UserDefaults.standard.bool(forKey: "card0") == false {
+                // 이미 했던 카드가 아니여야지 다음 뷰로 이동
                 guard let cameraTap = cameraStoryboard.instantiateViewController(identifier: "TimeStampVC") as? TimeStampVC else {
                     return
                 }
@@ -188,6 +202,7 @@ extension HomeVC: UICollectionViewDataSource {
                         return
                     }
                     dailyMaxTap.missionDelegate = self
+                    // missionDelegate을 채택해줌
                     dailyMaxTap.hidesBottomBarWhenPushed = true
                     self.navigationController?.pushViewController(dailyMaxTap, animated: true)
                 }
@@ -255,7 +270,7 @@ extension HomeVC: UICollectionViewDelegateFlowLayout {
 }
 
 extension HomeVC: MissionEndDelegate {
-    // 메소드 구현
+    // MissionEndDelegate 메소드 구현
     func MissionMent(didEndMission ment: String) {
         showToast(message : ment, font: UIFont.spoqaRegular(size: 14), width: 141, bottomY: 80)
     }

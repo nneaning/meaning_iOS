@@ -28,6 +28,8 @@ class FeedDetailVC: UIViewController {
     // MARK: IBAction
     
     @IBAction func backButtonDidTap(_ sender: Any) {
+        // 뒤로가기 버튼 클릭 시 Action
+        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -40,8 +42,9 @@ class FeedDetailVC: UIViewController {
     
     override func viewWillLayoutSubviews() {
         if let indexScroll = indexScroll {
+            // 피드에서 클릭한 인덱스 위치로 이동 시점을 이동
+            
             self.feedDetailTableView.scrollToRow(at: indexScroll, at: .middle, animated: false)
-            // 클릭한 인덱스 위치로 이동
         }
     }
     
@@ -54,6 +57,7 @@ extension FeedDetailVC {
     // MARK: Function
     
     func setView() {
+        // View Style Setting Function
         
         feedNameLabel.text = groupName
         feedNameLabel.font = UIFont.notoMedium(size: 17)
@@ -77,6 +81,7 @@ extension FeedDetailVC {
         refresh.addTarget(self, action: #selector(updateData(refresh:)), for: .valueChanged)
         feedDetailTableView.addSubview(refresh)
     }
+    
     @objc func updateData(refresh: UIRefreshControl) {
         refresh.endRefreshing()
         feedDetailTableView.reloadData()
@@ -84,13 +89,19 @@ extension FeedDetailVC {
 }
 
 extension FeedDetailVC: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let feedDetailMyPage = feedDetailMyPage { // 마이피드에서 왔다면?
+        
+        if let feedDetailMyPage = feedDetailMyPage {
+            // 마이피드에서 왔다면?
             return feedDetailMyPage.count
         }
-        if let feedDetailGroup = feedDetailGroup { // 그룹에서 왔다면?
+        
+        if let feedDetailGroup = feedDetailGroup {
+            // 그룹에서 왔다면?
             return feedDetailGroup.count
         }
+        
         return 0
     }
     
@@ -103,11 +114,11 @@ extension FeedDetailVC: UITableViewDataSource {
             
         }
         if let feedDetailMyPage = feedDetailMyPage {
-            // 마이피드를 처리해주기
+            // 마이피드 데이터 처리하기
             feedDetailCell.setData(nick: UserDefaults.standard.string(forKey: "userNick")!, writeTime: feedDetailMyPage[indexPath.row].createdAt, wakeupTime: dateConverter(dateData: UserDefaults.standard.string(forKey: "wakeUpTime")!), context: feedDetailMyPage[indexPath.row].timeStampContents, uploadImageName: feedDetailMyPage[indexPath.row].timeStampImageURL, index: indexPath.row)
         }
         if let feedDetailGroup = feedDetailGroup {
-            // 그룹을 처리해주기
+            // 그룹 데이터 처리하기
             feedDetailCell.setData(nick: feedDetailGroup[indexPath.row].user.nickName, writeTime: feedDetailGroup[indexPath.row].createdAt, wakeupTime: dateConverter(dateData: feedDetailGroup[indexPath.row].user.wakeUpTime), context: feedDetailGroup[indexPath.row].timeStampContents, uploadImageName: feedDetailGroup[indexPath.row].timeStampImageURL, index: indexPath.row)
         }
         return feedDetailCell
