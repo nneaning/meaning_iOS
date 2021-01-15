@@ -1266,5 +1266,5 @@ func timeAgoSince() -> String {
 |:-----:|:-----:|:------:|
 |  <img src="https://user-images.githubusercontent.com/37579661/103434922-46433580-4c4b-11eb-8527-81516ffe3079.png" height=500>| <img src="https://user-images.githubusercontent.com/37579661/103434773-46423600-4c49-11eb-91b6-6ac564adf15b.jpeg" height=500> | <img src="https://user-images.githubusercontent.com/37579661/103435523-16982b80-4c53-11eb-86b9-b64d4d61a5ba.jpeg" height=500 width=260>|
 | **contact** : xwoud@naver.com </br> **github**: [xwoud](https://github.com/xwoud)|**contact** : seonminseung@naver.com </br> **github**: [MinseungSeon](https://github.com/minseungseon)  | **contact** : hotpigtomato@gmail.com </br> **github**: [pk33n](https://github.com/pk33n)|
-
+| 타임스탬프, 홈 화면 담당 | 스플래시 및 로그인, 미션 화면 담당  | 그룹 및 커스텀 탭바 담당 |
 </div>
