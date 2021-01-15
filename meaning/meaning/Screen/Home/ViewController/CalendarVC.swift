@@ -30,27 +30,21 @@ class CalendarVC: UIViewController {
     // MARK: IBAction
     
     @IBAction func dateButtonDidTap(_ sender: Any) {
-        // 날짜 버튼 클릭 시 Action
-        
         let transition: CATransition = CATransition()
         transition.duration = 0.3
         transition.type = CATransitionType.fade
         self.navigationController?.view.layer.add(transition, forKey: nil)
         self.navigationController?.popViewController(animated: false)
-        // Fade Animation을 주며 다시 홈으로 pop
     }
     
     
     @IBAction func mypageButtonDidTap(_ sender: Any) {
-        // 마이페이지 버튼 클릭 시 Action
-        
         let mypageStoryboard = UIStoryboard.init(name: "MyPage", bundle: nil)
         guard let mypageVC = mypageStoryboard.instantiateViewController(identifier: "MyPageFeedVC") as? MyPageFeedVC else {
             return
         }
         mypageVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(mypageVC, animated: true)
-        // 마이페이지 뷰로 이동하기
     }
     
     // MARK: Life Cycle Part
@@ -60,6 +54,7 @@ class CalendarVC: UIViewController {
         setView()
         setCalendar()
         updateCalendar(token: UserDefaults.standard.string(forKey: "accesstoken")!)
+        // 토큰 넣기(88)
     }
     
     override func viewWillLayoutSubviews() {
@@ -78,7 +73,6 @@ extension CalendarVC {
     // MARK: Function
     
     func setView() {
-        // View Style Setting Function
         
         self.view.backgroundColor = .meaningIvory
         
@@ -86,16 +80,12 @@ extension CalendarVC {
         
         dateButton.makeRounded(cornerRadius: 15)
         dateButton.setTitle("\(Date().datePickerToString().recordDate()) >", for: .normal)
-        // dateButton에는 현재 시간을 넣어줌
-        
         dateButton.titleLabel?.font = UIFont.spoqaRegular(size: 14)
         dateButton.backgroundColor = .meaningNavy
         dateButton.setTitleColor(.white, for: .normal)
     }
     
     func setCalendar() {
-        // Calendar Style Setting Function
-        
         calendarBackView.setRounded(radius: 6)
         circleView.setRounded(radius: nil)
         monthLabel.text = "\(month)월"
@@ -107,8 +97,7 @@ extension CalendarVC {
     }
     
     func setMent() {
-        // 멘트 Setting Function
-        
+        // 멘트 설정
         explainLabel.text = "오늘은\n\(nick)님의 \(countTime)번째\n의미있는 아침입니다."
         explainLabel.textColor = .meaningNavy
         explainLabel.font = UIFont.spoqaLight(size: 22)
@@ -116,7 +105,7 @@ extension CalendarVC {
         
         if let text = explainLabel.text {
             
-            let attributedStr = NSMutableAttributedString(string: text)
+            let attributedStr = NSMutableAttributedString(string: explainLabel.text ?? "")
             // 닉네임 부분에 폰트를 다르게 설정
             attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: UIFont.spoqaMedium(size: 22), range: (text as NSString).range(of: nick))
             // ~번째 부분에 폰트를 다르게 설정
@@ -129,8 +118,7 @@ extension CalendarVC {
     }
     
     func updateCalendar(token: String) {
-        // 캘린더 데이터 서버에서 연동 후 가져오기
-        
+        // 캘린더 데이터 서버에서 연동
         APIService.shared.calendarDay(token: token) { [self] result in
                 switch result {
                 case .success(let data):
