@@ -24,21 +24,16 @@ class GroupFeedVC: UIViewController {
     // MARK: IBAction
     
     @IBAction func backButtonDidTap(_ sender: Any) {
-        // 뒤로가기 버튼 클릭 시 Action
-        
         self.navigationController?.popViewController(animated: true)
     }
     
     
     @IBAction func settingButtonDidTap(_ sender: Any) {
-        // 그룹 셋팅 버튼 클릭 시 Action
         
         guard let groupInfoVC = self.storyboard?.instantiateViewController(identifier: "GroupInfoVC") as? GroupInfoVC else {
             return
         }
         groupInfoVC.groupID = groupNumber
-        // groupId를 넘겨줌
-        
         self.navigationController?.pushViewController(groupInfoVC, animated: true)
     }
     
@@ -49,6 +44,7 @@ class GroupFeedVC: UIViewController {
         super.viewDidLoad()
         setView()
         uploadGroupFeed(UserDefaults.standard.string(forKey: "accesstoken")!,groupNumber)
+        // 토큰넣기(88)
     }
     
 }
@@ -60,7 +56,7 @@ extension GroupFeedVC {
     // MARK: Function
     
     func setView() {
-        // View Style Setting Function
+        // View Style Setting
         
         groupNameLabel.text = groupName
         groupNameLabel.font = UIFont.notoMedium(size: 17)

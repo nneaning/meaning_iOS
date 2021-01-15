@@ -15,7 +15,8 @@ class PhotoCheckVC: UIViewController {
     var photoTime: String?
     var photoDate: String?
     var rootView: String?
-    var timeToServer: String?
+    var timeToServer: String? // 서버에다 줄 사진 찍은 시간
+    // TimeStampVC 에서 받아와야 하는 데이터들(사진,시간)
 
     // MARK: IBOutlet
     
@@ -61,7 +62,6 @@ extension PhotoCheckVC {
     
     func setCameraView() {
         // 카메라 뷰 Style Setting
-        
         stampBorderView.setBorder(borderColor: .white, borderWidth: 1)
         stampBorderView.backgroundColor = .none
         
@@ -84,16 +84,13 @@ extension PhotoCheckVC {
     
     func setButton() {
         // 버튼 Style Setting
-        
         retakeButton.setTitle("다시 찍기", for: .normal)
         retakeButton.titleLabel?.font = UIFont.spoqaRegular(size: 17)
         retakeButton.tintColor = .white
         
         if rootView == nil {
-            // 탭바가 rootView라면?
             useButton.setTitle("사진 저장", for: .normal)
         } else {
-            // 홈의 미션카드가 rootView라면?
             useButton.setTitle("사진 사용", for: .normal)
         }
         
@@ -104,12 +101,10 @@ extension PhotoCheckVC {
     @objc func finishSaving(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
     //사진 저장버튼을 클릭해 갤러리에 저장이 끝났을 때
         
-            if error != nil {
+           if let error = error {
             // 갤러리 저장 에러가 났을 경우(ex.사용자가 엑세스 허용을 안했을 때)
-            self.showToast(message: "갤러리 액세스 허용을 부탁드립니다", font: UIFont.spoqaRegular(size: 13), width: 210, bottomY: 181)
-                
+            print(error.localizedDescription)
            } else { // 저장이 잘 됐을 때
-            
             // toast 띄우기
             self.showToast(message: "갤러리에 사진이 저장되었습니다", font: UIFont.spoqaRegular(size: 13), width: 188, bottomY: 181)
             
@@ -120,7 +115,6 @@ extension PhotoCheckVC {
     
     @objc func goNextView() {
         // 시작뷰에 따라 가는 곳을 다르게 설정
-        
         if rootView == nil {
             // 탭바에서 왔다면?
             self.presentingViewController?.dismiss(animated: true)
@@ -131,7 +125,6 @@ extension PhotoCheckVC {
             else {
                 return
             }
-            
             uploadVC.uploadedImageData = frameView.snapShot()
             uploadVC.timeToServer = timeToServer
             self.navigationController?.pushViewController(uploadVC, animated: true)
