@@ -25,8 +25,16 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>&quot;meaning&quot;은 당신의 미라클 모닝을 기록하기 위해 카메라를 사용합니다.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>사진첩 접근 권한을 승인하지 않으면 당신의 미라클 모닝을 기록할 수 없어요! &apos;확인&apos;을 꼭 눌러주세요!</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>NanumSquareOTFRegular.otf</string>
+		<string>NanumSquareOTFLight.otf</string>
+		<string>NanumSquareOTFExtraBold.otf</string>
+		<string>NanumSquareOTFBold.otf</string>
 		<string>NotoSansKR-Thin.otf</string>
 		<string>NotoSansKR-Regular.otf</string>
 		<string>NotoSansKR-Medium.otf</string>
@@ -53,7 +61,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>Mission</string>
+					<string>Main</string>
 				</dict>
 			</array>
 		</dict>
@@ -63,7 +71,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Mission</string>
+	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
