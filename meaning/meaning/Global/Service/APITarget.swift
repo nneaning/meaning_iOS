@@ -33,7 +33,7 @@ enum APITarget {
 extension APITarget: TargetType {
     var baseURL: URL {
         // baseURL - 서버의 도메인
-        return URL(string: "http://13.124.61.0:3000")!
+        return URL(string: "http://13.124.61.0:3001")!
     }
     
     var path: String {
