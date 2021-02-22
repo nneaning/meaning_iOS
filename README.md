@@ -573,13 +573,12 @@
 
 2. 데이터 통신 분기처리를 위한 모델을 만듭니다.
 
-```swift
-import Foundation
-import Moya
-
-struct APIService {
-
-        static let shared = APIService()
+    ```swift
+    import Foundation
+    import Moya
+    
+    struct APIService {
+    	static let shared = APIService()
     	// 싱글톤 객체 생성
         let provider = MoyaProvider<APITarget>()
     	// MoyaProvider(->요청 보내는 클래스) 인스턴스 생성
@@ -613,9 +612,10 @@ struct APIService {
             }
         }
       }
-    ```
+	```
+<br>
 
-    1. 원하는 ViewController 에서 서버 통신 함수를 불러옵니다
+3. 원하는 ViewController 에서 서버 통신 함수를 불러옵니다
 
     ```swift
     var timestampData: TimestampData?
